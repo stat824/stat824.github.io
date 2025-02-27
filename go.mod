@@ -1,4 +1,4 @@
-module github.com/jlxh824/jlxh824.github.io
+module github.com/stat824/stat824.github.io
 
 go 1.24.0
 
