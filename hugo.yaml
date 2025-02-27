@@ -1,0 +1,34 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Statistics Notes
+menu:
+  main:
+    - name: Notes
+      pageRef: /docs
+      weight: 1
+    - name: About
+      pageRef: /about
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+module:
+  imports:
+    - path: github.com/imfing/hextra
+params:
+  theme:
+    default: dark
+    displayToggle: true
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block: [['\[', '\]'], ['$$', '$$']]
+          inline: [['\(', '\)']]
+        enable: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false

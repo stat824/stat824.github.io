@@ -1,0 +1,19 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics Notes – Mathematical Computation I: Matrix Computation</title>
+    <link>http://localhost:1313/docs/mc/</link>
+    <description>Recent content in Mathematical Computation I: Matrix Computation on Statistics Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Feb 2025 21:18:39 +1000</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/docs/mc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

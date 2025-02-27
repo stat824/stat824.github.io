@@ -1,0 +1,32 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics Notes – </title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Statistics Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Feb 2025 21:18:36 +1000</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+      
+    
+    
+    <item>
+      <title>Test Post</title>
+      <link>http://localhost:1313/blog/post/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:36 +1000</pubDate>
+      
+      <guid>http://localhost:1313/blog/post/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Hello!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

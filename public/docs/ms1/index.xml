@@ -1,0 +1,786 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics Notes – Mathematical Statistics 1</title>
+    <link>http://localhost:1313/docs/ms1/</link>
+    <description>Recent content in Mathematical Statistics 1 on Statistics Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Feb 2025 21:18:39 +1000</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/docs/ms1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Sufficiency</title>
+      <link>http://localhost:1313/docs/ms1/sufficiency/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/sufficiency/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is &lt;strong&gt;sufficient&lt;/strong&gt; if the conditional distribution $X|T$ does not depend on $\theta$.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution&lt;/p&gt;
+$$\left(\begin{array}{c}
+X_{1}\\
+\vdots\\
+X_{n}
+\end{array}\right)|\overline{X}\sim N\left(\left(\begin{array}{c}
+\overline{X}\\
+\vdots\\
+\overline{X}
+\end{array}\right),I_{n}-\frac{1}{n}\mathbb{{1}}_{n}\mathbb{{1}}_{n}^{T}\right).$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{I}$ is sufficient. This can be seen from&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{P}(X=x|T=t) &amp;=\frac{\mathbb{P}(X=x,T=t)}{\mathbb{P}(T=t)} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}\mathbb{P}(X=x)}{\mathbb{P}(T=t)} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}\theta^{\sum_{i=1}^{n}x_{i}}(1-\theta)^{1-\sum_{i=1}^{n}x_{i}}}{\binom{n}{t}\theta^{t}(1-\theta)^{1-t}} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}\theta^{t}(1-\theta)^{1-t}}{\binom{n}{t}\theta^{t}(1-\theta)^{1-t}} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}}{\binom{n}{t}}.
+\end{aligned}
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}P_{\theta}$, then $T=(X_{(1)},\ldots,X_{(n)})$ is sufficient because $X|T=t$ is the uniform distribution on all $n!$ permutations of the vector $t.$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$, then $T=X_{(n)}$ is sufficient. This can be seen from&lt;/p&gt;
+$$
+\begin{aligned}
+f_{X|T}(x|t) &amp;= \frac{f_{X,T}(x,t)}{f_{T}(t)} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}f_{X}(x)}{f_{T}(t)} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}\left(\frac{1}{\theta}\right)^{n}}{n\left(\frac{t}{\theta}\right)^{n-1}\frac{1}{\theta}} \\
+	&amp;=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}}{nt^{n-1}},
+\end{aligned}
+$$&lt;p&gt;
+where $f_{T}(t)=n\left(\frac{t}{\theta}\right)^{n-1}\frac{1}{\theta}$ follows from differentiating $F_{T}(t)=\mathbb{P}(T\leq t)=\left(\frac{t}{\theta}\right)^{n}.$&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Shall we always use sufficient statistic and throw away the original data? From the information-theoretic perspective, the answer is yes. But from a computational perspective, it is not always optimal because sampling from $X|T$ is often not easy or fast to do. In fact, it has been shown that sampling $\tilde{X}\sim X|T$ can be NP-hard.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;ℹ️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;In a Bayesian setting where $\theta$ is random, another way to think of sufficiency is that $\theta\to T\to X$ is a Markov chain.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The following gives a characterization of sufficiency.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Suppose that $(P_{\theta}:\theta\in\Theta)$ is continuous or discrete. Then $T$ is sufficient if and only if $p(x|\theta)=g_{\theta}(T(x))h(x)$ for some measurable functions $g_{\theta}$ and $h$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We will only prove this in the discrete case. Suppose that the pmf can be factorized as $p(x|\theta)=g_{\theta}(T(x))h(x)$ for some measurable functions $g_{\theta}$ and $h$. Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{P}(X=x,T=t) &amp;= \mathbb{{1}}_{\{T(x)=t\}}\mathbb{P}(X=x) \\
+	&amp;=\mathbb{{1}}_{\{T(x)=t\}}g_{\theta}(T(x))h(x) \\ 
+	&amp;=\mathbb{{1}}_{\{T(x)=t\}}g_{\theta}(t)h(x),
+\end{aligned}
+$$&lt;p&gt;and&lt;/p&gt;
+$$
+\mathbb{P}(T=t)=\sum_{x&#39;:T(x&#39;)=t}\mathbb{P}(X=x&#39;)=\sum_{x&#39;:T(x&#39;)=t}g_{\theta}(T(x&#39;))h(x&#39;)=g_{\theta}(t)\sum_{x&#39;:T(x&#39;)=t}h(x&#39;),
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\mathbb{P}(X=x|T=t)=\frac{\mathbb{P}(X=x,T=t)}{\mathbb{P}(T=t)}=\frac{\mathbb{{1}}_{\{T(x)=t\}}h(x)}{\sum_{x&#39;:T(x&#39;)=t}h(x&#39;)}
+$$&lt;p&gt;does not depend on $\theta.$ Conversely, suppose that $T$ is sufficient. Then&lt;/p&gt;
+$$
+\begin{aligned}
+p(x|\theta) &amp;=\mathbb{P}_{\theta}(X=x) \\
+	&amp;=\mathbb{P}_{\theta}(X=x,T(X)=T(x)) \\
+	&amp;=\mathbb{P}(X=x|T(X)=T(x))\mathbb{P}_{\theta}(T(X)=T(x)) \\
+	&amp;=h(x)g_{\theta}(T(x)),
+\end{aligned}
+$$&lt;p&gt;where $h(x)=\mathbb{P}(X=x|T(X)=T(x))$ and $g_{\theta}(T(x))=\mathbb{P}_{\theta}(T(X)=T(x))$.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$. Then&lt;/p&gt;
+$$
+\begin{aligned}
+p(x|\theta) &amp;=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x-\theta)^{2}} \\
+	&amp;=\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}(x_{i}-\theta)^{2}} \\
+	&amp;=\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}-\frac{1}{2}n\theta^{2}+\theta\sum_{i=1}^{n}x_{i}} \\
+	&amp;=\left(\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}}\right)e^{-\frac{1}{2}n\theta^{2}+\theta n\overline{x}}
+\end{aligned}
+$$&lt;p&gt;which shows that $T(X)=\overline{X}$ is sufficient.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$, then&lt;/p&gt;
+$$
+\begin{aligned}
+p(x|\theta) &amp;= \prod_{i=1}^{n} \left(\frac{1}{\theta} \mathbb{1}_{\{0 &lt; x_{i} &lt; \theta\}}\right) \\ 
+	&amp;=\theta^{-n}\mathbb{{1}}_{\{0 &lt; x_{(1)} \leq x_{(n)} &lt; \theta\}} \\ 
+	&amp;=\left(\mathbb{{1}}_{\{0 &lt; x_{(1)}\}}\right)\left(\theta^{-n}\mathbb{{1}}_{\{x_{(n)} &lt; \theta\}}\right)
+\end{aligned}
+$$&lt;p&gt;which shows that $T(X)=X_{(n)}$ is sufficient.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Exponential Families</title>
+      <link>http://localhost:1313/docs/ms1/ef/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/ef/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We say that a continuous or discrete statistical model $(P_{\theta}:\theta\in\Theta)$ is an exponential family if&lt;/p&gt;
+$$
+p(x|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)\right)h(x)
+$$&lt;p&gt;where $\eta(\theta)$ is called the natural parameter, $T(x)$ is the sufficient statistic,&lt;/p&gt;
+$$
+B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x)
+$$&lt;p&gt;is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have&lt;/p&gt;
+$$
+p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}),
+$$&lt;p&gt;from which we see that a sufficient statistic is $T&amp;rsquo;=\sum_{i=1}^{n}T(x_{I})$. We say that an exponential family is in canonical form if&lt;/p&gt;
+$$
+p(x|y)=\exp\left(\sum_{j=1}^{d}\eta_{j}T_{j}(x)-A(\eta)\right)h(x).
+$$&lt;p&gt;Any exponential family can be reparameterized into canonical form. Here,&lt;/p&gt;
+$$
+A(\eta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}T_{j}(x)\right)h(x)\,d\mu(x).
+$$&lt;p&gt;We say an exponential family $(P_{\eta}:\eta\in H)$ in canonical form is minimal if the dimension $d$ cannot be reduced.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;The family $p(x|\theta)=\exp(\eta_{1}T(x)+\eta_{2}(3T(x)+2)-A(\eta))$ is non-minimal, since $\exp(\eta_{1}T(x)+\eta_{2}(3T(x)+2)-A(\eta))=\exp((\eta_{1}+3\eta_{2})T(x)+2\eta_{2}-A(\eta)).$&lt;/p&gt;
+&lt;p&gt;Similarly, the family $p(x|\theta)=\exp\left(\eta T_{1}(x)+(4-5\eta)T_{2}(x)-A(\eta)\right)$ is non-minimal, since $\exp\left(\eta T_{1}(x)+(4-5\eta)T_{2}(x)-A(\eta)\right)=\exp\left(\eta(T_{1}(x)-5T_{2}(x))-A(\eta)\right)\exp\left(4T_{2}(x)\right).$&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Essentially, minimality fails if the components of the sufficient statistic or the natural parameters are not linearly independent. There are two types of minimal exponential family $(P_{\eta}:\eta\in H)$:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;full rank, where $H$ contains an open $d$-dimensional rectangle;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;curved exponential family, where $\eta_{1},\ldots,\eta_{d}$ are related in a non-linear way.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;For $N(\mu,\sigma^{2})$, we have&lt;/p&gt;
+$$
+p(x|\mu,\sigma^{2})=\exp\left(-\frac{x^{2}}{2\sigma^{2}}+\frac{\mu}{\sigma^{2}}x-\frac{\mu^{2}}{2\sigma^{2}}-\frac{1}{2}\log(2\pi\sigma^{2})\right),
+$$&lt;p&gt;so $T_{1}(x)=-x^{2}$, $T_{2}(x)=x$, $\eta_{1}=\frac{1}{2\sigma^{2}}$, $\eta_{2}=\frac{\mu}{\sigma^{2}}$. Let&amp;rsquo;s consider different special cases.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If $\mu=\sigma^{2}$, then $\eta_{2}=1$, so this is a non-minimal exponential family.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If $\mu=\sqrt{\sigma^{2}}$, then $\eta_{1}=\frac{1}{2\sigma^{2}}$ and $\eta_{2}=\frac{1}{\sqrt{\sigma^{2}}}$, so $\eta^{2}=2\eta_{1}$. This is a minimal curved exponential family.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If $\mu$ and $\sigma^{2}$ do not have constraints, then this is a full rank minimal exponential family.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Minimal Sufficiency and Completeness</title>
+      <link>http://localhost:1313/docs/ms1/min_sufficient/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/min_sufficient/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We say that a statistic $S$ is minimal sufficient if it is sufficient and for every sufficient $T$, there is a measurable function $f$ such that $S=f(T)$.&lt;/p&gt;
+&lt;h2&gt;Sub-family method&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;sub-family-method&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sub-family-method&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;How do we find minimal sufficient statistic? The first method is called the sub-family method.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta_{0})$ and sufficient for $(P_{\theta}:\theta\in\Theta)$. Then $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta)$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Suppose that $T$ is sufficient for $(P_{\theta}:\theta\in\Theta)$. Then $T$ is sufficient for $(P_{\theta}:\theta\in\Theta_{0})$, so since $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta_{0})$, it follows that $S$ is a function of $T$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For a discrete or continuous statistical model $(P_{\theta}:\theta\in{\theta_{0},\ldots,\theta_{d}})$ with finite parameter space and common support,&lt;/p&gt;
+$$
+T(X)=\left(\frac{p(X|\theta_{1})}{p(X|\theta_{0})},\frac{p(X|\theta_{2})}{p(X|\theta_{0})},\ldots,\frac{p(X|\theta_{d})}{p(X|\theta_{0})}\right)
+$$&lt;p&gt;is a minimal sufficient statistic.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For $j=1,\ldots,d$, we have $p(x|\theta_{j})=T_{j}(x)p(x|\theta_{0})$, so if we define&lt;/p&gt;
+$$
+g_{\theta_{j}}(T(x))=\begin{cases}
+1 &amp; \text{if }j=0,\\
+T_{j}(x) &amp; \text{if }j=1,\ldots,d,
+\end{cases}\quad\text{and}\quad h(x)=p(x|\theta_{0}),
+$$&lt;p&gt;we see that $T$ is sufficient by the factorization theorem. For any sufficient $T&amp;rsquo;$, the factorization theorem implies the likelihood ratio is a function of $T&amp;rsquo;$, so $T$ is a function of $T&amp;rsquo;$.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}P_{\theta}$ where $P_{\theta}=\text{Ber}(\theta)$ and $\theta\in[0,1]$. Consider $\theta_{0}=0.5$ and $\theta_{1}=0.6$. Then&lt;/p&gt;
+$$
+\frac{p(X|\theta_{1})}{p(X|\theta_{0})}=\frac{\theta_{1}^{\sum_{i=1}^{n}X_{i}}(1-\theta_{1})^{n-\sum_{i=1}^{n}X_{i}}}{\theta_{0}^{\sum_{i=1}^{n}X_{i}}(1-\theta_{0})^{n-\sum_{i=1}^{n}X_{i}}}=\left(\frac{\theta_{1}(1-\theta_{0})}{\theta_{0}(1-\theta_{1})}\right)^{\sum_{i=1}^{n}X_{i}}\left(\frac{1-\theta_{1}}{1-\theta_{0}}\right)^{n}=\left(\frac{3}{2}\right)^{\sum_{i=1}^{n}X_{i}}\left(\frac{4}{5}\right)^{n}.
+$$&lt;p&gt;This statistic is equivalent to $T(X)=\sum_{i=1}^{n}X_{i}$, so by the previous theorem we see that $T(X)$ is minimal sufficient for the sub-family $(P_{\theta}:\theta\in{0.5,0.6})$. We have seen before that $T(X)$ is sufficient for $(P_{\theta}:\theta\in[0,1])$, so the sub-family lemma yields that $T(X)$ is minimal sufficient for $(P_{\theta}:\theta\in[0,1])$.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As an application of the sub-family lemma, we can prove the following fact about minimal exponential families.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $(P_{\theta}:\theta\in H)$ is a minimal exponential family in canonical form&lt;/p&gt;
+$$
+p(x|\eta)=\exp\left(\langle\eta,T(x)\rangle-A(\eta)\right)h(x),
+$$&lt;p&gt;then $T(X)$ is minimal sufficient.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Since the exponential family is minimal, we can find $\eta_{0},\ldots,\eta_{d}\in H$ such that&lt;/p&gt;
+$$
+\left(\begin{array}{c}
+(\eta_{1}-\eta_{0})^{T}\\
+(\eta_{2}-\eta_{1})^{T}\\
+\vdots\\
+(\eta_{d}-\eta_{0})^{T}
+\end{array}\right)\in\mathbb{R}^{d\times d}
+$$&lt;p&gt;has full rank. To see this, note that if the exponential family is full rank, then $H$ is an open rectangle, so it immediately follows. If the exponential family is curved, then this follows from the non-zero curvature of the function which relates the components of $\eta$. Then we know that&lt;/p&gt;
+$$
+\left(\frac{p(X|\eta_{1})}{p(X|\eta_{0})},\ldots,\frac{p(X|\eta_{d})}{p(X|\eta_{0})}\right)
+$$&lt;p&gt;is minimal sufficient for $(P_{\eta}:\eta\in{\eta_{1},\ldots,\eta_{d}})$. Note that&lt;/p&gt;
+$$
+\frac{p(X|\eta_{j})}{p(X|\eta_{0})}=\frac{\exp\left(\langle\eta_{j},T(X)\rangle-A(\eta_{j})\right)}{\exp\left(\langle\eta_{0},T(X)\rangle-A(\eta_{0})\right)}=\exp\left(\left\langle \eta_{j}-\eta_{0},T(X)\right\rangle -A(\eta_{j})+A(\eta_{0})\right),
+$$&lt;p&gt;which is equivalent to&lt;/p&gt;
+$$
+\left(\begin{array}{c}
+\left\langle \eta_{1}-\eta_{0},T(x)\right\rangle \\
+\left\langle \eta_{2}-\eta_{0},T(x)\right\rangle \\
+\vdots\\
+\left\langle \eta_{d}-\eta_{0},T(x)\right\rangle 
+\end{array}\right)=\left(\begin{array}{c}
+(\eta_{1}-\eta_{0})^{T}\\
+(\eta_{2}-\eta_{0})^{T}\\
+\vdots\\
+(\eta_{d}-\eta_{0})^{T}
+\end{array}\right)T(X),
+$$&lt;p&gt;which is equivalent to $T(X)$. Since $T(X)$ is sufficient for the whole family $(P_{\eta}:\eta\in H)$, it follows from the sub-family lemma that $T(X)$ is minimal sufficient.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;One of the restrictions of the sub-family method is that the support of all the distributions in the family must have the same support. This is not an issue for exponential families as the support depends only on the base measure $h(x)$, but it could be an issue for other distributions like $P_{\theta}=\text{Unif}(0,\theta)$.&lt;/p&gt;
+&lt;h2&gt;Completeness&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;completeness&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#completeness&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The second method of finding minimal sufficient statistics is called completeness. The idea is to remove ancillary information. For example, if $X_{1}$ and $X_{2}$ are iid $N(\theta,1)$, then we know that $(X_{1},X_{2})$ is not a minimal sufficient statistic because it is equivalent to $(X_{1}-X_{2},X_{1}+X_{2})$, and we know from before that $X_{1}+X_{2}$ is minimal sufficient. To be formal, we say that a statistic $A = A(X)$ is ancillary if its distribution does not depend on $\theta$, and we say it is first-order ancillary if $\mathbb{E} _ \theta A(X)$ does not depend on $\theta$. We also say a statistic $T=T(X)$ is complete if $\mathbb{E}_{\theta}f(T)=0$ for all $\theta\in\Theta$ implies $f(T(X))=0$ almost surely for all $\theta\in\Theta$. Equivalently, no non-constant function of $T$ is first-order ancillary.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Bahadur&amp;rsquo;s Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If $T$ is sufficient and complete, then it is minimal sufficient.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Sketch of Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Assume that a minimal sufficient statistic $U$ exists. By definition, we have $U=h(T)$ for some measurable function $h$. We want to show that $T$ is also a function of $U$. Define $g(u)=\mathbb{E} _ \theta[T|U=u]$. Note that $g$ does not depend on $\theta$  because $U$ is sufficient. Then $\mathbb{E} _ \theta g(h(T))=\mathbb{E} _ \theta g(U)=\mathbb{E} _ {\theta}\left[\mathbb{E} _ \theta \left[T|U\right]\right]=\mathbb{E} _ \theta T$, so $\mathbb{E}_{\theta}\left[g(h(T))-T\right]=0$. By completeness of $T$, it follows that $g(U)=g(h(T))=T$ almost surely.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(\theta)$ where $\theta\in(0,1)$. Let $T(X)=\sum_{i=1}^{n}X_{i}\sim\text{Binomial}(n,\theta)$. Suppose $\mathbb{E}_{\theta}f(T(X))=0$ for all $\theta\in(0,1)$. Then&lt;/p&gt;
+$$
+0=\sum_{i=1}^{n}f(i)\binom{n}{i}\theta^{i}(1-\theta)^{n-i}=(1-\theta)^{n}\sum_{i=1}^{n}f(i)\binom{n}{i}\left(\frac{\theta}{1-\theta}\right)^{i},
+$$&lt;p&gt;so&lt;/p&gt;
+$$
+\sum_{i=1}^{n}f(i)\binom{n}{i}\left(\frac{\theta}{1-\theta}\right)^{i}=0\quad\text{for all }\theta\in(0,1).
+$$&lt;p&gt;Set $\beta=\frac{\theta}{1-\theta}$. Then&lt;/p&gt;
+$$
+\sum_{i=1}^{n}f(i)\binom{n}{i}\beta^{i}=0\quad\text{for all }\beta&gt;0.
+$$&lt;p&gt;This means that the polynomial $p(x)=\sum_{i=1}^{n}f(i)\binom{n}{i}x^{i}=0$ has infinitely many roots, which can only occur if all coefficients vanish. Therefore, $f(i)=0$ for all $i=1,\ldots,n$. This shows that $T$ is complete.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$ where $\theta&amp;gt;0$. Let $T(X)=X_{(n)}$. Suppose $\mathbb{E}_{\theta}f(T(X))=0$ for all $\theta&amp;gt;0$. Then&lt;/p&gt;
+$$
+G(\theta)=\int_{0}^{\theta}t^{n-1}f(t)\,dt=0\quad\text{for all }\theta&gt;0.
+$$&lt;p&gt;By the Lebesgue differentiation theorem, $G&amp;rsquo;(\theta)=\theta^{n-1}f(\theta)$ almost everywhere. Since $G=0$, we have $G&amp;rsquo;=0$, so $f=0$ almost everywhere.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose \mathbb{E} _ \thetaf(T(X))=0$ for all $\theta\in\mathbb{R}$. Then&lt;/p&gt;
+$$
+G(\theta)=\int_{\mathbb{R}}f(x)e^{-\frac{1}{2}(x-\theta)^{2}}\,dx=0\quad\text{for all }\theta\in\mathbb{R}.
+$$&lt;p&gt;By the Lebesgue differentiation theorem, we have $G&amp;rsquo;(\theta)=f(\theta)e^{-\frac{1}{2}(x-\theta)^{2}}$ almost everywhere. Since $G=0$, we have $G&amp;rsquo;=0$, which implies that $f=0$ almost everywhere.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;For full rank minimal exponential family $(P_{\eta}:\eta\in H)$, $T$ is complete.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Basu&amp;rsquo;s Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Let $T$ be complete and sufficient. If $A$ is ancillary, then $T \mathrel{\bot\mkern-10mu\bot} A$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $B$ be a measurable set. We want to show that $\mathbb{P} _ {\theta}(A\in B|T=t) = \mathbb{P} _ {\theta}(A\in B)$ for all $t$. Set $c=\mathbb{P} _ \theta (A\in B)$. This does not depend on $\theta$ since $A$ is ancillary. Also, set $g(t)=\mathbb{P} _ \theta (A\in B|T=t)$, which also does not depend on $\theta$ since $T$ is sufficient. Then&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}(g(T)-c)=\mathbb{E}_{\theta}\mathbb{P}_{\theta}(A\in B|T)-\mathbb{P}_{\theta}(A\in B)=0\quad\text{for all }\theta\in\Theta,
+$$&lt;p&gt;so by completeness we have $g(T)=c$ almost surely.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$. Then $\overline{X} \mathrel{\bot\mkern-10mu\bot} \sum_{i=1}^{n}(X_{i}-\overline{X})^{2}$ by Basu&amp;rsquo;s theorem.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Bayes and Minimax Estimators</title>
+      <link>http://localhost:1313/docs/ms1/bayes_minimax/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/bayes_minimax/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-yellow-100 hx-bg-yellow-50 hx-text-yellow-900 dark:hx-border-yellow-200/30 dark:hx-bg-yellow-700/30 dark:hx-text-yellow-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;⚠️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Add in proof that Bayes estimators are not unbiased unless average risk is zero.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is&lt;/p&gt;
+$$
+R(\widehat{\theta},\theta)=\mathbb{E}_{\theta}L(\widehat{\theta},\theta)=\int L(\widehat{\theta}(x),\theta)p(x|\theta)\,dx.
+$$&lt;p&gt;In other words, $R(\widehat{\theta},\theta)$ is the average deviation of $\widehat{\theta}$ from the true parameter value if the true parameter value is taken to be $\theta$.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Rao-Blackwell Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Assume $L(\widehat{\theta},\theta)$ is convex in $\widehat{\theta}$. For any $\widehat{\theta}$ and any sufficient $T$, define $\widetilde{\theta}=\mathbb{E}_{\theta}(\widehat{\theta}|T)$. Then $R(\widetilde{\theta},\theta)\leq R(\widehat{\theta},\theta)$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    By Jensen&amp;rsquo;s inequality, we have $L(\widetilde{\theta},\theta)=L(\mathbb{E} _ {\theta}(\widehat{\theta}|T),\theta)\leq \mathbb{E} _ {\theta}(L(\widehat{\theta},\theta)|T)$, and taking expectation of both sides gives $R(\widetilde{\theta},\theta)\leq R(\widehat{\theta},\theta)$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Given a prior $\pi$ on $\Theta$, we say $\widehat{\theta}_\pi$ is a Bayes estimator for $\pi$ if&lt;/p&gt;
+$$
+\widehat{\theta}_\pi = \argmin_{\widehat{\theta}}\int_{\Theta}R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
+$$&lt;p&gt;We say $\widehat\theta$ is a minimax estimator if&lt;/p&gt;
+$$
+\widehat{\theta}=\argmin_{\widehat{\theta}}\sup_{\theta\in\Theta}R(\widehat{\theta},\theta).
+$$&lt;p&gt;We have&lt;/p&gt;
+$$
+\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta=\int\int L(\widehat{\theta}(x),\theta)p(x|\theta)\pi(\theta)\,dx\,d\theta=\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx,
+$$&lt;p&gt;where $\pi(\theta|x)$ is the posterior density and $m(x) = \int p(x|\theta)\pi(\theta) , d\theta$  is the marginal of $X$.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Claim&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Given a prior $\pi$, the Bayes estimator is given by&lt;/p&gt;
+$$
+\widehat{\theta}_{\pi}(X)=\argmin_{a}\int L(a,\theta)\pi(\theta|X)\,d\theta.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For any estimator $\widehat{\theta}$, we have&lt;/p&gt;
+$$
+\begin{aligned}
+\int R(\widehat{\theta}_{\pi},\theta)\pi(\theta)\,d\theta &amp;=\int\int L(\widehat{\theta}_{\pi}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
+	&amp;\leq\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
+	&amp;=\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
+\end{aligned}
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;As an example, consider $\Theta\subseteq\mathbb{R}$ and $L(\widehat{\theta},\theta)=(\widehat{\theta}-\theta)^{2}$. Then&lt;/p&gt;
+$$
+\widehat{\theta}_{\pi}(X)=\argmin_{a}\int(a-\theta)^{2}\pi(\theta|X)\,d\theta=\argmin_{a}\mathbb{E}\left((a-\theta)^{2}|X\right)=\mathbb{E}(\theta|X).
+$$&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=(\hat{p}-p)^{2}$. Consider the prior $\pi\sim\text{Beta}(\alpha,\beta)$, so $\pi(p)\propto p^{\alpha-1}(1-p)^{\beta-1}$. Then&lt;/p&gt;
+$$
+p|X_{1},\ldots,X_{n}\sim\text{Beta}\left(\sum_{i=1}^{n}X_{i}+\alpha,\sum_{i=1}^{n}(1-X_{i})+\beta\right).
+$$&lt;p&gt;A Bayes estimator is then&lt;/p&gt;
+$$
+\hat{p}=\mathbb{E}(p|X_{1},\ldots,X_{n})=\frac{\sum_{i=1}^{n}X_{i}+\alpha}{n+\alpha+\beta}.
+$$&lt;p&gt;The risk is&lt;/p&gt;
+$$
+\begin{aligned}
+R(\hat{p},p)=\mathbb{E}_{p}(\hat{p}-p)^{2} &amp;=\operatorname{Var}(\hat{p})+(\mathbb{E}(\hat{p})-p)^{2} \\
+	&amp;=\left(\frac{n}{n+\alpha+\beta}\right)^{2}\frac{p(1-p)}{n}+\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}-p\right)^{2}.
+\end{aligned}
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If there exists a prior $\pi$ such that $\widehat{\theta}$ satisfies&lt;/p&gt;
+$$
+\sup_{\theta\in\Theta}R(\widehat{\theta},\theta)=\inf_{\widetilde{\theta}}\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta,
+$$&lt;p&gt;then $\widehat{\theta}$ is minimax.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For all $\widetilde{\theta}$, we have&lt;/p&gt;
+$$
+\sup_{\theta\in\Theta}R(\widetilde{\theta},\theta)\geq\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta\geq\inf_{\widetilde{\theta}}\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta=\sup_{\theta\in\Theta}R(\widehat{\theta},\theta).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Corollary&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If $\widehat{\theta}=\widehat{\theta}_{\pi}$ for some $\pi$ and $R(\widehat{\theta} _{\pi},\theta)$ is constant over $\theta\in\Theta$, then $\widehat{\theta}$ is minimax.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have&lt;/p&gt;
+$$
+\sup_{\theta\in\Theta}R(\widehat{\theta},\theta)=\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta=\inf_{\widetilde{\theta}}\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta,
+$$&lt;p&gt;so by the theorem we have that $\widehat{\theta}$ is minimax.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;In other words, a Bayes estimator with constant risk is minimax. This fact is usually the first line of attack when finding minimax estimators.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=(\hat{p}-p)^{2}$. Recall that for the prior $\pi\sim\text{Beta}(\alpha,\beta)$ we have the Bayes estimator&lt;/p&gt;
+$$
+\hat{p}=\mathbb{E}(p|X_{1},\ldots,X_{n})=\frac{\sum_{i=1}^{n}X_{i}+\alpha}{n+\alpha+\beta}.
+$$&lt;p&gt;The risk is&lt;/p&gt;
+$$
+R(\hat{p},p)=\mathbb{E}_{p}(\hat{p}-p)^{2}=\left(\frac{n}{n+\alpha+\beta}\right)^{2}\frac{p(1-p)}{n}+\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}-p\right)^{2},
+$$&lt;p&gt;which can be written as&lt;/p&gt;
+$$
+\left(\left(\frac{\alpha+\beta}{n+\alpha+\beta}\right)^{2}-\frac{1}{n}\left(\frac{n}{n+\alpha+\beta}\right)^{2}\right)p^{2}+\left(\frac{1}{n}\left(\frac{n}{n+\alpha+\beta}\right)^{2}-\left(\frac{\alpha+\beta}{n+\alpha+\beta}\right)^{2}\frac{2\alpha}{\alpha+\beta}\right)p+\left(\frac{\alpha+\beta}{n+\alpha+\beta}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}\right)^{2}. 
+$$&lt;p&gt;If $\alpha=\beta=\frac{\sqrt{n}}{2}$, then the coefficients of the $p$ and $p^{2}$ terms vanish, and the risk becomes&lt;/p&gt;
+$$
+R(\hat{p},p)=\frac{1}{4(\sqrt{n}+1)^{2}}
+$$&lt;p&gt;which is constant with respect to $p$. Therefore,&lt;/p&gt;
+$$
+\hat{p}_{\text{minimax}}=\frac{\sum_{i=1}^{n}X_{i}+\frac{\sqrt{n}}{2}}{n+\sqrt{n}}
+$$&lt;p&gt;is a minimax estimator. How does this estimator compare to the maximum likelihood estimator $\hat{p} _ {\text{MLE}}=\overline{X}$? The risk function for the MLE estimator is&lt;/p&gt;
+$$
+R(\hat{p}_{\text{MLE}},p)=\mathbb{E}_{p}(\hat{p}_{\text{MLE}}-p)^{2}=\frac{p(1-p)}{n}.
+$$&lt;p&gt;There are some situations where the MLE has lower risk, for example when $p $is close to 0 or 1. However, if we consider the worst case, we find that&lt;/p&gt;
+$$
+\sup_{p\in(0,1)}R(\hat{p}_{\text{MLE}},p)=\frac{1}{4n}
+$$&lt;p&gt;which is larger than&lt;/p&gt;
+$$
+\sup_{p\in(0,1)}R(\hat{p}_{\text{minimax}},p)=\frac{1}{4(\sqrt{n}+1)^{2}}.
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The choice of loss function is important. Let us demonstrate this with another example.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=\frac{(\hat{p}-p)^{2}}{p(1-p)}$. For the prior $\pi(p)=1$, the Bayes estimator is&lt;/p&gt;
+$$
+\begin{aligned}
+\hat{p}(X) &amp;= \argmin_{a} \int \frac{(a-p)^{2}}{p(1-p)} \pi(p|X)\,dp \\ 
+	&amp;=\argmin_{a}\int(a-p)^{2}\frac{\pi(p|X)}{p(1-p)}\,dp,
+\end{aligned}
+$$&lt;p&gt;
+where&lt;/p&gt;
+$$
+\frac{\pi(p|X)}{p(1-p)}\propto p^{\sum_{i=1}^{n}X_{i}-1}(1-p)^{\sum_{i=1}^{n}(X_{i}-1)-1}=\text{Beta}\left(\sum_{i=1}^{n}X_{i},\sum_{i=1}^{n}(1-X_{i})\right),
+$$&lt;p&gt;so&lt;/p&gt;
+$$
+\hat{p}(X)=\frac{\sum_{i=1}^{n}X_{i}}{\sum_{i=1}^{n}X_{i}+\sum_{i=1}^{n}(1-X_{i})}=\overline{X}=\hat{p}_{\text{MLE}}.
+$$&lt;p&gt;The risk is&lt;/p&gt;
+$$
+R(\hat{p},p) =\frac{\mathbb{E}_{p}(\hat{p}-p)^{2}}{p(1-p)}=\frac{1}{n}
+$$&lt;p&gt;which is constant. Therefore, $\overline{X}$ is a Bayes estimator (which cannot be the case with the squared loss function because only biased estimators could be Bayes), and it is also a minimax estimator.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\mu,\sigma^{2})$ where $\mu\in\mathbb{R}$ is the parameter to be estimated. Consider the loss function $L(\hat{\mu},\mu)=(\hat{\mu}-\mu)^{2}$. Then the estimator $\overline{X}$ cannot be Bayes as it is unbiased, but is it minimax? This is true intuitively because the risk $R(\overline{X},\mu)=\mathbb{E} _ {\mu}(\overline{X}-\mu)^{2}=\frac{\sigma^{2}}{n}$ is constant. To prove this formally, consider the prior $\pi\sim N(0,\tau^{2})$. Then the Bayes estimator for this prior is&lt;/p&gt;
+$$
+\hat{\mu}_{\text{Bayes}}=\mathbb{E}(\mu|X)=\frac{\frac{n}{\sigma^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\overline{X},
+$$&lt;p&gt;and the risk is&lt;/p&gt;
+$$
+\begin{aligned}
+R(\hat{\mu}_{\text{Bayes}},\mu) &amp;= \text{Var}(\hat{\mu}_{\text{Bayes}})+(\mathbb{E}\hat{\mu}_{\text{Bayes}}-\mu)^{2} \\ 
+	&amp;=\left(\frac{\frac{n}{\sigma^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\frac{\sigma^{2}}{n}+\left(\frac{\frac{1}{\tau^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\mu^{2}.
+\end{aligned}
+$$&lt;p&gt;The Bayes risk is&lt;/p&gt;
+$$
+\int R(\hat{\mu}_{\text{Bayes}},\mu)\pi(\mu)\,d\mu=\left(\frac{\frac{n}{\sigma^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\frac{\sigma^{2}}{n}+\left(\frac{\frac{1}{\tau^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\tau^{2}=\frac{1}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}.
+$$&lt;p&gt;Then for any estimator $\hat{\mu}$, we have&lt;/p&gt;
+$$
+R(\hat{\mu},\mu)\geq\int R(\hat{\mu},\mu)\pi(\mu)\,d\mu\geq\inf_{\hat{\mu}}\int R(\hat{\mu},\mu)\pi(\mu)\,d\mu=\frac{1}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}.
+$$&lt;p&gt;Letting $\tau\to\infty$, we get $R(\hat{\mu},\mu)\geq\frac{\sigma^{2}}{n}=R(\overline{X},\mu)$.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If there exists a sequence of priors $(\pi_{m})$ such that&lt;/p&gt;
+$$
+\sup_{\theta\in\Theta}R(\hat{\theta},\theta)=\lim_{m\to\infty}\inf_{\hat{\theta}}\int R(\hat{\theta},\theta)\pi_{m}(\theta)\,d\theta,
+$$&lt;p&gt;then $\hat{\theta}$ is minimax.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;The proof follows from the same argument as in the above example.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Admissibility</title>
+      <link>http://localhost:1313/docs/ms1/admissibility/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/admissibility/</guid>
+      <description>
+        
+        
+        &lt;p&gt;An estimator $\hat{\theta}$ is inadmissible if there exists $\tilde{\theta}$ such that&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$R(\tilde{\theta},\theta) \leq R(\hat{\theta},\theta)$ for all $\theta\in\Theta$, and&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$R(\tilde{\theta},\theta_{0}) &amp;lt; R(\hat{\theta},\theta_{0})$ for some $\theta_{0}\in\Theta$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then we say $\hat{\theta}$ is admissible if it is not inadmissible. To put it bluntly, inadmissible estimators are those that are essentially useless. There are always other choices that are strictly better.&lt;/p&gt;
+&lt;h2&gt;Admissibility of Bayes estimators&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;admissibility-of-bayes-estimators&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#admissibility-of-bayes-estimators&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Assume that the loss function is continuous. If $\hat{\theta}$ is Bayes, then it is admissible.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We will prove the contrapositive. Suppose that $\hat{\theta}$ is inadmissible. Then there exists $\tilde{\theta}$ such that
+$R(\tilde{\theta},\theta)\leq R(\hat{\theta},\theta)$ for all $\theta\in\Theta$, and $R(\tilde{\theta},\theta_0) &amp;lt; R(\hat{\theta},\theta_0)$ for some $\theta_0 \in \Theta$. By continuity, there exists an open set $\Theta_{0}\ni\theta_{0}$ and $\epsilon&amp;gt;0$ such that $R(\tilde{\theta},\theta)&amp;lt;R(\hat{\theta},\theta)-\epsilon$ for all $\theta\in\Theta_{0}$. Then&lt;/p&gt;
+$$
+\begin{aligned}
+\int_{\Theta}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta &amp;= \int_{\Theta_{0}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta+\int_{\Theta\backslash\Theta_{0}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta \\
+	&amp;&lt;\int_{\Theta_{0}}R(\hat{\theta},\theta)\pi(\theta)\,d\theta+\int_{\Theta\backslash\Theta_{0}}R(\hat{\theta},\theta)\pi(\theta)\,d\theta \\ 
+	&amp;=\int_{\Theta}R(\hat{\theta},\theta)\pi(\theta)\,d\theta,
+\end{aligned}
+$$&lt;p&gt;so $\hat{\theta}$ cannot be Bayes.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Is the converse true? That is, is it true that an admissible estimator must be Bayes? This is answered by the complete class theorem, which roughly states that if $\hat{\theta}$ is admissible, then there exists a sequence of priors $(\pi_{m})$ such that $\hat{\theta} _ {\pi_{m}}\to\hat{\theta}$.&lt;/p&gt;
+&lt;h2&gt;Admissibility of the sample mean for normal mean estimation with squared loss function&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;admissibility-of-the-sample-mean-for-normal-mean-estimation-with-squared-loss-function&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#admissibility-of-the-sample-mean-for-normal-mean-estimation-with-squared-loss-function&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,1), \theta\in\mathbb{R}$. Consider the loss function $L(\hat{\theta},\theta)=(\hat{\theta}-\theta)^{2}$. Then $\overline{X}$ is admissible.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;The proof is by contradiction. Suppose that $\hat{\theta}=\overline{X}$ is inadmissible, so that there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq\frac{1}{n}$ for all $\theta\in\mathbb{R}$, and $R(\tilde{\theta},\theta_{0})&amp;lt;\frac{1}{n}$ for some $\theta_{0}\in\mathbb{R}$. Then there exists $\epsilon&amp;gt;0$ and $(a,b)\ni\theta_{0}$ such that $R(\tilde{\theta},\theta_{0})&amp;lt;\frac{1}{n}-\epsilon$. Consider $\pi_{m}=N(0,m)$. Then the Bayes risk is&lt;/p&gt;
+$$
+\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta=\frac{1}{n+\frac{1}{m}},
+$$&lt;p&gt;and we have&lt;/p&gt;
+$$
+\frac{1}{n}-\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta=\frac{1}{n}\cdot\frac{\frac{1}{m}}{n+\frac{1}{m}}\asymp\frac{1}{m}.
+$$&lt;p&gt;Then&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&amp;= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta-\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
+	&amp;\geq\epsilon\int_{(a,b)}\pi_{m}(\theta)\,d\theta \\
+	&amp;=\epsilon \mathbb{P}\left(\frac{a}{\sqrt{m}} &lt; N(0,1) &lt; \frac{b}{\sqrt{m}}\right) \\
+	&amp;=\epsilon\int_{\frac{a}{\sqrt{m}}}^{\frac{b}{\sqrt{m}}}\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}\,dx \\
+	&amp;\asymp\frac{1}{\sqrt{m}}.
+\end{aligned}
+$$&lt;p&gt;So there exists $m$ sufficiently large such that&lt;/p&gt;
+$$
+\frac{1}{n}-\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi(\theta)\,d\theta&lt;\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi_{m}(\theta)\,d\theta,
+$$&lt;p&gt;which is equivalent to&lt;/p&gt;
+$$
+\int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta&lt;\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta.
+$$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the smallest Bayes risk by definition.&lt;/p&gt;
+&lt;p&gt;Admissibility of $\overline{X}$ in higher dimensions is much more difficult. Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. For $p=2$, admissibility of $\overline{X}$ was proved by Stein. The proof involves constructing much more complex priors. Surprisingly, $\overline{X}$ is no longer admissible if $p \geq 3$. Brown proved in 1971 that this phenomenon (aptly named Stein&amp;rsquo;s paradox) is linked to the transience of the symmetric random walk in $p \geq 3$.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>James-Stein Estimator</title>
+      <link>http://localhost:1313/docs/ms1/js/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/js/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

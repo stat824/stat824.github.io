@@ -1,0 +1,69 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics Notes – Mathematical Statistics 1</title>
+    <link>http://localhost:1313/docs/math_stat_1/</link>
+    <description>Recent content in Mathematical Statistics 1 on Statistics Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Feb 2025 21:18:39 +1000</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/docs/math_stat_1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Sufficiency</title>
+      <link>http://localhost:1313/docs/math_stat_1/sufficiency/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/math_stat_1/sufficiency/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This $\sigma(z) = \frac{1}{1 + e^{-z}}$ is inline.&lt;/p&gt;
+$$F(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt$$$$
+\begin{aligned}
+  \nabla \cdot \mathbf{E} &amp;= \frac{\rho}{\varepsilon_0} \\
+  \nabla \cdot \mathbf{B} &amp;= 0 \\
+  \nabla \times \mathbf{E} &amp;= -\frac{\partial \mathbf{B}}{\partial t} \\
+  \nabla \times \mathbf{B} &amp;= \mu_0 \left( \mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t} \right)
+\end{aligned}
+$$&lt;pre class=&#34;mermaid hx-mt-6&#34;&gt;graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Completeness</title>
+      <link>http://localhost:1313/docs/math_stat_1/completeness/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/math_stat_1/completeness/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This $\sigma(z) = \frac{1}{1 + e^{-z}}$ is inline.&lt;/p&gt;
+$$F(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt$$$$
+\begin{aligned}
+  \nabla \cdot \mathbf{E} &amp;= \frac{\rho}{\varepsilon_0} \\
+  \nabla \cdot \mathbf{B} &amp;= 0 \\
+  \nabla \times \mathbf{E} &amp;= -\frac{\partial \mathbf{B}}{\partial t} \\
+  \nabla \times \mathbf{B} &amp;= \mu_0 \left( \mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t} \right)
+\end{aligned}
+$$&lt;pre class=&#34;mermaid hx-mt-6&#34;&gt;graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;&lt;/pre&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>
