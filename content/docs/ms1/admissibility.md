@@ -14,7 +14,7 @@ An estimator $\hat{\theta}$ is inadmissible if there exists $\tilde{\theta}$ suc
 Then we say $\hat{\theta}$ is admissible if it is not inadmissible. To put it bluntly, inadmissible estimators are those that are essentially useless. There are always other choices that are strictly better. 
 
 
-## Admissibility of Bayes estimators
+## Bayes estimators
 
 
 {{% details title="Theorem" %}}
@@ -40,7 +40,7 @@ so $\hat{\theta}$ cannot be Bayes.
 
 Is the converse true? That is, is it true that an admissible estimator must be Bayes? This is answered by the complete class theorem, which roughly states that if $\hat{\theta}$ is admissible, then there exists a sequence of priors $(\pi_{m})$ such that $\hat{\theta} _ {\pi_{m}}\to\hat{\theta}$. 
 
-## Admissibility of the sample mean for normal mean estimation with squared loss function
+## Admissibility of the sample mean for normal mean estimation
 
 {{% details title="Theorem" %}}
 Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,1), \theta\in\mathbb{R}$. Consider the loss function $L(\hat{\theta},\theta)=(\hat{\theta}-\theta)^{2}$. Then $\overline{X}$ is admissible.
