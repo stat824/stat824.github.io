@@ -778,7 +778,62 @@ $$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the sm
       <description>
         
         
-        
+        &lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as&lt;/p&gt;
+$$
+\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$&lt;h2&gt;James-Stein estimator as an empirical Bayes estimator&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;james-stein-estimator-as-an-empirical-bayes-estimator&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#james-stein-estimator-as-an-empirical-bayes-estimator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood&lt;/p&gt;
+$$
+m(x|\tau)=\int p(x|\theta)\pi(\theta|\tau)\,d\theta.
+$$&lt;p&gt;Consider the prior $\theta|\tau^{2}\sim N(0,\tau^{2}I_{p})$. Then the Bayes estimator is&lt;/p&gt;
+$$
+\hat{\theta}=\mathbb{E}(\theta|X_{1},\ldots,X_{n})=\frac{n}{n+\frac{1}{\tau^{2}}}\overline{X}=\left(1-\frac{1}{n}\left(\frac{1}{\frac{1}{n}+\tau^{2}}\right)\right)\overline{X}.
+$$&lt;p&gt;Note that we have $X_{i}=\theta+Z_{i}$ where $Z_{i}\overset{\text{iid}}{\sim}N(0,I_{p})$, and $\theta=\tau W$ where $W\sim N(0,I_{p})$, so $X_{i}=\tau W+Z_{i}$ for $i=1,\ldots,n$. This gives&lt;/p&gt;
+$$
+\overline{X}=\tau W+\overline{Z}\sim N\left(0,\left(\tau^{2}+\frac{1}{n}\right)I_{p}\right).
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\frac{\Vert\overline{X}\Vert^{2}}{\tau^{2}+\frac{1}{n}}\sim\chi_{p}^{2}\implies\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\sim\text{inv-}\chi_{p}^{2}.
+$$&lt;p&gt;Then&lt;/p&gt;
+$$
+\mathbb{E}\left(\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{p-2}\implies\mathbb{E}\left(\frac{p-2}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{\tau^{2}+\frac{1}{n}},
+$$&lt;p&gt;so $\frac{p-2}{\Vert\overline{X}\Vert^{2}}$ is unbiased estimator of $\frac{1}{\tau^{2}+\frac{1}{n}}$. Thus, the empirical Bayes estimator is&lt;/p&gt;
+$$
+\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$&lt;h2&gt;Risk estimate for the James-Stein estimator&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;risk-estimate-for-the-james-stein-estimator&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#risk-estimate-for-the-james-stein-estimator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We shall prove that for $p \geq 3$, the James-Stein estimator has strictly smaller risk than the sample mean at every $\theta \in \mathbb{R}^p$. We will need Stein&amp;rsquo;s lemma for the proof.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Stein&amp;rsquo;s Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $Z \sim N(0, I_p)$, then we have&lt;/p&gt;
+$$
+\mathbb{E} [\langle Z, g(Z) \rangle] = \mathbb{E} [\langle \nabla, g(Z) \rangle]
+$$&lt;p&gt;for any $g \in C^1(\mathbb{R}^p ; \mathbb{R}^p)$ for which both expectations exist.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We will start with the $p=1$ case. Let $\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}$. Then $\phi&amp;rsquo;(x)=-x\phi(x)$, so&lt;/p&gt;
+$$
+\mathbb{E}[Zg(Z)]=\int xg(x)\phi(x)\,dx=-\int\phi&#39;(x)g(x)\,dx=\int\phi(x)g&#39;(x)\,dx=\mathbb{E}[g&#39;(Z)]
+$$&lt;p&gt;where the second last equality follows from integration by parts. Now suppose that $p &amp;gt; 1$. Then we can write $Z = (Z_1, \ldots, Z_p)$ where $Z_1,\ldots,Z_p$ each follows a standard normal distribution. Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[\langle Z,g(Z)\rangle] &amp;=\sum_{i=1}^{p}\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&amp;=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&amp;=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&amp;=\sum_{i=1}^{p}\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&amp;=\mathbb{E}[\langle\nabla,g(Z)\rangle],
+\end{aligned}
+$$&lt;p&gt;where the third equality follows from the $p=1$ case.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+
       </description>
     </item>
     

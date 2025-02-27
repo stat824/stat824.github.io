@@ -11,20 +11,30 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>James-Stein Estimator – Statistics Notes</title>
-  <meta name="description" content="" /><link rel="canonical" href="http://localhost:1313/docs/ms1/js/" itemprop="url" />
+  <meta name="description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$ \hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood" /><link rel="canonical" href="http://localhost:1313/docs/ms1/js/" itemprop="url" />
 
 <meta property="og:title" content="James-Stein Estimator" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$
+\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$James-Stein estimator as an empirical Bayes estimator
+    This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/ms1/js/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
 <meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
   <meta itemprop="name" content="James-Stein Estimator">
+  <meta itemprop="description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$ \hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
+  <meta itemprop="wordCount" content="301">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="James-Stein Estimator">
+  <meta name="twitter:description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$ \hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -149,31 +159,7 @@
   >Notes
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/alsm/"
-    
-  >Applied Linear Statistical Methods
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/glm/"
-    
-  >Generalized Linear Models
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/mc/"
-    
-  >Mathematical Computation I: Matrix Computation
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col open"><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/"
@@ -230,6 +216,20 @@
   >James-Stein Estimator
     </a>
   
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#james-stein-estimator-as-an-empirical-bayes-estimator"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >James-Stein estimator as an empirical Bayes estimator</a>
+            </li>
+          <li>
+              <a
+                href="#risk-estimate-for-the-james-stein-estimator"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Risk estimate for the James-Stein estimator</a>
+            </li>
+          </ul>
+  
               
             </li></ul>
       </div>
@@ -257,27 +257,6 @@
 
     <ul class="hx-flex hx-flex-col hx-gap-1 max-md:hx-hidden">
         
-          <li class=""><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/alsm/"
-    
-  >Applied Linear Statistical Methods
-    </a></li>
-          <li class=""><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/glm/"
-    
-  >Generalized Linear Models
-    </a></li>
-          <li class=""><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/mc/"
-    
-  >Mathematical Computation I: Matrix Computation
-    </a></li>
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
@@ -353,8 +332,16 @@
 </div></div></aside>
     
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4">
-      <div class=" hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#james-stein-estimator-as-an-empirical-bayes-estimator">James-Stein estimator as an empirical Bayes estimator
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#risk-estimate-for-the-james-stein-estimator">Risk estimate for the James-Stein estimator
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
@@ -380,7 +367,62 @@
 
         <div class="content">
           <h1>James-Stein Estimator</h1>
-          
+          <p>Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as</p>
+$$
+\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$<h2>James-Stein estimator as an empirical Bayes estimator<span class="hx-absolute -hx-mt-20" id="james-stein-estimator-as-an-empirical-bayes-estimator"></span>
+    <a href="#james-stein-estimator-as-an-empirical-bayes-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood</p>
+$$
+m(x|\tau)=\int p(x|\theta)\pi(\theta|\tau)\,d\theta.
+$$<p>Consider the prior $\theta|\tau^{2}\sim N(0,\tau^{2}I_{p})$. Then the Bayes estimator is</p>
+$$
+\hat{\theta}=\mathbb{E}(\theta|X_{1},\ldots,X_{n})=\frac{n}{n+\frac{1}{\tau^{2}}}\overline{X}=\left(1-\frac{1}{n}\left(\frac{1}{\frac{1}{n}+\tau^{2}}\right)\right)\overline{X}.
+$$<p>Note that we have $X_{i}=\theta+Z_{i}$ where $Z_{i}\overset{\text{iid}}{\sim}N(0,I_{p})$, and $\theta=\tau W$ where $W\sim N(0,I_{p})$, so $X_{i}=\tau W+Z_{i}$ for $i=1,\ldots,n$. This gives</p>
+$$
+\overline{X}=\tau W+\overline{Z}\sim N\left(0,\left(\tau^{2}+\frac{1}{n}\right)I_{p}\right).
+$$<p>Therefore,</p>
+$$
+\frac{\Vert\overline{X}\Vert^{2}}{\tau^{2}+\frac{1}{n}}\sim\chi_{p}^{2}\implies\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\sim\text{inv-}\chi_{p}^{2}.
+$$<p>Then</p>
+$$
+\mathbb{E}\left(\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{p-2}\implies\mathbb{E}\left(\frac{p-2}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{\tau^{2}+\frac{1}{n}},
+$$<p>so $\frac{p-2}{\Vert\overline{X}\Vert^{2}}$ is unbiased estimator of $\frac{1}{\tau^{2}+\frac{1}{n}}$. Thus, the empirical Bayes estimator is</p>
+$$
+\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$<h2>Risk estimate for the James-Stein estimator<span class="hx-absolute -hx-mt-20" id="risk-estimate-for-the-james-stein-estimator"></span>
+    <a href="#risk-estimate-for-the-james-stein-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We shall prove that for $p \geq 3$, the James-Stein estimator has strictly smaller risk than the sample mean at every $\theta \in \mathbb{R}^p$. We will need Stein&rsquo;s lemma for the proof.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Stein&rsquo;s Lemma</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>If $Z \sim N(0, I_p)$, then we have</p>
+$$
+\mathbb{E} [\langle Z, g(Z) \rangle] = \mathbb{E} [\langle \nabla, g(Z) \rangle]
+$$<p>for any $g \in C^1(\mathbb{R}^p ; \mathbb{R}^p)$ for which both expectations exist.</p>
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We will start with the $p=1$ case. Let $\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}$. Then $\phi&rsquo;(x)=-x\phi(x)$, so</p>
+$$
+\mathbb{E}[Zg(Z)]=\int xg(x)\phi(x)\,dx=-\int\phi'(x)g(x)\,dx=\int\phi(x)g'(x)\,dx=\mathbb{E}[g'(Z)]
+$$<p>where the second last equality follows from integration by parts. Now suppose that $p &gt; 1$. Then we can write $Z = (Z_1, \ldots, Z_p)$ where $Z_1,\ldots,Z_p$ each follows a standard normal distribution. Then</p>
+$$
+\begin{aligned}
+\mathbb{E}[\langle Z,g(Z)\rangle] &=\sum_{i=1}^{p}\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&=\mathbb{E}[\langle\nabla,g(Z)\rangle],
+\end{aligned}
+$$<p>where the third equality follows from the $p=1$ case.</p>
+  </div>
+</details>
+
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
