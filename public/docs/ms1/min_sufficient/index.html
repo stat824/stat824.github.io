@@ -270,6 +270,14 @@ Lemma Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for
   >Hypothesis Testing
     </a>
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/umvue/"
+    
+  >Uniformly Minimum Variance Unbiased Estimators
+    </a>
+              
             </li></ul>
       </div>
             </li></ul>
@@ -366,6 +374,14 @@ Lemma Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for
     href="/docs/ms1/hypothesis/"
     
   >Hypothesis Testing
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/umvue/"
+    
+  >Uniformly Minimum Variance Unbiased Estimators
     </a>
               
             </li></ul>
@@ -470,7 +486,7 @@ $$<p>we see that $T$ is sufficient by the factorization theorem. For any suffici
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}P_{\theta}$ where $P_{\theta}=\text{Ber}(\theta)$ and $\theta\in[0,1]$. Consider $\theta_{0}=0.5$ and $\theta_{1}=0.6$. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$ where $P_{\theta}=\text{Ber}(\theta)$ and $\theta\in[0,1]$. Consider $\theta_{0}=0.5$ and $\theta_{1}=0.6$. Then</p>
 $$
 \frac{p(X|\theta_{1})}{p(X|\theta_{0})}=\frac{\theta_{1}^{\sum_{i=1}^{n}X_{i}}(1-\theta_{1})^{n-\sum_{i=1}^{n}X_{i}}}{\theta_{0}^{\sum_{i=1}^{n}X_{i}}(1-\theta_{0})^{n-\sum_{i=1}^{n}X_{i}}}=\left(\frac{\theta_{1}(1-\theta_{0})}{\theta_{0}(1-\theta_{1})}\right)^{\sum_{i=1}^{n}X_{i}}\left(\frac{1-\theta_{1}}{1-\theta_{0}}\right)^{n}=\left(\frac{3}{2}\right)^{\sum_{i=1}^{n}X_{i}}\left(\frac{4}{5}\right)^{n}.
 $$<p>This statistic is equivalent to $T(X)=\sum_{i=1}^{n}X_{i}$, so by the previous theorem we see that $T(X)$ is minimal sufficient for the sub-family $(P_{\theta}:\theta\in{0.5,0.6})$. We have seen before that $T(X)$ is sufficient for $(P_{\theta}:\theta\in[0,1])$, so the sub-family lemma yields that $T(X)$ is minimal sufficient for $(P_{\theta}:\theta\in[0,1])$.</p>
@@ -527,7 +543,7 @@ $$<p>which is equivalent to $T(X)$. Since $T(X)$ is sufficient for the whole fam
 </details>
 <p>One of the restrictions of the sub-family method is that the support of all the distributions in the family must have the same support. This is not an issue for exponential families as the support depends only on the base measure $h(x)$, but it could be an issue for other distributions like $P_{\theta}=\text{Unif}(0,\theta)$.</p>
 <h2>Completeness<span class="hx-absolute -hx-mt-20" id="completeness"></span>
-    <a href="#completeness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The second method of finding minimal sufficient statistics is called completeness. The idea is to remove ancillary information. For example, if $X_{1}$ and $X_{2}$ are iid $N(\theta,1)$, then we know that $(X_{1},X_{2})$ is not a minimal sufficient statistic because it is equivalent to $(X_{1}-X_{2},X_{1}+X_{2})$, and we know from before that $X_{1}+X_{2}$ is minimal sufficient. To be formal, we say that a statistic $A = A(X)$ is ancillary if its distribution does not depend on $\theta$, and we say it is first-order ancillary if $\mathbb{E} _ \theta A(X)$ does not depend on $\theta$. We also say a statistic $T=T(X)$ is complete if $\mathbb{E}_{\theta}f(T)=0$ for all $\theta\in\Theta$ implies $f(T(X))=0$ almost surely for all $\theta\in\Theta$. Equivalently, no non-constant function of $T$ is first-order ancillary.</p>
+    <a href="#completeness" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>The second method of finding minimal sufficient statistics is called completeness. The idea is to remove ancillary information. For example, if $X_{1}$ and $X_{2}$ are i.i.d. $N(\theta,1)$, then we know that $(X_{1},X_{2})$ is not a minimal sufficient statistic because it is equivalent to $(X_{1}-X_{2},X_{1}+X_{2})$, and we know from before that $X_{1}+X_{2}$ is minimal sufficient. To be formal, we say that a statistic $A = A(X)$ is ancillary if its distribution does not depend on $\theta$, and we say it is first-order ancillary if $\mathbb{E} _ \theta A(X)$ does not depend on $\theta$. We also say a statistic $T=T(X)$ is complete if $\mathbb{E}_{\theta}f(T)=0$ for all $\theta\in\Theta$ implies $f(T(X))=0$ almost surely for all $\theta\in\Theta$. Equivalently, no non-constant function of $T$ is first-order ancillary.</p>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Bahadur&rsquo;s Theorem</strong>
@@ -548,7 +564,7 @@ $$<p>which is equivalent to $T(X)$. Since $T(X)$ is sufficient for the whole fam
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(\theta)$ where $\theta\in(0,1)$. Let $T(X)=\sum_{i=1}^{n}X_{i}\sim\text{Binomial}(n,\theta)$. Suppose $\mathbb{E}_{\theta}f(T(X))=0$ for all $\theta\in(0,1)$. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$ where $\theta\in(0,1)$. Let $T(X)=\sum_{i=1}^{n}X_{i}\sim\text{Binomial}(n,\theta)$. Suppose $\mathbb{E}_{\theta}f(T(X))=0$ for all $\theta\in(0,1)$. Then</p>
 $$
 0=\sum_{i=1}^{n}f(i)\binom{n}{i}\theta^{i}(1-\theta)^{n-i}=(1-\theta)^{n}\sum_{i=1}^{n}f(i)\binom{n}{i}\left(\frac{\theta}{1-\theta}\right)^{i},
 $$<p>so</p>
@@ -566,7 +582,7 @@ $$<p>This means that the polynomial $p(x)=\sum_{i=1}^{n}f(i)\binom{n}{i}x^{i}=0$
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$ where $\theta&gt;0$. Let $T(X)=X_{(n)}$. Suppose $\mathbb{E}_{\theta}f(T(X))=0$ for all $\theta&gt;0$. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$ where $\theta&gt;0$. Let $T(X)=X_{(n)}$. Suppose $\mathbb{E}_{\theta}f(T(X))=0$ for all $\theta&gt;0$. Then</p>
 $$
 G(\theta)=\int_{0}^{\theta}t^{n-1}f(t)\,dt=0\quad\text{for all }\theta>0.
 $$<p>By the Lebesgue differentiation theorem, $G&rsquo;(\theta)=\theta^{n-1}f(\theta)$ almost everywhere. Since $G=0$, we have $G&rsquo;=0$, so $f=0$ almost everywhere.</p>
@@ -578,7 +594,7 @@ $$<p>By the Lebesgue differentiation theorem, $G&rsquo;(\theta)=\theta^{n-1}f(\t
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose $\mathbb{E} _ {\theta} f(T(X)) = 0$ for all $\theta\in\mathbb{R}$. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose $\mathbb{E} _ {\theta} f(T(X)) = 0$ for all $\theta\in\mathbb{R}$. Then</p>
 $$
 G(\theta)=\int_{\mathbb{R}}f(x)e^{-\frac{1}{2}(x-\theta)^{2}}\,dx=0\quad\text{for all }\theta\in\mathbb{R}.
 $$<p>By the Lebesgue differentiation theorem, we have $G&rsquo;(\theta)=f(\theta)e^{-\frac{1}{2}(x-\theta)^{2}}$ almost everywhere. Since $G=0$, we have $G&rsquo;=0$, which implies that $f=0$ almost everywhere.</p>
@@ -617,7 +633,7 @@ $$<p>so by completeness we have $g(T)=c$ almost surely.</p>
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$. Then $\overline{X} \mathrel{\bot\mkern-10mu\bot} \sum_{i=1}^{n}(X_{i}-\overline{X})^{2}$ by Basu&rsquo;s theorem.</div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$. Then $\overline{X} \mathrel{\bot\mkern-10mu\bot} \sum_{i=1}^{n}(X_{i}-\overline{X})^{2}$ by Basu&rsquo;s theorem.</div>
   </div>
 </div>
 

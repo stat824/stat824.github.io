@@ -75,7 +75,7 @@ $$
 {{% /details %}}
 
 
-{{% details title="Neyman-Pearson lemma" %}}
+{{% details title="Neyman-Pearson Lemma" %}}
 
 
 The optimal testing error is given by
@@ -84,7 +84,7 @@ $$
 \inf_{\phi}(P\phi+Q(1-\phi))=1-\mathsf{TV}(P,Q)=\int\min(p,q)
 $$
 
-which is achieved by $\phi(X)=\mathbb{{1}}_{\\{p(x)<q(x)\\}}(X)$. 
+which is achieved by the likelihood ratio test $\phi(X)=\mathbb{{1}}_{\\{p(x)<q(x)\\}}(X)$. 
 
 {{% /details %}}
 
@@ -121,7 +121,8 @@ $$
 $$
 {{% /details %}}
 
-The proof is easy:
+{{% details title="Proof" closed="true" %}}
+We have
 
 $$
 \begin{aligned}
@@ -132,7 +133,7 @@ $$
 	&=\frac{1}{4}(\theta_{1}-\theta_{2})^{2}\int\min(p_{\theta_{1}},p_{\theta_{2}}).
 \end{aligned}
 $$
-
+{{% /details %}}
 
 To get the sharpest lower bound, we should choose $\theta_{1}$ and $\theta_{2}$ to be as far away as possible. 
 
@@ -163,7 +164,7 @@ where $C=\frac{\mathbb{P}(N(0,1)>\frac{1}{2})}{4}$.
 
 {{< callout >}}
 
-Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$ where $\theta\in [0,1]$. Let $\widehat{\theta}=X_{(n)}$. Then
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$ where $\theta\in [0,1]$. Let $\widehat{\theta}=X_{(n)}$. Then
 
 $$
 \mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2} = \int_{0}^{\theta}(t-\theta)^{2}\theta^{-n}nt^{n-1}\,dt =\frac{2\theta^{2}}{(n+1)(n+2)},

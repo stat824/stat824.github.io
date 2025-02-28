@@ -17,7 +17,7 @@ $$
 B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x)
 $$
 
-is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
+is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
 
 $$
 p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}),

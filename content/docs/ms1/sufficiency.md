@@ -8,7 +8,7 @@ weight: 1
 A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is **sufficient** if the conditional distribution $X|T$ does not depend on $\theta$. 
 
 {{< callout >}}
-If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution
 
 $$\left(\begin{array}{c}
 X_{1}\\
@@ -23,7 +23,7 @@ X_{n}
 {{< /callout >}}
 
 {{< callout >}}
-If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{I}$ is sufficient. This can be seen from
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{I}$ is sufficient. This can be seen from
 
 $$
 \begin{aligned}
@@ -37,12 +37,12 @@ $$
 {{< /callout >}}
 
 {{< callout >}}
-If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}P_{\theta}$, then $T=(X_{(1)},\ldots,X_{(n)})$ is sufficient because $X|T=t$ is the uniform distribution on all $n!$ permutations of the vector $t.$
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, then $T=(X_{(1)},\ldots,X_{(n)})$ is sufficient because $X|T=t$ is the uniform distribution on all $n!$ permutations of the vector $t.$
 {{< /callout >}}
 
 
 {{< callout >}}
-If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$, then $T=X_{(n)}$ is sufficient. This can be seen from
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$, then $T=X_{(n)}$ is sufficient. This can be seen from
 
 $$
 \begin{aligned}
@@ -106,7 +106,7 @@ where $h(x)=\mathbb{P}(X=x|T(X)=T(x))$ and $g_{\theta}(T(x))=\mathbb{P}_{\theta}
 
 
 {{< callout >}}
-Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$. Then
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$. Then
 
 $$
 \begin{aligned}
@@ -122,7 +122,7 @@ which shows that $T(X)=\overline{X}$ is sufficient.
 
 
 {{< callout >}}
-If $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}\text{Unif}(0,\theta)$, then
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$, then
 
 $$
 \begin{aligned}

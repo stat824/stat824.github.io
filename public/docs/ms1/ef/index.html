@@ -13,7 +13,7 @@
 <title>Exponential Families – Statistics Notes</title>
   <meta name="description" content="We say that a continuous or discrete statistical model $(P_{\theta}:\theta\in\Theta)$ is an exponential family if
 $$ p(x|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)\right)h(x) $$where $\eta(\theta)$ is called the natural parameter, $T(x)$ is the sufficient statistic,
-$$ B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x) $$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
+$$ B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x) $$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
 $$ p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}), $$from which we see that a sufficient statistic is $T’=\sum_{i=1}^{n}T(x_{I})$. We say that an exponential family is in canonical form if" /><link rel="canonical" href="http://localhost:1313/docs/ms1/ef/" itemprop="url" />
 
 <meta property="og:title" content="Exponential Families" />
@@ -23,7 +23,7 @@ p(x|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)\right)h(x
 $$where $\eta(\theta)$ is called the natural parameter, $T(x)$ is the sufficient statistic,
 $$
 B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x)
-$$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
+$$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
 $$
 p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}),
 $$from which we see that a sufficient statistic is $T&rsquo;=\sum_{i=1}^{n}T(x_{I})$. We say that an exponential family is in canonical form if" />
@@ -35,7 +35,7 @@ $$from which we see that a sufficient statistic is $T&rsquo;=\sum_{i=1}^{n}T(x_{
   <meta itemprop="name" content="Exponential Families">
   <meta itemprop="description" content="We say that a continuous or discrete statistical model $(P_{\theta}:\theta\in\Theta)$ is an exponential family if
 $$ p(x|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)\right)h(x) $$where $\eta(\theta)$ is called the natural parameter, $T(x)$ is the sufficient statistic,
-$$ B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x) $$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
+$$ B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x) $$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
 $$ p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}), $$from which we see that a sufficient statistic is $T’=\sum_{i=1}^{n}T(x_{I})$. We say that an exponential family is in canonical form if">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
@@ -44,7 +44,7 @@ $$ p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\s
   <meta name="twitter:title" content="Exponential Families">
   <meta name="twitter:description" content="We say that a continuous or discrete statistical model $(P_{\theta}:\theta\in\Theta)$ is an exponential family if
 $$ p(x|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)\right)h(x) $$where $\eta(\theta)$ is called the natural parameter, $T(x)$ is the sufficient statistic,
-$$ B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x) $$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
+$$ B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x) $$is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have
 $$ p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}), $$from which we see that a sufficient statistic is $T’=\sum_{i=1}^{n}T(x_{I})$. We say that an exponential family is in canonical form if">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
@@ -244,6 +244,14 @@ $$ p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\s
   >Hypothesis Testing
     </a>
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/umvue/"
+    
+  >Uniformly Minimum Variance Unbiased Estimators
+    </a>
+              
             </li></ul>
       </div>
             </li></ul>
@@ -342,6 +350,14 @@ $$ p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\s
   >Hypothesis Testing
     </a>
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/umvue/"
+    
+  >Uniformly Minimum Variance Unbiased Estimators
+    </a>
+              
             </li></ul>
       </div></li>
         
@@ -394,7 +410,7 @@ p(x|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)\right)h(x
 $$<p>where $\eta(\theta)$ is called the natural parameter, $T(x)$ is the sufficient statistic,</p>
 $$
 B(\theta)=\log\int\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)\right)h(x)\,d\mu(x)
-$$<p>is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have</p>
+$$<p>is the log-partition function, and $h(x)$ is the base measure. In the formula for $B(\theta)$ above, $\mu$ is either the Lebesgue measure or the counting measure. Given observations $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}p(x|\theta)=e^{\sum_{j=1}^{d}\eta_{j}(\theta)T_{j}(x)-B(\theta)}h(x)$, we have</p>
 $$
 p(x_{1},\ldots,x_{n}|\theta)=\exp\left(\sum_{j=1}^{d}\eta_{j}(\theta)\left(\sum_{i=1}^{n}T_{j}(x_{i})\right)-nB(\theta)\right)\prod_{i=1}^{n}h(x_{i}),
 $$<p>from which we see that a sufficient statistic is $T&rsquo;=\sum_{i=1}^{n}T(x_{I})$. We say that an exponential family is in canonical form if</p>
