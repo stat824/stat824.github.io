@@ -158,7 +158,7 @@ By the Lebesgue differentiation theorem, $G'(\theta)=\theta^{n-1}f(\theta)$ almo
 {{< /callout >}}
 
 {{< callout >}}
-Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose \mathbb{E} _ \thetaf(T(X))=0$ for all $\theta\in\mathbb{R}$. Then 
+Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose $\mathbb{E} _ {\theta} f(T(X)) = 0$ for all $\theta\in\mathbb{R}$. Then 
 
 $$
 G(\theta)=\int_{\mathbb{R}}f(x)e^{-\frac{1}{2}(x-\theta)^{2}}\,dx=0\quad\text{for all }\theta\in\mathbb{R}.

@@ -10,22 +10,31 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Mathematical Statistics 1 – Statistics Notes</title>
-  <meta name="description" content="Instructor: Chao Gao" /><link rel="canonical" href="http://localhost:1313/docs/ms1/" itemprop="url" />
+<title>James-Stein and Optimal Shrinkage Estimators – Statistics Notes</title>
+  <meta name="description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$ \widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood" /><link rel="canonical" href="http://localhost:1313/docs/ms1/js-copy/" itemprop="url" />
 
-<meta property="og:title" content="Mathematical Statistics 1" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/docs/ms1/" />
+<meta property="og:title" content="James-Stein and Optimal Shrinkage Estimators" />
+<meta property="og:description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$
+\widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$James-Stein estimator as an empirical Bayes estimator
+    This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/ms1/js-copy/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
+<meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
-  <meta itemprop="name" content="Mathematical Statistics 1">
-  <meta itemprop="description" content="Instructor: Chao Gao">
+  <meta itemprop="name" content="James-Stein and Optimal Shrinkage Estimators">
+  <meta itemprop="description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$ \widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="3">
+  <meta itemprop="wordCount" content="598">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mathematical Statistics 1">
-  <meta name="twitter:description" content="Instructor: Chao Gao">
+  <meta name="twitter:title" content="James-Stein and Optimal Shrinkage Estimators">
+  <meta name="twitter:description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+$$ \widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -152,13 +161,12 @@
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/"
     
   >Mathematical Statistics 1
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a>
-  
               <div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -200,20 +208,41 @@
   >Admissibility
     </a>
               
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms1/js-copy/"
+    
+  >James-Stein and Optimal Shrinkage Estimators
+    </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#james-stein-estimator-as-an-empirical-bayes-estimator"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >James-Stein estimator as an empirical Bayes estimator</a>
+            </li>
+          <li>
+              <a
+                href="#risk-estimate-for-the-james-stein-estimator"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Risk estimate for the James-Stein estimator</a>
+            </li>
+          <li>
+              <a
+                href="#optimal-shrinkage-estimator"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Optimal shrinkage estimator</a>
+            </li>
+          </ul>
+  
+              
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/js/"
     
   >James-Stein and Optimal Shrinkage Estimators
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms1/nonparametric/"
-    
-  >Gaussian Sequence Model
     </a>
               
             </li></ul>
@@ -244,7 +273,7 @@
         
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/"
     
   >Mathematical Statistics 1
@@ -290,10 +319,10 @@
   >Admissibility
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms1/js/"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms1/js-copy/"
     
   >James-Stein and Optimal Shrinkage Estimators
     </a>
@@ -301,9 +330,9 @@
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms1/nonparametric/"
+    href="/docs/ms1/js/"
     
-  >Gaussian Sequence Model
+  >James-Stein and Optimal Shrinkage Estimators
     </a>
               
             </li></ul>
@@ -325,8 +354,20 @@
 </div></div></aside>
     
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4">
-      <div class=" hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#james-stein-estimator-as-an-empirical-bayes-estimator">James-Stein estimator as an empirical Bayes estimator
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#risk-estimate-for-the-james-stein-estimator">Risk estimate for the James-Stein estimator
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#optimal-shrinkage-estimator">Optimal shrinkage estimator
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
@@ -344,16 +385,174 @@
   <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/docs/">Notes</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Mathematical Statistics 1</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/ms1/">Mathematical Statistics 1</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">James-Stein and Optimal Shrinkage Estimators</div>
   </div>
 
         <div class="content">
-          <h1>Mathematical Statistics 1</h1>
-          <p>Instructor: Chao Gao</p>
+          <h1>James-Stein and Optimal Shrinkage Estimators</h1>
+          <p>Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as</p>
+$$
+\widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$<h2>James-Stein estimator as an empirical Bayes estimator<span class="hx-absolute -hx-mt-20" id="james-stein-estimator-as-an-empirical-bayes-estimator"></span>
+    <a href="#james-stein-estimator-as-an-empirical-bayes-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood</p>
+$$
+m(x|\tau)=\int p(x|\theta)\pi(\theta|\tau)\,d\theta.
+$$<p>Consider the prior $\theta|\tau^{2}\sim N(0,\tau^{2}I_{p})$. Then the Bayes estimator is</p>
+$$
+\widehat{\theta}=\mathbb{E}(\theta|X_{1},\ldots,X_{n})=\frac{n}{n+\frac{1}{\tau^{2}}}\overline{X}=\left(1-\frac{1}{n}\left(\frac{1}{\frac{1}{n}+\tau^{2}}\right)\right)\overline{X}.
+$$<p>Note that we have $X_{i}=\theta+Z_{i}$ where $Z_{i}\overset{\text{iid}}{\sim}N(0,I_{p})$, and $\theta=\tau W$ where $W\sim N(0,I_{p})$, so $X_{i}=\tau W+Z_{i}$ for $i=1,\ldots,n$. This gives</p>
+$$
+\overline{X}=\tau W+\overline{Z}\sim N\left(0,\left(\tau^{2}+\frac{1}{n}\right)I_{p}\right).
+$$<p>Therefore,</p>
+$$
+\frac{\Vert\overline{X}\Vert^{2}}{\tau^{2}+\frac{1}{n}}\sim\chi_{p}^{2}\implies\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\sim\text{inv-}\chi_{p}^{2}.
+$$<p>Then</p>
+$$
+\mathbb{E}\left(\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{p-2}\implies\mathbb{E}\left(\frac{p-2}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{\tau^{2}+\frac{1}{n}},
+$$<p>so $\frac{p-2}{\Vert\overline{X}\Vert^{2}}$ is unbiased estimator of $\frac{1}{\tau^{2}+\frac{1}{n}}$. Thus, the empirical Bayes estimator is</p>
+$$
+\widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+$$<h2>Risk estimate for the James-Stein estimator<span class="hx-absolute -hx-mt-20" id="risk-estimate-for-the-james-stein-estimator"></span>
+    <a href="#risk-estimate-for-the-james-stein-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We shall prove that for $p \geq 3$, the James-Stein estimator has strictly smaller risk than the sample mean at every $\theta \in \mathbb{R}^p$. We will need Stein&rsquo;s lemma for the proof.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Stein&rsquo;s Lemma</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>If $Z \sim N(0, I_p)$, then we have</p>
+$$
+\mathbb{E} [\langle Z, g(Z) \rangle] = \mathbb{E} [\langle \nabla, g(Z) \rangle]
+$$<p>for any $g \in C^1(\mathbb{R}^p ; \mathbb{R}^p)$ for which both expectations exist.</p>
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We will start with the $p=1$ case. Let $\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}$. Then $\phi&rsquo;(x)=-x\phi(x)$, so</p>
+$$
+\mathbb{E}[Zg(Z)]=\int xg(x)\phi(x)\,dx=-\int\phi'(x)g(x)\,dx=\int\phi(x)g'(x)\,dx=\mathbb{E}[g'(Z)]
+$$<p>where the second last equality follows from integration by parts. Now suppose that $p &gt; 1$. Then we can write $Z = (Z_1, \ldots, Z_p)$ where $Z_1,\ldots,Z_p$ each follows a standard normal distribution. Then</p>
+$$
+\begin{aligned}
+\mathbb{E}[\langle Z,g(Z)\rangle] &=\sum_{i=1}^{p}\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&=\mathbb{E}[\langle\nabla,g(Z)\rangle],
+\end{aligned}
+$$<p>where the third equality follows from the $p=1$ case.</p>
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Theorem</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Let $p \geq 3$. Then</p>
+$$
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2}<\frac{p}{n}=\mathbb{E}_{\theta}\Vert\overline{X}-\theta\Vert^{2}
+$$<p>for all $\theta\in\mathbb{R}^{p}$.</p>
+  </div>
+</details>
+<p>Let us write $\overline{X}=\frac{1}{\sqrt{n}}(\mu+Z)$ where $Z\sim N(0,I_{p})$ and $\mu=\sqrt{n}\theta$. We have</p>
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} &=\mathbb{E}_{\theta}\left\Vert \left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}-\theta\right\Vert ^{2} \\
+	&=\mathbb{E}_{\theta}\left\Vert \overline{X}-\theta-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\overline{X}\right\Vert ^{2} \\
+	&=\mathbb{E}_{\theta}\left\Vert \frac{1}{\sqrt{n}}Z-\frac{p-2}{\Vert\mu+Z\Vert^{2}}\frac{1}{\sqrt{n}}(\mu+Z)\right\Vert ^{2} \\
+	&=\frac{1}{n}\mathbb{E}_{\theta}\left\Vert Z-\frac{p-2}{\Vert\mu+Z\Vert^{2}}(\mu+Z)\right\Vert ^{2} \\
+	&=\frac{1}{n}\left(\mathbb{E}_{\theta}\Vert Z\Vert^{2}+\mathbb{E}_{\theta}\frac{(p-2)^{2}}{\Vert\mu+Z\Vert^{2}}-2(p-2)\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle \right).
+\end{aligned}
+$$<p>We have</p>
+$$
+\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle =\mathbb{E}_{\theta}\langle Z,g(Z)\rangle,
+$$<p>where $g_{j}(z)=\frac{\mu_{j}+z_{j}}{\Vert\mu+z\Vert^{2}}$. Computing the derivative gives</p>
+$$
+\frac{\partial}{\partial z_{j}}g_{j}(z)=\frac{\Vert\mu+z\Vert^{2}-2(\mu_{j}+z_{j})^{2}}{\Vert\mu+z\Vert^{4}},
+$$<p>so by Stein&rsquo;s lemma we have</p>
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle  &=\sum_{j=1}^{p}\mathbb{E}_{\theta}\frac{\partial}{\partial z_{j}}g_{j}(Z) \\
+	&=\sum_{j=1}^{p}\mathbb{E}_{\theta}\frac{\Vert\mu+Z\Vert^{2}-2(\mu_{j}+Z_{j})^{2}}{\Vert\mu+Z\Vert^{4}} \\
+	&=\mathbb{E}_{\theta}\frac{(p-2)\Vert\mu+Z\Vert^{2}}{\Vert\mu+Z\Vert^{4}} \\
+	&=\mathbb{E}_{\theta}\frac{p-2}{\Vert\mu+Z\Vert^{2}}.
+\end{aligned}
+$$<p>Then</p>
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} &= \frac{1}{n}\left(\mathbb{E}_{\theta}\Vert Z\Vert^{2}+\mathbb{E}_{\theta}\frac{(p-2)^{2}}{\Vert\mu+Z\Vert^{2}}-2(p-2)\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle \right). \\
+	&=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}_{\theta}\frac{1}{\Vert\mu+Z\Vert^{2}}\right) \\
+	&<\frac{p}{n}.
+\end{aligned}
+$$<p>We see that</p>
+$$
+R(\widehat{\theta}_{\text{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}_{\theta}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}\right),\quad Z\sim N(0,1).
+$$<p>By symmetry, $R(\widehat{\theta} _ {\text{JS}},\theta)$ depends only on the magnitude of $\theta$, and we have</p>
+$$
+\lim_{\Vert\theta\Vert\to\infty}R(\widehat{\theta}_{\text{JS}},\theta)=\frac{p}{n},\quad\text{so }\sup_{\theta\in\mathbb{R}^{p}}R(\widehat{\theta}_{\text{JS}},\theta)=\sup_{\theta\in\mathbb{R}^{p}}R(\overline{X},\theta).
+$$<h2>Optimal shrinkage estimator<span class="hx-absolute -hx-mt-20" id="optimal-shrinkage-estimator"></span>
+    <a href="#optimal-shrinkage-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Let us now consider the estimator $\widehat{\theta} _ {c}=c\overline{X}$ where $c$ is to be determined. We want to find $c^{\ast}$ which minimizes $R(\widehat{\theta} _ {c},\theta)$. We have</p>
+$$
+R(\widehat{\theta} _ {c},\theta) = \mathbb{E} _ {\theta}\Vert c\overline{X}-c\theta\Vert^{2}+\Vert c\theta-\theta\Vert^{2}=c^{2}\frac{p}{n}+(c-1)^{2}\Vert\theta\Vert^{2},
+$$<p>so</p>
+$$
+\frac{d}{dc}R(\widehat{\theta}_{c},\theta)=2c\frac{p}{n}+2(c-1)\Vert\theta\Vert^{2}\implies c^{\ast}=\frac{\Vert\theta\Vert^{2}}{\frac{p}{n}+\Vert\theta\Vert^{2}}.
+$$<p>The estimator</p>
+$$
+\widehat{\theta}_{c^{\ast}}=\frac{\Vert\theta\Vert^{2}}{\frac{p}{n}+\Vert\theta\Vert^{2}}\overline{X}=\left(1-\frac{p}{p+n\Vert\theta\Vert^{2}}\right)\overline{X}
+$$<p>is called the optimal shrinkage estimator, also known as the oracle estimator. This is not an estimator in the true sense because it depends on the true parameter. The risk function is</p>
+$$
+\begin{aligned}
+R(\widehat{\theta}_{c^{\ast}},\theta) &= \left(\frac{b}{a+b}\right)^{2}a+\left(\frac{a}{a+b}\right)^{2}b \\ 
+&=\frac{b^{2}a+a^{2}b}{(a+b)^{2}} \\
+&=\frac{ab}{a+b} \\
+&=\frac{\frac{p}{n}\Vert\theta\Vert^{2}}{\frac{p}{n}+\Vert\theta\Vert^{2}} \\
+&\leq\min\left(\frac{p}{n},\Vert\theta\Vert^{2}\right),
+\end{aligned}
+$$<p>where $a=\frac{p}{n}$ and $b=\Vert\theta\Vert^{2}$. The James-Stein estimator is nearly optimal in the following sense.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Oracle Inequality</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>For every $\theta \in \mathbb{R}^p$, we have</p>
+$$
+R(\widehat{\theta}_{\mathrm{JS}},\theta)\leq R(\widehat{\theta}_{c^\ast},\theta)+\frac{2}{n}.
+$$
+  </div>
+</details>
+<p>Recall that</p>
+$$
+R(\widehat{\theta}_{\mathrm{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}\right),\quad Z\sim N(0,1).
+$$<p>Note that $\Vert Z+\sqrt{n}\theta\Vert^2 \sim\chi_{p,n\Vert\theta\Vert^{2}}^{2}\overset{d}{=}\chi_{p+2N}^{2}$ where $N\sim\text{Poisson}\left(\frac{n\Vert\theta\Vert^{2}}{2}\right)$, so</p>
+$$
+\mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}=\mathbb{E}\frac{1}{\chi_{p+2N}^{2}}=\mathbb{E}\frac{1}{p+2N-2}\geq\frac{1}{\mathbb{E}(p+2N-2)}=\frac{1}{p+n\Vert\theta\Vert^{2}-2}.
+$$$$
+\begin{aligned}
+R(\widehat{\theta}_{\mathrm{JS}},\theta) &\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}}{p+n\Vert\theta\Vert^{2}-2}\right) \\
+	&=\frac{1}{n}\frac{np\Vert\theta\Vert^{2}+2(p-2)}{p+n\Vert\theta\Vert^{2}-2} \\
+	&=\frac{1}{n}\left(2+\frac{(p-2)\Vert\theta\Vert^{2}}{p-2+n\Vert\theta\Vert^{2}}\right) \\
+	&=\frac{2}{n}+\frac{\frac{p-2}{n}\Vert\theta\Vert^{2}}{\frac{p-2}{n}+\Vert\theta\Vert^{2}}  \\
+	&\leq\frac{2}{n}+R(\widehat{\theta}_{c^{\ast}},\theta).
+\end{aligned}
+$$<p>It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so in high dimensions the optimal shrinkage estimator performs very closely to the James-Stein estimator.</p>
 
         </div>
         <div class="hx-mt-16"></div>
-        
+        <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
+        href="/docs/ms1/admissibility/"
+        title="Admissibility"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Admissibility</a><a
+        href="/docs/ms1/js/"
+        title="James-Stein and Optimal Shrinkage Estimators"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >James-Stein and Optimal Shrinkage Estimators<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
@@ -372,6 +571,30 @@
     <script defer src="/js/main.js" integrity=""></script>
 <script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
     <script defer src="/en.search.js" integrity=""></script>
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.7e5db7914b97e596a36c1abb67ccc7f174f8bb71d38c9a88c55b262ed1737f97.css" integrity="sha256-fl23kUuX5ZajbBq7Z8zH8XT4u3HTjJqIxVsmLtFzf5c=" />
+<script defer src="/lib/katex/katex.min.9f45307c5794ed247a0d095f3a62e52ef2215a67b2327203a7fd919959ae79d1.js" integrity="sha256-n0UwfFeU7SR6DQlfOmLlLvIhWmeyMnIDp/2RmVmuedE="></script>
+<script defer src="/lib/katex/auto-render.min.7b57d427ac6270677daf8d8380ded2cc73336f9149a167b8e1fe0d6ef66604ae.js" integrity="sha256-e1fUJ6xicGd9r42DgN7SzHMzb5FJoWe44f4NbvZmBK4="></script>
+<script defer src="/lib/katex/mhchem.min.f0ca03df194b8c3d6017ff455db6a0ef98857905663fa311a6cded788b15340b.js" integrity="sha256-8MoD3xlLjD1gF/9FXbag75iFeQVmP6MRps3teIsVNAs="></script>
+<script>
+  
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+        {left: "\\begin{align}", right: "\\end{align}", display: true},
+        {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+        {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+        {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        { left: "\\[", right: "\\]", display: true },
+      ],
+      throwOnError: false,
+    });
+  });
+</script>
 
   </body>
 </html>

@@ -405,7 +405,7 @@ $$&lt;p&gt;By the Lebesgue differentiation theorem, $G&amp;rsquo;(\theta)=\theta
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose \mathbb{E} _ \thetaf(T(X))=0$ for all $\theta\in\mathbb{R}$. Then&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose $\mathbb{E} _ {\theta} f(T(X)) = 0$ for all $\theta\in\mathbb{R}$. Then&lt;/p&gt;
 $$
 G(\theta)=\int_{\mathbb{R}}f(x)e^{-\frac{1}{2}(x-\theta)^{2}}\,dx=0\quad\text{for all }\theta\in\mathbb{R}.
 $$&lt;p&gt;By the Lebesgue differentiation theorem, we have $G&amp;rsquo;(\theta)=f(\theta)e^{-\frac{1}{2}(x-\theta)^{2}}$ almost everywhere. Since $G=0$, we have $G&amp;rsquo;=0$, which implies that $f=0$ almost everywhere.&lt;/p&gt;
@@ -770,7 +770,7 @@ $$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the sm
     </item>
     
     <item>
-      <title>James-Stein Estimator</title>
+      <title>James-Stein and Optimal Shrinkage Estimators</title>
       <link>http://localhost:1313/docs/ms1/js/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
       
@@ -778,16 +778,16 @@ $$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the sm
       <description>
         
         
-        &lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as&lt;/p&gt;
+        &lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as&lt;/p&gt;
 $$
-\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+\widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
 $$&lt;h2&gt;James-Stein estimator as an empirical Bayes estimator&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;james-stein-estimator-as-an-empirical-bayes-estimator&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#james-stein-estimator-as-an-empirical-bayes-estimator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood&lt;/p&gt;
 $$
 m(x|\tau)=\int p(x|\theta)\pi(\theta|\tau)\,d\theta.
 $$&lt;p&gt;Consider the prior $\theta|\tau^{2}\sim N(0,\tau^{2}I_{p})$. Then the Bayes estimator is&lt;/p&gt;
 $$
-\hat{\theta}=\mathbb{E}(\theta|X_{1},\ldots,X_{n})=\frac{n}{n+\frac{1}{\tau^{2}}}\overline{X}=\left(1-\frac{1}{n}\left(\frac{1}{\frac{1}{n}+\tau^{2}}\right)\right)\overline{X}.
+\widehat{\theta}=\mathbb{E}(\theta|X_{1},\ldots,X_{n})=\frac{n}{n+\frac{1}{\tau^{2}}}\overline{X}=\left(1-\frac{1}{n}\left(\frac{1}{\frac{1}{n}+\tau^{2}}\right)\right)\overline{X}.
 $$&lt;p&gt;Note that we have $X_{i}=\theta+Z_{i}$ where $Z_{i}\overset{\text{iid}}{\sim}N(0,I_{p})$, and $\theta=\tau W$ where $W\sim N(0,I_{p})$, so $X_{i}=\tau W+Z_{i}$ for $i=1,\ldots,n$. This gives&lt;/p&gt;
 $$
 \overline{X}=\tau W+\overline{Z}\sim N\left(0,\left(\tau^{2}+\frac{1}{n}\right)I_{p}\right).
@@ -799,7 +799,7 @@ $$
 \mathbb{E}\left(\frac{\tau^{2}+\frac{1}{n}}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{p-2}\implies\mathbb{E}\left(\frac{p-2}{\Vert\overline{X}\Vert^{2}}\right)=\frac{1}{\tau^{2}+\frac{1}{n}},
 $$&lt;p&gt;so $\frac{p-2}{\Vert\overline{X}\Vert^{2}}$ is unbiased estimator of $\frac{1}{\tau^{2}+\frac{1}{n}}$. Thus, the empirical Bayes estimator is&lt;/p&gt;
 $$
-\hat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
+\widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.
 $$&lt;h2&gt;Risk estimate for the James-Stein estimator&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;risk-estimate-for-the-james-stein-estimator&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#risk-estimate-for-the-james-stein-estimator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We shall prove that for $p \geq 3$, the James-Stein estimator has strictly smaller risk than the sample mean at every $\theta \in \mathbb{R}^p$. We will need Stein&amp;rsquo;s lemma for the proof.&lt;/p&gt;
 &lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
@@ -833,6 +833,178 @@ $$
 $$&lt;p&gt;where the third equality follows from the $p=1$ case.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $p \geq 3$. Then&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2}&lt;\frac{p}{n}=\mathbb{E}_{\theta}\Vert\overline{X}-\theta\Vert^{2}
+$$&lt;p&gt;for all $\theta\in\mathbb{R}^{p}$.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Let us write $\overline{X}=\frac{1}{\sqrt{n}}(\mu+Z)$ where $Z\sim N(0,I_{p})$ and $\mu=\sqrt{n}\theta$. We have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} &amp;=\mathbb{E}_{\theta}\left\Vert \left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}-\theta\right\Vert ^{2} \\
+	&amp;=\mathbb{E}_{\theta}\left\Vert \overline{X}-\theta-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\overline{X}\right\Vert ^{2} \\
+	&amp;=\mathbb{E}_{\theta}\left\Vert \frac{1}{\sqrt{n}}Z-\frac{p-2}{\Vert\mu+Z\Vert^{2}}\frac{1}{\sqrt{n}}(\mu+Z)\right\Vert ^{2} \\
+	&amp;=\frac{1}{n}\mathbb{E}_{\theta}\left\Vert Z-\frac{p-2}{\Vert\mu+Z\Vert^{2}}(\mu+Z)\right\Vert ^{2} \\
+	&amp;=\frac{1}{n}\left(\mathbb{E}_{\theta}\Vert Z\Vert^{2}+\mathbb{E}_{\theta}\frac{(p-2)^{2}}{\Vert\mu+Z\Vert^{2}}-2(p-2)\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle \right).
+\end{aligned}
+$$&lt;p&gt;We have&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle =\mathbb{E}_{\theta}\langle Z,g(Z)\rangle,
+$$&lt;p&gt;where $g_{j}(z)=\frac{\mu_{j}+z_{j}}{\Vert\mu+z\Vert^{2}}$. Computing the derivative gives&lt;/p&gt;
+$$
+\frac{\partial}{\partial z_{j}}g_{j}(z)=\frac{\Vert\mu+z\Vert^{2}-2(\mu_{j}+z_{j})^{2}}{\Vert\mu+z\Vert^{4}},
+$$&lt;p&gt;so by Stein&amp;rsquo;s lemma we have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle  &amp;=\sum_{j=1}^{p}\mathbb{E}_{\theta}\frac{\partial}{\partial z_{j}}g_{j}(Z) \\
+	&amp;=\sum_{j=1}^{p}\mathbb{E}_{\theta}\frac{\Vert\mu+Z\Vert^{2}-2(\mu_{j}+Z_{j})^{2}}{\Vert\mu+Z\Vert^{4}} \\
+	&amp;=\mathbb{E}_{\theta}\frac{(p-2)\Vert\mu+Z\Vert^{2}}{\Vert\mu+Z\Vert^{4}} \\
+	&amp;=\mathbb{E}_{\theta}\frac{p-2}{\Vert\mu+Z\Vert^{2}}.
+\end{aligned}
+$$&lt;p&gt;Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} &amp;= \frac{1}{n}\left(\mathbb{E}_{\theta}\Vert Z\Vert^{2}+\mathbb{E}_{\theta}\frac{(p-2)^{2}}{\Vert\mu+Z\Vert^{2}}-2(p-2)\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle \right). \\
+	&amp;=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}_{\theta}\frac{1}{\Vert\mu+Z\Vert^{2}}\right) \\
+	&amp;&lt;\frac{p}{n}.
+\end{aligned}
+$$&lt;p&gt;We see that&lt;/p&gt;
+$$
+R(\widehat{\theta}_{\text{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}_{\theta}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}\right),\quad Z\sim N(0,1).
+$$&lt;p&gt;By symmetry, $R(\widehat{\theta} _ {\text{JS}},\theta)$ depends only on the magnitude of $\theta$, and we have&lt;/p&gt;
+$$
+\lim_{\Vert\theta\Vert\to\infty}R(\widehat{\theta}_{\text{JS}},\theta)=\frac{p}{n},\quad\text{so }\sup_{\theta\in\mathbb{R}^{p}}R(\widehat{\theta}_{\text{JS}},\theta)=\sup_{\theta\in\mathbb{R}^{p}}R(\overline{X},\theta).
+$$&lt;h2&gt;Optimal shrinkage estimator&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;optimal-shrinkage-estimator&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#optimal-shrinkage-estimator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Let us now consider the estimator $\widehat{\theta} _ {c}=c\overline{X}$ where $c$ is to be determined. We want to find $c^{\ast}$ which minimizes $R(\widehat{\theta} _ {c},\theta)$. We have&lt;/p&gt;
+$$
+R(\widehat{\theta} _ {c},\theta) = \mathbb{E} _ {\theta}\Vert c\overline{X}-c\theta\Vert^{2}+\Vert c\theta-\theta\Vert^{2}=c^{2}\frac{p}{n}+(c-1)^{2}\Vert\theta\Vert^{2},
+$$&lt;p&gt;so&lt;/p&gt;
+$$
+\frac{d}{dc}R(\widehat{\theta}_{c},\theta)=2c\frac{p}{n}+2(c-1)\Vert\theta\Vert^{2}\implies c^{\ast}=\frac{\Vert\theta\Vert^{2}}{\frac{p}{n}+\Vert\theta\Vert^{2}}.
+$$&lt;p&gt;The estimator&lt;/p&gt;
+$$
+\widehat{\theta}_{c^{\ast}}=\frac{\Vert\theta\Vert^{2}}{\frac{p}{n}+\Vert\theta\Vert^{2}}\overline{X}=\left(1-\frac{p}{p+n\Vert\theta\Vert^{2}}\right)\overline{X}
+$$&lt;p&gt;is called the optimal shrinkage estimator, also known as the oracle estimator. This is not an estimator in the true sense because it depends on the true parameter. The risk function is&lt;/p&gt;
+$$
+\begin{aligned}
+R(\widehat{\theta}_{c^{\ast}},\theta) &amp;= \left(\frac{b}{a+b}\right)^{2}a+\left(\frac{a}{a+b}\right)^{2}b \\ 
+&amp;=\frac{b^{2}a+a^{2}b}{(a+b)^{2}} \\
+&amp;=\frac{ab}{a+b} \\
+&amp;=\frac{\frac{p}{n}\Vert\theta\Vert^{2}}{\frac{p}{n}+\Vert\theta\Vert^{2}} \\
+&amp;\leq\min\left(\frac{p}{n},\Vert\theta\Vert^{2}\right),
+\end{aligned}
+$$&lt;p&gt;where $a=\frac{p}{n}$ and $b=\Vert\theta\Vert^{2}$. The James-Stein estimator is nearly optimal in the following sense.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Oracle Inequality&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For every $\theta \in \mathbb{R}^p$, we have&lt;/p&gt;
+$$
+R(\widehat{\theta}_{\mathrm{JS}},\theta)\leq R(\widehat{\theta}_{c^\ast},\theta)+\frac{2}{n} \leq \min\left(\frac{p}{n},\Vert\theta\Vert^{2}\right) + \frac{2}{n}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Recall that&lt;/p&gt;
+$$
+R(\widehat{\theta}_{\mathrm{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}\right),\quad Z\sim N(0,1).
+$$&lt;p&gt;Note that $\Vert Z+\sqrt{n}\theta\Vert^2 \sim\chi_{p,n\Vert\theta\Vert^{2}}^{2}\overset{d}{=}\chi_{p+2N}^{2}$ where $N\sim\text{Poisson}\left(\frac{n\Vert\theta\Vert^{2}}{2}\right)$, so&lt;/p&gt;
+$$
+\mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}=\mathbb{E}\frac{1}{\chi_{p+2N}^{2}}=\mathbb{E}\frac{1}{p+2N-2}\geq\frac{1}{\mathbb{E}(p+2N-2)}=\frac{1}{p+n\Vert\theta\Vert^{2}-2}.
+$$$$
+\begin{aligned}
+R(\widehat{\theta}_{\mathrm{JS}},\theta) &amp;\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}}{p+n\Vert\theta\Vert^{2}-2}\right) \\
+	&amp;=\frac{1}{n}\frac{np\Vert\theta\Vert^{2}+2(p-2)}{p+n\Vert\theta\Vert^{2}-2} \\
+	&amp;=\frac{1}{n}\left(2+\frac{(p-2)\Vert\theta\Vert^{2}}{p-2+n\Vert\theta\Vert^{2}}\right) \\
+	&amp;=\frac{2}{n}+\frac{\frac{p-2}{n}\Vert\theta\Vert^{2}}{\frac{p-2}{n}+\Vert\theta\Vert^{2}}  \\
+	&amp;\leq\frac{2}{n}+R(\widehat{\theta}_{c^{\ast}},\theta).
+\end{aligned}
+$$&lt;p&gt;It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so in high dimensions the optimal shrinkage estimator performs very closely to the James-Stein estimator.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Gaussian Sequence Model</title>
+      <link>http://localhost:1313/docs/ms1/nonparametric/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/nonparametric/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;The problem of density estimation&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-problem-of-density-estimation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-problem-of-density-estimation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Let $(\varphi _ {j}) _ {j=1}^{\infty}$ be the orthonormal basis for $L^{2}([0,1])$ given by $\{ 1, \sqrt{2}\sin(2\pi j\cdot), \sqrt{2}\cos(2\pi j\cdot) : j=1,2,\ldots \}.$ Given $\alpha&amp;gt;0$, we define the Sobolev ball&lt;/p&gt;
+$$
+S_{\alpha}(R)=\left\{ f\in L^{2}([0,1]),\,f=\sum_{j}\theta_{j}\varphi_{j},\,f\geq0,\:\int f=1,\,\sum_{j}j^{2\alpha}\theta_{j}^{2}\leq R^{2}\right\} .
+$$&lt;p&gt;The parameter $\alpha$ is called the smoothness parameter because for a function $f\in C^{\alpha}([0,1])$ with Fourier series expansion $f(x)=a_{0}+\sum_{j=1}^{\infty}\left(a_{j}\sin(2\pi jx)+b_{j}\cos(2\pi jx)\right)$, we have&lt;/p&gt;
+$$
+\Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}+\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}+b_{j}^{2}).
+$$&lt;p&gt;Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have&lt;/p&gt;
+$$
+\frac{1}{n}\sum_{i=1}^{n}\int f_{i}\varphi_{j}\overset{d}{\approx}N\left(\theta_{j},\frac{\text{Var}(\int f_{j}\varphi_{j})}{n}\right).
+$$&lt;p&gt;However, instead of considering density estimation directly, we can consider an asymptotically equivalent model known as the Gaussian sequence model. Most nonparametric models such as the white noise model and nonparametric regression are asymptotically equivalent to the Gaussian sequence model.&lt;/p&gt;
+&lt;h2&gt;Gaussian sequence model&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;gaussian-sequence-model&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#gaussian-sequence-model&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In the Gaussian sequence model, we have observations $X_{j}=\theta_{j}+\frac{1}{\sqrt{n}}Z_{j}$ where $Z_{j}\overset{\text{iid}}{\sim}N(0,1)$ for $j=1,2,\ldots$ and $\theta=(\theta_{j})\in\Theta_{\alpha}(R)=\{\theta:\sum_{j}j^{2\alpha}\theta_{j}^{2} \leq R^2\}$.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;ℹ️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Note that in the Gaussian sequence model, the observations are independent but not identically distributed. However, you can think of each observation to be the average of i.i.d. sequences $Y_1, \ldots, Y_n$ where $Y_{ij} = \theta_j + Z_{ij}$ and $Z_{ij} \overset{\text{iid}}{\sim} N(0,1)$.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Consider the estimator $\widehat{\theta}$ where&lt;/p&gt;
+$$
+\widehat{\theta}_{j}=\begin{cases}
+X_{j} &amp; \text{if }j\leq k,\\
+0 &amp; \text{if }j&gt;k.
+\end{cases}
+$$&lt;p&gt;Then the risk is&lt;/p&gt;
+$$
+\mathbb{E} _ \theta \Vert\widehat{\theta} - \theta\Vert^{2}	=\sum_{j=1}^{k}\mathbb{E}(X_{j}-\theta_{j})^{2}+\sum_{j&gt;k}\theta_{j}^{2}=\frac{k}{n}+\sum_{j&gt;k}\theta_{j}^{2}\leq\frac{k}{n}+\frac{R^{2}}{k^{2\alpha}}.
+$$&lt;p&gt;If $k$ is small then $R^{2}k^{-2\alpha}$ is large while if $k$ is large then $kn^{-1}$ is large, so the threshold $k$ should be chosen to balance the two terms. Setting the terms to be equal, we find that $k\asymp n^{\frac{1}{2\alpha+1}}$. With this choice, we have&lt;/p&gt;
+$$
+\mathbb{E} _ \theta \Vert\widehat{\theta}-\theta\Vert^{2}\leq Cn^{-\frac{2\alpha}{2\alpha+1}}.
+$$&lt;p&gt;This rate is optimal in the sense that the minimax risk is&lt;/p&gt;
+$$
+\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}=(1+o(1))C_{\alpha,R}n^{-\frac{2\alpha}{\alpha+1}},
+$$&lt;p&gt;where $C_{\alpha,R}$ is called the Pinsker constant. However, an issue with this estimator is that the choice of the threshold $k$ requires knowledge of the smoothness parameter $\alpha$ which is not known.&lt;/p&gt;
+&lt;h3&gt;Blockwise James-Stein estimator&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;blockwise-james-stein-estimator&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#blockwise-james-stein-estimator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let us now consider the blockwise James-Stein estimator which does not require knowledge of the smoothness parameter. Let $\{1,2,\ldots,n\}=B_{1}\cup\cdots\cup B_{m}$, where $B_{\ell}={3^{\ell-1}+1,\ldots,3^{\ell}}$ and $m=\log_{3} n$. Note that $X _ \ell \sim N(\theta _ {B _ \ell}, \frac{1}{n} I _ {|B_\ell|}).$ Consider the estimator&lt;/p&gt;
+$$
+\widehat{\theta}=\left(\begin{array}{c}
+\widehat{\theta}_{B_{1}}\\
+\widehat{\theta}_{B_{2}}\\
+\vdots\\
+\widehat{\theta}_{B_{m}}\\
+0
+\end{array}\right),\quad\widehat{\theta}_{B_{\ell}}=\left(1-\frac{|B_{\ell}|-2}{n\Vert X_{\ell}\Vert^{2}}\right) X_{\ell}.
+$$&lt;p&gt;Then by the oracle inequality we have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E} _ \theta \Vert\widehat{\theta}-\theta\Vert^{2} &amp;=\sum_{j=1}^{m}\mathbb{E}_ \theta \Vert\widehat{\theta}_{B_{\ell}}-\theta_{B_{\ell}}\Vert^{2}+\sum_{j&gt;m}\theta_{j}^{2} \\
+	&amp;\leq\sum_{\ell=1}^{m}\min\left(\frac{|B_{\ell}|}{n},\Vert\theta_{B_{\ell}}\Vert^{2}\right)+\frac{2m}{n}+\sum_{j&gt;n}\theta_{j}^{2}.
+\end{aligned}
+$$&lt;p&gt;Note that&lt;/p&gt;
+$$
+\frac{2m}{n}=\frac{\log_{3}n}{n}=o\left(n^{-\frac{2\alpha}{\alpha+1}}\right)\quad\text{and}\quad\sum_{j&gt;n}\theta_{j}^{2}\leq\frac{R^{2}}{n^{2\alpha}}=o\left(n^{-\frac{2\alpha}{\alpha+1}}\right).
+$$&lt;p&gt;Choosing $L=\min\{\ell\in\mathbb{N}:3^{\ell}\geq n^{\frac{1}{2\alpha+1}}\}$, we have $3^{L-1}\leq n^{\frac{1}{2\alpha+1}}\leq3^{L}$, so&lt;/p&gt;
+$$
+\begin{aligned}
+\sum_{\ell=1}^{m}\min\left(\frac{|B_{\ell}|}{n},\Vert\theta_{B_{\ell}}\Vert^{2}\right)	&amp;\leq\sum_{\ell=1}^{L}\frac{|B_{\ell}|}{n}+\sum_{\ell=L+1}^{m}\Vert\theta_{B_{\ell}}\Vert^{2} \\
+	&amp;\leq\sum_{\ell=1}^{L}\frac{2}{3n}3^{\ell}+\sum_{j&gt;3^{L}}|\theta_{j}|^{2} \\
+	&amp;\lesssim \frac{3^{L}}{n}+\sum_{j&gt;n^{\frac{1}{2\alpha+1}}}|\theta_{j}|^{2} \\
+	&amp;\lesssim \frac{n^{\frac{1}{2\alpha+1}}}{n}+\left(n^{\frac{1}{2\alpha+1}} \\\right)^{-2\alpha} \\
+	&amp;\lesssim n^{-\frac{2\alpha}{2\alpha+1}}.
+\end{aligned}
+$$&lt;p&gt;Adding up all the terms, we get $\mathbb{E} _ \theta \Vert\widehat{\theta} - \theta\Vert^{2}\lesssim n^{-\frac{2\alpha}{2\alpha+1}}$. So the block-wise James-Stein estimator also achieves the minimax rate.&lt;/p&gt;
 
       </description>
     </item>

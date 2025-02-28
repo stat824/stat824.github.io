@@ -52,7 +52,7 @@ Sub-family method How do we find minimal sufficient statistic? The first method 
 Lemma Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta_{0})$ and sufficient for $(P_{\theta}:\theta\in\Theta)$. Then $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta)$. Proof Suppose that $T$ is sufficient for $(P_{\theta}:\theta\in\Theta)$. Then $T$ is sufficient for $(P_{\theta}:\theta\in\Theta_{0})$, so since $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta_{0})$, it follows that $S$ is a function of $T$. Theorem For a discrete or continuous statistical model $(P_{\theta}:\theta\in{\theta_{0},\ldots,\theta_{d}})$ with finite parameter space and common support,">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="903">
+  <meta itemprop="wordCount" content="906">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Minimal Sufficiency and Completeness">
   <meta name="twitter:description" content="We say that a statistic $S$ is minimal sufficient if it is sufficient and for every sufficient $T$, there is a measurable function $f$ such that $S=f(T)$.
@@ -251,7 +251,15 @@ Lemma Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/js/"
     
-  >James-Stein Estimator
+  >James-Stein and Optimal Shrinkage Estimators
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/nonparametric/"
+    
+  >Gaussian Sequence Model
     </a>
               
             </li></ul>
@@ -333,7 +341,15 @@ Lemma Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/js/"
     
-  >James-Stein Estimator
+  >James-Stein and Optimal Shrinkage Estimators
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/nonparametric/"
+    
+  >Gaussian Sequence Model
     </a>
               
             </li></ul>
@@ -546,7 +562,7 @@ $$<p>By the Lebesgue differentiation theorem, $G&rsquo;(\theta)=\theta^{n-1}f(\t
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose \mathbb{E} _ \thetaf(T(X))=0$ for all $\theta\in\mathbb{R}$. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{iid}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $T(X)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}\sim N(\theta,1)$. Suppose $\mathbb{E} _ {\theta} f(T(X)) = 0$ for all $\theta\in\mathbb{R}$. Then</p>
 $$
 G(\theta)=\int_{\mathbb{R}}f(x)e^{-\frac{1}{2}(x-\theta)^{2}}\,dx=0\quad\text{for all }\theta\in\mathbb{R}.
 $$<p>By the Lebesgue differentiation theorem, we have $G&rsquo;(\theta)=f(\theta)e^{-\frac{1}{2}(x-\theta)^{2}}$ almost everywhere. Since $G=0$, we have $G&rsquo;=0$, which implies that $f=0$ almost everywhere.</p>
