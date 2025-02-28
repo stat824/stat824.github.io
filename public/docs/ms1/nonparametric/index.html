@@ -13,7 +13,7 @@
 <title>Gaussian Sequence Model – Statistics Notes</title>
   <meta name="description" content="The problem of density estimation Let $(\varphi _ {j}) _ {j=1}^{\infty}$ be the orthonormal basis for $L^{2}([0,1])$ given by $\{ 1, \sqrt{2}\sin(2\pi j\cdot), \sqrt{2}\cos(2\pi j\cdot) : j=1,2,\ldots \}.$ Given $\alpha&gt;0$, we define the Sobolev ball
 $$ S_{\alpha}(R)=\left\{ f\in L^{2}([0,1]),\,f=\sum_{j}\theta_{j}\varphi_{j},\,f\geq0,\:\int f=1,\,\sum_{j}j^{2\alpha}\theta_{j}^{2}\leq R^{2}\right\} . $$The parameter $\alpha$ is called the smoothness parameter because for a function $f\in C^{\alpha}([0,1])$ with Fourier series expansion $f(x)=a_{0}&#43;\sum_{j=1}^{\infty}\left(a_{j}\sin(2\pi jx)&#43;b_{j}\cos(2\pi jx)\right)$, we have
-$$ \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}). $$Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have" /><link rel="canonical" href="http://localhost:1313/docs/ms1/nonparametric/" itemprop="url" />
+$$ \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}). $$Let $f_{1},\ldots,f_{n}\overset{\text{i.i.d.}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have" /><link rel="canonical" href="http://localhost:1313/docs/ms1/nonparametric/" itemprop="url" />
 
 <meta property="og:title" content="Gaussian Sequence Model" />
 <meta property="og:description" content="The problem of density estimation
@@ -23,7 +23,7 @@ S_{\alpha}(R)=\left\{ f\in L^{2}([0,1]),\,f=\sum_{j}\theta_{j}\varphi_{j},\,f\ge
 $$The parameter $\alpha$ is called the smoothness parameter because for a function $f\in C^{\alpha}([0,1])$ with Fourier series expansion $f(x)=a_{0}&#43;\sum_{j=1}^{\infty}\left(a_{j}\sin(2\pi jx)&#43;b_{j}\cos(2\pi jx)\right)$, we have
 $$
 \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}).
-$$Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have" />
+$$Let $f_{1},\ldots,f_{n}\overset{\text{i.i.d.}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/ms1/nonparametric/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
@@ -32,15 +32,15 @@ $$Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then est
   <meta itemprop="name" content="Gaussian Sequence Model">
   <meta itemprop="description" content="The problem of density estimation Let $(\varphi _ {j}) _ {j=1}^{\infty}$ be the orthonormal basis for $L^{2}([0,1])$ given by $\{ 1, \sqrt{2}\sin(2\pi j\cdot), \sqrt{2}\cos(2\pi j\cdot) : j=1,2,\ldots \}.$ Given $\alpha&gt;0$, we define the Sobolev ball
 $$ S_{\alpha}(R)=\left\{ f\in L^{2}([0,1]),\,f=\sum_{j}\theta_{j}\varphi_{j},\,f\geq0,\:\int f=1,\,\sum_{j}j^{2\alpha}\theta_{j}^{2}\leq R^{2}\right\} . $$The parameter $\alpha$ is called the smoothness parameter because for a function $f\in C^{\alpha}([0,1])$ with Fourier series expansion $f(x)=a_{0}&#43;\sum_{j=1}^{\infty}\left(a_{j}\sin(2\pi jx)&#43;b_{j}\cos(2\pi jx)\right)$, we have
-$$ \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}). $$Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have">
+$$ \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}). $$Let $f_{1},\ldots,f_{n}\overset{\text{i.i.d.}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="453">
+  <meta itemprop="wordCount" content="438">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Gaussian Sequence Model">
   <meta name="twitter:description" content="The problem of density estimation Let $(\varphi _ {j}) _ {j=1}^{\infty}$ be the orthonormal basis for $L^{2}([0,1])$ given by $\{ 1, \sqrt{2}\sin(2\pi j\cdot), \sqrt{2}\cos(2\pi j\cdot) : j=1,2,\ldots \}.$ Given $\alpha&gt;0$, we define the Sobolev ball
 $$ S_{\alpha}(R)=\left\{ f\in L^{2}([0,1]),\,f=\sum_{j}\theta_{j}\varphi_{j},\,f\geq0,\:\int f=1,\,\sum_{j}j^{2\alpha}\theta_{j}^{2}\leq R^{2}\right\} . $$The parameter $\alpha$ is called the smoothness parameter because for a function $f\in C^{\alpha}([0,1])$ with Fourier series expansion $f(x)=a_{0}&#43;\sum_{j=1}^{\infty}\left(a_{j}\sin(2\pi jx)&#43;b_{j}\cos(2\pi jx)\right)$, we have
-$$ \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}). $$Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have">
+$$ \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}&#43;\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}&#43;b_{j}^{2}). $$Let $f_{1},\ldots,f_{n}\overset{\text{i.i.d.}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -400,17 +400,17 @@ S_{\alpha}(R)=\left\{ f\in L^{2}([0,1]),\,f=\sum_{j}\theta_{j}\varphi_{j},\,f\ge
 $$<p>The parameter $\alpha$ is called the smoothness parameter because for a function $f\in C^{\alpha}([0,1])$ with Fourier series expansion $f(x)=a_{0}+\sum_{j=1}^{\infty}\left(a_{j}\sin(2\pi jx)+b_{j}\cos(2\pi jx)\right)$, we have</p>
 $$
 \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}+\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}+b_{j}^{2}).
-$$<p>Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have</p>
+$$<p>Let $f_{1},\ldots,f_{n}\overset{\text{i.i.d.}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have</p>
 $$
 \frac{1}{n}\sum_{i=1}^{n}\int f_{i}\varphi_{j}\overset{d}{\approx}N\left(\theta_{j},\frac{\text{Var}(\int f_{j}\varphi_{j})}{n}\right).
 $$<p>However, instead of considering density estimation directly, we can consider an asymptotically equivalent model known as the Gaussian sequence model. Most nonparametric models such as the white noise model and nonparametric regression are asymptotically equivalent to the Gaussian sequence model.</p>
 <h2>Gaussian sequence model<span class="hx-absolute -hx-mt-20" id="gaussian-sequence-model"></span>
-    <a href="#gaussian-sequence-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>In the Gaussian sequence model, we have observations $X_{j}=\theta_{j}+\frac{1}{\sqrt{n}}Z_{j}$ where $Z_{j}\overset{\text{iid}}{\sim}N(0,1)$ for $j=1,2,\ldots$ and $\theta=(\theta_{j})\in\Theta_{\alpha}(R)=\{\theta:\sum_{j}j^{2\alpha}\theta_{j}^{2} \leq R^2\}$.</p>
+    <a href="#gaussian-sequence-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>In the Gaussian sequence model, we have observations $X_{j}=\theta_{j}+\frac{1}{\sqrt{n}}Z_{j}$ where $Z_{j}\overset{\text{i.i.d.}}{\sim}N(0,1)$ for $j=1,2,\ldots$ and $\theta=(\theta_{j})\in\Theta_{\alpha}(R)=\{\theta:\sum_{j}j^{2\alpha}\theta_{j}^{2} \leq R^2\}$.</p>
 <div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"><div class="hx-select-none hx-text-xl" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">ℹ️</div></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Note that in the Gaussian sequence model, the observations are independent but not identically distributed. However, you can think of each observation to be the average of i.i.d. sequences $Y_1, \ldots, Y_n$ where $Y_{ij} = \theta_j + Z_{ij}$ and $Z_{ij} \overset{\text{iid}}{\sim} N(0,1)$.</div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Note that in the Gaussian sequence model, the observations are independent but not identically distributed. However, you can think of each observation to be the average of i.i.d. sequences $Y_1, \ldots, Y_n$ where $Y_{ij} = \theta_j + Z_{ij}$ and $Z_{ij} \overset{\text{i.i.d.}}{\sim} N(0,1)$.</div>
   </div>
 </div>
 
@@ -431,7 +431,7 @@ $$
 \inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}=(1+o(1))C_{\alpha,R}n^{-\frac{2\alpha}{\alpha+1}},
 $$<p>where $C_{\alpha,R}$ is called the Pinsker constant. However, an issue with this estimator is that the choice of the threshold $k$ requires knowledge of the smoothness parameter $\alpha$ which is not known.</p>
 <h3>Blockwise James-Stein estimator<span class="hx-absolute -hx-mt-20" id="blockwise-james-stein-estimator"></span>
-    <a href="#blockwise-james-stein-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Let us now consider the blockwise James-Stein estimator which does not require knowledge of the smoothness parameter. Let $\{1,2,\ldots,n\}=B_{1}\cup\cdots\cup B_{m}$, where $B_{\ell}={3^{\ell-1}+1,\ldots,3^{\ell}}$ and $m=\log_{3} n$. Note that $X _ \ell \sim N(\theta _ {B _ \ell}, \frac{1}{n} I _ {|B_\ell|}).$ Consider the estimator</p>
+    <a href="#blockwise-james-stein-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Let us now consider the blockwise James-Stein estimator which does not require knowledge of the smoothness parameter. Let $\{1,2,\ldots,n\}=B_{1}\cup\cdots\cup B_{m}$, where $B_{\ell}={3^{\ell-1}+1,\ldots,3^{\ell}}$ and $m=\log_{3} n$. Consider the estimator</p>
 $$
 \widehat{\theta}=\left(\begin{array}{c}
 \widehat{\theta}_{B_{1}}\\

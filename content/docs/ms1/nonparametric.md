@@ -20,7 +20,7 @@ $$
 \Vert f^{(\alpha)}\Vert^{2}=a_{0}^{2}+\frac{1}{2}\sum_{j=1}^{\infty}(2\pi j)^{2\alpha}(a_{j}^{2}+b_{j}^{2}).
 $$
 
-Let $f_{1},\ldots,f_{n}\overset{\text{iid}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have
+Let $f_{1},\ldots,f_{n}\overset{\text{i.i.d.}}{\sim}f\in S_{\alpha}(R)$. Then estimating $f$ is equivalent to estimating the coefficients $\theta_{j}$. Since $\theta_{j}=\int f\varphi_{j}$, by the central limit theorem, we have
 
 $$
 \frac{1}{n}\sum_{i=1}^{n}\int f_{i}\varphi_{j}\overset{d}{\approx}N\left(\theta_{j},\frac{\text{Var}(\int f_{j}\varphi_{j})}{n}\right).
@@ -30,10 +30,10 @@ However, instead of considering density estimation directly, we can consider an 
 
 ## Gaussian sequence model
 
-In the Gaussian sequence model, we have observations $X_{j}=\theta_{j}+\frac{1}{\sqrt{n}}Z_{j}$ where $Z_{j}\overset{\text{iid}}{\sim}N(0,1)$ for $j=1,2,\ldots$ and $\theta=(\theta_{j})\in\Theta_{\alpha}(R)=\\{\theta:\sum_{j}j^{2\alpha}\theta_{j}^{2} \leq R^2\\}$. 
+In the Gaussian sequence model, we have observations $X_{j}=\theta_{j}+\frac{1}{\sqrt{n}}Z_{j}$ where $Z_{j}\overset{\text{i.i.d.}}{\sim}N(0,1)$ for $j=1,2,\ldots$ and $\theta=(\theta_{j})\in\Theta_{\alpha}(R)=\\{\theta:\sum_{j}j^{2\alpha}\theta_{j}^{2} \leq R^2\\}$. 
 
 {{< callout type="info" >}}
-Note that in the Gaussian sequence model, the observations are independent but not identically distributed. However, you can think of each observation to be the average of i.i.d. sequences $Y_1, \ldots, Y_n$ where $Y_{ij} = \theta_j + Z_{ij}$ and $Z_{ij} \overset{\text{iid}}{\sim} N(0,1)$.  
+Note that in the Gaussian sequence model, the observations are independent but not identically distributed. However, you can think of each observation to be the average of i.i.d. sequences $Y_1, \ldots, Y_n$ where $Y_{ij} = \theta_j + Z_{ij}$ and $Z_{ij} \overset{\text{i.i.d.}}{\sim} N(0,1)$.  
 {{< /callout >}}
 
 Consider the estimator $\widehat{\theta}$ where
@@ -67,7 +67,7 @@ where $C_{\alpha,R}$ is called the Pinsker constant. However, an issue with this
 
 ### Blockwise James-Stein estimator
 
-Let us now consider the blockwise James-Stein estimator which does not require knowledge of the smoothness parameter. Let $\\{1,2,\ldots,n\\}=B_{1}\cup\cdots\cup B_{m}$, where $B_{\ell}=\{3^{\ell-1}+1,\ldots,3^{\ell}\}$ and $m=\log_{3} n$. Note that $X _ \ell \sim N(\theta _ {B _ \ell}, \frac{1}{n} I _ {|B_\ell|}).$ Consider the estimator
+Let us now consider the blockwise James-Stein estimator which does not require knowledge of the smoothness parameter. Let $\\{1,2,\ldots,n\\}=B_{1}\cup\cdots\cup B_{m}$, where $B_{\ell}=\{3^{\ell-1}+1,\ldots,3^{\ell}\}$ and $m=\log_{3} n$. Consider the estimator
 
 $$
 \widehat{\theta}=\left(\begin{array}{c}
