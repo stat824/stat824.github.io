@@ -24,7 +24,7 @@
   <meta itemprop="description" content="In a two-point test, we want to decide between the null hypothesis $H_{0}:X\sim P$ and the alternative hypothesis $H_{1}:X\sim Q$. The testing function is a function $\phi$ which maps the data $X$ to $\{0,1\}$. We define the Type-I error to be $P\phi:=\mathbb{E} _ {X\sim P}\phi(X)$ and the Type-II error to be $Q(1-\phi) := \mathbb{E} _ {X\sim Q}(1-\phi(X))$. The testing error is then $P\phi&#43;Q(1-\phi)$, and the optimal testing error is $\inf_{\phi}(P\phi&#43;Q(1-\phi))$.">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="478">
+  <meta itemprop="wordCount" content="696">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Two-Point Hypothesis Testing">
   <meta name="twitter:description" content="In a two-point test, we want to decide between the null hypothesis $H_{0}:X\sim P$ and the alternative hypothesis $H_{1}:X\sim Q$. The testing function is a function $\phi$ which maps the data $X$ to $\{0,1\}$. We define the Type-I error to be $P\phi:=\mathbb{E} _ {X\sim P}\phi(X)$ and the Type-II error to be $Q(1-\phi) := \mathbb{E} _ {X\sim Q}(1-\phi(X))$. The testing error is then $P\phi&#43;Q(1-\phi)$, and the optimal testing error is $\inf_{\phi}(P\phi&#43;Q(1-\phi))$.">
@@ -237,6 +237,12 @@
                 class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
               >Le Cam’s two point method</a>
             </li>
+          <li>
+              <a
+                href="#minimax-lower-bound-for-gaussian-sequence-model"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Minimax lower bound for Gaussian sequence model</a>
+            </li>
           </ul>
   
               
@@ -364,6 +370,10 @@
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
         <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#le-cams-two-point-method">Le Cam’s two point method
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#minimax-lower-bound-for-gaussian-sequence-model">Minimax lower bound for Gaussian sequence model
         </a>
       </li></ul>
       <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
@@ -546,7 +556,36 @@ $$</div>
   </div>
 </div>
 
-
+<h2>Minimax lower bound for Gaussian sequence model<span class="hx-absolute -hx-mt-20" id="minimax-lower-bound-for-gaussian-sequence-model"></span>
+    <a href="#minimax-lower-bound-for-gaussian-sequence-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Now we want to prove the minimax lower bound for the Gaussian sequence problem. Recall that we have observations $X_{j}\sim N(\theta_{j},\frac{1}{n})$, $j\in\mathbb{N}$, where $\theta\in\Theta_{\alpha}(R)=\{\theta:\sum_{j=1}^{\infty}j^{2\alpha}\theta_{j}^{2}\leq R^{2}\}$. We want to show that</p>
+$$
+\inf_{\hat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\hat{\theta}-\theta\Vert^{2}\geq cn^{\frac{-2\alpha}{2\alpha+1}}.
+$$<p>Let us define $\Theta_{0}=\{\theta:\theta_{j}\in\{0,\frac{1}{\sqrt{n}}\}\text{ for }j=1,\ldots,k,\theta_{j}=0\text{ for }j&gt;k\}$. Then $|\Theta_{0}|=2^{k}$. To ensure that $\Theta_{0}\subseteq\Theta_{\alpha}(R)$, we note that</p>
+$$
+\sum_{j=1}^{\infty}j^{2\alpha}\theta_{j}^{2}\leq\frac{1}{n}\sum_{j=1}^{k}j^{2\alpha}\leq\frac{k^{2\alpha+1}}{n}.
+$$<p>Solving $\frac{k^{2\alpha+1}}{n}\leq R^{2}$ gives $k\asymp n^{\frac{1}{2\alpha+1}}$. Let us introduce the notation $\theta_{-j}$ to denote $(\theta_1, \ldots, \theta_{j-1}, \theta_{j+1}, \ldots, \theta_k)$. We also write $\operatornamewithlimits{ave}_{x\in S} f(x)$ to denote the average of $f(x)$ over $x \in S$ where $S$ is a finite set. Then</p>
+$$
+\begin{aligned}
+\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2} &\geq\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{0}}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2} \\
+	&\geq\inf_{\widehat{\theta}}\operatornamewithlimits{ave}_{\theta\in\Theta_{0}}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2} \\
+	&\geq\inf_{\widehat{\theta}}\operatornamewithlimits{ave}_{\theta\in\Theta_{0}}\sum_{j=1}^{k}(\widehat{\theta}_{j}-\theta_{j})^{2} \\
+	&=\inf_{\widehat{\theta}}\sum_{j=1}^{k}\operatornamewithlimits{ave}_{\theta\in\Theta_{0}}\mathbb{E}_{\theta}(\widehat{\theta}_{j}-\theta_{j})^{2} \\
+	&=\inf_{\widehat{\theta}}\sum_{j=1}^{k}\operatornamewithlimits{ave}_{\theta_{-j}}\left[\frac{1}{2}\mathbb{E}_{(\theta_{-j},\theta_{j}=0)}(\widehat{\theta}_{j})^{2}+\frac{1}{2}\mathbb{E}_{(\theta_{-j},\theta_{j}=\frac{1}{\sqrt{n}})}(\widehat{\theta}_{j}-\frac{1}{\sqrt{n}})^{2}\right] \\
+	&\geq\sum_{j=1}^{k}\operatornamewithlimits{ave}_{\theta_{-j}}\inf_{\widehat{\theta}_{j}}\left[\frac{1}{2}\mathbb{E}_{(\theta_{-j},\theta_{j}=0)}(\widehat{\theta}_{j})^{2}+\frac{1}{2}\mathbb{E}_{(\theta_{-j},\theta_{j}=\frac{1}{\sqrt{n}})}(\widehat{\theta}_{j}-\frac{1}{\sqrt{n}})^{2}\right].
+\end{aligned}
+$$<p>Using the same argument as in the proof of Le Cam&rsquo;s method to estimate the infimum, we have</p>
+$$
+\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}\geq\sum_{j=1}^{k}\operatornamewithlimits{ave}_{\theta_{-j}}\frac{1}{4n}\int p_{(\theta_{-j},\theta_{j}=0)}\land p_{(\theta_{-j},\theta_{j}=\frac{1}{\sqrt{n}})}.
+$$<p>The integral represents the optimal test error for testing the hypotheses $H_0 : \theta_j = 0$ versus $H_1 : \theta_j = \frac{1}{\sqrt{n}}$. Since only the $\theta_{j}$ differs between the two hypotheses, this is equivalent to testing $H_{0}:X_{j}\sim N(0,\frac{1}{n})$ versus $H_{1}:X_{j}\sim N(\frac{1}{\sqrt{n}},\frac{1}{n})$. Therefore, letting $P=N(0,\frac{1}{n})$ and $Q=N(\frac{1}{\sqrt{n}},\frac{1}{n})$, we have</p>
+$$
+\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}\geq \frac{1}{4n} \sum_{j=1}^{k} \inf_{\phi}(P\phi+Q(1-\phi)).
+$$<p>From an example above, we know that the optimal testing error for this test satisfies</p>
+$$
+\inf_{\phi}(P\phi+Q(1-\phi))\geq 4c
+$$<p>where $4c=\mathbb{P}(N(0,1)&gt;\frac{1}{2})$. Therefore,</p>
+$$
+\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}\geq\frac{k}{n} \asymp n^{-\frac{2\alpha}{2\alpha+1}}.
+$$
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
