@@ -1010,7 +1010,7 @@ $$&lt;p&gt;Adding up all the terms, we get $\mathbb{E} _ \theta \Vert\widehat{\t
     </item>
     
     <item>
-      <title>Two-Point Hypothesis Testing</title>
+      <title>Hypothesis Testing</title>
       <link>http://localhost:1313/docs/ms1/hypothesis/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
       
@@ -1191,7 +1191,7 @@ $$
 \end{aligned}
 $$&lt;p&gt;Using the same argument as in the proof of Le Cam&amp;rsquo;s method to estimate the infimum, we have&lt;/p&gt;
 $$
-\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}\geq\sum_{j=1}^{k}\operatornamewithlimits{ave}_{\theta_{-j}}\frac{1}{4n}\int p_{(\theta_{-j},\theta_{j}=0)}\land p_{(\theta_{-j},\theta_{j}=\frac{1}{\sqrt{n}})}.
+\inf_{\widehat{\theta}_{j}}\left[\frac{1}{2}\mathbb{E}_{(\theta_{-j},\theta_{j}=0)}(\widehat{\theta}_{j})^{2}+\frac{1}{2}\mathbb{E}_{(\theta_{-j},\theta_{j}=\frac{1}{\sqrt{n}})}(\widehat{\theta}_{j}-\frac{1}{\sqrt{n}})^{2}\right] \geq \frac{1}{4n}\int p_{(\theta_{-j},\theta_{j}=0)}\land p_{(\theta_{-j},\theta_{j}=\frac{1}{\sqrt{n}})}.
 $$&lt;p&gt;The integral represents the optimal test error for testing the hypotheses $H_0 : \theta_j = 0$ versus $H_1 : \theta_j = \frac{1}{\sqrt{n}}$. Since only the $\theta_{j}$ differs between the two hypotheses, this is equivalent to testing $H_{0}:X_{j}\sim N(0,\frac{1}{n})$ versus $H_{1}:X_{j}\sim N(\frac{1}{\sqrt{n}},\frac{1}{n})$. Therefore, letting $P=N(0,\frac{1}{n})$ and $Q=N(\frac{1}{\sqrt{n}},\frac{1}{n})$, we have&lt;/p&gt;
 $$
 \inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}\geq \frac{1}{4n} \sum_{j=1}^{k} \inf_{\phi}(P\phi+Q(1-\phi)).
