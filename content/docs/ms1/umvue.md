@@ -20,7 +20,7 @@ Suppose that $T$ is unbiased, sufficient, and complete for $\theta$. If $\delta(
 
 {{% details title="Proof" closed="true" %}}
 
-Suppose that $\widetilde{h}(T(X))$ is also unbiased for $g(\theta)$. Then $\mathbb{E} _ {\theta}(\widetilde{h}(T(X))-h(T(X)))$, so by completeness, it follows that $\widetilde{h}(T(X))=h(T(X))$ almost surely. To show the second statement, suppose that $\widetilde{\delta}(X)$ is unbiased for $g(\theta)$. Then $\mathbb{E} _ \theta (\widetilde{\delta}(X)|T(X))$ is also unbiased, so $\mathbb{E} _ \theta (\widetilde{\delta}(X)|T(X))=h(T(X))$. By the Rao-Blackwell theorem, 
+Suppose that $\widetilde{h}(T(X))$ is also unbiased for $g(\theta)$. Then $\mathbb{E} _ {\theta}(\widetilde{h}(T(X))-h(T(X))) = 0$, so by completeness, it follows that $\widetilde{h}(T(X))=h(T(X))$ almost surely. To show the second statement, suppose that $\widetilde{\delta}(X)$ is unbiased for $g(\theta)$. Then $\mathbb{E} _ \theta (\widetilde{\delta}(X)|T(X))$ is also unbiased, so $\mathbb{E} _ \theta (\widetilde{\delta}(X)|T(X))=h(T(X))$. By the Rao-Blackwell theorem, 
 
 $$
 \mathbb{E}_{\theta}\left(\mathbb{E}_{\theta}(\widetilde{\delta}(X)|T(X))-g(\theta)\right)^{2}\leq\mathbb{E}_{\theta}\left(\widetilde{\delta}(X)-g(\theta)\right)^{2}.
