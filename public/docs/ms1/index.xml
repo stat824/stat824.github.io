@@ -1349,7 +1349,7 @@ $$&lt;/div&gt;
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;⚠️&lt;/div&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Add in subsection on scale equivariance.&lt;/div&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Add in section on scale equivariance.&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1569,7 +1569,7 @@ f_{Y_{1},\ldots,Y_{n}}(y_{1},\ldots,y_{n})=e^{-\sum_{i=1}^{n}y_{i}}1_{\{y_{1}\ge
 $$&lt;p&gt;This shows that $Y_{1},\ldots,Y_{n}\overset{\text{i.i.d.}}{\sim}E(0,1)$. Then&lt;/p&gt;
 $$
 \delta_{1}(X)=\sum_{i=1}^{n}(X_{i}-X_{(1)})=\sum_{i=1}^{n}X_{i}-nX_{(1)}=\sum_{i=2}^{n}Y_{i}.
-$$&lt;p&gt;Therefore, $\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X))=n-1$ and&lt;/p&gt;
+$$&lt;p&gt;Therefore, $\mathbb{E} _ {0,1}(\delta_{1}(X))=n-1$ and&lt;/p&gt;
 $$
 \begin{aligned}
 \mathbb{E}_{0,1}(\delta _ {1}(X)^{2}) &amp;=\operatorname{Var}_{0,1}(\delta_{1}(X))+(\mathbb{E}_{0,1}\delta_{1}(X))^{2} \\

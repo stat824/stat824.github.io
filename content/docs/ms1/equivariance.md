@@ -7,7 +7,7 @@ weight: 10
 ---
 
 {{< callout type="warning" >}}
-  Add in subsection on scale equivariance.
+  Add in section on scale equivariance.
 {{< /callout >}}
 
 ## Location equivariance
@@ -300,7 +300,7 @@ $$
 \delta_{1}(X)=\sum_{i=1}^{n}(X_{i}-X_{(1)})=\sum_{i=1}^{n}X_{i}-nX_{(1)}=\sum_{i=2}^{n}Y_{i}.
 $$
 
-Therefore, $\mathbb{E}_{0,1}(\delta_{1}(X))=n-1$ and 
+Therefore, $\mathbb{E} _ {0,1}(\delta_{1}(X))=n-1$ and 
 
 $$
 \begin{aligned}
