@@ -1345,7 +1345,15 @@ $$&lt;/div&gt;
       <description>
         
         
-        &lt;h2&gt;Location equivariance&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;location-equivariance&#34;&gt;&lt;/span&gt;
+        &lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-yellow-100 hx-bg-yellow-50 hx-text-yellow-900 dark:hx-border-yellow-200/30 dark:hx-bg-yellow-700/30 dark:hx-text-yellow-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;⚠️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Add in subsection on scale equivariance.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Location equivariance&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;location-equivariance&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#location-equivariance&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A family of distributions $(P_{\theta}:\theta\in\mathbb{R}^{p})$ is called a location model if $X\sim P_{\theta}\iff X-\theta\sim P_{0}$. Assuming densities exist, it is easy to verify that&lt;/p&gt;
 $$
 P_{\theta}(x)=f(x-\theta)
@@ -1497,22 +1505,156 @@ L(a\widehat{\theta}+b,a\theta+b,a\tau)=L(\widehat{\theta},\theta,\tau).
 $$&lt;p&gt;Similar to location invariance, we have $L(\widehat{\theta},\theta,\tau)=L(\widehat{\theta}-\theta,0,\tau)=L(\frac{\widehat{\theta}-\theta}{\tau},0,1)=:\rho(\frac{\widehat{\theta}-\theta}{\tau})$, so the loss function can be written as a function of $\frac{\widehat{\theta}-\theta}{\tau}.$ Also, the risk of a location-scale equivariant estimator is constant, since&lt;/p&gt;
 $$
 \mathbb{E}_{\theta,\tau}\rho\left(\frac{\widehat{\theta}(X)-\theta}{\tau}\right)=\mathbb{E}_{\theta,\tau}\rho\left(\widehat{\theta}\left(\frac{X-\theta}{\tau}\right)\right)=\mathbb{E}_{0,1}\rho\left(\widehat{\theta}\left(X\right)\right).
-$$&lt;p&gt;How do we find a minimal risk location-scale eqivariant estimator $\delta(X)$? Again, we start with pilot estimators, but this time we need two. Suppose that $\delta_{0}(X)$ and \delta_{1}(X) are pilot estimators satisfying\delta_{0}(aX+b)	=a\delta_{0}(X)+b,
-\delta_{1}(aX+b)	=a\delta_{1}(X).Then letting u(X):=\frac{\delta(X)-\delta_{0}(X)}{\delta_{1}(X)}, we haveu(aX+b)	=\frac{\delta(aX+b)-\delta_{0}(aX+b)}{\delta_{1}(aX+b)}
-=\frac{a\delta(X)+b-a\delta_{0}(X)-b}{a\delta_{1}(X)}
-=\frac{\delta(X)-\delta_{0}(X)}{\delta_{1}(X)}.Therefore, u(aX+b)=u(X), and we haveu(X_{1},\ldots,X_{n})	=u(X_{1}-X_{n},\ldots,X_{n-1}-X_{n},0)
-=u\left(\frac{X_{1}-X_{n}}{|X_{n-1}-X_{n}|},\ldots,\frac{X_{n-1}-X_{n}}{|X_{n-1}-X_{n}|},0\right).Let Z=\left(\frac{X_{1}-X_{n}}{|X_{n-1}-X_{n}|},\ldots,\frac{X_{n-1}-X_{n}}{|X_{n-1}-X_{n}|}\right)^{T} and write u(X)=w(Z). Note that Z is ancillary of (\theta,\tau). We have \delta(X)=\delta_{0}(X)-w(Z)\delta_{1}(X).The risk is\mathbb{E}&lt;em&gt;{0,1}\rho(\delta(X))	=\mathbb{E}&lt;/em&gt;{0,1}\rho(\delta_{0}(X)-w(Z)\delta_{1}(X))
-=\mathbb{E}&lt;em&gt;{0,1}\left[\mathbb{E}&lt;/em&gt;{0,1}(\rho(\delta_{0}(X)-w(Z)\delta_{1}(X))|Z)\right],so to minimize the risk we need to takew(Z)=\argmin_{a}\mathbb{E}&lt;em&gt;{0,1}\left(\rho(\delta&lt;/em&gt;{0}(X))-a\delta_{1}(X)|Z\right).If \rho(t)=t^{2}, thenw(Z)	=\argmin_{a}\mathbb{E}&lt;em&gt;{0,1}\left[\left(\delta&lt;/em&gt;{0}(X)-a\delta_{1}(X)\right)^{2}|Z\right]
-=\argmin_{a}\left[a^{2}\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2}|Z)-2a\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{0}(X)\delta_{1}(X)|Z)\right]
-=\frac{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{0}(X)\delta_{1}(X)|Z)}{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2}|Z)}.Therefore, \delta(X)=\delta_{0}(X)-\delta_{1}(X)\frac{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{0}(X)\delta_{1}(X)|Z)}{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2}|Z)}.&lt;/p&gt;
-&lt;p&gt;Example 6.6. Let X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}E(\theta,b). Recall that P_{\theta,b}(x)=\frac{1}{b}e^{-(x-\theta)/b}1_{{x\geq\theta}}. Then (\delta_{0}(X),\delta_{1}(X))=(X_{(1)},\sum_{i=1}^{n}(X_{i}-X_{(1)})) is complete and sufficient for (\theta,b). By Basu&amp;rsquo;s theorem, (\delta_{0}(X),\delta_{1}(X)) is independent of Z. Also, Basu&amp;rsquo;s theorem implies that X_{(1)} and \sum_{i=1}^{n}(X_{i}-X_{(1)}) are independent because X_{(1)} is complete and sufficient for \theta  but \sum_{i=1}^{n}(X_{i}-X_{(1)}) is ancillary for \theta . Therefore, \frac{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{0}(X)\delta_{1}(X)|Z)}{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2}|Z)}=\frac{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{0}(X))\mathbb{E}(\delta_{1}(X))}{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2})}.Recall from a previous example that \mathbb{E}(X_{(1)})=\frac{1}{n}. The first moments of \delta_{0}(X) and \delta_{1}(X) can be easily derived. For the second moment of \delta_{1}(X), we will derive the full distribution of \delta_{1}(X). We havef_{X_{(1)},\ldots,X_{(n)}}(x_{1},\ldots,x_{n})	=n!f_{X_{1},\ldots,X_{n}}(x_{1},\ldots,x_{n})1_{{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}}}
-=n!e^{-\sum_{i=1}^{n}x_{i}}1_{{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}}}.Let us now make the change of variable Y_{1}=nX_{(1)}, Y_{2}=(n-1)(X_{(2)}-X_{(1)}), Y_{3}=(n-2)(X_{(3)}-X_{(2)}),\ldots,Y_{n}=X_{(n)}-X_{(n-1)}. Then\left|\frac{\partial Y}{\partial X_{(1,\ldots,n)}}\right|=n!so we havef_{Y_{1},\ldots,Y_{n}}(y_{1},\ldots,y_{n})=f_{X_{(1)},\ldots,X_{(n)}}(x_{1},\ldots,x_{n})\left|\frac{\partial X}{\partial Y}\right|=e^{-\sum_{i=1}^{n}x_{i}}1_{{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}}}.Since \sum_{i=1}^{n}X_{i}=\sum_{i=1}^{n}Y_{i}, it follows thatf_{Y_{1},\ldots,Y_{n}}(y_{1},\ldots,y_{n})=e^{-\sum_{i=1}^{n}y_{i}}1_{{y_{1}\geq0,\ldots,y_{n}\geq0}}=\prod_{i=1}^{n}e^{-y_{i}}1_{{y_{i}\geq0}}.This shows that Y_{1},\ldots,Y_{n}\overset{\text{i.i.d.}}{\sim}E(0,1). Then \delta_{1}(X)=\sum_{i=1}^{n}(X_{i}-X_{(1)})=\sum_{i=1}^{n}X_{i}-nX_{(1)}=\sum_{i=2}^{n}Y_{i}.Therefore, \mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X))=n-1 and \mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2})	=\operatorname{Var}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X))+(\mathbb{E}&lt;em&gt;{0,1}\delta&lt;/em&gt;{1}(X))^{2}
-=n-1+(n-1)^{2}
-=n(n-1).It follows that\frac{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{0}(X))\mathbb{E}(\delta_{1}(X))}{\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X)^{2})}=\frac{\frac{1}{n}(n-1)}{n(n-1)}=\frac{1}{n^{2}},and we have the MREE\delta(X)=X_{(1)}-\frac{1}{n^{2}}\sum_{i=1}^{n}(X_{i}-X_{(1)}).&lt;/p&gt;
-&lt;p&gt;The following should be obvious.&lt;/p&gt;
-&lt;p&gt;Lemma 6.7. If \delta(X) is the minimal risk location equivariant estimator for \theta  when \tau  is known, \delta(X) does not depend on \tau , and \delta(X) is also location-scale equivariant, then \delta(X) is the minimal risk location-scale equivariant estimator for \theta  when \tau  is unknown.&lt;/p&gt;
-&lt;p&gt;Example 6.8. Suppose that X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,\sigma^{2}). Then \delta(X)=\overline{X} is the minimal risk location equivariant estimator for \theta  when \sigma^{2} is known, \delta(X) does not depend on \sigma^{2}, and \delta(X) is location-scale equivariant, so \overline{X} is the minimal risk location-scale equivariant estimator for \theta  when \sigma^{2} is unknown.&lt;/p&gt;
+$$&lt;p&gt;How do we find a minimal risk location-scale eqivariant estimator $\delta(X)$? Again, we start with pilot estimators, but this time we need two. Suppose that $\delta_{0}(X)$ and $\delta_{1}(X)$ are pilot estimators satisfying&lt;/p&gt;
+$$
+\delta_{0}(aX+b)=a\delta_{0}(X)+b,\quad \delta_{1}(aX+b)=a\delta_{1}(X).
+$$&lt;p&gt;Then letting $u(X):=\frac{\delta(X)-\delta_{0}(X)}{\delta_{1}(X)}$, we have&lt;/p&gt;
+$$
+\begin{aligned}
+u(aX+b)	&amp;= \frac{\delta(aX+b)-\delta_{0}(aX+b)}{\delta_{1}(aX+b)} \\
+	&amp;= \frac{a\delta(X)+b-a\delta_{0}(X)-b}{a\delta_{1}(X)} \\
+	&amp;= \frac{\delta(X)-\delta_{0}(X)}{\delta_{1}(X)}.
+\end{aligned}
+$$&lt;p&gt;Therefore, $u(aX+b)=u(X)$, and we have&lt;/p&gt;
+$$
+\begin{aligned}
+u(X_{1},\ldots,X_{n}) &amp;= u(X_{1}-X_{n},\ldots,X_{n-1}-X_{n},0) \\
+	&amp;=u\left(\frac{X_{1}-X_{n}}{|X_{n-1}-X_{n}|},\ldots,\frac{X_{n-1}-X_{n}}{|X_{n-1}-X_{n}|},0\right).
+\end{aligned}
+$$&lt;p&gt;
+Let $Z=\left(\frac{X_{1}-X_{n}}{|X_{n-1}-X_{n}|},\ldots,\frac{X_{n-1}-X_{n}}{|X_{n-1}-X_{n}|}\right)^{T}$ and write $u(X)=w(Z)$. Note that $Z$ is ancillary of $(\theta,\tau).$ We have&lt;/p&gt;
+$$
+\delta(X)=\delta_{0}(X)-w(Z)\delta_{1}(X).
+$$&lt;p&gt;The risk is&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{0,1}\rho(\delta(X))	&amp;= \mathbb{E}_{0,1}\rho(\delta_{0}(X)-w(Z)\delta_{1}(X)) \\
+	&amp;=\mathbb{E}_{0,1}\left[\mathbb{E}_{0,1}(\rho(\delta_{0}(X)-w(Z)\delta_{1}(X))|Z)\right],
+\end{aligned}
+$$&lt;p&gt;so to minimize the risk we need to take&lt;/p&gt;
+$$
+w(Z)=\argmin_{a}\mathbb{E}_{0,1}\left(\rho(\delta_{0}(X))-a\delta_{1}(X)|Z\right).
+$$&lt;p&gt;If $\rho(t)=t^{2}$, then&lt;/p&gt;
+$$
+\begin{aligned}
+w(Z) &amp;= \argmin_{a}\mathbb{E}_{0,1}\left[\left(\delta_{0}(X)-a\delta_{1}(X)\right)^{2}|Z\right] \\
+	&amp;=\argmin_{a}\left[a^{2}\mathbb{E}_{0,1}(\delta_{1}(X)^{2}|Z)-2a\mathbb{E}_{0,1}(\delta_{0}(X)\delta_{1}(X)|Z)\right] \\
+	&amp;=\frac{\mathbb{E}_{0,1}(\delta_{0}(X)\delta_{1}(X)|Z)}{\mathbb{E}_{0,1}(\delta_{1}(X)^{2}|Z)}.
+\end{aligned}
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\delta(X)=\delta_{0}(X)-\delta_{1}(X)\frac{\mathbb{E}_{0,1}(\delta_{0}(X)\delta_{1}(X)|Z)}{\mathbb{E}_{0,1}(\delta_{1}(X)^{2}|Z)}.
+$$&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}E(\theta,b).$ Recall that $P_{\theta,b}(x)=\frac{1}{b}e^{-(x-\theta)/b}1_{\{x\geq\theta\}}.$ Then $(\delta_{0}(X),\delta_{1}(X))=(X_{(1)},\sum_{i=1}^{n}(X_{i}-X_{(1)}))$ is complete and sufficient for $(\theta,b)$. By Basu&amp;rsquo;s theorem, $(\delta_{0}(X),\delta_{1}(X))$ is independent of $Z$. Also, Basu&amp;rsquo;s theorem implies that $X_{(1)}$ and $\sum_{i=1}^{n}(X_{i}-X_{(1)})$ are independent because $X_{(1)}$ is complete and sufficient for $\theta$  but $\sum_{i=1}^{n}(X_{i}-X_{(1)})$ is ancillary for $\theta.$ Therefore,&lt;/p&gt;
+$$
+\frac{\mathbb{E}_{0,1}(\delta_{0}(X)\delta_{1}(X)|Z)}{\mathbb{E}_{0,1}(\delta_{1}(X)^{2}|Z)}=\frac{\mathbb{E}_{0,1}(\delta_{0}(X))\mathbb{E}(\delta_{1}(X))}{\mathbb{E}_{0,1}(\delta_{1}(X)^{2})}.
+$$&lt;p&gt;Recall from a previous example that $\mathbb{E}(X_{(1)})=\frac{1}{n}$. The first moments of $\delta_{0}(X)$ and $\delta_{1}(X)$ can be easily derived. For the second moment of $\delta_{1}(X)$, we will derive the full distribution of $\delta_{1}(X)$. We have&lt;/p&gt;
+$$
+f_{X_{(1)},\ldots,X_{(n)}}(x_{1},\ldots,x_{n})	=n!f_{X_{1},\ldots,X_{n}}(x_{1},\ldots,x_{n})1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}}
+	=n!e^{-\sum_{i=1}^{n}x_{i}}1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}}.
+$$&lt;p&gt;Let us now make the change of variable $Y_{1}=nX_{(1)}$, $Y_{2}=(n-1)(X_{(2)}-X_{(1)})$, $Y_{3}=(n-2)(X_{(3)}-X_{(2)}),\ldots,Y_{n}=X_{(n)}-X_{(n-1)}.$ Then&lt;/p&gt;
+$$
+\left|\frac{\partial Y}{\partial X_{(1,\ldots,n)}}\right|=n!
+$$&lt;p&gt;so we have&lt;/p&gt;
+$$
+\begin{aligned}
+f_{Y_{1},\ldots,Y_{n}}(y_{1},\ldots,y_{n}) &amp;= f_{X_{(1)},\ldots,X_{(n)}}(x_{1},\ldots,x_{n})\left|\frac{\partial X}{\partial Y}\right| \\ &amp;=e^{-\sum_{i=1}^{n}x_{i}}1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}}.
+\end{aligned}
+$$&lt;p&gt;Since $\sum_{i=1}^{n}X_{i}=\sum_{i=1}^{n}Y_{i}$, it follows that&lt;/p&gt;
+$$
+f_{Y_{1},\ldots,Y_{n}}(y_{1},\ldots,y_{n})=e^{-\sum_{i=1}^{n}y_{i}}1_{\{y_{1}\geq0,\ldots,y_{n}\geq0\}}=\prod_{i=1}^{n}e^{-y_{i}}1_{\{y_{i}\geq0\}}.
+$$&lt;p&gt;This shows that $Y_{1},\ldots,Y_{n}\overset{\text{i.i.d.}}{\sim}E(0,1)$. Then&lt;/p&gt;
+$$
+\delta_{1}(X)=\sum_{i=1}^{n}(X_{i}-X_{(1)})=\sum_{i=1}^{n}X_{i}-nX_{(1)}=\sum_{i=2}^{n}Y_{i}.
+$$&lt;p&gt;Therefore, $\mathbb{E}&lt;em&gt;{0,1}(\delta&lt;/em&gt;{1}(X))=n-1$ and&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{0,1}(\delta _ {1}(X)^{2}) &amp;=\operatorname{Var}_{0,1}(\delta_{1}(X))+(\mathbb{E}_{0,1}\delta_{1}(X))^{2} \\
+	&amp;=n-1+(n-1)^{2} \\
+	&amp;=n(n-1).
+\end{aligned}
+$$&lt;p&gt;It follows that&lt;/p&gt;
+$$
+\frac{\mathbb{E}_{0,1}(\delta_{0}(X))\mathbb{E}(\delta_{1}(X))}{\mathbb{E}_{0,1}(\delta_{1}(X)^{2})}=\frac{\frac{1}{n}(n-1)}{n(n-1)}=\frac{1}{n^{2}},
+$$&lt;p&gt;and we have the MREE&lt;/p&gt;
+$$
+\delta(X)=X_{(1)}-\frac{1}{n^{2}}\sum_{i=1}^{n}(X_{i}-X_{(1)}).
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The following should be obvious.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Suppose that $\delta(X)$ is the minimal risk location equivariant estimator for $\theta$ when $\tau$ is known, $\delta(X)$ does not depend on $\tau$, and $\delta(X)$ is also location-scale equivariant. Then $\delta(X)$ is the minimal risk location-scale equivariant estimator for $\theta$ when $\tau$ is unknown.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;Suppose that $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,\sigma^{2})$. Then $\delta(X)=\overline{X}$ is the minimal risk location equivariant estimator for $\theta$ when $\sigma^{2}$ is known, $\delta(X)$ does not depend on $\sigma^{2}$, and $\delta(X)$ is location-scale equivariant, so $\overline{X}$ is also the minimal risk location-scale equivariant estimator for $\theta$ when $\sigma^{2}$ is unknown.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Consistency of MLE</title>
+      <link>http://localhost:1313/docs/ms1/consistency/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/consistency/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Suppose that $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta^{\ast}}$. The maximum likelihood estimator is defined to be&lt;/p&gt;
+$$
+\widehat{\theta}=\argmax_{\theta}\sum_{i=1}^{n}\log p_{\theta}(X_{i}).
+$$&lt;p&gt;Under identifiability and some empirical process condition, we will prove that the MLE $\widehat{\theta}$ is consistent, meaning that&lt;/p&gt;
+$$
+\mathbb{P}_{\theta^{\ast}}\left(\Vert\widehat{\theta}-\theta^{\ast}\Vert&gt;\epsilon\right)\overset{n\to\infty}{\longrightarrow}0.
+$$&lt;p&gt;The proof will be split into two parts. Firstly, we bound the probability in terms of the Kullback–Leibler divergence of $P_{\theta^\ast}$ and $P_{\widehat{\theta}}$. Then we finish off by applying a uniform law of large numbers.&lt;/p&gt;
+&lt;h2&gt;Part 1: Bound using Kullback–Leibler divergence&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-1-bound-using-kullbackleibler-divergence&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#part-1-bound-using-kullbackleibler-divergence&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For any two distributions $P$ and $Q$ with densities $p$ and $q$, we define the Kullback–Leibler divergence $D(P\Vert Q)$ to be&lt;/p&gt;
+$$
+D(P\Vert Q)=\int p\log\frac{p}{q}.
+$$&lt;p&gt;The KL divergence is always non-negative.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    For any two probability distributions $P$ and $Q$, we have $D(P\Vert Q) \geq 0$.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have&lt;/p&gt;
+$$
+D(P\Vert Q)=\int p\log\frac{p}{q}=\int qf(\frac{p}{q}),
+$$&lt;p&gt;where $f(t)=t\log t$. Since $f$ is convex, by Jensen&amp;rsquo;s inequality, we have&lt;/p&gt;
+$$
+\int qf(\frac{p}{q})	=\mathbb{E}_{X\sim Q}f\left(\frac{p(X)}{q(X)}\right)
+	\geq f\left(\mathbb{E}_{X\sim Q}\frac{p(X)}{q(X)}\right)
+	=f(1)
+	=0.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Part 2: Apply uniform law of large numbers&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-2-apply-uniform-law-of-large-numbers&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#part-2-apply-uniform-law-of-large-numbers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
       </description>
     </item>
     
