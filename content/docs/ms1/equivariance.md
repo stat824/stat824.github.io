@@ -270,8 +270,10 @@ $$
 Recall from a previous example that $\mathbb{E}(X_{(1)})=\frac{1}{n}$. The first moments of $\delta_{0}(X)$ and $\delta_{1}(X)$ can be easily derived. For the second moment of $\delta_{1}(X)$, we will derive the full distribution of $\delta_{1}(X)$. We have
 
 $$
-f_{X_{(1)},\ldots,X_{(n)}}(x_{1},\ldots,x_{n})	=n!f_{X_{1},\ldots,X_{n}}(x_{1},\ldots,x_{n})1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}}
-	=n!e^{-\sum_{i=1}^{n}x_{i}}1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}}.
+\begin{aligned}
+f_{X_{(1)},\ldots,X_{(n)}}(x_{1},\ldots,x_{n}) &= n!f_{X_{1},\ldots,X_{n}}(x_{1},\ldots,x_{n})1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}} \\
+	&=n!e^{-\sum_{i=1}^{n}x_{i}}1_{\{0\leq x_{1}\leq x_{2}\leq\cdots\leq x_{n}\}}.
+\end{aligned}
 $$
 
 Let us now make the change of variable $Y_{1}=nX_{(1)}$, $Y_{2}=(n-1)(X_{(2)}-X_{(1)})$, $Y_{3}=(n-2)(X_{(3)}-X_{(2)}),\ldots,Y_{n}=X_{(n)}-X_{(n-1)}.$ Then

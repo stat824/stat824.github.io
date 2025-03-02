@@ -1,0 +1,59 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics Notes – Matrix Computation</title>
+    <link>http://localhost:1313/docs/matrix/</link>
+    <description>Recent content in Matrix Computation on Statistics Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Feb 2025 21:18:39 +1000</lastBuildDate>
+    
+	  <atom:link href="http://localhost:1313/docs/matrix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Vector and Matrix Norms</title>
+      <link>http://localhost:1313/docs/matrix/norms/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/matrix/norms/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Let $\mathbb{F} = \mathbb{R}$ or $\mathbb{C}$. We give here several examples of vector and matrix norms.&lt;/p&gt;
+&lt;h2&gt;Vector norms&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;vector-norms&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#vector-norms&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;$p$-norms&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;p-norms&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#p-norms&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For $p \geq 1$ and $\mathbf{x} \in \mathbb{F}^n$, we define the $p$-norm $\Vert \mathbf{x} \Vert_p$ by&lt;/p&gt;
+$$
+\Vert \mathbf{x} \Vert_p = (|x_1|^p + \cdots + |x_n|^p)^{1/p}
+$$&lt;p&gt;It is easy to see that for any $p$, we have&lt;/p&gt;
+$$
+\left( \max_{i=1,\ldots,n} |x_i|^p \right)^{1/p} \leq \Vert \mathbf{x} \Vert_p \leq \left( n \max_{i=1,\ldots,n} |x_i|^p \right)^{1/p},
+$$&lt;p&gt;from which it follows that&lt;/p&gt;
+$$
+\max_{i=1,\ldots,n} |x_i| \leq \Vert \mathbf{x} \Vert_p \leq n^{1/p} \max_{i=1,\ldots,n} |x_i|.
+$$&lt;p&gt;Taking $p \to \infty$ gives the infinity norm&lt;/p&gt;
+$$
+\Vert \mathbf{x} \Vert_\infty = \lim_{p \to \infty} \Vert \mathbf{x} \Vert_p = \max_{i=1,\ldots,n} |x_i|
+$$&lt;p&gt;which is also known as the Chebyshev norm.&lt;/p&gt;
+&lt;h3&gt;Weighted $p$-norms&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;weighted-p-norms&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#weighted-p-norms&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A generalization of the $p$-norm is the weighted $p$-norm&lt;/p&gt;
+$$
+\Vert \mathbf{x} \Vert_{p,\mathbf{w}} = \left( \sum_{i=1}^n w_i |x_i|^p \right)^{1/p}.
+$$&lt;p&gt;It can be shown that this is a norm as long as the weights $w_1,\ldots,w_n$ are strictly positive real numbers.&lt;/p&gt;
+&lt;h3&gt;$A$-norms&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;a-norms&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#a-norms&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A vast generalization of the weighted 2-norm is the $A$-norm or Mahalanobis norm, defined in terms of a matrix $A$ by&lt;/p&gt;
+$$
+\Vert \mathbf{x} \Vert_A = (\mathbf{x}^\ast A \mathbf{x})^{1/2} = \left( \sum_{i,j = 1}^n a_{ij} \overline{x}_i x_j\right)^{1/2}
+$$&lt;p&gt;which can be shown to be a norm if $A$ is positive definite. If $A$ is a diagonal matrix, this reduces to a weighted 2-norm.&lt;/p&gt;
+&lt;h2&gt;Matrix norms&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;matrix-norms&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#matrix-norms&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>
