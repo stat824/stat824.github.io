@@ -1623,8 +1623,8 @@ $$&lt;p&gt;Under identifiability and some empirical process condition, we will p
 $$
 \mathbb{P}_{\theta^{\ast}}\left(\Vert\widehat{\theta}-\theta^{\ast}\Vert&gt;\epsilon\right)\overset{n\to\infty}{\longrightarrow}0.
 $$&lt;p&gt;The proof will be split into two parts. Firstly, we bound the probability in terms of the Kullback–Leibler divergence of $P_{\theta^\ast}$ and $P_{\widehat{\theta}}$. Then we finish off by applying a uniform law of large numbers.&lt;/p&gt;
-&lt;h2&gt;Part 1: Bound using Kullback–Leibler divergence&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-1-bound-using-kullbackleibler-divergence&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#part-1-bound-using-kullbackleibler-divergence&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For any two distributions $P$ and $Q$ with densities $p$ and $q$, we define the Kullback–Leibler divergence $D(P\Vert Q)$ to be&lt;/p&gt;
+&lt;h2&gt;Kullback–Leibler divergence&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;kullbackleibler-divergence&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#kullbackleibler-divergence&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For any two distributions $P$ and $Q$ with densities $p$ and $q$, we define the Kullback–Leibler divergence $D(P\Vert Q)$ to be&lt;/p&gt;
 $$
 D(P\Vert Q)=\int p\log\frac{p}{q}.
 $$&lt;p&gt;The KL divergence is always non-negative.&lt;/p&gt;
@@ -1653,8 +1653,58 @@ $$
 $$
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;h2&gt;Part 2: Apply uniform law of large numbers&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-2-apply-uniform-law-of-large-numbers&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#part-2-apply-uniform-law-of-large-numbers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In fact, we have a strong result.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    For any two probability distributions $P$ and $Q$, we have $D(P\Vert Q)\geq H^{2}(P,Q)$, where $H^{2}(P,Q)=\frac{1}{2}\int(\sqrt{p}-\sqrt{q})^{2}$ is the squared Hellinger distance,
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;See homework for the proof of the above.&lt;/p&gt;
+&lt;h2&gt;Identifiability&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;identifiability&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#identifiability&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Another way to write the MLE is&lt;/p&gt;
+$$
+\widehat{\theta}=\argmin_{\theta}\frac{1}{n}\sum_{i=1}^{n}\log\frac{p_{\theta^{\ast}}(X_{i})}{p_{\theta}(X_{i})}.
+$$&lt;p&gt;By the law of large numbers, for each fixed $\theta$,&lt;/p&gt;
+$$
+\frac{1}{n}\sum_{i=1}^{n}\log\frac{p_{\theta^{\ast}}(X_{i})}{p_{\theta}(X_{i})}\overset{n\to\infty}{\longrightarrow}\int p_{\theta^{\ast}}\log\frac{p_{\theta^{\ast}}}{p_{\theta}}=D(P_{\theta^{\ast}}\Vert P_{\theta}).
+$$&lt;p&gt;What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ In fact, we will make the stronger assumption that for all $\epsilon&amp;gt;0$, there exists $\delta&amp;gt;0$ such that&lt;/p&gt;
+$$
+\Vert\theta_{1}-\theta_{2}\Vert&gt;\epsilon\implies D(P_{\theta_{1}}\Vert P_{\theta_{2}})&gt;\delta.
+$$&lt;p&gt;We call this condition identifiability. Then given $\epsilon&amp;gt;0$, we have&lt;/p&gt;
+$$
+\mathbb{P}_{\theta^{\ast}}\left(\Vert\widehat{\theta}-\theta^{\ast}\Vert&gt;\epsilon\right)	\leq\mathbb{P}_{\theta^{\ast}}\left(D(P_{\theta^{\ast}}\Vert P_{\widehat{\theta}})&gt;\delta\right).
+$$&lt;h2&gt;Uniform law of large numbers&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;uniform-law-of-large-numbers&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#uniform-law-of-large-numbers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We have&lt;/p&gt;
+$$
+D(P_{\theta^{\ast}}\Vert P_{\widehat{\theta}})=\int p_{\theta^{\ast}}\log p_{\theta^{\ast}}-\int p_{\theta^{\ast}}\log p_{\widehat{\theta}}
+$$&lt;p&gt;and for large $n$,&lt;/p&gt;
+$$
+\int p_{\theta^{\ast}}\log p_{\theta^{\ast}}\approx\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})\quad\text{and}\quad\int p_{\theta^{\ast}}\log p_{\widehat{\theta}}\approx\frac{1}{n}\sum_{i=1}^{n}\log p_{\widehat{\theta}}(X_{i}).
+$$&lt;p&gt;The key intuition is that because $\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})$ is smaller than $\frac{1}{n}\sum_{i=1}^{n}\log p_{\widehat{\theta}}(X_{i})$ by definition of $\widehat{\theta}$, it is impossible for $\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i}) - \frac{1}{n}\sum_{i=1}^{n}\log p_{\widehat{\theta}}(X_{i}) &amp;gt; \delta $ to hold, so we should expect $\mathbb{P} _ {\theta^{\ast}}\left(D(P_{\theta^{\ast}}\Vert P_{\widehat{\theta}})&amp;gt;\delta\right)$ to approach 0 as the approximations get more precise. By the law of large numbers, we have&lt;/p&gt;
+$$
+\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i}) \underset{n \to \infty}{\overset{P_{\theta^{\ast}}}{\longrightarrow}} \int p_{\theta^{\ast}}\log p_{\theta^{\ast}}.
+$$&lt;p&gt;However, for the other sum, we cannot directly apply the law of large numbers to obtain&lt;/p&gt;
+$$
+\frac{1}{n}\sum_{i=1}^{n}\log p_{\widehat{\theta}}(X_{i}) \underset{n \to \infty}{\overset{P_{\theta^{\ast}}}{\longrightarrow}} \int p_{\theta^{\ast}}\log p_{\widehat{\theta}}
+$$&lt;p&gt;because $\log p_{\widehat{\theta}}(X_{1}),\log P_{\widehat{\theta}}(X_{2}),\ldots$ are not i.i.d. due to the dependence on $\widehat{\theta}$. Instead, we make use of the uniform law of large numbers&lt;/p&gt;
+$$
+\sup_{\theta \in \Theta}\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})-\int p_{\theta^{\ast}}\log p_{\theta}\right| \underset{n \to \infty}{\overset{P_{\theta^{\ast}}}{\longrightarrow}} 0
+$$&lt;p&gt;which holds under some VC-dimension assumptions. We then have&lt;/p&gt;
+$$
+\begin{aligned}
+D(P_{\theta^{\ast}}\Vert P_{\widehat{\theta}}) &amp;=\int p_{\theta^{\ast}}\log p_{\theta^{\ast}}-\int p_{\theta^{\ast}}\log p_{\widehat{\theta}} \\
+	&amp;\leq\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})-\frac{1}{n}\sum_{i=1}^{n}\log p_{\widehat{\theta}}(X_{i}) +\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})-\int p_{\theta^{\ast}}\log p_{\theta^{\ast}}\right| \\ &amp;\qquad \qquad +\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\widehat{\theta}}(X_{i})-\int p_{\theta^{\ast}}\log p_{\widehat{\theta}}\right| \\
+	&amp;\leq\frac{1}{n}\sum_{i=1}^{n}(\log p_{\widehat{\theta}}(X_{i})-\log p _ {\widehat{\theta}}(X_{i}))+2\sup_{\theta}\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})-\int p_{\theta^{\ast}}\log p_{\theta}\right| \\
+	&amp;=2\sup_{\theta}\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})-\int p_{\theta^{\ast}}\log p_{\theta}\right|.
+\end{aligned}
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\mathbb{P}_{\theta^{\ast}}\left(D(P_{\theta^{\ast}}\Vert P_{\widehat{\theta}})&gt;\delta\right)\leq\mathbb{P}_{\theta^{\ast}}\left(2\sup_{\theta}\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})-\int p_{\theta^{\ast}}\log p_{\theta}\right|&gt;\delta\right)
+$$&lt;p&gt;which converges to 0 as $n\to\infty$ by the uniform law of large numbers.&lt;/p&gt;
+
       </description>
     </item>
     
