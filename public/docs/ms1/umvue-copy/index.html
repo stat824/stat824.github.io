@@ -10,32 +10,33 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Sufficiency – Statistics Notes</title>
-  <meta name="description" content="A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$.
-If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution" /><link rel="canonical" href="http://localhost:1313/docs/ms1/sufficiency/" itemprop="url" />
+<title>Uniformly Minimum Variance Unbiased Estimators – Statistics Notes</title>
+  <meta name="description" content="We say that an estimator $\delta(X)$ is a uniformly minimum-variance unbiased estimator (UMVUE) for $g(\theta)$ if $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$ and for any other estimator $\widetilde{\delta}(X)$ which is unbiased for $g(\theta)$, it holds that $\operatornamewithlimits{Var} _ {\theta}(\delta(X))\leq\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$ for all $\theta\in\Theta$.
+Lehmann-Scheffé Theorem Suppose that $T$ is unbiased, sufficient, and complete for $\theta$. If $\delta(X)=h(T(X))$ is unbiased for $g(\theta)$, then" /><link rel="canonical" href="http://localhost:1313/docs/ms1/umvue-copy/" itemprop="url" />
 
-<meta property="og:title" content="Sufficiency" />
-<meta property="og:description" content="A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$.
-
-  
+<meta property="og:title" content="Uniformly Minimum Variance Unbiased Estimators" />
+<meta property="og:description" content="We say that an estimator $\delta(X)$ is a uniformly minimum-variance unbiased estimator (UMVUE) for $g(\theta)$ if $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$ and for any other estimator $\widetilde{\delta}(X)$ which is unbiased for $g(\theta)$, it holds that $\operatornamewithlimits{Var} _ {\theta}(\delta(X))\leq\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$ for all $\theta\in\Theta$.
 
   
-    If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution" />
+    Lehmann-Scheffé Theorem
+  
+  
+    Suppose that $T$ is unbiased, sufficient, and complete for $\theta$. If $\delta(X)=h(T(X))$ is unbiased for $g(\theta)$, then" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/docs/ms1/sufficiency/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="http://localhost:1313/docs/ms1/umvue-copy/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
 <meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
-  <meta itemprop="name" content="Sufficiency">
-  <meta itemprop="description" content="A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$.
-If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution">
+  <meta itemprop="name" content="Uniformly Minimum Variance Unbiased Estimators">
+  <meta itemprop="description" content="We say that an estimator $\delta(X)$ is a uniformly minimum-variance unbiased estimator (UMVUE) for $g(\theta)$ if $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$ and for any other estimator $\widetilde{\delta}(X)$ which is unbiased for $g(\theta)$, it holds that $\operatornamewithlimits{Var} _ {\theta}(\delta(X))\leq\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$ for all $\theta\in\Theta$.
+Lehmann-Scheffé Theorem Suppose that $T$ is unbiased, sufficient, and complete for $\theta$. If $\delta(X)=h(T(X))$ is unbiased for $g(\theta)$, then">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="383">
+  <meta itemprop="wordCount" content="489">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Sufficiency">
-  <meta name="twitter:description" content="A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$.
-If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution">
+  <meta name="twitter:title" content="Uniformly Minimum Variance Unbiased Estimators">
+  <meta name="twitter:description" content="We say that an estimator $\delta(X)$ is a uniformly minimum-variance unbiased estimator (UMVUE) for $g(\theta)$ if $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$ and for any other estimator $\widetilde{\delta}(X)$ which is unbiased for $g(\theta)$, it holds that $\operatornamewithlimits{Var} _ {\theta}(\delta(X))\leq\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$ for all $\theta\in\Theta$.
+Lehmann-Scheffé Theorem Suppose that $T$ is unbiased, sufficient, and complete for $\theta$. If $\delta(X)=h(T(X))$ is unbiased for $g(\theta)$, then">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -169,14 +170,13 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a>
               <div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/sufficiency/"
     
   >Sufficiency
     </a>
-  
               
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -234,20 +234,29 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
   >Hypothesis Testing
     </a>
               
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms1/umvue-copy/"
+    
+  >Uniformly Minimum Variance Unbiased Estimators
+    </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#steins-unbiased-risk-estimator"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Stein’s unbiased risk estimator</a>
+            </li>
+          </ul>
+  
+              
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/umvue/"
     
   >Uniformly Minimum Variance Unbiased Estimators
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms1/equivariance/"
-    
-  >Equivariant Estimators
     </a>
               
             </li></ul>
@@ -284,9 +293,9 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
   >Mathematical Statistics 1
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/sufficiency/"
     
   >Sufficiency
@@ -348,10 +357,10 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
   >Hypothesis Testing
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms1/umvue/"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms1/umvue-copy/"
     
   >Uniformly Minimum Variance Unbiased Estimators
     </a>
@@ -359,9 +368,9 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms1/equivariance/"
+    href="/docs/ms1/umvue/"
     
-  >Equivariant Estimators
+  >Uniformly Minimum Variance Unbiased Estimators
     </a>
               
             </li></ul>
@@ -383,8 +392,12 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
 </div></div></aside>
     
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4">
-      <div class=" hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#steins-unbiased-risk-estimator">Stein’s unbiased risk estimator
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
@@ -405,26 +418,62 @@ If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\ove
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/docs/ms1/">Mathematical Statistics 1</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Sufficiency</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Uniformly Minimum Variance Unbiased Estimators</div>
   </div>
 
         <div class="content">
-          <h1>Sufficiency</h1>
-          <p>A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is <strong>sufficient</strong> if the conditional distribution $X|T$ does not depend on $\theta$.</p>
+          <h1>Uniformly Minimum Variance Unbiased Estimators</h1>
+          <p>We say that an estimator $\delta(X)$ is a uniformly minimum-variance unbiased estimator (UMVUE) for $g(\theta)$ if $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$ and for any other estimator $\widetilde{\delta}(X)$ which is unbiased for $g(\theta)$, it holds that $\operatornamewithlimits{Var} _ {\theta}(\delta(X))\leq\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$ for all $\theta\in\Theta$.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Lehmann-Scheffé Theorem</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Suppose that $T$ is unbiased, sufficient, and complete for $\theta$. If $\delta(X)=h(T(X))$ is unbiased for $g(\theta)$, then</p>
+<ul>
+<li>
+<p>$\delta(X)$ is the only function of $T(X)$ which is unbiased for $g(\theta)$,</p>
+</li>
+<li>
+<p>$\delta(X)$ is the unique UMVUE for $g(\theta)$.</p>
+</li>
+</ul>
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Suppose that $\widetilde{h}(T(X))$ is also unbiased for $g(\theta)$. Then $\mathbb{E} _ {\theta}(\widetilde{h}(T(X))-h(T(X))) = 0$, so by completeness, it follows that $\widetilde{h}(T(X))=h(T(X))$ almost surely. To show the second statement, suppose that $\widetilde{\delta}(X)$ is unbiased for $g(\theta)$. Then $\mathbb{E} _ \theta (\widetilde{\delta}(X)|T(X))$ is also unbiased, so $\mathbb{E} _ \theta (\widetilde{\delta}(X)|T(X))=h(T(X))$. By the Rao-Blackwell theorem,</p>
+$$
+\mathbb{E}_{\theta}\left(\mathbb{E}_{\theta}(\widetilde{\delta}(X)|T(X))-g(\theta)\right)^{2}\leq\mathbb{E}_{\theta}\left(\widetilde{\delta}(X)-g(\theta)\right)^{2}.
+$$<p>The left hand side is $\operatornamewithlimits{Var} _ {\theta}(h(T(X))$ and the right hand side is $\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$.</p>
+  </div>
+</details>
+<p>There are two methods to find UMVUEs:</p>
+<ol>
+<li>
+<p>Find $h(T(X))$ for some sufficient and complete $T(X)$ such that $\mathbb{E} _ {\theta}h(T(X))=g(\theta)$ for all $\theta\in\Theta$.</p>
+</li>
+<li>
+<p>Find $\delta(X)$ such that $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$. The UMVUE is then $\mathbb{E}_ \theta (\delta(X)|T(X))$ where $T(X)$ is sufficient and complete.</p>
+</li>
+</ol>
 <div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution</p>
-$$\left(\begin{array}{c}
-X_{1}\\
-\vdots\\
-X_{n}
-\end{array}\right)|\overline{X}\sim N\left(\left(\begin{array}{c}
-\overline{X}\\
-\vdots\\
-\overline{X}
-\end{array}\right),I_{n}-\frac{1}{n}\mathbb{{1}}_{n}\mathbb{{1}}_{n}^{T}\right).$$</div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$ where $\theta\in(0,1)$.</p>
+<ul>
+<li>
+<p>UMVUE for $\theta$: The estimator $\widehat{\theta}=\overline{X}$ is unbiased, sufficient, and complete, it is the unique UMVUE.</p>
+</li>
+<li>
+<p>UMVUE for $\theta^{2}$: Since $\mathbb{E} _ \theta (X_{1}X_{2})=\theta^{2}$, the estimator $\delta(X)=\mathbb{E}(X_{1}X_{2}|\sum_{i=1}^{n}X_{i})$ is unbiased. Since $T(X) = \sum_{i=1}^{n}X_{i}$ is sufficient and complete for $\theta$, it follows that $\delta(X)$ is the UMVUE for $\theta^{2}$.</p>
+</li>
+</ul>
+</div>
   </div>
 </div>
 
@@ -432,15 +481,9 @@ X_{n}
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{I}$ is sufficient. This can be seen from</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$ where $\theta&gt;0$. To find the UMVUE for $\theta$, we start with $\mathbb{E} _ {\theta}(2X_{1})=\theta$, so the UMVUE is $\mathbb{E} _ {\theta}(2X_{1}|X_{(n)})$. Since $X_{1}|X_{(n)}\sim\frac{1}{n}\delta_{X_{(n)}}+\left(1-\frac{1}{n}\right)\text{Unif}(0,X_{(n)})$, it follows that</p>
 $$
-\begin{aligned}
-\mathbb{P}(X=x|T=t) &=\frac{\mathbb{P}(X=x,T=t)}{\mathbb{P}(T=t)} \\
-	&=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}\mathbb{P}(X=x)}{\mathbb{P}(T=t)} \\
-	&=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}\theta^{\sum_{i=1}^{n}x_{i}}(1-\theta)^{1-\sum_{i=1}^{n}x_{i}}}{\binom{n}{t}\theta^{t}(1-\theta)^{1-t}} \\
-	&=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}\theta^{t}(1-\theta)^{1-t}}{\binom{n}{t}\theta^{t}(1-\theta)^{1-t}} \\
-	&=\frac{\mathbb{{1}}_{\{\sum_{i=1}^{n}x_{i}=t\}}}{\binom{n}{t}}.
-\end{aligned}
+\mathbb{E}_{\theta}(2X_{1}|X_{(n)})	=2\left(\frac{1}{n}X_{n}+\left(1-\frac{1}{n}\right)\frac{X_{n}}{2}\right)=\left(1+\frac{1}{n}\right)X_{(n)}.
 $$</div>
   </div>
 </div>
@@ -449,7 +492,30 @@ $$</div>
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, then $T=(X_{(1)},\ldots,X_{(n)})$ is sufficient because $X|T=t$ is the uniform distribution on all $n!$ permutations of the vector $t.$</div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\mu,\sigma^{2})$. A complete sufficient statistic is $\left(\sum_{i=1}^{n}X_{i},\sum_{i=1}^{n}X_{i}^{2}\right)$, which is equivalent to $\left(\overline{X},\sum_{i=1}^{n}(X_{i}-\overline{X})^{2}\right)$. The UMVUE for $\mu$ is $\overline{X}$, and the UMVUE for $\sigma^{2}$ is $\frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\overline{X})^{2}$.</div>
+  </div>
+</div>
+
+<h2>Stein&rsquo;s unbiased risk estimator<span class="hx-absolute -hx-mt-20" id="steins-unbiased-risk-estimator"></span>
+    <a href="#steins-unbiased-risk-estimator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Consider $X\sim N(\theta,I_{p})$ and let $\widehat{\theta}$ be an estimator. We want to find the UMVUE for the risk function $g(\theta)=\mathbb{E} _ {\theta}\Vert\widehat{\theta}-\theta\Vert^{2}$. Note that $X$ is complete and sufficient, so we want to write $\mathbb{E} _ {\theta}\Vert\widehat{\theta}-\theta\Vert^{2}$ as the expectation of some function of $X$ which does not depend on $\theta$. We have</p>
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2} &=\mathbb{E}_{\theta}\Vert\widehat{\theta}-X+X-\theta\Vert^{2} \\
+	&=\mathbb{E}_{\theta}\left(\Vert\widehat{\theta}-X\Vert^{2}+\Vert X-\theta\Vert^{2}+2\langle X-\theta,\widehat{\theta}-X\rangle\right) \\
+	&=\mathbb{E}_{\theta}\left(\Vert\widehat{\theta}-X\Vert^{2}+\Vert X-\theta\Vert^{2}-2\langle X-\theta,X\rangle+2\langle X-\theta,\widehat{\theta}\rangle\right).
+\end{aligned}
+$$<p>Writing $X=\theta+Z$ where $Z\sim N(0,I_{p})$, we have $\mathbb{E} _ {\theta}\Vert X-\theta\Vert^{2}=p$, $\mathbb{E} _ {\theta}\langle X-\theta,X\rangle=\mathbb{E} _ {\theta}\langle Z,\theta+Z\rangle=p$, and by Stein&rsquo;s lemma</p>
+$$
+\mathbb{E}_{\theta}\langle X-\theta,\widehat{\theta}\rangle	=\mathbb{E}_{\theta}\langle Z,\widehat{\theta}(\theta+Z)\rangle=\mathbb{E}_{\theta}\sum_{j=1}^{p}\frac{\partial}{\partial z_{j}}\widehat{\theta}_{j}(\theta+Z)=\mathbb{E}_{\theta}\sum_{j=1}^{p}\frac{\partial}{\partial x_{j}}\widehat{\theta}_{j}.
+$$<p>Therefore, $\mathbb{E} _ {\theta}\Vert\widehat{\theta}-\theta\Vert^{2}=\mathbb{E} _ {\theta}\operatorname{SURE}(\widehat{\theta})$ where</p>
+$$
+\operatorname{SURE}(\widehat{\theta})=\Vert\widehat{\theta}-X\Vert^{2}-p+2\sum_{j=1}^{p}\frac{\partial}{\partial x_{j}}\widehat{\theta}_{j}
+$$<p>is called Stein&rsquo;s unbiased risk estimator. This is the UMVUE of the risk function.</p>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
+  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Let $\widehat{\theta} _ {c}=cX$. Then $\widehat{\theta} _ {c^{\ast}}$ where $c^{\ast}=\argmin_{c}\operatorname{SURE}(cX)$ will give something similar to the James-Stein estimator.</div>
   </div>
 </div>
 
@@ -457,97 +523,13 @@ $$</div>
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$, then $T=X_{(n)}$ is sufficient. This can be seen from</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Consider the linear model $Y\sim N(\theta,I_{n})$. Let $X\in\mathbb{R}^{n\times p}$ be a fixed full-rank design matrix and let $\widehat{\beta}=\argmin_{\beta}\Vert Y-X\beta\Vert^{2}$. Then $\widehat{\theta}=X\widehat{\beta}=HY$ where $H=X(X^{T}X)^{-1}X^{T}$. Then</p>
 $$
-\begin{aligned}
-f_{X|T}(x|t) &= \frac{f_{X,T}(x,t)}{f_{T}(t)} \\
-	&=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}f_{X}(x)}{f_{T}(t)} \\
-	&=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}\left(\frac{1}{\theta}\right)^{n}}{n\left(\frac{t}{\theta}\right)^{n-1}\frac{1}{\theta}} \\
-	&=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}}{nt^{n-1}},
-\end{aligned}
-$$<p>
-where $f_{T}(t)=n\left(\frac{t}{\theta}\right)^{n-1}\frac{1}{\theta}$ follows from differentiating $F_{T}(t)=\mathbb{P}(T\leq t)=\left(\frac{t}{\theta}\right)^{n}.$</p>
-</div>
-  </div>
-</div>
-
-<p>Shall we always use sufficient statistic and throw away the original data? From the information-theoretic perspective, the answer is yes. But from a computational perspective, it is not always optimal because sampling from $X|T$ is often not easy or fast to do. In fact, it has been shown that sampling $\tilde{X}\sim X|T$ can be NP-hard.</p>
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"><div class="hx-select-none hx-text-xl" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">ℹ️</div></div>
-
-  <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">In a Bayesian setting where $\theta$ is random, another way to think of sufficiency is that $\theta\to T\to X$ is a Markov chain.</div>
-  </div>
-</div>
-
-<p>The following gives a characterization of sufficiency.</p>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Theorem</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    Suppose that $(P_{\theta}:\theta\in\Theta)$ is continuous or discrete. Then $T$ is sufficient if and only if $p(x|\theta)=g_{\theta}(T(x))h(x)$ for some measurable functions $g_{\theta}$ and $h$.
-  </div>
-</details>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Proof</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    <p>We will only prove this in the discrete case. Suppose that the pmf can be factorized as $p(x|\theta)=g_{\theta}(T(x))h(x)$ for some measurable functions $g_{\theta}$ and $h$. Then</p>
+\sum_{i=1}^{n}\frac{\partial}{\partial y_{i}}\widehat{\theta}_{i}=\sum_{i=1}^{n}H_{ii}=\operatorname{Tr}(H)=p,
+$$<p>which gives the Akaike information criterion</p>
 $$
-\begin{aligned}
-\mathbb{P}(X=x,T=t) &= \mathbb{{1}}_{\{T(x)=t\}}\mathbb{P}(X=x) \\
-	&=\mathbb{{1}}_{\{T(x)=t\}}g_{\theta}(T(x))h(x) \\ 
-	&=\mathbb{{1}}_{\{T(x)=t\}}g_{\theta}(t)h(x),
-\end{aligned}
-$$<p>and</p>
-$$
-\mathbb{P}(T=t)=\sum_{x':T(x')=t}\mathbb{P}(X=x')=\sum_{x':T(x')=t}g_{\theta}(T(x'))h(x')=g_{\theta}(t)\sum_{x':T(x')=t}h(x'),
-$$<p>Therefore,</p>
-$$
-\mathbb{P}(X=x|T=t)=\frac{\mathbb{P}(X=x,T=t)}{\mathbb{P}(T=t)}=\frac{\mathbb{{1}}_{\{T(x)=t\}}h(x)}{\sum_{x':T(x')=t}h(x')}
-$$<p>does not depend on $\theta.$ Conversely, suppose that $T$ is sufficient. Then</p>
-$$
-\begin{aligned}
-p(x|\theta) &=\mathbb{P}_{\theta}(X=x) \\
-	&=\mathbb{P}_{\theta}(X=x,T(X)=T(x)) \\
-	&=\mathbb{P}(X=x|T(X)=T(x))\mathbb{P}_{\theta}(T(X)=T(x)) \\
-	&=h(x)g_{\theta}(T(x)),
-\end{aligned}
-$$<p>where $h(x)=\mathbb{P}(X=x|T(X)=T(x))$ and $g_{\theta}(T(x))=\mathbb{P}_{\theta}(T(X)=T(x))$.</p>
-  </div>
-</details>
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
-
-  <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$. Then</p>
-$$
-\begin{aligned}
-p(x|\theta) &=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x-\theta)^{2}} \\
-	&=\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}(x_{i}-\theta)^{2}} \\
-	&=\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}-\frac{1}{2}n\theta^{2}+\theta\sum_{i=1}^{n}x_{i}} \\
-	&=\left(\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}}\right)e^{-\frac{1}{2}n\theta^{2}+\theta n\overline{x}}
-\end{aligned}
-$$<p>which shows that $T(X)=\overline{X}$ is sufficient.</p>
-</div>
-  </div>
-</div>
-
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
-
-  <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$, then</p>
-$$
-\begin{aligned}
-p(x|\theta) &= \prod_{i=1}^{n} \left(\frac{1}{\theta} \mathbb{1}_{\{0 < x_{i} < \theta\}}\right) \\ 
-	&=\theta^{-n}\mathbb{{1}}_{\{0 < x_{(1)} \leq x_{(n)} < \theta\}} \\ 
-	&=\left(\mathbb{{1}}_{\{0 < x_{(1)}\}}\right)\left(\theta^{-n}\mathbb{{1}}_{\{x_{(n)} < \theta\}}\right)
-\end{aligned}
-$$<p>which shows that $T(X)=X_{(n)}$ is sufficient.</p>
-</div>
+\operatorname{SURE}(X\widehat{\beta})=\Vert Y-X\widehat{\beta}\Vert^{2}+2p-n.
+$$</div>
   </div>
 </div>
 
@@ -555,10 +537,14 @@ $$<p>which shows that $T(X)=X_{(n)}$ is sufficient.</p>
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
-        href="/docs/ms1/ef/"
-        title="Exponential Families"
+        href="/docs/ms1/hypothesis/"
+        title="Hypothesis Testing"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Hypothesis Testing</a><a
+        href="/docs/ms1/umvue/"
+        title="Uniformly Minimum Variance Unbiased Estimators"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
-      >Exponential Families<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Uniformly Minimum Variance Unbiased Estimators<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
