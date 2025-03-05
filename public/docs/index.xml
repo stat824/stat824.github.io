@@ -957,7 +957,8 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}\
 $$&lt;p&gt;Note that $\Vert Z+\sqrt{n}\theta\Vert^2 \sim\chi_{p,n\Vert\theta\Vert^{2}}^{2}\overset{d}{=}\chi_{p+2N}^{2}$ where $N\sim\text{Poisson}\left(\frac{n\Vert\theta\Vert^{2}}{2}\right)$, so&lt;/p&gt;
 $$
 \mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}=\mathbb{E}\frac{1}{\chi_{p+2N}^{2}}=\mathbb{E}\frac{1}{p+2N-2}\geq\frac{1}{\mathbb{E}(p+2N-2)}=\frac{1}{p+n\Vert\theta\Vert^{2}-2}.
-$$$$
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
 \begin{aligned}
 R(\widehat{\theta}_{\mathrm{JS}},\theta) &amp;\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}}{p+n\Vert\theta\Vert^{2}-2}\right) \\
 	&amp;=\frac{1}{n}\frac{np\Vert\theta\Vert^{2}+2(p-2)}{p+n\Vert\theta\Vert^{2}-2} \\

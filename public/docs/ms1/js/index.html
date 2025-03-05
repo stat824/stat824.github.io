@@ -30,7 +30,7 @@ $$James-Stein estimator as an empirical Bayes estimator
 $$ \widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="602">
+  <meta itemprop="wordCount" content="603">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="James-Stein and Optimal Shrinkage Estimators">
   <meta name="twitter:description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
@@ -633,7 +633,8 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}\
 $$<p>Note that $\Vert Z+\sqrt{n}\theta\Vert^2 \sim\chi_{p,n\Vert\theta\Vert^{2}}^{2}\overset{d}{=}\chi_{p+2N}^{2}$ where $N\sim\text{Poisson}\left(\frac{n\Vert\theta\Vert^{2}}{2}\right)$, so</p>
 $$
 \mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}=\mathbb{E}\frac{1}{\chi_{p+2N}^{2}}=\mathbb{E}\frac{1}{p+2N-2}\geq\frac{1}{\mathbb{E}(p+2N-2)}=\frac{1}{p+n\Vert\theta\Vert^{2}-2}.
-$$$$
+$$<p>Therefore,</p>
+$$
 \begin{aligned}
 R(\widehat{\theta}_{\mathrm{JS}},\theta) &\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}}{p+n\Vert\theta\Vert^{2}-2}\right) \\
 	&=\frac{1}{n}\frac{np\Vert\theta\Vert^{2}+2(p-2)}{p+n\Vert\theta\Vert^{2}-2} \\

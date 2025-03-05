@@ -214,6 +214,7 @@ $$
 $$
 
 Therefore, 
+
 $$
 \begin{aligned}
 R(\widehat{\theta}_{\mathrm{JS}},\theta) &\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}}{p+n\Vert\theta\Vert^{2}-2}\right) \\
