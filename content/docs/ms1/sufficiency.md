@@ -23,7 +23,7 @@ X_{n}
 {{< /callout >}}
 
 {{< callout >}}
-If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{I}$ is sufficient. This can be seen from
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{i}$ is sufficient. This can be seen from
 
 $$
 \begin{aligned}
