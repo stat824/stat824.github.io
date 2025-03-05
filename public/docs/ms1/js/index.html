@@ -30,7 +30,7 @@ $$James-Stein estimator as an empirical Bayes estimator
 $$ \widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}. $$James-Stein estimator as an empirical Bayes estimator This estimator can be derived from the empirical Bayes perspective. In empirical Bayes, the prior distribution depends on a parameter $\tau$ which we estimate from the data rather than as a hyperparameter. In other words, we estimate $\tau$ from the marginal likelihood">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="603">
+  <meta itemprop="wordCount" content="613">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="James-Stein and Optimal Shrinkage Estimators">
   <meta name="twitter:description" content="Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
@@ -642,7 +642,7 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta) &\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}
 	&=\frac{2}{n}+\frac{\frac{p-2}{n}\Vert\theta\Vert^{2}}{\frac{p-2}{n}+\Vert\theta\Vert^{2}}  \\
 	&\leq\frac{2}{n}+R(\widehat{\theta}_{c^{\ast}},\theta).
 \end{aligned}
-$$<p>It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so in high dimensions the optimal shrinkage estimator performs very closely to the James-Stein estimator.</p>
+$$<p>It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so even in high dimensions the James-Stein estimator performs very closely to the optimal shrinkage estimator as long as the sample size is sufficiently large.</p>
 
         </div>
         <div class="hx-mt-16"></div>

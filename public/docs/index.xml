@@ -966,7 +966,7 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta) &amp;\leq\frac{1}{n}\left(p-\frac{(p-2)
 	&amp;=\frac{2}{n}+\frac{\frac{p-2}{n}\Vert\theta\Vert^{2}}{\frac{p-2}{n}+\Vert\theta\Vert^{2}}  \\
 	&amp;\leq\frac{2}{n}+R(\widehat{\theta}_{c^{\ast}},\theta).
 \end{aligned}
-$$&lt;p&gt;It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so in high dimensions the optimal shrinkage estimator performs very closely to the James-Stein estimator.&lt;/p&gt;
+$$&lt;p&gt;It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so even in high dimensions the James-Stein estimator performs very closely to the optimal shrinkage estimator as long as the sample size is sufficiently large.&lt;/p&gt;
 
       </description>
     </item>
