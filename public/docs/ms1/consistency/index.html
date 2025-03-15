@@ -38,7 +38,7 @@ $$ \mathbb{P}_{\theta^{\ast}}\left(\Vert\widehat{\theta}-\theta^{\ast}\Vert&gt;\
 Kullback–Leibler divergence For any two distributions $P$ and $Q$ with densities $p$ and $q$, we define the Kullback–Leibler divergence $D(P\Vert Q)$ to be">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="519">
+  <meta itemprop="wordCount" content="515">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Consistency of MLE">
   <meta name="twitter:description" content="Suppose that $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta^{\ast}}$. The maximum likelihood estimator is defined to be
@@ -287,6 +287,14 @@ Kullback–Leibler divergence For any two distributions $P$ and $Q$ with densiti
           </ul>
   
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/asymptotic_mle/"
+    
+  >Asymptotic Normality of MLE
+    </a>
+              
             </li></ul>
       </div>
             </li><li class="hx-flex hx-flex-col "><a
@@ -428,6 +436,14 @@ Kullback–Leibler divergence For any two distributions $P$ and $Q$ with densiti
   >Consistency of MLE
     </a>
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms1/asymptotic_mle/"
+    
+  >Asymptotic Normality of MLE
+    </a>
+              
             </li></ul>
       </div></li>
           <li class=""><a
@@ -558,7 +574,7 @@ $$
 $$<p>By the law of large numbers, for each fixed $\theta$,</p>
 $$
 \frac{1}{n}\sum_{i=1}^{n}\log\frac{p_{\theta^{\ast}}(X_{i})}{p_{\theta}(X_{i})}\overset{n\to\infty}{\longrightarrow}\int p_{\theta^{\ast}}\log\frac{p_{\theta^{\ast}}}{p_{\theta}}=D(P_{\theta^{\ast}}\Vert P_{\theta}).
-$$<p>What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ In fact, we will make the stronger assumption that for all $\epsilon&gt;0$, there exists $\delta&gt;0$ such that</p>
+$$<p>What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ More precisely, we assume that for all $\epsilon&gt;0$, there exists $\delta&gt;0$ such that</p>
 $$
 \Vert\theta_{1}-\theta_{2}\Vert>\epsilon\implies D(P_{\theta_{1}}\Vert P_{\theta_{2}})>\delta.
 $$<p>We call this condition identifiability. Then given $\epsilon&gt;0$, we have</p>
@@ -599,7 +615,11 @@ $$<p>which converges to 0 as $n\to\infty$ by the uniform law of large numbers.</
         href="/docs/ms1/equivariance/"
         title="Equivariant Estimators"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
-      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Equivariant Estimators</a></div>
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Equivariant Estimators</a><a
+        href="/docs/ms1/asymptotic_mle/"
+        title="Asymptotic Normality of MLE"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >Asymptotic Normality of MLE<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>

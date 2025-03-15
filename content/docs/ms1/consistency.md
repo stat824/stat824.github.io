@@ -73,7 +73,7 @@ $$
 \frac{1}{n}\sum_{i=1}^{n}\log\frac{p_{\theta^{\ast}}(X_{i})}{p_{\theta}(X_{i})}\overset{n\to\infty}{\longrightarrow}\int p_{\theta^{\ast}}\log\frac{p_{\theta^{\ast}}}{p_{\theta}}=D(P_{\theta^{\ast}}\Vert P_{\theta}).
 $$
 
-What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ In fact, we will make the stronger assumption that for all $\epsilon>0$, there exists $\delta>0$ such that
+What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ More precisely, we assume that for all $\epsilon>0$, there exists $\delta>0$ such that
 
 $$
 \Vert\theta_{1}-\theta_{2}\Vert>\epsilon\implies D(P_{\theta_{1}}\Vert P_{\theta_{2}})>\delta.
