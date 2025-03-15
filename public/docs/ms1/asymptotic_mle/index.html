@@ -563,15 +563,15 @@ $$<p>Then since $\widetilde{\theta}\approx\widehat{\theta}$, intuitively we have
     <a href="#the-rigorous-argument" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We will now give the rigorous argument which does not assume the existence of the second derivative of the log-likelihood. Instead of taking second derivative first and then apply the law of large numbers as we did above, we will apply the law of large numbers first. The key idea is that in some cases, the expectation operator can exhibit a smoothing property that allows $L(\theta):=\mathbb{E} _ {\theta^{\ast}}\log_{\theta}(X)$ to be twice differentiable even if the log-density is not. In this case, we have the second order Taylor expansion</p>
 $$
 L(\theta^{\ast}+t)=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2}).
+$$<p>Let $L _ {n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})$ and define the empirical process operator $\nu_{n}$ by</p>
+$$
+\nu_{n}f=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}(f(X_{i})-\mathbb{E}_{\theta^{\ast}}f(X)).
 $$<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Theorem</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    <p>Define $L _ {n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})$ and define the empirical process operator $\nu_{n}$ by</p>
-$$
-\nu_{n}f=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}(f(X_{i})-\mathbb{E}_{\theta^{\ast}}f(X)).
-$$<p>Assume that the following conditions hold:</p>
+    <p>Assume that the following conditions hold:</p>
 <ol>
 <li>
 <p>$\Vert\widehat{\theta}-\theta^{\ast}\Vert=o_{P_{\theta^{\ast}}}(1).$</p>
@@ -589,7 +589,7 @@ $$<p>where $r$ is the remainder term in the first order expansion $\log p_{\thet
 <p>Then $\sqrt{n}(\widehat{\theta}-\theta^{\ast})\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$</p>
   </div>
 </details>
-<p>These assumptions are quite technical. Later on, we will give a simple condition which replaces the need to assume that $L(\theta)$ has the desired second order expansion.</p>
+<p>These assumptions are quite technical. Later on, we will give a simple condition which replaces the need to assume that $L(\theta)$ has the second order expansion above.</p>
 <h3>Step 1: Derive a quadratic expansion for $L _ {n}(\theta)$<span class="hx-absolute -hx-mt-20" id="step-1-derive-a-quadratic-expansion-for-l-_-ntheta"></span>
     <a href="#step-1-derive-a-quadratic-expansion-for-l-_-ntheta" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>We have</p>
 $$

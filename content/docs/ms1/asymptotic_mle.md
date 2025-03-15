@@ -65,13 +65,14 @@ $$
 L(\theta^{\ast}+t)=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2}).
 $$
 
-{{% details title="Theorem" %}}
-Define $L _ {n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})$ and define the empirical process operator $\nu_{n}$ by
+Let $L _ {n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})$ and define the empirical process operator $\nu_{n}$ by
 
 $$
 \nu_{n}f=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}(f(X_{i})-\mathbb{E}_{\theta^{\ast}}f(X)).
 $$
 
+
+{{% details title="Theorem" %}}
 Assume that the following conditions hold:
 
 1. $\Vert\widehat{\theta}-\theta^{\ast}\Vert=o_{P_{\theta^{\ast}}}(1).$ 
@@ -89,7 +90,7 @@ $$
 Then $\sqrt{n}(\widehat{\theta}-\theta^{\ast})\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$
 {{% /details %}}
 
-These assumptions are quite technical. Later on, we will give a simple condition which replaces the need to assume that $L(\theta)$ has the desired second order expansion.
+These assumptions are quite technical. Later on, we will give a simple condition which replaces the need to assume that $L(\theta)$ has the second order expansion above.
 
 ### Step 1: Derive a quadratic expansion for $L _ {n}(\theta)$
 
