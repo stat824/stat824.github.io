@@ -8,7 +8,7 @@ weight: 12
 
 Let $X_1, \ldots, X_n \sim P _ {\theta^\ast}$ where $\theta^\ast \in \Theta.$ Denote by $\widehat{\theta}$ the maximum likelihood estimator. We will now derive the asymptotic distribution of $\widehat{\theta}$ under the assumption that $\Vert\widehat{\theta}-\theta^{\ast}\Vert=o_{P_{\theta^{\ast}}}(1)$ and some other regularity conditions. We will assume that $\Theta \subseteq \mathbb{R}$, but all arguments can be easily modified to work with vector parameters. 
 
-Let us define the score function to be $S_{\theta}(x)=\frac{\partial}{\partial\theta}\log p_{\theta}(x).$ Note that the score function is the derivative of the log-density, not the log-likelihood. We assume that the distribution is sufficient regular to allow interchanging differentiation and integration. Later on, we will give a sufficient condition for when this regularity condition holds. Then we have $\mathbb{E} _ {\theta}S_{\theta}(X)=0$ because
+Let us define the score function to be $S_{\theta}(x)=\frac{\partial}{\partial\theta}\log p_{\theta}(x).$ We assume that the distribution is sufficient regular to allow interchanging differentiation and integration. Later on, we will give a sufficient condition for when this regularity condition holds. Then we have $\mathbb{E} _ {\theta}S_{\theta}(X)=0$ because
 
 $$
 \mathbb{E}_{\theta}S_{\theta}(X)=\int p_{\theta}\frac{\partial}{\partial\theta}\log p_{\theta}=\int p_{\theta}\frac{\frac{\partial}{\partial\theta}p_{\theta}}{p_{\theta}}=\int\frac{\partial}{\partial\theta}p_{\theta}=\frac{\partial}{\partial\theta}\int p_{\theta}=0.
