@@ -1838,5 +1838,145 @@ $$
       </description>
     </item>
     
+    <item>
+      <title>Differentiability in Quadratic Mean</title>
+      <link>http://localhost:1313/docs/ms1/dqm/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1/dqm/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Let us say that a statistical model $(P_{\theta}:\theta\in\Theta)$ satisfies local asymptotic normality (LAN) at $\theta$ if&lt;/p&gt;
+$$
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}=\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{h^{2}}{2}I_{\theta}+o_{P_{\theta}}\left(1\right)
+$$&lt;p&gt;for any $h$ independent of $n$. Let $\widehat{\theta}$ be the maximum likelihood estimator. Then LAN at $\theta^{\ast}$ along with consistency and stochastic differentiability together guarantee that $\sqrt{n}(\widehat{\theta}-\theta^{\ast})\rightsquigarrow N(0,I_{\theta^{\ast}}^{-1}).$&lt;/p&gt;
+&lt;p&gt;It is easy to show that the pointwise derivative $\frac{\partial}{\partial\theta}\sqrt{p_{\theta}(x)}$ is given by $\frac{1}{2}\sqrt{p_{\theta}(x)}S_{\theta}(x).$ Let us say that the parametric family $(P_{\theta}:\theta\in\Theta)$ satisfies differentiability in quadratic mean (DQM) at $\theta$ if&lt;/p&gt;
+$$
+\int\left(\frac{\sqrt{p_{\theta+t}(x)}-\sqrt{p_{\theta}(x)}}{t}-\frac{1}{2}\sqrt{p_{\theta}(x)}S_{\theta}(x)\right)^{2}\to0\quad\text{as }t\to0.
+$$&lt;p&gt;In other words, DQM holds if $\theta\mapsto\sqrt{p_{\theta}}$ is Fréchet differentiable in $L^{2}$ at $\theta.$&lt;/p&gt;
+&lt;h2&gt;DQM implies LAN&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;dqm-implies-lan&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dqm-implies-lan&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can show that DQM implies LAN. This means that we can essentially replace the second order expansion assumption for asymptotic normality of MLE with a first order differentiability condition.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Suppose that DQM holds at $\theta$. Then $\mathbb{E} _ {\theta}S_{\theta}(X)=0$ and LAN holds at $\theta$  with $I_{\theta}=\mathbb{E} _ {\theta}(S_{\theta}(X))^{2}.$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h3&gt;Part 1: Show that $\mathbb{E} _ {\theta}S _ {\theta}(X)=0$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-1-show-that-mathbbe-_-thetas-_-thetax0&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#part-1-show-that-mathbbe-_-thetas-_-thetax0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let $h$ be independent of $n$. Taking $t=h/\sqrt{n}$, we see that DQM holds at $\theta$ if and only if&lt;/p&gt;
+$$
+\int\left(\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)-\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}\right)^{2}=o(1).
+$$&lt;p&gt;We have&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}S_{\theta}(X)	=\int p_{\theta}S_{\theta}=2\int\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}\sqrt{p_{\theta}}=I_{1}+I_{2},$$&lt;p&gt;where&lt;/p&gt;
+$$
+I_{1}=2\int\left(\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}-\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)\right),
+$$&lt;p&gt;and&lt;/p&gt;
+$$
+I_{2}=2\int\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)\sqrt{p_{\theta}}.
+$$&lt;p&gt;Then by the Cauchy-Schwarz inequality&lt;/p&gt;
+$$
+|I_{1}|\leq2\sqrt{\int\left(\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}-\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)\right)^{2}}\sqrt{\int p_{\theta}}=o(1).
+$$&lt;p&gt;Let $f_{n}=\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}$ and $g_{n}=\frac{1}{2}\frac{h}{\sqrt{n}}\sqrt{p_{\theta}}S_{\theta}.$ Then&lt;/p&gt;
+$$
+\begin{aligned}
+|I_{2}|	&amp;=2\sqrt{n}\left|\int\sqrt{p_{\theta+h/\sqrt{n}}p_{\theta}}-1\right| \\
+	&amp;=\sqrt{n}H^{2}(P_{\theta+h.\sqrt{n}},P_{\theta}) \\
+	&amp;=\sqrt{n}\left|\int f_{n}^{2}\right| \\
+	&amp;=\sqrt{n}\int(f_{n}-g_{n}+g_{n})^{2} \\
+	&amp;=\sqrt{n}\int g_{n}^{2}+\sqrt{n}\int(f_{n}-g_{n})^{2}+2\sqrt{n}\int(f_{n}-g_{n})g_{n}.
+\end{aligned}
+$$&lt;p&gt;We have&lt;/p&gt;
+$$
+\sqrt{n}\int g_{n}^{2}=\sqrt{n}\int\frac{1}{4}\frac{h^{2}}{n}p_{\theta}S_{\theta}^{2}=\frac{h^{2}}{4n}I_{\theta} = o(1).
+$$&lt;p&gt;The DQM condition is equivalent to $\int(f_{n}-g_{n})^{2}=o(n^{-1}),$ so we have&lt;/p&gt;
+$$
+\sqrt{n}\int(f_{n}-g_{n})^{2}=o(n^{-1/2}).
+$$&lt;p&gt;Applying the Cauchy-Schwarz inequality, we get&lt;/p&gt;
+$$
+2\sqrt{n}\int(f_{n}-g_{n})g_{n}\leq2\sqrt{n}\sqrt{\int(f_{n}-g_{n})^{2}}\sqrt{\int g_{n}^{2}} = o(1).
+$$&lt;p&gt;We conclude that $\mathbb{E} _ {\theta}S_{\theta}(X) = 0.$&lt;/p&gt;
+&lt;h3&gt;Part 2: Show that LAN holds at $\theta$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-2-show-that-lan-holds-at-theta&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#part-2-show-that-lan-holds-at-theta&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Note that DQM can equivalently by stated as&lt;/p&gt;
+$$
+\int p_{\theta}\left(\sqrt{\frac{p_{\theta+h/\sqrt{n}}}{p_{\theta}}}-1-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}\right)^{2}=o(n^{-1}).
+$$&lt;p&gt;Let $W_{i}=\sqrt{\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}}-1.$ Then&lt;/p&gt;
+$$
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}	=2\log\prod_{i=1}^{n}\left(\sqrt{\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}}-1+1\right)=2\sum_{i=1}^{n}\log(W_{i}+1).
+$$&lt;p&gt;Using the Taylor expansion $\log(x+1)=x-\frac{x^{2}}{2}+o(1),$ we have&lt;/p&gt;
+$$
+2\sum_{i=1}^{n}\log(W_{i}+1)=2\sum_{i=1}^{n}W_{i}-\sum_{i=1}^{n}W_{i}^{2}+o_{P_{\theta}}(1).
+$$&lt;p&gt;We will analyze the convergence of $\sum_{i=1}^{n}W_{i}$ and $\sum_{i=1}^{n}W_{i}^{2}$ in probability.&lt;/p&gt;
+&lt;h4&gt;Convergence of $\sum_{i=1}^{n}W_{i}$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;convergence-of-sum_i1nw_i&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#convergence-of-sum_i1nw_i&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Let $c_{n}=\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)$ and $c=\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}.$ Since $c_{n}=\sqrt{n}f_{n}$ and $c=\sqrt{n}g_{n},$ it follows from $\int(f_{n}-g_{n})^{2}=o(n^{-1})$ that $\int(c_{n}-c)^{2}=o(1).$ Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\sum_{i=1}^{n}W_{i} &amp;=n\left(\int\sqrt{p_{\theta}p_{\theta+h/\sqrt{n}}}-1\right) \\
+	&amp;=-\frac{n}{2}\int\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)^{2} \\
+	&amp;=-\frac{1}{2}\int c_{n}^{2} \\ 
+	&amp;=-\frac{1}{2}\int(c_{n}-c+c)^{2} \\
+	&amp;=-\frac{1}{2}\int c^{2}-\frac{1}{2}\int(c_{n}-c)^{2}-\int(c_{n}-c)c \\
+	&amp;=-\frac{1}{2}\int c^{2}-\int(c_{n}-c)c+o(1).
+\end{aligned}
+$$&lt;p&gt;Then&lt;/p&gt;
+$$
+-\frac{1}{2}\int c^{2}=-\frac{1}{2}\int\frac{1}{4}h^{2}p_{\theta}S_{\theta}^{2}=-\frac{1}{8}h^{2}I_{\theta},
+$$&lt;p&gt;and by the Cauchy-Schwarz inequality we have&lt;/p&gt;
+$$
+\left|\int(c_{n}-c)c\right|\leq\sqrt{\int(c_{n}-c)^{2}}\sqrt{\int c^{2}}=o(1).
+$$&lt;p&gt;Therefore, $\mathbb{E} _ {\theta}\sum_{i=1}^{n}W_{i}=-\frac{1}{8}h^{2}I_{\theta}+o(1).$ Since $\mathbb{E} _ {\theta}S_{\theta}(X_{i})=0,$ it follows that&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)=-\frac{1}{8}h^{2}I_{\theta}+o(1).
+$$&lt;p&gt;Also,&lt;/p&gt;
+$$
+\begin{aligned}
+\operatorname{Var}_{\theta}\left(\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)\right)	&amp;= n\operatorname{Var}_{\theta}\left(W_{1}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{1})\right) \\
+	&amp;\leq n\mathbb{E}_{\theta}\left(W_{1}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{1})\right)^{2} \\
+	&amp;=n\int p_{\theta}\left(\sqrt{\frac{p_{\theta+1/\sqrt{n}}}{p_{\theta}}}-1-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}\right)^{2} \\
+	&amp;=n\cdot o(n^{-1}) \\
+	&amp;=o(1).
+\end{aligned}
+$$&lt;p&gt;The variance converging to 0 implies that $\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)$ converges in probability to its mean, so we have&lt;/p&gt;
+$$
+\sum_{i=1}^{n}W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})=-\frac{1}{8}h^{2}I_{\theta}+o_{P_{\theta}}(1).
+$$&lt;p&gt;Rearranging gives&lt;/p&gt;
+$$
+\sum_{i=1}^{n}W_{i}=\frac{1}{2}\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{1}{8}h^{2}I_{\theta}+o_{P_{\theta}}(1).
+$$&lt;h4&gt;Convergence of $\sum_{i=1}^{n}W_{i}^{2}$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;convergence-of-sum_i1nw_i2&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#convergence-of-sum_i1nw_i2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;We have&lt;/p&gt;
+$$
+\begin{aligned}
+\sum_{i=1}^{n}W_{i}^{2}	&amp;=\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})+\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)^{2} \\
+	&amp;=\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)^{2}+\sum_{i=1}^{n}\left(\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)^{2} \\ &amp;\qquad \qquad \qquad +2\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i}).
+\end{aligned}
+$$&lt;p&gt;Call the three terms $S_{1}$, $S_{2}$, and $S_{3}.$ For the first term, we have already found that&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}S_{1}=n\mathbb{E}_{\theta}\left(W_{1}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{1})\right)^{2}=o(1).
+$$&lt;p&gt;Therefore, $S_{1}=o_{P_{\theta}}(1).$ For the second term, by the law of large numbers we have&lt;/p&gt;
+$$
+S_{2}=\frac{h^{2}}{4}\frac{1}{n}\sum_{i=1}^{n}S_{\theta}(X_{i})^{2}=\frac{h^{2}}{4}I_{\theta}+o_{P_{\theta}}(1)=o_{P_{\theta}}(1).
+$$&lt;p&gt;For the third term, by the Cauchy-Schwarz inequality we have&lt;/p&gt;
+$$
+\left|S_{3}\right|\leq2\sqrt{S_{1}}\sqrt{S_{2}}=o_{P_{\theta}}(1).
+$$&lt;p&gt;Thus, we have&lt;/p&gt;
+$$
+\sum_{i=1}^{n}W_{i}^{2}=\frac{h^{2}}{4}I_{\theta}+o_{P_{\theta}}(1).
+$$&lt;h4&gt;Conclude&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;conclude&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#conclude&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Putting everything together, we have&lt;/p&gt;
+$$
+\begin{aligned}
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})} &amp;= 2\sum_{i=1}^{n}W_{i}-\sum_{i=1}^{n}W_{i}^{2}+o_{P_{\theta}}(1) \\
+	&amp;=2\left(\sum_{i=1}^{n}W_{i}\right)-\sum_{i=1}^{n}W_{i}^{2}+o_{P_{\theta}}(1) \\
+	&amp;=2\left(\frac{1}{2}\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{1}{8}h^{2}I_{\theta}+o_{P_{\theta}}(1)\right)-\left(\frac{h^{2}}{4}I_{\theta}+o_{P_{\theta}}(1)\right)+o_{P_{\theta}}(1) \\
+	&amp;=\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{1}{2}h^{2}I_{\theta}+o_{P_{\theta}}(1)
+\end{aligned}
+$$&lt;p&gt;which shows that LAN holds at $\theta.$&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>
