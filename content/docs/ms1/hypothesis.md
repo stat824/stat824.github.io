@@ -2,7 +2,7 @@
 date: '2025-02-27T21:18:39+10:00'
 draft: true
 math: true
-title: 'Hypothesis Testing and Le Cam's Method'
+title: 'Hypothesis Testing and Le Cams Method'
 weight: 8
 ---
 
