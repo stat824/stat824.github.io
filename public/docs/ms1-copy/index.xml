@@ -24,7 +24,7 @@
       <description>
         
         
-        &lt;p&gt;A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is &lt;strong&gt;sufficient&lt;/strong&gt; if the conditional distribution $X|T$ does not depend on $\theta$.&lt;/p&gt;
+        &lt;p&gt;A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$.&lt;/p&gt;
 &lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
@@ -46,7 +46,7 @@ X_{n}
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{I}$ is sufficient. This can be seen from&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(\theta)$, then $T(X)=\sum_{i=1}^{n}X_{i}$ is sufficient. This can be seen from&lt;/p&gt;
 $$
 \begin{aligned}
 \mathbb{P}(X=x|T=t) &amp;=\frac{\mathbb{P}(X=x,T=t)}{\mathbb{P}(T=t)} \\
@@ -917,7 +917,8 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}\
 $$&lt;p&gt;Note that $\Vert Z+\sqrt{n}\theta\Vert^2 \sim\chi_{p,n\Vert\theta\Vert^{2}}^{2}\overset{d}{=}\chi_{p+2N}^{2}$ where $N\sim\text{Poisson}\left(\frac{n\Vert\theta\Vert^{2}}{2}\right)$, so&lt;/p&gt;
 $$
 \mathbb{E}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}=\mathbb{E}\frac{1}{\chi_{p+2N}^{2}}=\mathbb{E}\frac{1}{p+2N-2}\geq\frac{1}{\mathbb{E}(p+2N-2)}=\frac{1}{p+n\Vert\theta\Vert^{2}-2}.
-$$$$
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
 \begin{aligned}
 R(\widehat{\theta}_{\mathrm{JS}},\theta) &amp;\leq\frac{1}{n}\left(p-\frac{(p-2)^{2}}{p+n\Vert\theta\Vert^{2}-2}\right) \\
 	&amp;=\frac{1}{n}\frac{np\Vert\theta\Vert^{2}+2(p-2)}{p+n\Vert\theta\Vert^{2}-2} \\
@@ -925,7 +926,7 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta) &amp;\leq\frac{1}{n}\left(p-\frac{(p-2)
 	&amp;=\frac{2}{n}+\frac{\frac{p-2}{n}\Vert\theta\Vert^{2}}{\frac{p-2}{n}+\Vert\theta\Vert^{2}}  \\
 	&amp;\leq\frac{2}{n}+R(\widehat{\theta}_{c^{\ast}},\theta).
 \end{aligned}
-$$&lt;p&gt;It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so in high dimensions the optimal shrinkage estimator performs very closely to the James-Stein estimator.&lt;/p&gt;
+$$&lt;p&gt;It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so even in high dimensions the James-Stein estimator performs very closely to the optimal shrinkage estimator as long as the sample size is sufficiently large.&lt;/p&gt;
 
       </description>
     </item>
@@ -1010,7 +1011,7 @@ $$&lt;p&gt;Adding up all the terms, we get $\mathbb{E} _ \theta \Vert\widehat{\t
     </item>
     
     <item>
-      <title>Hypothesis Testing</title>
+      <title>Hypothesis Testing and Le Cams Method</title>
       <link>http://localhost:1313/docs/ms1-copy/hypothesis/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
       
@@ -1672,7 +1673,7 @@ $$
 $$&lt;p&gt;By the law of large numbers, for each fixed $\theta$,&lt;/p&gt;
 $$
 \frac{1}{n}\sum_{i=1}^{n}\log\frac{p_{\theta^{\ast}}(X_{i})}{p_{\theta}(X_{i})}\overset{n\to\infty}{\longrightarrow}\int p_{\theta^{\ast}}\log\frac{p_{\theta^{\ast}}}{p_{\theta}}=D(P_{\theta^{\ast}}\Vert P_{\theta}).
-$$&lt;p&gt;What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ In fact, we will make the stronger assumption that for all $\epsilon&amp;gt;0$, there exists $\delta&amp;gt;0$ such that&lt;/p&gt;
+$$&lt;p&gt;What is the minimizer of this limiting quantity? Of course, $\theta=\theta^{\ast}$ minimizes the expression, but there could be other values of $\theta$ that minimize the expression if we have $P_{\theta_{1}}=P_{\theta_{2}}$ for some $\theta_{1}\neq\theta_{2}$. To ensure that the MLE converges to the true parameter $\theta^\ast$, we must avoid such a situation. We need to assume $\theta_{1}\neq\theta_{2}\implies P_{\theta_{1}}\neq P_{\theta_{2}}.$ More precisely, we assume that for all $\epsilon&amp;gt;0$, there exists $\delta&amp;gt;0$ such that&lt;/p&gt;
 $$
 \Vert\theta_{1}-\theta_{2}\Vert&gt;\epsilon\implies D(P_{\theta_{1}}\Vert P_{\theta_{2}})&gt;\delta.
 $$&lt;p&gt;We call this condition identifiability. Then given $\epsilon&amp;gt;0$, we have&lt;/p&gt;
@@ -1706,6 +1707,273 @@ $$&lt;p&gt;Therefore,&lt;/p&gt;
 $$
 \mathbb{P}_{\theta^{\ast}}\left(D(P_{\theta^{\ast}}\Vert P_{\widehat{\theta}})&gt;\delta\right)\leq\mathbb{P}_{\theta^{\ast}}\left(2\sup_{\theta}\left|\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})-\int p_{\theta^{\ast}}\log p_{\theta}\right|&gt;\delta\right)
 $$&lt;p&gt;which converges to 0 as $n\to\infty$ by the uniform law of large numbers.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Asymptotic Normality of MLE</title>
+      <link>http://localhost:1313/docs/ms1-copy/asymptotic_mle/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1-copy/asymptotic_mle/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Let $X_1, \ldots, X_n \sim P _ {\theta^\ast}$ where $\theta^\ast \in \Theta.$ Denote by $\widehat{\theta}$ the maximum likelihood estimator. We will now derive the asymptotic distribution of $\widehat{\theta}$ under the assumption that $\Vert\widehat{\theta}-\theta^{\ast}\Vert=o_{P_{\theta^{\ast}}}(1)$ and some other regularity conditions. We will assume that $\Theta \subseteq \mathbb{R}$, but all arguments can be easily modified to work with vector parameters.&lt;/p&gt;
+&lt;p&gt;Let us define the score function to be $S_{\theta}(x)=\frac{\partial}{\partial\theta}\log p_{\theta}(x).$ We assume that the distribution is sufficient regular to allow interchanging differentiation and integration. Later on, we will give a sufficient condition for when this regularity condition holds. Then we have $\mathbb{E} _ {\theta}S_{\theta}(X)=0$ because&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}S_{\theta}(X)=\int p_{\theta}\frac{\partial}{\partial\theta}\log p_{\theta}=\int p_{\theta}\frac{\frac{\partial}{\partial\theta}p_{\theta}}{p_{\theta}}=\int\frac{\partial}{\partial\theta}p_{\theta}=\frac{\partial}{\partial\theta}\int p_{\theta}=0.
+$$&lt;p&gt;We define the Fisher information to be $I _ {\theta}=\operatorname{Var} _ {\theta}(S _ {\theta}(X))=\mathbb{E} _ {\theta}\left(S _ {\theta}(X)\right)^{2}.$ The claim is that $\sqrt{n}\left(\widetilde{\theta}-\theta^{\ast}\right)\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;ℹ️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If the log-density is twice differentiable, an alternative formula for the Fisher information is&lt;/p&gt;
+$$
+I_{\theta}=-\mathbb{E}_{\theta}\left(\frac{\partial^{2}}{\partial\theta^{2}}\log p_{\theta}(X)\right).
+$$&lt;p&gt;You can check this easily.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;The intuition&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-intuition&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-intuition&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Using a Taylor expansion, we have&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})	&amp;\approx \frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})+(\theta-\theta^{\ast})\frac{1}{n}\sum_{i=1}^{n}\left.\frac{\partial}{\partial\theta}\log p_{\theta}(X_{i})\right|_{\theta=\theta^{\ast}} \\ &amp;\qquad \qquad +\frac{(\theta-\theta^{\ast})^{2}}{2}\frac{1}{n}\sum_{i=1}^{n}\left.\frac{\partial^{2}}{\partial\theta^{2}}\log p_{\theta}(X_{i})\right|_{\theta=\theta^{\ast}} \\
+	&amp;\approx\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})+(\theta-\theta^{\ast})\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-\frac{1}{2}(\theta-\theta^{\ast})^{2}I_{\theta^{\ast}}=:\widetilde{L}_{n}(\theta).
+\end{aligned}
+$$&lt;p&gt;Then $\widetilde{L} _ {n}(\theta)$ is concave, so it has a unique maximizer. Define $\widetilde{\theta}=\argmax _ {\theta}\widetilde{L} _ {n}(\theta)$. Then setting the derivative of $\widetilde{L}_{n}(\theta)$ to be 0, we have&lt;/p&gt;
+$$
+\widetilde{L}_{n}&#39;(\theta)=\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-(\theta-\theta^{\ast})I_{\theta^{\ast}}=0.
+$$&lt;p&gt;Rearranging gives&lt;/p&gt;
+$$
+\widetilde{\theta}-\theta^{\ast}=\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})/I_{\theta^{\ast}}.
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\sqrt{n}\left(\widetilde{\theta}-\theta^{\ast}\right)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})/I_{\theta^{\ast}}\rightsquigarrow N\left(0,\operatorname{Var}_{\theta^{\ast}}\left(\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}\right)\right)=N\left(0,I_{\theta^{\ast}}^{-1}\right).
+$$&lt;p&gt;Then since $\widetilde{\theta}\approx\widehat{\theta}$, intuitively we have also $\sqrt{n}\left(\widehat{\theta}-\theta^{\ast}\right)\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$&lt;/p&gt;
+&lt;h2&gt;The rigorous argument&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-rigorous-argument&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-rigorous-argument&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We will now give the rigorous argument which does not assume the existence of the second derivative of the log-likelihood. Instead of taking second derivative first and then apply the law of large numbers as we did above, we will apply the law of large numbers first. The key idea is that in some cases, the expectation operator can exhibit a smoothing property that allows $L(\theta):=\mathbb{E} _ {\theta^{\ast}}\log_{\theta}(X)$ to be twice differentiable even if the log-density is not. In this case, we have the second order Taylor expansion&lt;/p&gt;
+$$
+L(\theta^{\ast}+t)=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2}).
+$$&lt;p&gt;Let $L _ {n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})$ and define the empirical process operator $\nu_{n}$ by&lt;/p&gt;
+$$
+\nu_{n}f=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}(f(X_{i})-\mathbb{E}_{\theta^{\ast}}f(X)).
+$$&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Assume that the following conditions hold:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\Vert\widehat{\theta}-\theta^{\ast}\Vert=o_{P_{\theta^{\ast}}}(1).$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For every sequence $(U_{n})$ of shrinking neighborhoods of 0, we have&lt;/p&gt;
+$$
+\sup_{t\in U_{n}}\frac{|\nu_{n}r(\cdot,t)|}{1+\sqrt{n}|t|}\overset{P_{\theta^{\ast}}}{\longrightarrow}0
+$$&lt;p&gt;where $r$ is the remainder term in the first order expansion $\log p_{\theta^{\ast}+t}(X)=\log p_{\theta^{\ast}}(X)+tS_{\theta^{\ast}}(X)+|t|r(X,t).$ This condition is known as stochastic differentiability.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$L(\theta)$ has the second order expansion $L(\theta^{\ast}+t)=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2})$ where $I_{\theta^{\ast}}=\mathbb{E}\left(S_{\theta^{\ast}}(X)\right)^{2}.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then $\sqrt{n}(\widehat{\theta}-\theta^{\ast})\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;These assumptions are quite technical. Later on, we will give a simple condition which replaces the need to assume that $L(\theta)$ has the second order expansion above.&lt;/p&gt;
+&lt;h3&gt;Step 1: Derive a quadratic expansion for $L _ {n}(\theta)$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;step-1-derive-a-quadratic-expansion-for-l-_-ntheta&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-1-derive-a-quadratic-expansion-for-l-_-ntheta&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We have&lt;/p&gt;
+$$
+\begin{aligned}
+L_{n}(\theta^{\ast}+t) &amp;= L(\theta^{\ast}+t)+\frac{1}{\sqrt{n}}\nu_{n}\log p_{\theta^{\ast}+t} \\
+	&amp;=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2})+\frac{1}{\sqrt{n}}\nu_{n}\left(\log p_{\theta^{\ast}}+tS_{\theta^{\ast}}+|t|r(\cdot,t)\right) \\
+	&amp;=\left(L(\theta^{\ast})+\frac{1}{\sqrt{n}}\nu_{n}\log p_{\theta^{\ast}}\right)+\frac{t}{\sqrt{n}}\nu_{n}S_{\theta^{\ast}}-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2})+\frac{|t|}{\sqrt{n}}\nu_{n}r(\cdot,t) \\
+	&amp;=L_{n}(\theta^{\ast})+\frac{t}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2})+\frac{|t|}{\sqrt{n}}\nu_{n}r(\cdot,t).
+\end{aligned}
+$$&lt;p&gt;This is almost the same expansion as we had from the intuitive argument.&lt;/p&gt;
+&lt;h3&gt;Step 2: Show that $\widehat{\theta}$ is $\sqrt{n}$-consistent&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;step-2-show-that-widehattheta-is-sqrtn-consistent&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-2-show-that-widehattheta-is-sqrtn-consistent&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let $\widehat{t}=\widehat{\theta}-\theta^{\ast}.$ Then&lt;/p&gt;
+$$
+L_{n}(\theta^{\ast}+\widehat{t})=L_{n}(\theta^{\ast})+\frac{\widehat{t}}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-\frac{\widehat{t}^{2}}{2}I_{\theta^{\ast}}+o_{P_{\theta^{\ast}}}(\widehat{t}^{2})+\frac{|\widehat{t}|}{\sqrt{n}}\nu_{n}r(\cdot,\widehat{t}).
+$$&lt;p&gt;Since $|\widehat{t}|=o_{P_{\theta^{\ast}}}(1)$ by consistency, we have&lt;/p&gt;
+$$
+\frac{|\nu_{n}r(\cdot,\widehat{t})|}{1+\sqrt{n}|\widehat{t}|}\leq\sup_{t\in U_{n}}\frac{|\nu_{n}r(\cdot,t)|}{1+\sqrt{n}|t|}=o_{P_{\theta^{\ast}}}(1).
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\frac{|\widehat{t}|}{\sqrt{n}}|\nu_{n}r(\cdot,\widehat{t})|\leq\frac{|\widehat{t}|}{\sqrt{n}}(o_{P_{\theta^{\ast}}}(1)+o_{P_{\theta^{\ast}}}(\sqrt{n}|\widehat{t}|))=o_{P_{\theta^{\ast}}}\left(\frac{|\widehat{t}|}{\sqrt{n}}\right)+o_{P_{\theta^{\ast}}}(\widehat{t}^{2}).
+$$&lt;p&gt;By definition of $\widehat{\theta},$ $L_{n}(\theta^{\ast}+\widehat{t})\geq L_{n}(\theta^{\ast}),$ so&lt;/p&gt;
+$$
+0\leq\frac{\widehat{t}}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-\frac{\widehat{t}^{2}}{2}I_{\theta^{\ast}}+o_{P_{\theta^{\ast}}}(\widehat{t}^{2})+\frac{|\widehat{t}|}{\sqrt{n}}\nu_{n}r(\cdot,t).
+$$&lt;p&gt;This gives&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{\widehat{t}^{2}}{2}I_{\theta^{\ast}} &amp;\leq|\widehat{t}|\left|\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})\right|+\left|o_{P_{\theta^{\ast}}}(\widehat{t}^{2})\right|+\frac{|\widehat{t}|}{\sqrt{n}}\left|\nu_{n}r(\cdot,t)\right| \\
+	&amp;\leq|\widehat{t}|\left|\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})\right|+\left|o_{P_{\theta^{\ast}}}(\widehat{t}^{2})\right|+o_{P_{\theta^{\ast}}}\left(\frac{|\widehat{t}|}{\sqrt{n}}\right)
+\end{aligned}
+$$&lt;p&gt;which implies that&lt;/p&gt;
+$$
+\left(\frac{1}{2}I_{\theta^{\ast}}-o_{P_{\theta^{\ast}}}(1)\right)|\widehat{t}|\leq\left|\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})\right|+o_{P_{\theta^{\ast}}}\left(\frac{1}{\sqrt{n}}\right)=O_{P_{\theta^{\ast}}}\left(\frac{1}{\sqrt{n}}\right),
+$$&lt;p&gt;so $|\widehat{t}|=O_{P_{\theta^{\ast}}}\left(\frac{1}{\sqrt{n}}\right).$&lt;/p&gt;
+&lt;h3&gt;Step 3: Show asymptotic normality&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;step-3-show-asymptotic-normality&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-3-show-asymptotic-normality&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For any $|t|=O_{P_{\theta}^{\ast}}\left(\frac{1}{\sqrt{n}}\right)$, we have&lt;/p&gt;
+$$
+\begin{aligned}
+L_{n}(\theta^{\ast}+t)	&amp;= L_{n}(\theta^{\ast})+\frac{t}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o_{P_{\theta^{\ast}}}\left(\frac{1}{n}\right) \\
+	&amp;=L_{n}(\theta^{\ast})-\frac{1}{2}I_{\theta^{\ast}}\left(t-\frac{1}{n}\sum_{i=1}^{n}\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}\right)^{2}+\frac{1}{2}\frac{\left(\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})\right)^{2}}{I_{\theta^{\ast}}}+o_{P_{\theta^{\ast}}}\left(\frac{1}{n}\right).
+\end{aligned}
+$$&lt;p&gt;Let $\widetilde{t}=\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})/I_{\theta^{\ast}}.$ Since both $|\widehat{t}|=O_{P_{\theta^{\ast}}}\left(\frac{1}{\sqrt{n}}\right)$ and $|\widetilde{t}|=O_{P_{\theta^{\ast}}}\left(\frac{1}{\sqrt{n}}\right)$ hold, the inequality $L_{n}(\theta^{\ast}+\widehat{t})\geq L_{n}(\theta^{\ast}+\widetilde{t})$ gives&lt;/p&gt;
+$$
+-\frac{1}{2}I_{\theta^{\ast}}\left(\widehat{t}-\frac{1}{n}\sum_{i=1}^{n}\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}\right)^{2}\geq o_{P_{\theta^{\ast}}}\left(\frac{1}{n}\right).
+$$&lt;p&gt;This implies that&lt;/p&gt;
+$$
+\frac{1}{2}I_{\theta^{\ast}}\left(\widehat{t}-\frac{1}{n}\sum_{i=1}^{n}\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}\right)^{2}=o_{P_{\theta^{\ast}}}\left(\frac{1}{n}\right)\implies\widehat{t}=\frac{1}{n}\sum_{i=1}^{n}\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}+o_{P_{\theta^{\ast}}}\left(\frac{1}{\sqrt{n}}\right).
+$$&lt;p&gt;The central limit theorem now gives&lt;/p&gt;
+$$
+\sqrt{n}(\widehat{\theta}-\theta^{\ast})=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}+o_{P_{\theta^{\ast}}}\left(1\right)\rightsquigarrow N(0,I_{\theta^{\ast}}^{-1}).
+$$
+      </description>
+    </item>
+    
+    <item>
+      <title>LAN and DQM</title>
+      <link>http://localhost:1313/docs/ms1-copy/dqm/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms1-copy/dqm/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Let us say that a statistical model $(P_{\theta}:\theta\in\Theta)$ satisfies local asymptotic normality (LAN) at $\theta$ if&lt;/p&gt;
+$$
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}=\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{h^{2}}{2}I_{\theta}+o_{P_{\theta}}\left(1\right)
+$$&lt;p&gt;for any $h$ independent of $n$. Let $\widehat{\theta}$ be the maximum likelihood estimator. Then LAN at $\theta^{\ast}$ along with consistency and stochastic differentiability together guarantee that $\sqrt{n}(\widehat{\theta}-\theta^{\ast})\rightsquigarrow N(0,I_{\theta^{\ast}}^{-1}).$&lt;/p&gt;
+&lt;p&gt;It is easy to show that the pointwise derivative $\frac{\partial}{\partial\theta}\sqrt{p_{\theta}(x)}$ is given by $\frac{1}{2}\sqrt{p_{\theta}(x)}S_{\theta}(x).$ Let us say that the parametric family $(P_{\theta}:\theta\in\Theta)$ satisfies differentiability in quadratic mean (DQM) at $\theta$ if&lt;/p&gt;
+$$
+\int\left(\frac{\sqrt{p_{\theta+t}(x)}-\sqrt{p_{\theta}(x)}}{t}-\frac{1}{2}\sqrt{p_{\theta}(x)}S_{\theta}(x)\right)^{2}\to0\quad\text{as }t\to0.
+$$&lt;p&gt;In other words, DQM holds if $\theta\mapsto\sqrt{p_{\theta}}$ is Fréchet differentiable in $L^{2}$ at $\theta.$&lt;/p&gt;
+&lt;h2&gt;DQM implies LAN&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;dqm-implies-lan&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dqm-implies-lan&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can show that DQM implies LAN. This means that we can essentially replace the second order expansion assumption for asymptotic normality of MLE with a first order differentiability condition.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Suppose that DQM holds at $\theta$. Then $\mathbb{E} _ {\theta}S_{\theta}(X)=0$ and LAN holds at $\theta$  with $I_{\theta}=\mathbb{E} _ {\theta}(S_{\theta}(X))^{2}.$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h3&gt;Part 1: Show that $\mathbb{E} _ {\theta}S _ {\theta}(X)=0$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-1-show-that-mathbbe-_-thetas-_-thetax0&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#part-1-show-that-mathbbe-_-thetas-_-thetax0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let $h$ be independent of $n$. Taking $t=h/\sqrt{n}$, we see that DQM holds at $\theta$ if and only if&lt;/p&gt;
+$$
+\int\left(\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)-\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}\right)^{2}=o(1).
+$$&lt;p&gt;We have&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}S_{\theta}(X)	=\int p_{\theta}S_{\theta}=2\int\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}\sqrt{p_{\theta}}=I_{1}+I_{2},$$&lt;p&gt;where&lt;/p&gt;
+$$
+I_{1}=2\int\left(\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}-\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)\right),
+$$&lt;p&gt;and&lt;/p&gt;
+$$
+I_{2}=2\int\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)\sqrt{p_{\theta}}.
+$$&lt;p&gt;Then by the Cauchy-Schwarz inequality&lt;/p&gt;
+$$
+|I_{1}|\leq2\sqrt{\int\left(\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}-\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)\right)^{2}}\sqrt{\int p_{\theta}}=o(1).
+$$&lt;p&gt;Let $f_{n}=\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}$ and $g_{n}=\frac{1}{2}\frac{h}{\sqrt{n}}\sqrt{p_{\theta}}S_{\theta}.$ Then&lt;/p&gt;
+$$
+\begin{aligned}
+|I_{2}|	&amp;=2\sqrt{n}\left|\int\sqrt{p_{\theta+h/\sqrt{n}}p_{\theta}}-1\right| \\
+	&amp;=\sqrt{n}H^{2}(P_{\theta+h.\sqrt{n}},P_{\theta}) \\
+	&amp;=\sqrt{n}\left|\int f_{n}^{2}\right| \\
+	&amp;=\sqrt{n}\int(f_{n}-g_{n}+g_{n})^{2} \\
+	&amp;=\sqrt{n}\int g_{n}^{2}+\sqrt{n}\int(f_{n}-g_{n})^{2}+2\sqrt{n}\int(f_{n}-g_{n})g_{n}.
+\end{aligned}
+$$&lt;p&gt;We have&lt;/p&gt;
+$$
+\sqrt{n}\int g_{n}^{2}=\sqrt{n}\int\frac{1}{4}\frac{h^{2}}{n}p_{\theta}S_{\theta}^{2}=\frac{h^{2}}{4n}I_{\theta} = o(1).
+$$&lt;p&gt;The DQM condition is equivalent to $\int(f_{n}-g_{n})^{2}=o(n^{-1}),$ so we have&lt;/p&gt;
+$$
+\sqrt{n}\int(f_{n}-g_{n})^{2}=o(n^{-1/2}).
+$$&lt;p&gt;Applying the Cauchy-Schwarz inequality, we get&lt;/p&gt;
+$$
+2\sqrt{n}\int(f_{n}-g_{n})g_{n}\leq2\sqrt{n}\sqrt{\int(f_{n}-g_{n})^{2}}\sqrt{\int g_{n}^{2}} = o(1).
+$$&lt;p&gt;We conclude that $\mathbb{E} _ {\theta}S_{\theta}(X) = 0.$&lt;/p&gt;
+&lt;h3&gt;Part 2: Show that LAN holds at $\theta$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;part-2-show-that-lan-holds-at-theta&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#part-2-show-that-lan-holds-at-theta&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Note that DQM can equivalently by stated as&lt;/p&gt;
+$$
+\int p_{\theta}\left(\sqrt{\frac{p_{\theta+h/\sqrt{n}}}{p_{\theta}}}-1-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}\right)^{2}=o(n^{-1}).
+$$&lt;p&gt;Let $W_{i}=\sqrt{\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}}-1.$ Then&lt;/p&gt;
+$$
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}	=2\log\prod_{i=1}^{n}\left(\sqrt{\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}}-1+1\right)=2\sum_{i=1}^{n}\log(W_{i}+1).
+$$&lt;p&gt;Using the Taylor expansion $\log(x+1)=x-\frac{x^{2}}{2}+o(1),$ we have&lt;/p&gt;
+$$
+2\sum_{i=1}^{n}\log(W_{i}+1)=2\sum_{i=1}^{n}W_{i}-\sum_{i=1}^{n}W_{i}^{2}+o_{P_{\theta}}(1).
+$$&lt;p&gt;We will analyze the convergence of $\sum_{i=1}^{n}W_{i}$ and $\sum_{i=1}^{n}W_{i}^{2}$ in probability.&lt;/p&gt;
+&lt;h4&gt;Convergence of $\sum_{i=1}^{n}W_{i}$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;convergence-of-sum_i1nw_i&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#convergence-of-sum_i1nw_i&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Let $c_{n}=\sqrt{n}\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)$ and $c=\frac{1}{2}h\sqrt{p_{\theta}}S_{\theta}.$ Since $c_{n}=\sqrt{n}f_{n}$ and $c=\sqrt{n}g_{n},$ it follows from $\int(f_{n}-g_{n})^{2}=o(n^{-1})$ that $\int(c_{n}-c)^{2}=o(1).$ Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\sum_{i=1}^{n}W_{i} &amp;=n\left(\int\sqrt{p_{\theta}p_{\theta+h/\sqrt{n}}}-1\right) \\
+	&amp;=-\frac{n}{2}\int\left(\sqrt{p_{\theta+h/\sqrt{n}}}-\sqrt{p_{\theta}}\right)^{2} \\
+	&amp;=-\frac{1}{2}\int c_{n}^{2} \\ 
+	&amp;=-\frac{1}{2}\int(c_{n}-c+c)^{2} \\
+	&amp;=-\frac{1}{2}\int c^{2}-\frac{1}{2}\int(c_{n}-c)^{2}-\int(c_{n}-c)c \\
+	&amp;=-\frac{1}{2}\int c^{2}-\int(c_{n}-c)c+o(1).
+\end{aligned}
+$$&lt;p&gt;Then&lt;/p&gt;
+$$
+-\frac{1}{2}\int c^{2}=-\frac{1}{2}\int\frac{1}{4}h^{2}p_{\theta}S_{\theta}^{2}=-\frac{1}{8}h^{2}I_{\theta},
+$$&lt;p&gt;and by the Cauchy-Schwarz inequality we have&lt;/p&gt;
+$$
+\left|\int(c_{n}-c)c\right|\leq\sqrt{\int(c_{n}-c)^{2}}\sqrt{\int c^{2}}=o(1).
+$$&lt;p&gt;Therefore, $\mathbb{E} _ {\theta}\sum_{i=1}^{n}W_{i}=-\frac{1}{8}h^{2}I_{\theta}+o(1).$ Since $\mathbb{E} _ {\theta}S_{\theta}(X_{i})=0,$ it follows that&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)=-\frac{1}{8}h^{2}I_{\theta}+o(1).
+$$&lt;p&gt;Also,&lt;/p&gt;
+$$
+\begin{aligned}
+\operatorname{Var}_{\theta}\left(\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)\right)	&amp;= n\operatorname{Var}_{\theta}\left(W_{1}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{1})\right) \\
+	&amp;\leq n\mathbb{E}_{\theta}\left(W_{1}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{1})\right)^{2} \\
+	&amp;=n\int p_{\theta}\left(\sqrt{\frac{p_{\theta+1/\sqrt{n}}}{p_{\theta}}}-1-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}\right)^{2} \\
+	&amp;=n\cdot o(n^{-1}) \\
+	&amp;=o(1).
+\end{aligned}
+$$&lt;p&gt;The variance converging to 0 implies that $\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)$ converges in probability to its mean, so we have&lt;/p&gt;
+$$
+\sum_{i=1}^{n}W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})=-\frac{1}{8}h^{2}I_{\theta}+o_{P_{\theta}}(1).
+$$&lt;p&gt;Rearranging gives&lt;/p&gt;
+$$
+\sum_{i=1}^{n}W_{i}=\frac{1}{2}\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{1}{8}h^{2}I_{\theta}+o_{P_{\theta}}(1).
+$$&lt;h4&gt;Convergence of $\sum_{i=1}^{n}W_{i}^{2}$&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;convergence-of-sum_i1nw_i2&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#convergence-of-sum_i1nw_i2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;We have&lt;/p&gt;
+$$
+\begin{aligned}
+\sum_{i=1}^{n}W_{i}^{2}	&amp;=\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})+\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)^{2} \\
+	&amp;=\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)^{2}+\sum_{i=1}^{n}\left(\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)^{2} \\ &amp;\qquad \qquad \qquad +2\sum_{i=1}^{n}\left(W_{i}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i})\right)\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{i}).
+\end{aligned}
+$$&lt;p&gt;Call the three terms $S_{1}$, $S_{2}$, and $S_{3}.$ For the first term, we have already found that&lt;/p&gt;
+$$
+\mathbb{E}_{\theta}S_{1}=n\mathbb{E}_{\theta}\left(W_{1}-\frac{1}{2}\frac{h}{\sqrt{n}}S_{\theta}(X_{1})\right)^{2}=o(1).
+$$&lt;p&gt;Therefore, $S_{1}=o_{P_{\theta}}(1).$ For the second term, by the law of large numbers we have&lt;/p&gt;
+$$
+S_{2}=\frac{h^{2}}{4}\frac{1}{n}\sum_{i=1}^{n}S_{\theta}(X_{i})^{2}=\frac{h^{2}}{4}I_{\theta}+o_{P_{\theta}}(1)=o_{P_{\theta}}(1).
+$$&lt;p&gt;For the third term, by the Cauchy-Schwarz inequality we have&lt;/p&gt;
+$$
+\left|S_{3}\right|\leq2\sqrt{S_{1}}\sqrt{S_{2}}=o_{P_{\theta}}(1).
+$$&lt;p&gt;Thus, we have&lt;/p&gt;
+$$
+\sum_{i=1}^{n}W_{i}^{2}=\frac{h^{2}}{4}I_{\theta}+o_{P_{\theta}}(1).
+$$&lt;h4&gt;Conclude&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;conclude&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#conclude&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Putting everything together, we have&lt;/p&gt;
+$$
+\begin{aligned}
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})} &amp;= 2\sum_{i=1}^{n}W_{i}-\sum_{i=1}^{n}W_{i}^{2}+o_{P_{\theta}}(1) \\
+	&amp;=2\left(\sum_{i=1}^{n}W_{i}\right)-\sum_{i=1}^{n}W_{i}^{2}+o_{P_{\theta}}(1) \\
+	&amp;=2\left(\frac{1}{2}\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{1}{8}h^{2}I_{\theta}+o_{P_{\theta}}(1)\right)-\left(\frac{h^{2}}{4}I_{\theta}+o_{P_{\theta}}(1)\right)+o_{P_{\theta}}(1) \\
+	&amp;=\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{1}{2}h^{2}I_{\theta}+o_{P_{\theta}}(1)
+\end{aligned}
+$$&lt;p&gt;which shows that LAN holds at $\theta.$&lt;/p&gt;
 
       </description>
     </item>

@@ -16,6 +16,68 @@
     
     
     <item>
+      <title>Basics of Concentration Inequalities</title>
+      <link>http://localhost:1313/docs/ms2/concentration/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/concentration/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Why do concentration inequalities matter?&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;why-do-concentration-inequalities-matter&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#why-do-concentration-inequalities-matter&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Suppose that we put 10 equally spaced points along each axis of the unit cube in $\mathbb{R}^{p}.$ This gives us $10^{p}$ points in total, which scales exponentially with the dimension $p.$ This is the curse of dimensonality. It paints a bleak scenario for statistics in high-dimensions because at first glance, it seems like we would need an almost infinite amount of data to answer reasonably any type of question when $p$ is large. However, data in high-dimensions can sometimes exhibit appealing properties that make estimation possible. For example, suppose that $X$ follows the unit distribution on the unit sphere of $\mathbb{R}^{p}.$ Then for any Lipschitz function $f$, one has&lt;/p&gt;
+$$
+\mathbb{P}\left[f(X)-\mathbb{E}[f(X)]&gt;t\right]\leq C_{1}e^{-C_{2}t^{2}}
+$$&lt;p&gt;where $C_{1}$ and $C_{2}$ are absolute constants. So regardless of the dimension $p$, a Lipschitz function of $X$ is nearly constant. This phenomenon is by no means restricted to the sphere, and we can find other types of variables that exhibit such properties.&lt;/p&gt;
+&lt;h2&gt;Basic tail inequalities&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;basic-tail-inequalities&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#basic-tail-inequalities&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Concentration inequalities are inequalities of the form $\mathbb{P}[X\geq t]\leq\phi(t)$ where $\phi$ goes to zero (rapidly) as $t\to\infty.$ Often, we will deal with concentration inequalities of the form $\mathbb{P}[\overline{X} _ {n} \geq t]\leq\phi _ {n}(t)$ where $\overline{X} _ n = \frac{1}{n} \sum_{i = 1}^n X_i$ is the mean of independent samples. The most basic concentration inequality is the classical Markov&amp;rsquo;s inequality.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Markov&amp;rsquo;s inequality&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $X\geq0$ almost surely, then we have&lt;/p&gt;
+$$
+\mathbb{P}[X\geq t]\leq \frac{\mathbb{E}[X]}{t} \quad \text{for all } t &gt; 0.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    We have $\mathbb{E}[X] = \mathbb{E}[X 1 _ {{X&amp;lt;t}}] + \mathbb{E}[X 1 _ {{ X\geq t}}]
+\geq\mathbb{E}[X1 _ {{X\geq t}}]
+\geq t\mathbb{P}[X\geq t].$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;If $X$ is square integrable, we have also have Chebyshev’s inequality.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Chebyshev&amp;rsquo;s inequality&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $X\in L^{2}(\Omega),$ then&lt;/p&gt;
+$$
+\mathbb{P}[|X-\mathbb{E}[X]|\geq t]\leq\frac{\operatorname{Var}(X)}{t^{2}} \quad \text{for all t&gt;0.}
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Chebyshev&amp;rsquo;s inequality follows by applying Markov&amp;rsquo;s inequality to $Z=(X-\mathbb{E}[X])^{2}.$ There are also higher moment analogues:&lt;/p&gt;
+$$
+\mathbb{P}[|X-\mathbb{E}[X]|\geq t]\leq\frac{\mathbb{E}(|X-\mathbb{E}[X]|^{k})}{t^{k}}
+$$&lt;p&gt;which holds for all $k \geq 1.$ Moreover, if $X$ has a moment generating function in a neighbourhood of 0 so that there exists $b&amp;gt;0$ such that $\phi(\lambda)=\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ exists for all $|\lambda|\leq b,$ then Markov&amp;rsquo;s inequality implies&lt;/p&gt;
+$$
+\mathbb{P}[X-\mathbb{E}[X]\geq t]=\mathbb{P}[e^{\lambda(X-\mathbb{E}[X])}\geq e^{\lambda t}]\leq\frac{\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]}{e^{\lambda t}}.
+$$&lt;p&gt;This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound&lt;/p&gt;
+$$
+\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]-\lambda t\right).
+$$
+      </description>
+    </item>
+    
+    <item>
       <title>Sufficiency</title>
       <link>http://localhost:1313/docs/ms1/sufficiency/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
@@ -276,6 +338,203 @@ $$&lt;p&gt;so $T_{1}(x)=-x^{2}$, $T_{2}(x)=x$, $\eta_{1}=\frac{1}{2\sigma^{2}}$,
   &lt;/div&gt;
 &lt;/div&gt;
 
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sub-Gaussian Random Variables</title>
+      <link>http://localhost:1313/docs/ms2/subgaussian/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/subgaussian/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.&lt;/p&gt;
+&lt;h2&gt;Definition and basic properties&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;definition-and-basic-properties&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#definition-and-basic-properties&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]=e^{\mu\lambda+\frac{\lambda^{2}\sigma^{2}}{2}},\quad\lambda\in\mathbb{R}.
+$$&lt;p&gt;Then we say a random variable $X$ is $\sigma^{2}$-sub Gaussian if&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}\quad\text{for all }\lambda\in\mathbb{R}.
+$$&lt;p&gt;We call $\sigma$ the sub-Gaussian parameter.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Suppose that $\epsilon$ is a Rademacher random variable. Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[e^{\lambda X}] &amp;= \frac{e^{\lambda}+e^{-\lambda}}{2} \\
+	&amp;= \sum_{k=0}^{\infty}\frac{\lambda^{2k}}{(2k)!} \\
+	&amp;\leq 1+\sum_{k=1}^{\infty}\frac{\lambda^{2k}}{2^{k}k!} \\
+	&amp;\leq e^{\lambda^{2}/2},
+\end{aligned}
+$$&lt;p&gt;which shows that Rademacher random variables are sub-Gaussian with parameter $\sigma = 1.$&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}(b-a)^{2}}{8}}\quad\text{for all }\lambda\in\mathbb{R}.
+$$&lt;p&gt;See homework for proof.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A linear combination of random sub-Gaussian variables is also sub-Gaussian.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If $X_{1},\ldots,X_{n}$ are independent sub-Gaussian random variables with parameters $\sigma_{1},\ldots,\sigma_{n},$ then $\sum_{i=1}^{n}a_{i}X_{i}$ is $\sum_{i=1}^{n}a_{i}^{2}\sigma_{i}^{2}$-sub-Gaussian whenever $a_{1},\ldots,a_{n}$ are real constants.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;By independence,&lt;/p&gt;
+$$
+\mathbb{E}\left[e^{\lambda\sum_{i=1}^{n}a_{i}(X_{i}-\mathbb{E}[X_{i}])}\right]=\prod_{i=1}^{n}\mathbb{E}\left[e^{\lambda a_{i}(X_{i}-\mathbb{E}[X_{i}])}\right]\leq\prod_{i=1}^{n}e^{\frac{\lambda^{2}a_{i}^{2}\sigma_{i}^{2}}{2}}=e^{\frac{\lambda^{2}}{2}\sum_{i=1}^{n}a_{i}^{2}\sigma_{i}^{2}}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Chernoff and Hoeffding bounds&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;chernoff-and-hoeffding-bounds&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#chernoff-and-hoeffding-bounds&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For a sub-Gaussian variable, we have&lt;/p&gt;
+$$
+\inf_{\lambda\in\mathbb{R}}\left(\log\mathbb{E}[e^{\lambda(X-\mu)}]-\lambda t\right)=\inf_{\lambda\in\mathbb{R}}\left(\frac{\lambda^{2}\sigma^{2}}{2}-\lambda t\right)=-\frac{t^{2}}{2\sigma^{2}},
+$$&lt;p&gt;giving the Chernoff bound&lt;/p&gt;
+$$
+\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t&gt;0.
+$$&lt;p&gt;As a corollary, we have the following Hoeffding bounds.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Hoeffding bounds&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $X_{1},\ldots,X_{n}$ are independent sub-Gaussian random variables with parameters $\sigma_{1},\ldots,\sigma_{n},$ then&lt;/p&gt;
+$$
+\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{nt^{2}}{\frac{2}{n}\sum_{i=1}^{n}\sigma_{i}^{2}}\right).
+$$&lt;p&gt;In particular, if $X_{i}\in[a,b]$ almost surely for all $i$, then&lt;/p&gt;
+$$
+\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{2nt^{2}}{(b-a)^{2}}\right).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Characterizations of sub-Gaussian variables&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;characterizations-of-sub-gaussian-variables&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#characterizations-of-sub-gaussian-variables&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Next, we consider several equivalent characterizations of sub-Gaussian variables.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Suppose that $X$ is a random variable with zero mean. The following are equivalent:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There is a constant $\sigma^2 &amp;gt; 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is a constant $c\geq1$ and a Gaussian random variable $Z\sim N(0,\tau^{2})$ such that $\mathbb{P}[|X|\geq s]\leq c\mathbb{P}[|Z|\geq s]$ for all $s\geq0.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is a constant $\theta\geq0$ such that $\mathbb{E}[X^{2k}]\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}$ for all $k=1,2,\ldots$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}}$ for all $s\in[0,1).$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;strong&gt;Proof of $(1) \Longrightarrow (2)$:&lt;/strong&gt; We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then&lt;/p&gt;
+$$
+\frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq4\sqrt{\pi}e\quad\text{for all }t\geq0.
+$$&lt;p&gt;Firstly, by the Chernoff bound for sub-Gaussian variables, we have $\mathbb{P}[X\geq t]\leq e^{-t^{2}/2\sigma^{2}}.$ Then using a property for Gaussian variables (called the Mills-ratio for Gaussian tails, see homework), we have&lt;/p&gt;
+$$
+\mathbb{P}[Z\geq t]\geq\left(\frac{\sqrt{2}\sigma}{t}-\frac{(\sqrt{2}\sigma)^{3}}{t^{3}}\right)\frac{1}{\sqrt{2\pi}}e^{-t^{2}/4\sigma^{2}}.
+$$&lt;p&gt;Consider two cases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If $t\in[0,2\sigma]$, then&lt;/p&gt;
+$$
+\mathbb{P}[Z\geq t]\geq\mathbb{P}[Z\geq2\sigma]\geq\left(\frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}\right)\frac{1}{\sqrt{2\pi}}e^{-1}=\frac{1}{4\sqrt{\pi}e}.
+$$&lt;p&gt;Since $\mathbb{P}[X\geq t]\leq1,$ it follows that&lt;/p&gt;
+$$
+\frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq4\sqrt{\pi}e.
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If $t&amp;gt;2\sigma,$ then combining the Mills ratio and the sub-Gaussian tail bound,&lt;/p&gt;
+$$
+\sup_{t&gt;2\sigma}\frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq\sup_{s&gt;2}\frac{e^{-s^{2}/4}}{\left(\frac{\sqrt{2}}{s}-\frac{2\sqrt{2}}{s^{3}}\right)}\sqrt{2\pi}\leq\sup_{s&gt;2}\frac{\sqrt{2\pi}s^{3}e^{-s^{2}/4}}{2\sqrt{2}}\leq4\sqrt{\pi}e.
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Finally, note that if $X$ is $\sigma^{2}$-sub-Gaussian, then so is $-X.$ Applying the same argument to $-X$ and adding the two bounds yields $\mathbb{P}[|X|\geq t]\leq8\sqrt{\pi}e\mathbb{P}[Z\geq t]=4\sqrt{\pi}e\mathbb{P}[|Z|\geq t]$ for all $t\geq0.$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proof of $(2) \Longrightarrow  (3)$:&lt;/strong&gt; Since $X^{2k}$ is a non-negative random variable, we have&lt;/p&gt;
+$$
+\mathbb{E}[X^{2k}]=\int_{0}^{\infty}\mathbb{P}[|X|\geq s^{1/2k}]\,ds\leq c\int_{0}^{\infty}\mathbb{P}[|Z|\geq s^{1/2k}]=c\mathbb{E}[Z^{2k}].
+$$&lt;p&gt;By property of the normal distribution, we have $\mathbb{E}[Z^{2k}]=\frac{(2k)!}{2^{k}k!}\tau^{2k},$ so&lt;/p&gt;
+$$
+\mathbb{E}[X^{2k}]\leq c\frac{(2k)!}{2^{k}k!}\tau^{2k}\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}
+$$&lt;p&gt;where $\theta=c\tau.$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proof of $(3) \Longrightarrow  (1)$:&lt;/strong&gt; For $\lambda\in\mathbb{R},$&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]=1+\sum_{k=2}^{\infty}\frac{\lambda^{k}\mathbb{E}[X^{k}]}{k!}.
+$$&lt;p&gt;If $X$ is symmetric about 0, then the odd moments vanish, giving&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]=\sum_{k=0}^{\infty}\frac{|\lambda|^{2k}\mathbb{E}[|X|^{2k}]}{(2k)!}\leq\sum_{k=0}^{\infty}\frac{|\lambda|^{2k}}{(2k)!}\frac{(2k)!}{2^{k}k!}\theta^{2k}\leq e^{\lambda^{2}\theta^{2}/2}.
+$$&lt;p&gt;If $X$ is not symmetric, then by the Cauchy-Schwarz inequality we have&lt;/p&gt;
+$$
+\mathbb{E}[|\lambda X|^{2k+1}]\leq\sqrt{\mathbb{E}[|\lambda X|^{2k}]\mathbb{E}[|\lambda X|^{2k+2}]}\leq\frac{1}{2}(\mathbb{E}[|\lambda X|^{2k}]+\mathbb{E}[|\lambda X|^{2k+2}])
+$$&lt;p&gt;where the last inequality follows from the AM-GM inequality. This bounds the odd moments in terms of the even moments. Then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[e^{\lambda X}] &amp;\leq1+\sum_{k=2}^{\infty}\frac{|\lambda|^{k}\mathbb{E}[|X|^{k}]}{k!} \\
+	&amp;\leq1+\sum_{k=1}^{\infty}\left(\frac{1}{(2k)!}+\frac{1}{2}\left(\frac{1}{(2k-1)!}+\frac{1}{(2k+1)!}\right)\right)\mathbb{E}[|\lambda X|^{2k}],
+\end{aligned}
+$$&lt;p&gt;and we have&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq\sum_{k=0}^{\infty}2^{k}\frac{\lambda^{2k}\mathbb{E}[X^{2k}]}{(2k)!}\leq\sum_{k=0}^{\infty}2^{k}\frac{\lambda^{2k}}{(2k)!}\frac{(2k)!}{2^{k}k!}\theta^{2k}=e^{\lambda^{2}\theta^{2}/2}.
+$$&lt;p&gt;&lt;strong&gt;Proof of $(1) \Longrightarrow  (4)$:&lt;/strong&gt; The result holds trivially when $s=0,$ so assume $s\in(0,1).$ Then we multiply the sub-Gaussian inequality by $e^{-\lambda^{2}\sigma^{2}/2s}$ to obtain&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X-\frac{\lambda^{2}\sigma^{2}}{2s}}]\leq e^{\frac{\lambda^{2}\sigma^{2}(s-1)}{2s}}.
+$$&lt;p&gt;This holds for all $\lambda\in\mathbb{R},$ so we can integrating both sides with respect to $\lambda.$ On the right hand side, we have&lt;/p&gt;
+$$
+\int_{-\infty}^{\infty}e^{\frac{\lambda^{2}\sigma^{2}(s-1)}{2s}}\,d\lambda=\frac{1}{\sigma}\sqrt{\frac{2\pi s}{1-s}}.
+$$&lt;p&gt;On the left hand side, using Fubini&amp;rsquo;s theorem, we have&lt;/p&gt;
+$$
+\int_{-\infty}^{\infty}\mathbb{E}[e^{\lambda X-\frac{\lambda^{2}\sigma^{2}}{2s}}]\,d\lambda=\mathbb{E}\left[\int_{-\infty}^{\infty}e^{\lambda X-\frac{\lambda^{2}\sigma^{2}}{2s}}\,d\lambda\right]=\frac{\sqrt{2\pi s}}{\sigma}\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}].
+$$&lt;p&gt;Therefore, $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{\sigma}{\sqrt{2\pi s}}\frac{1}{\sigma}\sqrt{\frac{2\pi s}{1-s}}=\frac{1}{\sqrt{1-s}}.$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proof of $(4) \Longrightarrow  (1)$:&lt;/strong&gt; We apply the bound $e^{u}\leq u+e^{9u^{2}/16}$ with $u=\lambda X$ to obtain&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq\mathbb{E}[\lambda X]+\mathbb{E}[e^{\frac{9\lambda^{2}X^{2}}{16}}]=\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}},
+$$&lt;p&gt;which is valid whenever $s=\frac{9}{8}\lambda^{2}\sigma^{2}$ is less than 1. Since $s\leq\frac{1}{2}$ when $|\lambda|\leq\frac{2}{3\sigma}$ and $\frac{1}{\sqrt{1-s}}\leq e^{s}$ for $s\in[0,\frac{1}{2}],$ it follows that&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq e^{\frac{9}{8}\lambda^{2}\sigma^{2}}\quad\text{for }|\lambda|\leq\frac{2}{3\sigma}.
+$$&lt;p&gt;To show a similar bound for $|\lambda|\geq\frac{2}{3\sigma},$ we use a special case of the Fenchel-Young inequality which states that&lt;/p&gt;
+$$
+uv\leq\frac{u^{2}}{2\alpha}+\frac{\alpha v^{2}}{2}\quad\text{for all }u,v\in\mathbb{R}\text{ and }\alpha&gt;0.
+$$&lt;p&gt;Choosing $u=\lambda, v=X, \alpha=c/\sigma^{2}$ gives&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq\mathbb{E}[e^{\lambda^{2}\sigma^{2}/(2c)+cX^{2}/2\sigma^{2}}]=e^{\lambda^{2}\sigma^{2}/(2c)}\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{2}}}].
+$$&lt;p&gt;If $c\in(0,1/2),$ then we have $\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-c}}\leq e^{c}.$ Letting $c=1/4$ and using the fact that $\frac{1}{4}\leq\frac{9}{16}\lambda^{2}\sigma^{2}$ holds whenever $|\lambda|\geq\frac{2}{3\sigma},$ it follows that&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq e^{2\lambda^{2}\sigma^{2}}e^{1/4}\leq e^{2\lambda^{2}\sigma^{2}+\frac{9}{16}\lambda^{2}\sigma^{2}}\leq e^{3\lambda^{2}\sigma^{2}}.
+$$&lt;p&gt;Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$&lt;/p&gt;
+&lt;h2&gt;Sub-Gaussian vectors and matrices&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;sub-gaussian-vectors-and-matrices&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sub-gaussian-vectors-and-matrices&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can also talk about sub-Gaussian random vectors and matrices.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A random vector $X\in\mathbb{R}^{n}$ is said to be $\sigma^{2}$-sub-Gaussian if $u^{T}(X-\mathbb{E}[X])$ is $\sigma^{2}$-sub-Gaussian for any vector $u\in\mathcal{S}^{n-1}.$ We write $X\sim\operatorname{subG}_{n}(\sigma^{2}).$&lt;/li&gt;
+&lt;li&gt;A random matrix $X\in\mathbb{R}^{m\times n}$ is said to be $\sigma^{2}$-sub-Gaussian if $u^{T}(X-\mathbb{E}[X])v$ is $\sigma^{2}$-sub-Gaussian for any vector $u\in\mathcal{S}^{m-1}$ and $v\in\mathcal{S}^{n-1}.$ We write $X\sim\operatorname{subG}_{m\times n}(\sigma^{2}).$&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
