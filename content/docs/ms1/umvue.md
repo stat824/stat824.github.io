@@ -2,11 +2,9 @@
 date: '2025-02-27T21:18:39+10:00'
 draft: true
 math: true
-title: 'UMVUE and SURE'
+title: 'Uniformly Minimum Variance Unbiased Estimators'
 weight: 9
 ---
-
-## Uniformly minimum variance unbiased estimators
 
 We say that an estimator $\delta(X)$ is a uniformly minimum-variance unbiased estimator (UMVUE) for $g(\theta)$ if $\mathbb{E} _ {\theta}\delta(X)=g(\theta)$ for all $\theta\in\Theta$ and for any other estimator $\widetilde{\delta}(X)$ which is unbiased for $g(\theta)$, it holds that $\operatornamewithlimits{Var} _ {\theta}(\delta(X))\leq\operatornamewithlimits{Var} _ {\theta}(\widetilde{\delta}(X))$ for all $\theta\in\Theta$. 
 
