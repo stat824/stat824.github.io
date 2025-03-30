@@ -28,7 +28,7 @@ Definition and basic properties
 Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="853">
+  <meta itemprop="wordCount" content="875">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sub-Gaussian Random Variables">
   <meta name="twitter:description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
@@ -305,9 +305,9 @@ Definition and basic properties If $X$ follows a Gaussian distribution with mean
             </li>
           <li>
               <a
-                href="#chernoff-and-hoeffding-bounds"
+                href="#hoeffding-bounds"
                 class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
-              >Chernoff and Hoeffding bounds</a>
+              >Hoeffding bounds</a>
             </li>
           <li>
               <a
@@ -323,6 +323,14 @@ Definition and basic properties If $X$ follows a Gaussian distribution with mean
             </li>
           </ul>
   
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms2/subexponential/"
+    
+  >Sub-exponential Random Variables
+    </a>
               
             </li></ul>
       </div>
@@ -507,6 +515,14 @@ Definition and basic properties If $X$ follows a Gaussian distribution with mean
   >Sub-Gaussian Random Variables
     </a>
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/docs/ms2/subexponential/"
+    
+  >Sub-exponential Random Variables
+    </a>
+              
             </li></ul>
       </div></li>
           <li class=""><a
@@ -550,7 +566,7 @@ Definition and basic properties If $X$ follows a Gaussian distribution with mean
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
-        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#chernoff-and-hoeffding-bounds">Chernoff and Hoeffding bounds
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#hoeffding-bounds">Hoeffding bounds
         </a>
       </li>
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
@@ -645,25 +661,36 @@ $$
 $$
   </div>
 </details>
-<h2>Chernoff and Hoeffding bounds<span class="hx-absolute -hx-mt-20" id="chernoff-and-hoeffding-bounds"></span>
-    <a href="#chernoff-and-hoeffding-bounds" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>For a sub-Gaussian variable, we have</p>
+<h2>Hoeffding bounds<span class="hx-absolute -hx-mt-20" id="hoeffding-bounds"></span>
+    <a href="#hoeffding-bounds" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>For a sub-Gaussian variable, we have</p>
 $$
 \inf_{\lambda\in\mathbb{R}}\left(\log\mathbb{E}[e^{\lambda(X-\mu)}]-\lambda t\right)=\inf_{\lambda\in\mathbb{R}}\left(\frac{\lambda^{2}\sigma^{2}}{2}-\lambda t\right)=-\frac{t^{2}}{2\sigma^{2}},
 $$<p>giving the Chernoff bound</p>
 $$
-\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t>0.
-$$<p>As a corollary, we have the following Hoeffding bounds.</p>
+\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
+$$<p>Note that because $-X$ is also sub-Gaussian, we also have the two-sided bound</p>
+$$
+\mathbb{P}[|X-\mu|\geq t]\leq2e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
+$$<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
+  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X \in[a,b]$ almost surely, then</p>
+$$
+\mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
+$$</div>
+  </div>
+</div>
+
+<p>The Chernoff bound leads to the following Hoeffding bound.</p>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Hoeffding bounds</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    <p>If $X_{1},\ldots,X_{n}$ are independent sub-Gaussian random variables with parameters $\sigma_{1},\ldots,\sigma_{n},$ then</p>
+    <p>If $X_{1},\ldots,X_{n}$ are independent random variables such that $X_{i}$ is $\sigma_{i}^{2}$-sub-Gaussian, then</p>
 $$
 \mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{nt^{2}}{\frac{2}{n}\sum_{i=1}^{n}\sigma_{i}^{2}}\right).
-$$<p>In particular, if $X_{i}\in[a,b]$ almost surely for all $i$, then</p>
-$$
-\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{2nt^{2}}{(b-a)^{2}}\right).
 $$
   </div>
 </details>
@@ -778,7 +805,11 @@ $$<p>Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}
         href="/docs/ms2/concentration/"
         title="Basics of Concentration Inequalities"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
-      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Basics of Concentration Inequalities</a></div>
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Basics of Concentration Inequalities</a><a
+        href="/docs/ms2/subexponential/"
+        title="Sub-exponential Random Variables"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >Sub-exponential Random Variables<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>

@@ -66,7 +66,7 @@ $$
 
 {{% /details %}}
 
-## Chernoff and Hoeffding bounds
+## Hoeffding bounds
 
 For a sub-Gaussian variable, we have
 
@@ -77,26 +77,35 @@ $$
 giving the Chernoff bound
 
 $$
-\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t>0.
+\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
 $$
 
-As a corollary, we have the following Hoeffding bounds. 
+Note that because $-X$ is also sub-Gaussian, we also have the two-sided bound
+
+$$
+\mathbb{P}[|X-\mu|\geq t]\leq2e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
+$$
+
+{{< callout >}}
+If $X \in[a,b]$ almost surely, then
+
+$$
+\mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
+$$
+{{< /callout >}}
+
+The Chernoff bound leads to the following Hoeffding bound. 
 
 {{% details title="Hoeffding bounds" %}}
 
-If $X_{1},\ldots,X_{n}$ are independent sub-Gaussian random variables with parameters $\sigma_{1},\ldots,\sigma_{n},$ then
+If $X_{1},\ldots,X_{n}$ are independent random variables such that $X_{i}$ is $\sigma_{i}^{2}$-sub-Gaussian, then
 
 $$
 \mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{nt^{2}}{\frac{2}{n}\sum_{i=1}^{n}\sigma_{i}^{2}}\right).
 $$
 
-In particular, if $X_{i}\in[a,b]$ almost surely for all $i$, then
-
-$$
-\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{2nt^{2}}{(b-a)^{2}}\right).
-$$
-
 {{% /details %}}
+
 
 ## Characterizations of sub-Gaussian variables
 

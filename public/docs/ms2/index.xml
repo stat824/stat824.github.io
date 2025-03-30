@@ -144,25 +144,36 @@ $$
 $$
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;h2&gt;Chernoff and Hoeffding bounds&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;chernoff-and-hoeffding-bounds&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#chernoff-and-hoeffding-bounds&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For a sub-Gaussian variable, we have&lt;/p&gt;
+&lt;h2&gt;Hoeffding bounds&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;hoeffding-bounds&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hoeffding-bounds&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For a sub-Gaussian variable, we have&lt;/p&gt;
 $$
 \inf_{\lambda\in\mathbb{R}}\left(\log\mathbb{E}[e^{\lambda(X-\mu)}]-\lambda t\right)=\inf_{\lambda\in\mathbb{R}}\left(\frac{\lambda^{2}\sigma^{2}}{2}-\lambda t\right)=-\frac{t^{2}}{2\sigma^{2}},
 $$&lt;p&gt;giving the Chernoff bound&lt;/p&gt;
 $$
-\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t&gt;0.
-$$&lt;p&gt;As a corollary, we have the following Hoeffding bounds.&lt;/p&gt;
+\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
+$$&lt;p&gt;Note that because $-X$ is also sub-Gaussian, we also have the two-sided bound&lt;/p&gt;
+$$
+\mathbb{P}[|X-\mu|\geq t]\leq2e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
+$$&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X \in[a,b]$ almost surely, then&lt;/p&gt;
+$$
+\mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The Chernoff bound leads to the following Hoeffding bound.&lt;/p&gt;
 &lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
   &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
     &lt;strong class=&#34;hx-text-lg&#34;&gt;Hoeffding bounds&lt;/strong&gt;
   &lt;/summary&gt;
   &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
-    &lt;p&gt;If $X_{1},\ldots,X_{n}$ are independent sub-Gaussian random variables with parameters $\sigma_{1},\ldots,\sigma_{n},$ then&lt;/p&gt;
+    &lt;p&gt;If $X_{1},\ldots,X_{n}$ are independent random variables such that $X_{i}$ is $\sigma_{i}^{2}$-sub-Gaussian, then&lt;/p&gt;
 $$
 \mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{nt^{2}}{\frac{2}{n}\sum_{i=1}^{n}\sigma_{i}^{2}}\right).
-$$&lt;p&gt;In particular, if $X_{i}\in[a,b]$ almost surely for all $i$, then&lt;/p&gt;
-$$
-\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{2nt^{2}}{(b-a)^{2}}\right).
 $$
   &lt;/div&gt;
 &lt;/details&gt;
@@ -270,6 +281,193 @@ $$&lt;p&gt;Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sig
 &lt;li&gt;A random vector $X\in\mathbb{R}^{n}$ is said to be $\sigma^{2}$-sub-Gaussian if $u^{T}(X-\mathbb{E}[X])$ is $\sigma^{2}$-sub-Gaussian for any vector $u\in\mathcal{S}^{n-1}.$ We write $X\sim\operatorname{subG}_{n}(\sigma^{2}).$&lt;/li&gt;
 &lt;li&gt;A random matrix $X\in\mathbb{R}^{m\times n}$ is said to be $\sigma^{2}$-sub-Gaussian if $u^{T}(X-\mathbb{E}[X])v$ is $\sigma^{2}$-sub-Gaussian for any vector $u\in\mathcal{S}^{m-1}$ and $v\in\mathcal{S}^{n-1}.$ We write $X\sim\operatorname{subG}_{m\times n}(\sigma^{2}).$&lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Sub-exponential Random Variables</title>
+      <link>http://localhost:1313/docs/ms2/subexponential/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/subexponential/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]=\frac{1}{1-\lambda^{2}}\leq e^{2\lambda^{2}}\quad\text{for all }|\lambda|&lt;1.
+$$&lt;p&gt;So the moment generating function of the Laplace distribution is bounded by that of a Gaussian in a neighborhood of 0 but does not exist everywhere on the real line. It turns out that all distributions that have tails at most as heavy as that of a Laplace distribution satisfy such a property.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $X$ be a random variable with mean zero such that $\mathbb{P}[|X|\geq t]\leq2e^{-2t/b}$ for some $b&amp;gt;0.$ Then for every positive integer $k\geq1,$ $\mathbb{E}[|X|^{k}]\leq b^{k}k!$ and $(\mathbb{E}[|X|^{k}])^{1/k}\leq2bk.$ Moreover, the moment generating function of $X$ satisfies&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq e^{2\lambda^{2}b^{2}}\quad\text{for all }|\lambda|\le\frac{1}{2b}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[|X|^{k}] &amp;= \int_{0}^{\infty}\mathbb{P}[|X|^{k}\geq t]\,dt \\
+	&amp;=\int_{0}^{\infty}\mathbb{P}[|X|\geq t^{1/k}]\,dt \\
+	&amp;\leq2\int_{0}^{\infty}e^{-2t^{1/k}/b}\,dt \\
+	&amp;=2k\left(\frac{b}{2}\right)^{k}\int_{0}^{\infty}e^{-u}u^{k-1}\,du \\
+	&amp;\leq b^{k}k\Gamma(k).
+\end{aligned}
+$$&lt;p&gt;Since $k\Gamma(k)=k!,$ we have $\mathbb{E}[|X|^{k}]\leq b^{k}k!.$ Also, $\Gamma(k)\leq k^{k}$ and $k^{1/k}\leq e^{1/2}\leq2$ for $k\geq1,$ so $(\mathbb{E}[|X|^{k}])^{1/k}\leq(b^{k}k\Gamma(k))^{1/k}\leq2bk.$ For the MGF, we use its expansion. By the dominated convergence theorem, for any $s$ with $|s|\leq\frac{1}{2b},$&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[e^{sX}] &amp;\leq 1+\sum_{k=2}^{\infty}\frac{|s|^{k}\mathbb{E}[|X|^{k}]}{k!} \\
+	&amp;\leq1+\sum_{k=2}^{\infty}(|s|b)^{k} \\
+	&amp;=1+(|s|b)^{2}\sum_{k=0}^{\infty}(|s|b)^{k} \\
+	&amp;\leq1+2(|s|b)^{2} \\
+	&amp;\leq e^{2s^{2}b^{2}}.
+\end{aligned}
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Definition and basic properties&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;definition-and-basic-properties&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#definition-and-basic-properties&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We say a random variable $X$ is $(\tau^{2},b)$-sub-exponential if there exist non-negative numbers $\tau^2$ and $b$ such that&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\tau^{2}}{2}}\quad\text{for all }|\lambda| &lt; \frac{1}{b}.
+$$&lt;p&gt;It follows directly from this definition that sub-Gaussian variables are sub-exponential.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda&amp;lt;\frac{1}{2},$&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\lambda(z^{2}-1)}e^{-z^{2}/2}\,dz=\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}.\
+$$&lt;p&gt;The integral does not converge if $\lambda&amp;gt;\frac{1}{2},$ so this variable is not sub-Gaussian. However, in a neighborhood of 0, we find that&lt;/p&gt;
+$$
+\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2}.
+$$&lt;p&gt;This holds for all $|\lambda|\leq\frac{1}{4},$ so $X\sim\chi^{2}$ is sub-exponential with parameters $(2,4)$.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To verify that a random variable is sub-exponential, we can explicitly bound the moment generating function, but this can sometimes be impractical. Another way to verify that a random variable is sub-exponential is by recognizing it as a sum of independent sub-exponential variables.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential. Then $\sum_{i=1}^{n}X_{i}$ is $(\sum_{i=1}^{n}\tau_{i}^{2},\max_{i\leq n}b_{i})$-sub-exponential.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;See homework for proof of the above result.&lt;/p&gt;
+&lt;h2&gt;Chernoff bound for sub-exponential variables&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;chernoff-bound-for-sub-exponential-variables&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#chernoff-bound-for-sub-exponential-variables&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Let us derive the Chernoff bound for sub-exponential variables. Assume that $X$ is $(\tau^{2},b)$-sub-exponential. For $t \geq 0$, define $g(\lambda,t)=\frac{\lambda^{2}\tau^{2}}{2}-\lambda t$ and $g^{\ast}(t)=\inf_{\lambda\in[0,1/b)}g(\lambda,t).$ We have&lt;/p&gt;
+$$
+\inf_{|\lambda| &lt; 1/b}\left(\log\mathbb{E}[e^{\lambda(X - \mathbb{E}[X])}]-\lambda t\right) \leq g^\ast(t).
+$$&lt;p&gt;The unconstrained minimum of $g(\lambda,t)$ occurs at $\lambda^{\ast}=\frac{t}{\tau^{2}}.$ If $\frac{t}{\tau^{2}}&amp;lt;\frac{1}{b}\iff t&amp;lt;\frac{\tau^{2}}{b},$ then this unconstrained optimum corresponds to the constrained minimum as well, so that $g^{\ast}(t)=g(\frac{t}{\tau^{2}},t)=-\frac{t^{2}}{2\tau^{2}}.$ Otherwise, if $t\geq\frac{\tau^{2}}{b},$ since the function $g(\lambda,t)$ is monotonically decreasing in the interval $[0,\lambda^{\ast}),$ the constrained minimum is achieved at the boundary point $\lambda^{\dagger}=\frac{1}{b},$ and we have $g^{\ast}(t)=-\frac{t}{b}+\frac{1}{2b}\frac{\tau^{2}}{b}\leq-\frac{t}{2b}.$ This yields the tail bound&lt;/p&gt;
+$$
+\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\begin{cases}
+e^{-\frac{t^{2}}{2\tau^{2}}} &amp; \text{if }0\leq t\leq\frac{\tau^{2}}{b}\\
+e^{-\frac{t}{2b}} &amp; \text{if }t&gt;\frac{\tau^{2}}{b}
+\end{cases}=e^{-\min\left\{ \frac{t^{2}}{2\tau^{2}},\frac{t}{2b}\right\} }.
+$$&lt;p&gt;Since $-X$ is also sub-exponential, we also have the two-sided inequality&lt;/p&gt;
+$$
+\mathbb{P}[|X-\mathbb{E}[X]|\geq t]\leq2e^{-\min\left\{ \frac{t^{2}}{2\tau^{2}},\frac{t}{2b}\right\} }.
+$$&lt;h2&gt;Bernstein&amp;rsquo;s condition&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bernsteins-condition&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bernsteins-condition&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Another method to verify that a random variable is sub-exponential is to verify Bernstein’s condition, which controls the central moments. We say that Bernstein&amp;rsquo;s condition with parameter $b$ holds if&lt;/p&gt;
+$$
+\left|\mathbb{E}[(X-\mu)^{k}]\right|\leq\frac{1}{2}k!b^{k-2}\sigma^{2}\quad\text{for }k=2,3,4,\ldots 
+$$&lt;p&gt;where $\mu=\mathbb{E}[X]$ and $\sigma^{2}=\operatorname{Var}[X].$ A sufficient condition for this to hold is for the variable to be bounded.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If $X$ satisfies Bernstein&amp;rsquo;s condition with parameter $b$, then $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;To see this, for $|\lambda|&amp;lt;\frac{1}{b},$ we expand the moment generating function to get&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[e^{\lambda(X-\mu)}] &amp;= 1+\frac{\lambda^{2}\sigma^{2}}{2}+\sum_{k=3}^{\infty}\lambda^{k}\frac{\mathbb{E}[(X-\mu)^{k}]}{k!} \\
+	&amp;\leq1+\frac{\lambda^{2}\sigma^{2}}{2}+\frac{\lambda^{2}\sigma^{2}}{2}\sum_{k=3}^{\infty}(|\lambda|b)^{k-2} \\
+	&amp;\leq1+\frac{\lambda^{2}\sigma^{2}}{2}\frac{1}{1-b|\lambda|} \\
+	&amp;\leq e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}.
+\end{aligned}
+$$&lt;p&gt;If $|\lambda|&amp;lt;\frac{1}{2b},$ then $e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}\leq e^{\lambda^{2}\sigma^{2}}=e^{\frac{\lambda^{2}(\sqrt{2}\sigma)^{2}}{2}},$ so $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Bernstein-type bound&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $X$ satisfies Bernstein&amp;rsquo;s condition with parameter $b,$ then&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}\quad\text{for all }|\lambda|\leq\frac{1}{b}
+$$&lt;p&gt;where $\sigma^{2}=\operatorname{Var}[X],$ and we have the concentration inequality&lt;/p&gt;
+$$
+\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq e^{-\frac{t^{2}}{2(\sigma^{2}+bt)}}\quad\text{for all }t\geq0.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    The first statement is what we just proved. The second statement follows from setting $\lambda=\frac{t}{bt+\sigma^{2}}\in[0,\frac{1}{b}]$ in the Chernoff bound $\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq e^{-\lambda t}\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ and then applying the bound on the moment generating function.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;ℹ️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;This leads to interesting observations for a bounded random variable $X$ satisfying $|X|\leq b.$ Note that in this case, we can use either the Bernstein type bound to control the tail behaviour, or we could also use the Hoeffding bound. Recall that the Hoeffding bound gives&lt;/p&gt;
+$$
+\mathbb{P}\left[|X-\mathbb{E}[X]|\geq t\right]\leq2e^{-\frac{t^{2}}{2b^{2}}}.
+$$&lt;p&gt;Since $\sigma^{2}\leq b^{2},$ the Bernstein bound is always sharper.&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;One-sided Bernstein&amp;rsquo;s inequality&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;one-sided-bernsteins-inequality&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#one-sided-bernsteins-inequality&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We know that bounded variables satisfy the Bernstein condition, but what about variables that are only bounded above by a positive constant? We will show that a similar one-sided bound holds in this case. One-sided here refers to the fact that a two-sided version does not necessarily hold, unlike the concentration inequalities we have considered so far.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;One-sided Bernstein&amp;rsquo;s inequality&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $X-\mathbb{E}[X]\leq b$ almost surely, then&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq\exp\left(\frac{\lambda^{2}\sigma^{2}}{2(1-\frac{b\lambda}{3})}\right)\quad\text{for all }\lambda\in[0,3/b)
+$$&lt;p&gt;where $\sigma^{2}=\operatorname{Var}[X].$ Consequently, given independent random variables $X_{1},\ldots,X_{n}$ such that $X_{i}-\mathbb{E}[X_{i}]\leq b$ almost surely, we have&lt;/p&gt;
+$$
+\mathbb{P}\left[\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq n\delta\right]\leq\exp\left(-\frac{n\delta^{2}}{2\left(\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}^{2}+\frac{b\delta}{3}\right)}\right).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;To prove it, define $h(u)=2\frac{e^{u}-u-1}{u^{2}}=2\sum_{k=2}^{\infty}\frac{u^{k-2}}{k!}.$ Then&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=1+\frac{1}{2}\lambda^{2}\mathbb{E}[(X-\mathbb{E}[X])^{2}h(\lambda(X-\mathbb{E}[X]))].
+$$&lt;p&gt;For all $x\in(-\infty,0),$ $x&amp;rsquo;\in[0,b],$ and $\lambda&amp;gt;0,$ we have&lt;/p&gt;
+$$
+h(\lambda x)\leq h(0)\leq h(\lambda x&#39;)\leq h(\lambda b).
+$$&lt;p&gt;Since $X-\mathbb{E}[X]\leq b,$ we have $\mathbb{E}[(X-\mathbb{E}[X])^{2}h(\lambda(X-\mathbb{E}[X]))]\leq\sigma^{2}h(\lambda b)$ and hence&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]	\leq1+\frac{\lambda^{2}\sigma^{2}}{2}h(\lambda b)\leq e^{\lambda^{2}\sigma^{2}h(\lambda b)/2}.
+$$&lt;p&gt;It remains to show that $h(\lambda b)\leq(1-\frac{\lambda b}{3})^{-1}$ for $0\leq\lambda b&amp;lt;3.$ Since $k!\geq2\times3^{k-2}$ for all $k\geq2,$ we have&lt;/p&gt;
+$$
+h(\lambda b)=2\sum_{k=2}^{\infty}\frac{(\lambda b)^{k-2}}{k!}\leq\sum_{k=2}^{\infty}\left(\frac{\lambda b}{3}\right)^{k-2}=\frac{1}{1-\frac{\lambda b}{3}}
+$$&lt;p&gt;since $\frac{\lambda b}{3}\in[0,1).$ To prove the concentration inequality, we use the Chernoff bound&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{P}\left[\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq n\delta\right]&amp;\leq e^{-\lambda n\delta}\mathbb{E}[e^{\lambda\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])}] \\ &amp;\leq\exp\left(-\lambda n\delta+\frac{\lambda^{2}\sum_{i=1}^{n}\sigma_{i}^{2}}{2(1-\frac{\lambda b}{3})}\right).
+\end{aligned}
+$$&lt;p&gt;Substituting in $\lambda=\frac{n\delta}{\sum_{i=1}^{n}\sigma_{i}^{2}+\frac{b\delta}{3}}\in[0,\frac{3}{b})$ and simplifying yields the desired bound.&lt;/p&gt;
 
       </description>
     </item>

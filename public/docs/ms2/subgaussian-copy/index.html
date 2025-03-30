@@ -10,32 +10,29 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Bayes and Minimax Estimators – Statistics Notes</title>
-  <meta name="description" content=" ⚠️ Add in proof that Bayes estimators are not unbiased unless average risk is zero. Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is" /><link rel="canonical" href="http://localhost:1313/docs/ms1/bayes_minimax/" itemprop="url" />
+<title>Sub-Gaussian Random Variables – Statistics Notes</title>
+  <meta name="description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is" /><link rel="canonical" href="http://localhost:1313/docs/ms2/subgaussian-copy/" itemprop="url" />
 
-<meta property="og:title" content="Bayes and Minimax Estimators" />
-<meta property="og:description" content="
-  ⚠️
-
-  
-    Add in proof that Bayes estimators are not unbiased unless average risk is zero.
-  
-
-
-Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is" />
+<meta property="og:title" content="Sub-Gaussian Random Variables" />
+<meta property="og:description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+Definition and basic properties
+    If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/docs/ms1/bayes_minimax/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="http://localhost:1313/docs/ms2/subgaussian-copy/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
 <meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
-  <meta itemprop="name" content="Bayes and Minimax Estimators">
-  <meta itemprop="description" content="⚠️ Add in proof that Bayes estimators are not unbiased unless average risk is zero. Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is">
+  <meta itemprop="name" content="Sub-Gaussian Random Variables">
+  <meta itemprop="description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="671">
+  <meta itemprop="wordCount" content="875">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Bayes and Minimax Estimators">
-  <meta name="twitter:description" content="⚠️ Add in proof that Bayes estimators are not unbiased unless average risk is zero. Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is">
+  <meta name="twitter:title" content="Sub-Gaussian Random Variables">
+  <meta name="twitter:description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -160,7 +157,7 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
   >Notes
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
-        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col open"><a
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/"
@@ -193,14 +190,13 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
   >Minimal Sufficiency and Completeness
     </a>
               
-            </li><li class="hx-flex hx-flex-col open"><a
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/bayes_minimax/"
     
   >Bayes and Minimax Estimators
     </a>
-  
               
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -276,7 +272,7 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
               
             </li></ul>
       </div>
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/"
@@ -293,20 +289,47 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
   >Basics of Concentration Inequalities
     </a>
               
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms2/subgaussian-copy/"
+    
+  >Sub-Gaussian Random Variables
+    </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#definition-and-basic-properties"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Definition and basic properties</a>
+            </li>
+          <li>
+              <a
+                href="#hoeffding-bounds"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Hoeffding bounds</a>
+            </li>
+          <li>
+              <a
+                href="#characterizations-of-sub-gaussian-variables"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Characterizations of sub-Gaussian variables</a>
+            </li>
+          <li>
+              <a
+                href="#sub-gaussian-vectors-and-matrices"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Sub-Gaussian vectors and matrices</a>
+            </li>
+          </ul>
+  
+              
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/subgaussian/"
     
   >Sub-Gaussian Random Variables
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms2/subexponential/"
-    
-  >Sub-exponential Random Variables
     </a>
               
             </li></ul>
@@ -354,7 +377,7 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
 
     <ul class="hx-flex hx-flex-col hx-gap-1 max-md:hx-hidden">
         
-          <li class="open"><a
+          <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/"
@@ -386,9 +409,9 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
   >Minimal Sufficiency and Completeness
     </a>
               
-            </li><li class="hx-flex hx-flex-col open"><a
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms1/bayes_minimax/"
     
   >Bayes and Minimax Estimators
@@ -468,7 +491,7 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
               
             </li></ul>
       </div></li>
-          <li class=""><a
+          <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/"
@@ -484,10 +507,10 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
   >Basics of Concentration Inequalities
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms2/subgaussian/"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms2/subgaussian-copy/"
     
   >Sub-Gaussian Random Variables
     </a>
@@ -495,9 +518,9 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms2/subexponential/"
+    href="/docs/ms2/subgaussian/"
     
-  >Sub-exponential Random Variables
+  >Sub-Gaussian Random Variables
     </a>
               
             </li></ul>
@@ -537,8 +560,24 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
 </div></div></aside>
     
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4">
-      <div class=" hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#definition-and-basic-properties">Definition and basic properties
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#hoeffding-bounds">Hoeffding bounds
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#characterizations-of-sub-gaussian-variables">Characterizations of sub-Gaussian variables
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#sub-gaussian-vectors-and-matrices">Sub-Gaussian vectors and matrices
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
@@ -558,30 +597,57 @@ Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\wideh
           <a href="/docs/">Notes</a>
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
-          <a href="/docs/ms1/">Mathematical Statistics 1</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Bayes and Minimax Estimators</div>
+          <a href="/docs/ms2/">Mathematical Statistics 2</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Sub-Gaussian Random Variables</div>
   </div>
 
         <div class="content">
-          <h1>Bayes and Minimax Estimators</h1>
-          <div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-yellow-100 hx-bg-yellow-50 hx-text-yellow-900 dark:hx-border-yellow-200/30 dark:hx-bg-yellow-700/30 dark:hx-text-yellow-200">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"><div class="hx-select-none hx-text-xl" style="font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">⚠️</div></div>
+          <h1>Sub-Gaussian Random Variables</h1>
+          <p>The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.</p>
+<h2>Definition and basic properties<span class="hx-absolute -hx-mt-20" id="definition-and-basic-properties"></span>
+    <a href="#definition-and-basic-properties" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is</p>
+$$
+\mathbb{E}[e^{\lambda X}]=e^{\mu\lambda+\frac{\lambda^{2}\sigma^{2}}{2}},\quad\lambda\in\mathbb{R}.
+$$<p>Then we say a random variable $X$ is $\sigma^{2}$-sub Gaussian if</p>
+$$
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}\quad\text{for all }\lambda\in\mathbb{R}.
+$$<p>We call $\sigma$ the sub-Gaussian parameter.</p>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
+  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0">Add in proof that Bayes estimators are not unbiased unless average risk is zero.</div>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Suppose that $\epsilon$ is a Rademacher random variable. Then</p>
+$$
+\begin{aligned}
+\mathbb{E}[e^{\lambda X}] &= \frac{e^{\lambda}+e^{-\lambda}}{2} \\
+	&= \sum_{k=0}^{\infty}\frac{\lambda^{2k}}{(2k)!} \\
+	&\leq 1+\sum_{k=1}^{\infty}\frac{\lambda^{2k}}{2^{k}k!} \\
+	&\leq e^{\lambda^{2}/2},
+\end{aligned}
+$$<p>which shows that Rademacher random variables are sub-Gaussian with parameter $\sigma = 1.$</p>
+</div>
   </div>
 </div>
 
-<p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is</p>
+<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
+  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
+
+  <div class="hx-w-full hx-min-w-0 hx-leading-7">
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that</p>
 $$
-R(\widehat{\theta},\theta)=\mathbb{E}_{\theta}L(\widehat{\theta},\theta)=\int L(\widehat{\theta}(x),\theta)p(x|\theta)\,dx.
-$$<p>In other words, $R(\widehat{\theta},\theta)$ is the average deviation of $\widehat{\theta}$ from the true parameter value if the true parameter value is taken to be $\theta$.</p>
+\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}(b-a)^{2}}{8}}\quad\text{for all }\lambda\in\mathbb{R}.
+$$<p>See homework for proof.</p>
+</div>
+  </div>
+</div>
+
+<p>A linear combination of random sub-Gaussian variables is also sub-Gaussian.</p>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Rao-Blackwell Theorem</strong>
+    <strong class="hx-text-lg">Proposition</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    Assume $L(\widehat{\theta},\theta)$ is convex in $\widehat{\theta}$. For any $\widehat{\theta}$ and any sufficient $T$, define $\widetilde{\theta}=\mathbb{E}_{\theta}(\widehat{\theta}|T)$. Then $R(\widetilde{\theta},\theta)\leq R(\widehat{\theta},\theta)$.
+    If $X_{1},\ldots,X_{n}$ are independent sub-Gaussian random variables with parameters $\sigma_{1},\ldots,\sigma_{n},$ then $\sum_{i=1}^{n}a_{i}X_{i}$ is $\sum_{i=1}^{n}a_{i}^{2}\sigma_{i}^{2}$-sub-Gaussian whenever $a_{1},\ldots,a_{n}$ are real constants.
   </div>
 </details>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
@@ -589,216 +655,161 @@ $$<p>In other words, $R(\widehat{\theta},\theta)$ is the average deviation of $\
     <strong class="hx-text-lg">Proof</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    By Jensen&rsquo;s inequality, we have $L(\widetilde{\theta},\theta)=L(\mathbb{E} _ {\theta}(\widehat{\theta}|T),\theta)\leq \mathbb{E} _ {\theta}(L(\widehat{\theta},\theta)|T)$, and taking expectation of both sides gives $R(\widetilde{\theta},\theta)\leq R(\widehat{\theta},\theta)$.
-  </div>
-</details>
-<p>Given a prior $\pi$ on $\Theta$, we say $\widehat{\theta}_\pi$ is a Bayes estimator for $\pi$ if</p>
+    <p>By independence,</p>
 $$
-\widehat{\theta}_\pi = \argmin_{\widehat{\theta}}\int_{\Theta}R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
-$$<p>We say $\widehat\theta$ is a minimax estimator if</p>
-$$
-\widehat{\theta}=\argmin_{\widehat{\theta}}\sup_{\theta\in\Theta}R(\widehat{\theta},\theta).
-$$<p>We have</p>
-$$
-\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta=\int\int L(\widehat{\theta}(x),\theta)p(x|\theta)\pi(\theta)\,dx\,d\theta=\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx,
-$$<p>where $\pi(\theta|x)$ is the posterior density and $m(x) = \int p(x|\theta)\pi(\theta) , d\theta$  is the marginal of $X$.</p>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Claim</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    <p>Given a prior $\pi$, the Bayes estimator is given by</p>
-$$
-\widehat{\theta}_{\pi}(X)=\argmin_{a}\int L(a,\theta)\pi(\theta|X)\,d\theta.
+\mathbb{E}\left[e^{\lambda\sum_{i=1}^{n}a_{i}(X_{i}-\mathbb{E}[X_{i}])}\right]=\prod_{i=1}^{n}\mathbb{E}\left[e^{\lambda a_{i}(X_{i}-\mathbb{E}[X_{i}])}\right]\leq\prod_{i=1}^{n}e^{\frac{\lambda^{2}a_{i}^{2}\sigma_{i}^{2}}{2}}=e^{\frac{\lambda^{2}}{2}\sum_{i=1}^{n}a_{i}^{2}\sigma_{i}^{2}}.
 $$
   </div>
 </details>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Proof</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    <p>For any estimator $\widehat{\theta}$, we have</p>
+<h2>Hoeffding bounds<span class="hx-absolute -hx-mt-20" id="hoeffding-bounds"></span>
+    <a href="#hoeffding-bounds" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>For a sub-Gaussian variable, we have</p>
 $$
-\begin{aligned}
-\int R(\widehat{\theta}_{\pi},\theta)\pi(\theta)\,d\theta &=\int\int L(\widehat{\theta}_{\pi}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
-	&\leq\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
-	&=\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
-\end{aligned}
+\inf_{\lambda\in\mathbb{R}}\left(\log\mathbb{E}[e^{\lambda(X-\mu)}]-\lambda t\right)=\inf_{\lambda\in\mathbb{R}}\left(\frac{\lambda^{2}\sigma^{2}}{2}-\lambda t\right)=-\frac{t^{2}}{2\sigma^{2}},
+$$<p>giving the Chernoff bound</p>
 $$
-  </div>
-</details>
-<p>As an example, consider $\Theta\subseteq\mathbb{R}$ and $L(\widehat{\theta},\theta)=(\widehat{\theta}-\theta)^{2}$. Then</p>
+\mathbb{P}[X-\mu\geq t]\leq e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
+$$<p>Note that because $-X$ is also sub-Gaussian, we also have the two-sided bound</p>
 $$
-\widehat{\theta}_{\pi}(X)=\argmin_{a}\int(a-\theta)^{2}\pi(\theta|X)\,d\theta=\argmin_{a}\mathbb{E}\left((a-\theta)^{2}|X\right)=\mathbb{E}(\theta|X).
+\mathbb{P}[|X-\mu|\geq t]\leq2e^{-t^{2}/2\sigma^{2}}\quad\text{for all }t \geq 0.
 $$<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=(\hat{p}-p)^{2}$. Consider the prior $\pi\sim\text{Beta}(\alpha,\beta)$, so $\pi(p)\propto p^{\alpha-1}(1-p)^{\beta-1}$. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X \in[a,b]$ almost surely, then</p>
 $$
-p|X_{1},\ldots,X_{n}\sim\text{Beta}\left(\sum_{i=1}^{n}X_{i}+\alpha,\sum_{i=1}^{n}(1-X_{i})+\beta\right).
-$$<p>A Bayes estimator is then</p>
-$$
-\hat{p}=\mathbb{E}(p|X_{1},\ldots,X_{n})=\frac{\sum_{i=1}^{n}X_{i}+\alpha}{n+\alpha+\beta}.
-$$<p>The risk is</p>
-$$
-\begin{aligned}
-R(\hat{p},p)=\mathbb{E}_{p}(\hat{p}-p)^{2} &=\operatorname{Var}(\hat{p})+(\mathbb{E}(\hat{p})-p)^{2} \\
-	&=\left(\frac{n}{n+\alpha+\beta}\right)^{2}\frac{p(1-p)}{n}+\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}-p\right)^{2}.
-\end{aligned}
+\mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
 $$</div>
   </div>
 </div>
 
+<p>The Chernoff bound leads to the following Hoeffding bound.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Hoeffding bounds</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>If $X_{1},\ldots,X_{n}$ are independent random variables such that $X_{i}$ is $\sigma_{i}^{2}$-sub-Gaussian, then</p>
+$$
+\mathbb{P}\left[\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq t\right]\leq\exp\left(-\frac{nt^{2}}{\frac{2}{n}\sum_{i=1}^{n}\sigma_{i}^{2}}\right).
+$$
+  </div>
+</details>
+<h2>Characterizations of sub-Gaussian variables<span class="hx-absolute -hx-mt-20" id="characterizations-of-sub-gaussian-variables"></span>
+    <a href="#characterizations-of-sub-gaussian-variables" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Next, we consider several equivalent characterizations of sub-Gaussian variables.</p>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Theorem</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    <p>If there exists a prior $\pi$ such that $\widehat{\theta}$ satisfies</p>
-$$
-\sup_{\theta\in\Theta}R(\widehat{\theta},\theta)=\inf_{\widetilde{\theta}}\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta,
-$$<p>then $\widehat{\theta}$ is minimax.</p>
+    <p>Suppose that $X$ is a random variable with zero mean. The following are equivalent:</p>
+<ol>
+<li>
+<p>There is a constant $\sigma^2 &gt; 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$</p>
+</li>
+<li>
+<p>There is a constant $c\geq1$ and a Gaussian random variable $Z\sim N(0,\tau^{2})$ such that $\mathbb{P}[|X|\geq s]\leq c\mathbb{P}[|Z|\geq s]$ for all $s\geq0.$</p>
+</li>
+<li>
+<p>There is a constant $\theta\geq0$ such that $\mathbb{E}[X^{2k}]\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}$ for all $k=1,2,\ldots$</p>
+</li>
+<li>
+<p>There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}}$ for all $s\in[0,1).$</p>
+</li>
+</ol>
   </div>
 </details>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Proof</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    <p>For all $\widetilde{\theta}$, we have</p>
+<p><strong>Proof of $(1) \Longrightarrow (2)$:</strong> We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then</p>
 $$
-\sup_{\theta\in\Theta}R(\widetilde{\theta},\theta)\geq\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta\geq\inf_{\widetilde{\theta}}\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta=\sup_{\theta\in\Theta}R(\widehat{\theta},\theta).
+\frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq4\sqrt{\pi}e\quad\text{for all }t\geq0.
+$$<p>Firstly, by the Chernoff bound for sub-Gaussian variables, we have $\mathbb{P}[X\geq t]\leq e^{-t^{2}/2\sigma^{2}}.$ Then using a property for Gaussian variables (called the Mills-ratio for Gaussian tails, see homework), we have</p>
 $$
-  </div>
-</details>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Corollary</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    If $\widehat{\theta}=\widehat{\theta}_{\pi}$ for some $\pi$ and $R(\widehat{\theta} _{\pi},\theta)$ is constant over $\theta\in\Theta$, then $\widehat{\theta}$ is minimax.
-  </div>
-</details>
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Proof</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    <p>We have</p>
+\mathbb{P}[Z\geq t]\geq\left(\frac{\sqrt{2}\sigma}{t}-\frac{(\sqrt{2}\sigma)^{3}}{t^{3}}\right)\frac{1}{\sqrt{2\pi}}e^{-t^{2}/4\sigma^{2}}.
+$$<p>Consider two cases:</p>
+<ol>
+<li>
+<p>If $t\in[0,2\sigma]$, then</p>
 $$
-\sup_{\theta\in\Theta}R(\widehat{\theta},\theta)=\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta=\inf_{\widetilde{\theta}}\int R(\widetilde{\theta},\theta)\pi(\theta)\,d\theta,
-$$<p>so by the theorem we have that $\widehat{\theta}$ is minimax.</p>
-  </div>
-</details>
-<p>In other words, a Bayes estimator with constant risk is minimax. This fact is usually the first line of attack when finding minimax estimators.</p>
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
-
-  <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=(\hat{p}-p)^{2}$. Recall that for the prior $\pi\sim\text{Beta}(\alpha,\beta)$ we have the Bayes estimator</p>
+\mathbb{P}[Z\geq t]\geq\mathbb{P}[Z\geq2\sigma]\geq\left(\frac{1}{\sqrt{2}}-\frac{1}{2\sqrt{2}}\right)\frac{1}{\sqrt{2\pi}}e^{-1}=\frac{1}{4\sqrt{\pi}e}.
+$$<p>Since $\mathbb{P}[X\geq t]\leq1,$ it follows that</p>
 $$
-\hat{p}=\mathbb{E}(p|X_{1},\ldots,X_{n})=\frac{\sum_{i=1}^{n}X_{i}+\alpha}{n+\alpha+\beta}.
-$$<p>The risk is</p>
+\frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq4\sqrt{\pi}e.
+$$</li>
+<li>
+<p>If $t&gt;2\sigma,$ then combining the Mills ratio and the sub-Gaussian tail bound,</p>
 $$
-R(\hat{p},p)=\mathbb{E}_{p}(\hat{p}-p)^{2}=\left(\frac{n}{n+\alpha+\beta}\right)^{2}\frac{p(1-p)}{n}+\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}-p\right)^{2},
-$$<p>which can be written as</p>
+\sup_{t>2\sigma}\frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq\sup_{s>2}\frac{e^{-s^{2}/4}}{\left(\frac{\sqrt{2}}{s}-\frac{2\sqrt{2}}{s^{3}}\right)}\sqrt{2\pi}\leq\sup_{s>2}\frac{\sqrt{2\pi}s^{3}e^{-s^{2}/4}}{2\sqrt{2}}\leq4\sqrt{\pi}e.
+$$</li>
+</ol>
+<p>Finally, note that if $X$ is $\sigma^{2}$-sub-Gaussian, then so is $-X.$ Applying the same argument to $-X$ and adding the two bounds yields $\mathbb{P}[|X|\geq t]\leq8\sqrt{\pi}e\mathbb{P}[Z\geq t]=4\sqrt{\pi}e\mathbb{P}[|Z|\geq t]$ for all $t\geq0.$</p>
+<p><strong>Proof of $(2) \Longrightarrow  (3)$:</strong> Since $X^{2k}$ is a non-negative random variable, we have</p>
 $$
-\left(\left(\frac{\alpha+\beta}{n+\alpha+\beta}\right)^{2}-\frac{1}{n}\left(\frac{n}{n+\alpha+\beta}\right)^{2}\right)p^{2}+\left(\frac{1}{n}\left(\frac{n}{n+\alpha+\beta}\right)^{2}-\left(\frac{\alpha+\beta}{n+\alpha+\beta}\right)^{2}\frac{2\alpha}{\alpha+\beta}\right)p+\left(\frac{\alpha+\beta}{n+\alpha+\beta}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}\right)^{2}. 
-$$<p>If $\alpha=\beta=\frac{\sqrt{n}}{2}$, then the coefficients of the $p$ and $p^{2}$ terms vanish, and the risk becomes</p>
+\mathbb{E}[X^{2k}]=\int_{0}^{\infty}\mathbb{P}[|X|\geq s^{1/2k}]\,ds\leq c\int_{0}^{\infty}\mathbb{P}[|Z|\geq s^{1/2k}]=c\mathbb{E}[Z^{2k}].
+$$<p>By property of the normal distribution, we have $\mathbb{E}[Z^{2k}]=\frac{(2k)!}{2^{k}k!}\tau^{2k},$ so</p>
 $$
-R(\hat{p},p)=\frac{1}{4(\sqrt{n}+1)^{2}}
-$$<p>which is constant with respect to $p$. Therefore,</p>
+\mathbb{E}[X^{2k}]\leq c\frac{(2k)!}{2^{k}k!}\tau^{2k}\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}
+$$<p>where $\theta=c\tau.$</p>
+<p><strong>Proof of $(3) \Longrightarrow  (1)$:</strong> For $\lambda\in\mathbb{R},$</p>
 $$
-\hat{p}_{\text{minimax}}=\frac{\sum_{i=1}^{n}X_{i}+\frac{\sqrt{n}}{2}}{n+\sqrt{n}}
-$$<p>is a minimax estimator. How does this estimator compare to the maximum likelihood estimator $\hat{p} _ {\text{MLE}}=\overline{X}$? The risk function for the MLE estimator is</p>
+\mathbb{E}[e^{\lambda X}]=1+\sum_{k=2}^{\infty}\frac{\lambda^{k}\mathbb{E}[X^{k}]}{k!}.
+$$<p>If $X$ is symmetric about 0, then the odd moments vanish, giving</p>
 $$
-R(\hat{p}_{\text{MLE}},p)=\mathbb{E}_{p}(\hat{p}_{\text{MLE}}-p)^{2}=\frac{p(1-p)}{n}.
-$$<p>There are some situations where the MLE has lower risk, for example when $p $is close to 0 or 1. However, if we consider the worst case, we find that</p>
+\mathbb{E}[e^{\lambda X}]=\sum_{k=0}^{\infty}\frac{|\lambda|^{2k}\mathbb{E}[|X|^{2k}]}{(2k)!}\leq\sum_{k=0}^{\infty}\frac{|\lambda|^{2k}}{(2k)!}\frac{(2k)!}{2^{k}k!}\theta^{2k}\leq e^{\lambda^{2}\theta^{2}/2}.
+$$<p>If $X$ is not symmetric, then by the Cauchy-Schwarz inequality we have</p>
 $$
-\sup_{p\in(0,1)}R(\hat{p}_{\text{MLE}},p)=\frac{1}{4n}
-$$<p>which is larger than</p>
-$$
-\sup_{p\in(0,1)}R(\hat{p}_{\text{minimax}},p)=\frac{1}{4(\sqrt{n}+1)^{2}}.
-$$</div>
-  </div>
-</div>
-
-<p>The choice of loss function is important. Let us demonstrate this with another example.</p>
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
-
-  <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=\frac{(\hat{p}-p)^{2}}{p(1-p)}$. For the prior $\pi(p)=1$, the Bayes estimator is</p>
+\mathbb{E}[|\lambda X|^{2k+1}]\leq\sqrt{\mathbb{E}[|\lambda X|^{2k}]\mathbb{E}[|\lambda X|^{2k+2}]}\leq\frac{1}{2}(\mathbb{E}[|\lambda X|^{2k}]+\mathbb{E}[|\lambda X|^{2k+2}])
+$$<p>where the last inequality follows from the AM-GM inequality. This bounds the odd moments in terms of the even moments. Then</p>
 $$
 \begin{aligned}
-\hat{p}(X) &= \argmin_{a} \int \frac{(a-p)^{2}}{p(1-p)} \pi(p|X)\,dp \\ 
-	&=\argmin_{a}\int(a-p)^{2}\frac{\pi(p|X)}{p(1-p)}\,dp,
+\mathbb{E}[e^{\lambda X}] &\leq1+\sum_{k=2}^{\infty}\frac{|\lambda|^{k}\mathbb{E}[|X|^{k}]}{k!} \\
+	&\leq1+\sum_{k=1}^{\infty}\left(\frac{1}{(2k)!}+\frac{1}{2}\left(\frac{1}{(2k-1)!}+\frac{1}{(2k+1)!}\right)\right)\mathbb{E}[|\lambda X|^{2k}],
 \end{aligned}
-$$<p>
-where</p>
+$$<p>and we have</p>
 $$
-\frac{\pi(p|X)}{p(1-p)}\propto p^{\sum_{i=1}^{n}X_{i}-1}(1-p)^{\sum_{i=1}^{n}(X_{i}-1)-1}=\text{Beta}\left(\sum_{i=1}^{n}X_{i},\sum_{i=1}^{n}(1-X_{i})\right),
-$$<p>so</p>
+\mathbb{E}[e^{\lambda X}]\leq\sum_{k=0}^{\infty}2^{k}\frac{\lambda^{2k}\mathbb{E}[X^{2k}]}{(2k)!}\leq\sum_{k=0}^{\infty}2^{k}\frac{\lambda^{2k}}{(2k)!}\frac{(2k)!}{2^{k}k!}\theta^{2k}=e^{\lambda^{2}\theta^{2}/2}.
+$$<p><strong>Proof of $(1) \Longrightarrow  (4)$:</strong> The result holds trivially when $s=0,$ so assume $s\in(0,1).$ Then we multiply the sub-Gaussian inequality by $e^{-\lambda^{2}\sigma^{2}/2s}$ to obtain</p>
 $$
-\hat{p}(X)=\frac{\sum_{i=1}^{n}X_{i}}{\sum_{i=1}^{n}X_{i}+\sum_{i=1}^{n}(1-X_{i})}=\overline{X}=\hat{p}_{\text{MLE}}.
-$$<p>The risk is</p>
+\mathbb{E}[e^{\lambda X-\frac{\lambda^{2}\sigma^{2}}{2s}}]\leq e^{\frac{\lambda^{2}\sigma^{2}(s-1)}{2s}}.
+$$<p>This holds for all $\lambda\in\mathbb{R},$ so we can integrating both sides with respect to $\lambda.$ On the right hand side, we have</p>
 $$
-R(\hat{p},p) =\frac{\mathbb{E}_{p}(\hat{p}-p)^{2}}{p(1-p)}=\frac{1}{n}
-$$<p>which is constant. Therefore, $\overline{X}$ is a Bayes estimator (which cannot be the case with the squared loss function because only biased estimators could be Bayes), and it is also a minimax estimator.</p>
-</div>
-  </div>
-</div>
-
-<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
-  <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
-
-  <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\mu,\sigma^{2})$ where $\mu\in\mathbb{R}$ is the parameter to be estimated. Consider the loss function $L(\hat{\mu},\mu)=(\hat{\mu}-\mu)^{2}$. Then the estimator $\overline{X}$ cannot be Bayes as it is unbiased, but is it minimax? This is true intuitively because the risk $R(\overline{X},\mu)=\mathbb{E} _ {\mu}(\overline{X}-\mu)^{2}=\frac{\sigma^{2}}{n}$ is constant. To prove this formally, consider the prior $\pi\sim N(0,\tau^{2})$. Then the Bayes estimator for this prior is</p>
+\int_{-\infty}^{\infty}e^{\frac{\lambda^{2}\sigma^{2}(s-1)}{2s}}\,d\lambda=\frac{1}{\sigma}\sqrt{\frac{2\pi s}{1-s}}.
+$$<p>On the left hand side, using Fubini&rsquo;s theorem, we have</p>
 $$
-\hat{\mu}_{\text{Bayes}}=\mathbb{E}(\mu|X)=\frac{\frac{n}{\sigma^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\overline{X},
-$$<p>and the risk is</p>
+\int_{-\infty}^{\infty}\mathbb{E}[e^{\lambda X-\frac{\lambda^{2}\sigma^{2}}{2s}}]\,d\lambda=\mathbb{E}\left[\int_{-\infty}^{\infty}e^{\lambda X-\frac{\lambda^{2}\sigma^{2}}{2s}}\,d\lambda\right]=\frac{\sqrt{2\pi s}}{\sigma}\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}].
+$$<p>Therefore, $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{\sigma}{\sqrt{2\pi s}}\frac{1}{\sigma}\sqrt{\frac{2\pi s}{1-s}}=\frac{1}{\sqrt{1-s}}.$</p>
+<p><strong>Proof of $(4) \Longrightarrow  (1)$:</strong> We apply the bound $e^{u}\leq u+e^{9u^{2}/16}$ with $u=\lambda X$ to obtain</p>
 $$
-\begin{aligned}
-R(\hat{\mu}_{\text{Bayes}},\mu) &= \text{Var}(\hat{\mu}_{\text{Bayes}})+(\mathbb{E}\hat{\mu}_{\text{Bayes}}-\mu)^{2} \\ 
-	&=\left(\frac{\frac{n}{\sigma^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\frac{\sigma^{2}}{n}+\left(\frac{\frac{1}{\tau^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\mu^{2}.
-\end{aligned}
-$$<p>The Bayes risk is</p>
+\mathbb{E}[e^{\lambda X}]\leq\mathbb{E}[\lambda X]+\mathbb{E}[e^{\frac{9\lambda^{2}X^{2}}{16}}]=\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}},
+$$<p>which is valid whenever $s=\frac{9}{8}\lambda^{2}\sigma^{2}$ is less than 1. Since $s\leq\frac{1}{2}$ when $|\lambda|\leq\frac{2}{3\sigma}$ and $\frac{1}{\sqrt{1-s}}\leq e^{s}$ for $s\in[0,\frac{1}{2}],$ it follows that</p>
 $$
-\int R(\hat{\mu}_{\text{Bayes}},\mu)\pi(\mu)\,d\mu=\left(\frac{\frac{n}{\sigma^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\frac{\sigma^{2}}{n}+\left(\frac{\frac{1}{\tau^{2}}}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}\right)^{2}\tau^{2}=\frac{1}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}.
-$$<p>Then for any estimator $\hat{\mu}$, we have</p>
+\mathbb{E}[e^{\lambda X}]\leq e^{\frac{9}{8}\lambda^{2}\sigma^{2}}\quad\text{for }|\lambda|\leq\frac{2}{3\sigma}.
+$$<p>To show a similar bound for $|\lambda|\geq\frac{2}{3\sigma},$ we use a special case of the Fenchel-Young inequality which states that</p>
 $$
-R(\hat{\mu},\mu)\geq\int R(\hat{\mu},\mu)\pi(\mu)\,d\mu\geq\inf_{\hat{\mu}}\int R(\hat{\mu},\mu)\pi(\mu)\,d\mu=\frac{1}{\frac{1}{\tau^{2}}+\frac{n}{\sigma^{2}}}.
-$$<p>Letting $\tau\to\infty$, we get $R(\hat{\mu},\mu)\geq\frac{\sigma^{2}}{n}=R(\overline{X},\mu)$.</p>
-</div>
-  </div>
-</div>
-
-<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
-  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
-    <strong class="hx-text-lg">Theorem</strong>
-  </summary>
-  <div class="hx-p-2 hx-overflow-hidden">
-    <p>If there exists a sequence of priors $(\pi_{m})$ such that</p>
+uv\leq\frac{u^{2}}{2\alpha}+\frac{\alpha v^{2}}{2}\quad\text{for all }u,v\in\mathbb{R}\text{ and }\alpha>0.
+$$<p>Choosing $u=\lambda, v=X, \alpha=c/\sigma^{2}$ gives</p>
 $$
-\sup_{\theta\in\Theta}R(\hat{\theta},\theta)=\lim_{m\to\infty}\inf_{\hat{\theta}}\int R(\hat{\theta},\theta)\pi_{m}(\theta)\,d\theta,
-$$<p>then $\hat{\theta}$ is minimax.</p>
-  </div>
-</details>
-<p>The proof follows from the same argument as in the above example.</p>
+\mathbb{E}[e^{\lambda X}]\leq\mathbb{E}[e^{\lambda^{2}\sigma^{2}/(2c)+cX^{2}/2\sigma^{2}}]=e^{\lambda^{2}\sigma^{2}/(2c)}\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{2}}}].
+$$<p>If $c\in(0,1/2),$ then we have $\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-c}}\leq e^{c}.$ Letting $c=1/4$ and using the fact that $\frac{1}{4}\leq\frac{9}{16}\lambda^{2}\sigma^{2}$ holds whenever $|\lambda|\geq\frac{2}{3\sigma},$ it follows that</p>
+$$
+\mathbb{E}[e^{\lambda X}]\leq e^{2\lambda^{2}\sigma^{2}}e^{1/4}\leq e^{2\lambda^{2}\sigma^{2}+\frac{9}{16}\lambda^{2}\sigma^{2}}\leq e^{3\lambda^{2}\sigma^{2}}.
+$$<p>Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$</p>
+<h2>Sub-Gaussian vectors and matrices<span class="hx-absolute -hx-mt-20" id="sub-gaussian-vectors-and-matrices"></span>
+    <a href="#sub-gaussian-vectors-and-matrices" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We can also talk about sub-Gaussian random vectors and matrices.</p>
+<ul>
+<li>A random vector $X\in\mathbb{R}^{n}$ is said to be $\sigma^{2}$-sub-Gaussian if $u^{T}(X-\mathbb{E}[X])$ is $\sigma^{2}$-sub-Gaussian for any vector $u\in\mathcal{S}^{n-1}.$ We write $X\sim\operatorname{subG}_{n}(\sigma^{2}).$</li>
+<li>A random matrix $X\in\mathbb{R}^{m\times n}$ is said to be $\sigma^{2}$-sub-Gaussian if $u^{T}(X-\mathbb{E}[X])v$ is $\sigma^{2}$-sub-Gaussian for any vector $u\in\mathcal{S}^{m-1}$ and $v\in\mathcal{S}^{n-1}.$ We write $X\sim\operatorname{subG}_{m\times n}(\sigma^{2}).$</li>
+</ul>
 
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
-        href="/docs/ms1/min_sufficient/"
-        title="Minimal Sufficiency and Completeness"
+        href="/docs/ms2/concentration/"
+        title="Basics of Concentration Inequalities"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
-      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Minimal Sufficiency and Completeness</a><a
-        href="/docs/ms1/admissibility/"
-        title="Admissibility"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Basics of Concentration Inequalities</a><a
+        href="/docs/ms2/subgaussian/"
+        title="Sub-Gaussian Random Variables"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
-      >Admissibility<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Sub-Gaussian Random Variables<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
