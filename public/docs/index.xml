@@ -16,7 +16,7 @@
     
     
     <item>
-      <title>Basics of Concentration Inequalities</title>
+      <title>Introduction to Concentration Inequalities</title>
       <link>http://localhost:1313/docs/ms2/concentration/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
       
@@ -1186,6 +1186,238 @@ $$&lt;p&gt;then $\hat{\theta}$ is minimax.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Maximal Inequalities for Sub-Gaussians</title>
+      <link>http://localhost:1313/docs/ms2/maximal/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/maximal/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Maximum over a finite set&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;maximum-over-a-finite-set&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#maximum-over-a-finite-set&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We first consider maximum over a finite set of sub-Gaussian variables.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $X_{1},\ldots,X_{N}$ be random variables such that $X_{i}\sim\operatorname{subG}(\sigma^{2}).$ Then&lt;/p&gt;
+$$
+\mathbb{E}\left[\max_{1\leq i\leq N}X_{i}\right]\leq\sigma\sqrt{2\log N}\quad\text{and}\quad\mathbb{E}\left[\max_{1\leq i\leq N}|X_{i}|\right]\leq\sigma\sqrt{2\log(2N)}.
+$$&lt;p&gt;Moreover, for any $t&amp;gt;0,$&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{1\leq i\leq N}X_{i}&gt;t\right]\leq Ne^{-\frac{t^{2}}{2\sigma^{2}}}\quad\text{and}\quad\mathbb{P}\left[\max_{1\leq i\leq N}|X_{i}|&gt;t\right]\leq2Ne^{-\frac{t^{2}}{2\sigma^{2}}}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For all $s&amp;gt;0,$ we have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}\left[\max_{1\leq i\leq N}X_{i}\right] &amp;= \frac{1}{s}\mathbb{E}\left[\log\left(e^{s\max_{1\leq i\leq N}X_{i}}\right)\right] \\
+	&amp;\leq\frac{1}{s}\log\left(\mathbb{E}\left[e^{\max_{1\leq i\leq N}sX_{i}}\right]\right) \\
+	&amp;\leq\frac{1}{s}\log\left(\sum_{i=1}^{N}\mathbb{E}[e^{sX_{i}}]\right) \\
+	&amp;\leq\frac{1}{s}\log\left(\sum_{i=1}^{N}e^{\frac{s^{2}\sigma^{2}}{2}} \\\right)=\frac{\log(N)}{s}+\frac{s\sigma^{2}}{2}.
+\end{aligned}
+$$&lt;p&gt;Differentiating the upper bound with respect to $s$ and setting the derivative to 0, we find that $s=\sqrt{2\log(N)/\sigma^{2}}$ yields the tightest bound. This gives&lt;/p&gt;
+$$
+\mathbb{E}\left[\max_{1\leq i\leq N}X_{i}\right]\leq\sigma\sqrt{2\log N}.
+$$&lt;p&gt;For the tail probability, we have&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{1\leq i\leq N}X_{i}&gt;t\right]=\mathbb{P}\left[\bigcup_{i=1}^{N}\{X_{i}&gt;t\}\right]\leq\sum_{i=1}^{N}\mathbb{P}[X_{i}&gt;t]\leq Ne^{-\frac{t^{2}}{2\sigma^{2}}}.
+$$&lt;p&gt;The inequalities for $\max_{1\leq i\leq N}|X_{i}|$ follow by noting that $\max_{1\leq i\leq N}|X_{i}|=\max_{1\leq i\leq2N}X_{i}$ where we have set $X_{N+i}=-X_{i}.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Maximum over a convex polytope&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;maximum-over-a-convex-polytope&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#maximum-over-a-convex-polytope&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A convex polytope is a compact set $P\subset\mathbb{R}^{d}$ such that there exists a finite set of points $\mathcal{V}(P)$ with $P=\operatorname{conv}(\mathcal{V}(P)).$ The elements of $\mathcal{V}(P)$ are called the vertices or extreme points of $P.$ For example, the unit ball of $\mathbb{R}^{d}$ in the $\ell_{1}$-norm is a convex polytope with $2d$-vertices. Let $X\in\mathbb{R}^{d}$ be a random vector and consider the (infinite) family of random variables $\mathcal{F}={\theta^{T}X:\theta\in P}$ where $P$ is a polytope with $N$ vertices. The family $\mathcal{F}$ is infinite, but the maximum over $\mathcal{F}$ can be reduced to a finite maximum using the following lemma:&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $c\in\mathbb{R}^{d}.$ Then for any convex polytope $P\subset\mathbb{R}^{d}$,&lt;/p&gt;
+$$
+\max_{x\in P}c^{T}x=\max_{x\in\mathcal{V}(P)}c^{T}x.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $v_{1},\ldots,v_{n}$ denote the vertices of $P.$ For any $x\in P$, we have $x=\sum_{i=1}^{n}\lambda_{i}v_{i}=\lambda^{T}x$ for some $\lambda=(\lambda_{1},\ldots,\lambda_{n})^T$ satisfying $\lambda_{1},\ldots,\lambda_{n}\geq0$ and $\sum_{i=1}^{n}\lambda_{i}=1.$ Hence,&lt;/p&gt;
+$$
+c^{T}x=\sum_{i=1}^{N}\lambda_{i}c^{T}v_{i}\leq\sum_{i=1}^{N}\lambda_{i}\left(\max_{1\leq i\leq N}c^{T}v_{i}\right)=\max_{1\leq i\leq N}c^{T}v_{i}.
+$$&lt;p&gt;Thus,&lt;/p&gt;
+$$
+\max_{1\leq i\leq N}c^{T}v_{i}\leq\max_{x\in P}c^{T}x\leq\max_{1\leq i\leq N}c^{T}v_{i}
+$$&lt;p&gt;which means that the two quantities are equal.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;This gives us the following result.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $P$ be a convex polytope with $N$ vertices. If $X\in\mathbb{R}^{d}$ is a random vector such that $v^{T}X\sim\operatorname{subG}(\sigma^{2})$ for all $v\in\mathcal{V}(P),$ then&lt;/p&gt;
+$$
+\mathbb{E}\left[\max_{\theta\in P}\theta^{T}X\right]\leq\sigma\sqrt{2\log N}\quad\text{and}\quad\mathbb{E}\left[\max_{\theta\in P}|\theta^{T}X|\right]\leq\sigma\sqrt{2\log(2N)}.
+$$&lt;p&gt;Moreover, for any $t&amp;gt;0,$&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{\theta\in P}\theta^{T}X&gt;t\right]\leq Ne^{-\frac{t^{2}}{2\sigma^{2}}}\quad\text{and}\quad\mathbb{P}\left[\max_{\theta\in P}|\theta^{T}X|&gt;t\right]\leq2Ne^{-\frac{t^{2}}{2\sigma^{2}}}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Maximum over the $\ell_{2}$ unit ball&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;maximum-over-the-ell_2-unit-ball&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#maximum-over-the-ell_2-unit-ball&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The unit ball in the $\ell_{2}$-norm is the set&lt;/p&gt;
+$$
+\mathcal{B}_{2}=\left\{ x\in\mathbb{R}^{d}:\sum_{i=1}^{d}x_{i}^{2}\leq1\right\}.
+$$&lt;p&gt;This is not a convex polytope, but we can still control the maximum of random variables indexed by $\mathcal{B} _ {2}.$ This is due to the fact that there exists a finite subset of $\mathcal{B}_{2}$ such that the maximum over this finite set is of the same order as the maximum over the entire ball.&lt;/p&gt;
+&lt;p&gt;Let $(X,d)$ be a metric space and let $T$ be a subset of $X.$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For $\epsilon&amp;gt;0,$ a set $\mathcal{N}$ is called an $\epsilon$-net of $T$ if $\mathcal{N}\subset T$ and for any $z\in T,$ there exists $\theta\in\mathcal{N}$ such that $d(z,\theta)\leq\epsilon .$ The $\epsilon$-covering number $\mathcal{N}(\epsilon;T,d)$ is the smallest possible cardinality of an $\epsilon$-net.&lt;/li&gt;
+&lt;li&gt;For $\delta &amp;gt; 0,$ a $\delta$-packing of $T$ is a set $\mathcal{P}\subset T$ such that $d(x,y)&amp;gt;\delta$  for all distinct points $x,y\in\mathcal{P}.$ The $\delta$-packing number $\mathcal{M}(\delta;T,d)$ is the largest possible cardinality of a $\delta$-packing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The covering and packing numbers are related.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $\delta&amp;gt;0.$ Then we have&lt;/p&gt;
+$$
+\mathcal{M}(2\delta;T,d)\leq\mathcal{N}(\delta;T,d)\leq\mathcal{M}(\delta;T,d).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Proof. Suppose that $\mathcal{M}$ is a $\delta$-packing of $T$ such that $|\mathcal{M}|=\mathcal{M}(\delta;T,d).$ We claim that $\mathcal{M}$ is a $\delta$-net of T. Indeed, if we suppose that there exists $z\in T$ such that $d(z,\mathcal{M})&amp;gt;\delta,$ then we can add $z$ to $\mathcal{M}$ to obtain a larger $\delta$-packing, which contradicts the assumption that $|\mathcal{M}|=\mathcal{M}(\delta;T,d).$ So we have $\mathcal{N}(\delta;T,d)\leq\mathcal{M}(\delta;T,d).$ Next, suppose that $\mathcal{N}={x_{1},\ldots,x_{N}}$ is a $\delta$-net of $T$ and $\mathcal{M}={y_{1},\ldots,y_{M}}$ is a $2\delta$-packing of $T.$ Then $T\subset\bigcup_{i=1}^{N}B(x_{i},\delta).$ Since each ball $B(x_{i},\delta)$ can contain at most one point from $\mathcal{M},$ it follows that $|\mathcal{M}|\leq|\mathcal{N}|.$ This gives $\mathcal{M}(2\delta;T,d)\leq\mathcal{N}(\delta;T,d).$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Clearly, every compact subset of $\mathbb{R}^{d}$ admits a finite $\epsilon$-net. The following lemma gives an upper bound on the covering number of $\mathcal{B}_{2}.$&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Fix $\epsilon\in(0,1).$ Then $\mathcal{B}_{2}$ has an $\epsilon$-net $\mathcal{N}$ of cardinality $|\mathcal{N}|\leq(3/\epsilon)^{d}.$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $x _ {1}=0$ and for any $i\geq2,$ fix $x _ {i}$ to be any $x\in\mathcal{B} _ {2}$ such that $\Vert x-x _ {j}\Vert&amp;gt;\epsilon$ for all $j&amp;lt;i.$ If no such $x$ exists, stop the procedure. Let $\mathcal{N}$ be the set of all $x_{i}$ constructed. Then for all $x\in\mathcal{B} _ {2},$ there exists $z\in\mathcal{N}$ such that $d(x,z)\leq\epsilon .$ Since $\Vert x-y\Vert&amp;gt;\epsilon$ for all distinct $x,y\in\mathcal{N},$ the Euclidean balls $B(x_{i},\epsilon/2)$ are disjoint. Moreover,&lt;/p&gt;
+$$
+\bigcup_{z\in\mathcal{N}}\left\{ z+\frac{\epsilon}{2}\mathcal{B}_{2}\right\} \subset\left(1+\frac{\epsilon}{2}\right)\mathcal{B}_{2}.
+$$&lt;p&gt;Thus,&lt;/p&gt;
+$$
+m\left(\left(1+\frac{\epsilon}{2}\right)\mathcal{B}_{2}\right)\geq m\left(\bigcup_{z\in\mathcal{N}}\left\{ z+\frac{\epsilon}{2}\mathcal{B}_{2}\right\} \right)=\sum_{z\in\mathcal{N}}m\left(z+\frac{\epsilon}{2}\mathcal{B}_{2}\right)
+$$&lt;p&gt;where $m$ is the Lebesgue measure. This is equivalent to&lt;/p&gt;
+$$
+\left(1+\frac{\epsilon}{2}\right)^{d}\geq|\mathcal{N}|\left(\frac{\epsilon}{2}\right)^{d},
+$$&lt;p&gt;giving $|\mathcal{N}|\leq(3/\epsilon)^{d}. $&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $X\in\mathbb{R}^{d}$ be a sub-Gaussian random vector with variance proxy $\sigma^{2}.$ Then&lt;/p&gt;
+$$
+\mathbb{E}\left[\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X\right]=\mathbb{E}\left[\max_{\theta\in\mathcal{B}_{2}}|\theta^{T}X|\right]\leq4\sigma\sqrt{d}.
+$$&lt;p&gt;Moreover, for any $\delta&amp;gt;0,$ with probability at least $1-\delta,$ it holds that&lt;/p&gt;
+$$
+\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X=\max_{\theta\in\mathcal{B}_{2}}|\theta^{T}X|\leq4\sigma\sqrt{d}+2\sigma\sqrt{2\log(1/\delta)}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $\mathcal{N}$ be a $\frac{1}{2}$-net of $\mathcal{B} _ {2}.$ Then from the previous result, we can choose $\mathcal{N}$ so that $|\mathcal{N}|\leq6^{d}.$ For every $\theta\in\mathcal{B} _ {2},$ there exists $z\in\mathcal{N}$ and a vector $x$ such that $\theta = z + x$ and $\Vert x\Vert_{2}\leq 1/2.$ Therefore,&lt;/p&gt;
+$$
+\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X\leq\max_{z\in\mathcal{N}}z^{T}X+\max_{x\in\frac{1}{2}\mathcal{B}_{2}}x^{T}X.
+$$&lt;p&gt;Observing that&lt;/p&gt;
+$$
+\max_{x\in\frac{1}{2}\mathcal{B}_{2}}x^{T}X=\frac{1}{2}\max_{x\in\mathcal{B}_{2}}x^{T}X,
+$$&lt;p&gt;we have&lt;/p&gt;
+$$
+\mathbb{E}\left[\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X\right]\leq2\mathbb{E}\left[\max_{z\in\mathcal{N}}z^{T}X\right]\leq2\sigma\sqrt{2\log(|\mathcal{N}|)}\leq2\sigma\sqrt{2d\log(6)}\leq4\sigma\sqrt{d}.
+$$&lt;p&gt;For the bound with high probability, we have&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X&gt;t\right]\leq\mathbb{P}\left[2\max_{z\in\mathcal{N}}z^{T}X&gt;t\right]\leq|\mathcal{N}|e^{-\frac{t^{2}}{8\sigma^{2}}}\leq6^{d}e^{-\frac{t^{2}}{8\sigma^{2}}}.
+$$&lt;p&gt;Then take $t=\sigma\sqrt{8d\log(6)}+2\sigma\sqrt{2\log(1/\delta)}.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;A note on coverings and packings&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;a-note-on-coverings-and-packings&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#a-note-on-coverings-and-packings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Covering and packings are extremely useful notions to derive bounds in learning theory at large. We point out two different uses of these notions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To control tails over infinite sets (like we just did with the $\ell_{2}$-ball).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To measure the “size” of a set with infinitely many elements. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We look at the covering numbers of a few classes of functions.&lt;/p&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class&lt;/p&gt;
+$$
+\mathcal{P}=\{f_{\theta}:\theta\in[0,1]\}.
+$$&lt;p&gt;The set $\mathcal{P}$ is a metric space under the uniform norm. We claim that its covering number in terms of the sup-norm is bounded above and below as&lt;/p&gt;
+$$
+1+\left\lfloor \frac{1-1/e}{2\delta}\right\rfloor \leq\mathcal{N}(\delta;\mathcal{P},\Vert\cdot\Vert_{\infty})\leq\frac{1}{2\delta}+2.
+$$&lt;p&gt;To prove the upper bound, for $\delta\in(0,1),$ let us set $T=\left\lfloor \frac{1}{2\delta}\right\rfloor$ and define $\theta_{i}:=2\delta i$ for $i=0,1,\ldots,T.$ Let us also set $\theta_{T+1}:=1.$ We claim that the associated functions ${f_{\theta_{0}},\ldots,f_{\theta_{T+1}}}$ form a $\delta$-cover for $\mathcal{P}.$ Indeed, for any $f_{\theta}\in\mathcal{P},$ we can find some $\theta_{i}$ in our cover such that $|\theta_{i}-\theta|\leq\delta .$ Then&lt;/p&gt;
+$$
+\Vert f_{\theta_{i}}-f_{\theta}\Vert_{\infty}=\max_{x\in[0,1]}|e^{-\theta_{i}x}-e^{-\theta x}|\leq|\theta_{i}-\theta|\leq\delta.
+$$&lt;p&gt;In order to prove the lower bound on the covering number, we first lower bound the packing number, and then apply the inequality between packing number and covering number. An explicit packing can be constructed as follows: first set $\theta_{0}=0,$ and then define $\theta_{i}=-\log(1-\delta i)$ for all $i\in{1,2,\ldots,M}$ where $M$ is the largest positive integer such that $\theta_{i}\leq1$ holds. Note that $\theta_{i}\leq1$ if and only if $i\geq\frac{1-e^{-1}}{\delta},$ so we have $M=\left\lfloor \frac{1-1/e}{2\delta}\right\rfloor .$ Moreover, for $i\neq j$ we have&lt;/p&gt;
+$$
+\Vert f_{\theta_{i}}-f_{\theta_{j}}\Vert\geq|f_{\theta_{i}}(1)-f_{\theta_{j}}(1)|=2\delta|i-j|\geq2\delta.
+$$&lt;p&gt;Therefore, $\{f_{\theta_{i}}:i=0,1,\ldots,M\}$ is a $2\delta$-packing of $\mathcal{P}.$ It follows that&lt;/p&gt;
+$$
+1+\left\lfloor \frac{1-1/e}{2\delta}\right\rfloor \leq\mathcal{M}(2\delta;\mathcal{P},\Vert\cdot\Vert_{\infty})\leq\mathcal{N}(\delta;\mathcal{P},\Vert\cdot\Vert_{\infty}). 
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Consider the class of Lipschitz functions on the unit interval&lt;/p&gt;
+$$
+\mathcal{F}_{L}=\{g:[0,1]\to\mathbb{R}:g(0)=0,\,|g(x)-g(y)|\leq L|x-y|\text{ for all }x,y\in[0,1]\}.
+$$&lt;p&gt;It is known that for sufficiently smaller $\delta&amp;gt;0,$ we have&lt;/p&gt;
+$$
+\log(\mathcal{N}(\delta;\mathcal{F}_{L},\Vert\cdot\Vert_{\infty}))\asymp L/\delta.
+$$&lt;p&gt;Lipschitz functions are a much larger set than the previous parametric class, as its metric entropy grows as $1/\delta ,$ compared to $\log(1/\delta).$&lt;/p&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
       <title>Admissibility</title>
       <link>http://localhost:1313/docs/ms1/admissibility/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
@@ -1262,6 +1494,321 @@ $$
 \int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta&lt;\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta.
 $$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the smallest Bayes risk by definition.&lt;/p&gt;
 &lt;p&gt;Admissibility of $\overline{X}$ in higher dimensions is much more difficult. Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. For $p=2$, admissibility of $\overline{X}$ was proved by Stein. The proof involves constructing much more complex priors. Surprisingly, $\overline{X}$ is no longer admissible if $p \geq 3$. Brown proved in 1971 that this phenomenon (aptly named Stein&amp;rsquo;s paradox) is linked to the transience of the symmetric random walk in $p \geq 3$.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Non-asymptotic Bounds for the Least Squares Estimator</title>
+      <link>http://localhost:1313/docs/ms2/ls/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/ls/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We now turn to the topic of high-dimensional linear models. Let $\theta^{\ast}\in\mathbb{R}^{d}$ be an unknown parameter. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that&lt;/p&gt;
+$$
+Y=X\theta^{\ast}+\epsilon
+$$&lt;p&gt;where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon\sim\operatorname{subG}(\sigma^{2})$ is sub-Gaussian noise with independent components. Our main focus will be the high-dimensional setting where $n&amp;lt;d$ (more parameters than observations). In this case, $Y=X\theta^{\ast}$ defines an underdetermined linear system.&lt;/p&gt;
+&lt;h2&gt;Unconstrained least squares&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;unconstrained-least-squares&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#unconstrained-least-squares&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define the (unconstrained) least squares estimator $\widehat{\theta}^{\text{LS}}$ to be any vector&lt;/p&gt;
+$$
+\widehat{\theta}^{\text{LS}}\in\argmin_{\theta\in\mathbb{R}^{d}}\Vert Y-X\theta\Vert_{2}^{2}.
+$$&lt;p&gt;Then we define $\widehat{\mu}^{\text{LS}}=X\widehat{\theta}^{\text{LS}}.$&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    The least squares estimator $\widehat{\theta}^{\text{LS}}$ satisfies $X^T X \widehat{\theta}^{\text{LS}}=X^{T}Y.$ In particular, $\widehat{\theta}^{\text{LS}}$ can be chosen to be $\widehat{\theta}^{\text{LS}}=(X^{T}X)^{\dagger}X^{T}Y.$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Since $\theta\mapsto\Vert Y-X\theta\Vert_{2}^{2}$ is convex, a minimum is achieved whenever $\nabla_{\theta}\Vert Y-X\theta\Vert_{2}^{2}=0.$ Differentiating gives&lt;/p&gt;
+$$
+\nabla_{\theta}\Vert Y-X\theta\Vert_{2}^{2}=0\implies X^{T}(Y-X\theta)=0\implies X^{T}X\theta=X^{T}Y.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;The least squares estimator $\widehat{\theta}^{\text{LS}}$ satisfies&lt;/p&gt;
+$$
+\mathbb{E}\left[\operatorname{MSE}(X\widehat{\theta}^{\text{LS}})\right]=\frac{1}{n}\mathbb{E}[\Vert X\widehat{\theta}^{\text{LS}}-X\theta^{\ast}\Vert^{2}]\lesssim\sigma^{2}\frac{r}{n}
+$$&lt;p&gt;where $r=\operatorname{rank}(X^{T}X).$ Moreover, for any $\delta&amp;gt;0,$ with probability at least $1-\delta ,$ we have&lt;/p&gt;
+$$
+\operatorname{MSE}(X\widehat{\theta}^{\text{LS}})=\frac{1}{n}\Vert X\widehat{\theta}^{\text{LS}}-X\theta^{\ast}\Vert^{2}\lesssim\sigma^{2}\frac{r+\log(1/\delta)}{n}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;By definition of $\widehat{\theta}^{\text{LS}},$ we have&lt;/p&gt;
+$$
+\Vert Y-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2}\leq\Vert Y-X\theta^{\ast}\Vert_{2}^{2}=\Vert\epsilon\Vert_{2}^{2}.
+$$&lt;p&gt;Moreover,&lt;/p&gt;
+$$
+\begin{aligned}
+\Vert Y-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2} &amp;= \Vert X\theta^{\ast}+\epsilon-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2} \\ &amp;=\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}+\Vert\epsilon\Vert_{2}^{2}-2\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}}).
+\end{aligned}
+$$&lt;p&gt;Combining this with the first inequality, we get&lt;/p&gt;
+$$
+\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}\leq2\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})=2\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}\frac{\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})}{\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}}.
+$$&lt;p&gt;Let $\Phi\in\mathbb{R}^{n\times r}$ be an orthonormal basis for the column space of $X.$ We can write $X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})=\Phi\nu$ for some $\nu\in\mathbb{R}^{r}.$ Then&lt;/p&gt;
+$$
+\frac{\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})}{\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}}=\frac{\epsilon^{T}\Phi\nu}{\Vert\Phi\nu\Vert_{2}}=\frac{\epsilon^{T}\Phi\nu}{\Vert\nu\Vert_{2}}=\tilde{\epsilon}^{T}\frac{\nu}{\Vert\nu\Vert_{2}}\leq\sup_{u\in\mathcal{B}_{2}}\widetilde{\epsilon}^{T}u
+$$&lt;p&gt;where $\widetilde{\epsilon}=\Phi^{T}\epsilon.$ Therefore,&lt;/p&gt;
+$$
+\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}\leq4\left(\sup_{u\in\mathcal{B}_{2}}\widetilde{\epsilon}^{T}u\right)^{2}.
+$$&lt;p&gt;For $u\in\mathcal{S}^{r-1},$ we have $\Vert\Phi u\Vert_{2}=\Vert u\Vert_{2}=1,$ so&lt;/p&gt;
+$$
+\mathbb{E}\left[e^{s\widetilde{\epsilon}^{T}u}\right]=\mathbb{E}\left[e^{s\epsilon^{T}\Phi u}\right]\leq e^{s^{2}\sigma^{2}/2},
+$$&lt;p&gt;which shows that $\widetilde{\epsilon}\sim\operatorname{subG} _ {r}(\sigma^{2}).$ Using the bounds on moments for sub-Gaussian variables, we have&lt;/p&gt;
+$$
+4\mathbb{E}\left[\sup_{u\in\mathcal{B}_{2}}(\widetilde{\epsilon}^{T}u)^{2}\right]\leq4\sum_{i=1}^{r}\mathbb{E}[\widetilde{\epsilon}_{i}^{2}]\le4rc^{2}\frac{4!}{2^{2}}\sigma^{2}\lesssim\sigma^{2}r.
+$$&lt;p&gt;For the probability, recall from a proof in the previous lecture that if $X\sim\operatorname{subG}_{d}(\sigma^{2})$ then&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X\leq\sigma\sqrt{8d\log(6)}+2\sigma\sqrt{2\log(1/\delta)}\right]\geq1-\delta.
+$$&lt;p&gt;Using this result, we get that&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{u\in\mathcal{B}_{2}}(\widetilde{\epsilon}^{T}u)^{2}\lesssim\sigma^{2}(r+\log(1/\delta))\right]\geq1-\delta 
+$$&lt;p&gt;which yields the required probability bound.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;ℹ️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;The inequality $\Vert Y-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2}\leq\Vert Y-X\theta^{\ast}\Vert_{2}^{2}=\Vert\epsilon\Vert_{2}^{2}$ is known as the fundamental inequality.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Note that in the traditional case where $d\leq n,$ we have&lt;/p&gt;
+$$
+\Vert\theta^{\ast}-\widehat{\theta}^{\text{LS}}\Vert_{2}^{2}\leq\frac{\operatorname{MSE}(X\widehat{\theta}^{\text{LS}})}{\lambda_{\min}\left(\frac{X^{T}X}{n}\right)},
+$$&lt;p&gt;so we could use the MSE bound we just proved to bound the difference on the regression coefficient. In the high-dimensional case, it is not possible to bound this error without more structural assumptions.&lt;/p&gt;
+&lt;h2&gt;Sparsity constraints&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;sparsity-constraints&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sparsity-constraints&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In high dimensions, because the system is underdetermined, we need to inform the recovery of $\theta^{\ast}$ by assuming some structure on $\theta.$ The most common assumption made is that of sparsity. There are several variations around this theme.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Hard sparsity: Here, we assume that the support set $S(\theta^{\ast})=\{j\in [d]:\theta_{j}^{\ast}\neq0\}$ has cardinality $s\ll d.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Weak sparsity: Assuming that the model is exactly supported on $s$ coefficients may be overly restrictive, so it is useful to consider various relaxations. Roughly speaking, $\theta^{\ast}$ is said to be weakly sparse if it can be closely approximated by a sparse vector. One family of weakly sparse vectors can be defined using the $\ell_{q}$-norm. Consider the $\ell_{q}$-norm ball of radius $R_{q},$ given by&lt;/p&gt;
+$$
+\mathbb{B}_{q}(R_{q})=\left\{ \theta\in\mathbb{R}^{d}:\sum_{j=1}^{d}|\theta_{j}|^{q}\leq R_{q}^{q}\right\} .
+$$&lt;p&gt;In the special case $q=0,$ any vector $\theta^{\ast}\in\mathbb{B} _ {0}(R _ {0})$ can have at most $R_{0}$ non-zero entries, so this reduces to hard sparsity.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As we will see later, dealing with sparsity constraints will often require developing different estimators depending on not just assumptions on $\theta$ but also on the design matrix $X$ and noise $\epsilon.$&lt;/p&gt;
+&lt;h2&gt;Constrained least squares&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;constrained-least-squares&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#constrained-least-squares&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Suppose that we know a priori that $\theta$ lies in a symmetric convex set $K\subset\mathbb{R}^{d}$. In this case, a natural estimator of $\theta$ is the solution to the constrained least squares problem given by&lt;/p&gt;
+$$
+\widehat{\theta}_{K}^{\text{LS}}\in\argmin_{\theta\in K}\Vert Y-X\theta\Vert_{2}^{2}.
+$$&lt;p&gt;Note that&lt;/p&gt;
+$$
+\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}\leq2\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\leq2\sup_{\theta\in K-K}(\epsilon^{T}X\theta).
+$$&lt;p&gt;Since $K$ is symmetric and convex, we have $K-K=2K,$ so $2\sup_{\theta\in K-K}(\epsilon^{T}X\theta)=4\sup_{v\in XK}(\epsilon^{T}v).$ This quantity here can be understood as a measure of the size of $XK.$&lt;/p&gt;
+&lt;h3&gt;$\ell_{1}$ constrained least square&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ell_1-constrained-least-square&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ell_1-constrained-least-square&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Let us consider a special case. Suppose that $K=\mathcal{B} _ {1}$ is the $\ell _ {1}$ unit ball of $\mathbb{R}^{d}.$ The $\ell _ {1}$ unit ball is a convex polytope with exactly $2d$ vertices given by $e_{1},-e_{1},\ldots,e_{d},-e_{d}$ where $e_{j}$ is the $j$th vector of the standard basis of $\mathbb{R}^{d}.$ The set $XK$ is also a convex polytope, with at most $2d$ vertices $X_{1},-X_{1},\ldots,X_{d},-X_{d}$ where $X_{j}$ is the $j$th column of $X.$&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $K=\mathcal{B} _ {1}$ and assume that $\theta^{\ast}\in\mathcal{B} _ {1}.$ Moreover, assume that the columns of $X$ are normalized in such a way that $\max_{j}\Vert X_{j}\Vert_{2}\leq\sqrt{n}.$ Then the constrained least squares estimator $\widehat{\theta}_{\mathcal{B} _ {1}}^{\text{LS}}$ satisfies&lt;/p&gt;
+$$
+\mathbb{E}\left[\operatorname{MSE}(X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}})\right]=\frac{1}{n}\mathbb{E}[\Vert X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}}-X\theta^{\ast}\Vert_{2}^{2}]\lesssim\sigma\sqrt{\frac{\log(d)}{n}}.
+$$&lt;p&gt;Moreover, for any $\delta&amp;gt;0,$ with probability at least $1-\delta ,$ we have&lt;/p&gt;
+$$
+\operatorname{MSE}(X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}})=\frac{1}{n}\Vert X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}}-X\theta^{\ast}\Vert^{2}_2\lesssim\sigma\sqrt{\frac{\log(d/\delta)}{n}}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have established that&lt;/p&gt;
+$$
+\Vert X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}}-X\theta^{\ast}\Vert^{2}\leq4\sup_{v\in X\mathcal{B}_{1}}(\epsilon^{T}v).
+$$&lt;p&gt;Since $\epsilon\sim\operatorname{subG} _ {n}(\sigma^{2})$ and $\Vert X_{j}\Vert_{2}\leq\sqrt{n}$ for all $j,$ for any $z\in\mathcal{B} _ {1}$ we have $\Vert Xz\Vert_{2}=\Vert\sum_{i=1}^{d}z_{i}X_{i}\Vert_{2}\leq\sum_{i=1}^{d}|z_{i}|\Vert X_{i}\Vert_{2}\leq\sqrt{n}.$ Hence, we have $\epsilon^{T}v\sim\operatorname{subG}(n\sigma^{2})$ for all $v\in X\mathcal{B} _ {1}.$ By the theorem on the bound of the maximum of scalar products over a convex polytope, we have&lt;/p&gt;
+$$
+\mathbb{E}\left[\operatorname{MSE}(X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}})\right]\leq\frac{4}{n}\mathbb{E}\left[\sup_{v\in X\mathcal{B}_{1}}(\epsilon^{T}v)\right]\leq\frac{4\sqrt{n}\sigma\sqrt{2\log(2d)}}{n}\lesssim\sigma\sqrt{\frac{\log d}{n}}.
+$$&lt;p&gt;Also, we have&lt;/p&gt;
+$$
+\mathbb{P}\left[\operatorname{MSE}(X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}})&gt;t\right]\leq\mathbb{P}\left[\frac{4}{n}\sup_{v\in X\mathcal{B}_{1}}(\epsilon^{T}v)&gt;t\right]\leq2de^{-\frac{nt^{2}}{32\sigma^{2}}}.
+$$&lt;p&gt;To conclude, we note that $2de^{-\frac{nt^{2}}{32\sigma^{2}}}\leq\delta$ holds whenever $t^2 \geq \frac{32\sigma^{2}}{n}\left(\log(2d)+\log(1/\delta)\right).$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-blue-200 hx-bg-blue-100 hx-text-blue-900 dark:hx-border-blue-200/30 dark:hx-bg-blue-900/30 dark:hx-text-blue-200&#34;&gt;
+  &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;div class=&#34;hx-select-none hx-text-xl&#34; style=&#34;font-family: &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;;&#34;&gt;ℹ️&lt;/div&gt;&lt;/div&gt;
+
+  &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;The results for the unconstrained case also apply to $\widehat{\theta} _ {\mathcal{B} _ {1}}^{\text{LS}}$ (you can follow the same proof and see that it indeed works). Thus, we have&lt;/p&gt;
+$$
+\mathbb{E}\left[\operatorname{MSE}(X\widehat{\theta}_{\mathcal{B}_{1}}^{\text{LS}})\right]\lesssim\min\left(\frac{\sigma^{2}r}{n},\sigma\sqrt{\frac{\log(d)}{n}}\right).
+$$&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Estimation in the Gaussian Sequence Model</title>
+      <link>http://localhost:1313/docs/ms2/gsm/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/gsm/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We study a prototypical high-dimensional problem to illustrate how concentration inequalities and structural assumptions can tame a seemingly intractable problem. Consider the Gaussian sequence model&lt;/p&gt;
+$$
+Y_{i}=\theta_{i}+\sigma_{n}\epsilon_{i},\quad\epsilon_{i}\sim N(0,1),\quad i=1,2,\ldots,n.
+$$&lt;p&gt;What is a good estimator for the parameter $\theta\in\mathbb{R}^{n}$? A natural choice is to use $\widehat{\theta}=Y.$ There are good reasons to justify the use of this estimator: it is the MLE, the minimal-variance unbiased estimator, and it is minimax over the parameter space $\Theta=\mathbb{R}^{n}.$ But it has pretty terrible risk given by $\mathbb{E}[\Vert\widehat{\theta}-\theta\Vert_{2}^{2}]=n\sigma_{n}^{2}.$ To do better, we need to rely on assumptions on the structure of $\theta$ to inform the recovery. Can we do better if we make the assumption that only $k$ of the coordinates of $\theta$ are nonzero? Certainly it is possible for an “oracle” with knowledge of the underlying support $S\subset[d]$ to achieve better risk, using the estimator&lt;/p&gt;
+$$
+\widehat{\theta}_{j}^{0}=\begin{cases}
+Y_{j} &amp; \text{if }j\in S,\\
+0 &amp; \text{if }j\not\in S.
+\end{cases}
+$$&lt;p&gt;This estimator achieves the better risk $\mathbb{E}[\Vert\widehat{\theta}-\theta\Vert_{2}^{2}]=k\sigma_{n}^{2}.$ In most cases, this estimator cannot actually be implemented since we do not have access to the true support $S.$&lt;/p&gt;
+&lt;h2&gt;Hard thresholding&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;hard-thresholding&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hard-thresholding&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can do almost as well as the oracle risk $k\sigma_{n}^{2}$ by guessing the support of $\theta$  and mimicking the oracle on the estimated support $\widehat{S}.$ A natural way to construct $\widehat{S}$ is to guess that $j\in S$ whenever $|Y_{j}|\geq\tau$ holds for some threshold $\tau &amp;gt; 0.$ This gives rise to the hard-thresholding estimator:&lt;/p&gt;
+$$
+\widehat{\theta}_{j}^{\tau}=\begin{cases}
+Y_{j} &amp; \text{if }|Y_{j}|\geq\tau,\\
+0 &amp; \text{if }|Y_{j}|&lt;\tau.
+\end{cases}
+$$&lt;p&gt;We have the following bound on the risk of the hard thresholding estimator.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Suppose that $\theta$ is $k$-sparse. There exist universal constants $C_{1},C_{2}&amp;gt;0$ such that&lt;/p&gt;
+$$
+\mathbb{E}[\Vert\widehat{\theta}^{\tau}-\theta\Vert^{2}]\leq k\sigma_{n}^{2}+C_{1}k(\tau^{2}+\sigma_{n}^{2})+C_{2}n\sigma_{n}^{2}\exp\left(-\frac{\tau^{2}}{4\sigma_{n}^{2}}\right).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $S$ be the support of $\theta.$ We will first find an upper bound on $\mathbb{E}[(\widehat{\theta} _ {j}-\theta _ {j})^{2}]$ for $j\in S.$ Given $j\in S,$&lt;/p&gt;
+$$
+\mathbb{E}[(\widehat{\theta} _ {j}-\theta _ {j})^{2}]\leq\mathbb{E}[(Y_{j}-\theta_{j})^{2}]+\theta_{j}^{2}\mathbb{P}[|Y_{j}|\leq\tau].
+$$&lt;p&gt;Consider first the case where $\theta_{j}\geq\tau.$ In this case,&lt;/p&gt;
+$$
+|Y_{j}|\leq\tau\implies\theta_{j}+\sigma_{n}\epsilon_{j}&lt;\tau\implies\theta_{j}-\tau\leq-\sigma_{n}\epsilon_{j}\implies(|\theta_{j}|-\tau)_{+}\leq-\sigma_{n}\epsilon_{j}.
+$$&lt;p&gt;Since $-\sigma_{n}\epsilon_{j}\sim N(0,\sigma_{n}^{2}),$ by the sub-Gaussian Chernoff bound, we have&lt;/p&gt;
+$$
+\mathbb{P}[|Y_{j}|\leq\tau]\leq\mathbb{P}\left[-\sigma_{n}\epsilon_{j}\geq(|\theta_{j}|-\tau)_{+}\right]\leq\exp\left(\frac{-(|\theta_{j}|-\tau)_{+}^{2}}{2\sigma_{n}^{2}}\right).
+$$&lt;p&gt;In the case where $\theta_{j}\leq-\tau,$ by similar reasoning we can also show $\mathbb{P}[|Y _ {j}|\leq\tau] \leq \exp\left(\frac{-(|\theta _ {j}|-\tau) _ {+}^{2}}{2\sigma _ {n}^{2}}\right).$ Finally, this inequality holds trivially in the case where $|\theta _ {j}|&amp;lt;\tau .$ Using the fact that for $u\geq0,$ there exists a constant $C_{1}$ such that $u^{2}\exp\left(\frac{-(u-\tau) _ {+}^{2}}{2\sigma _ {n}^{2}}\right)\leq C_{1}(\tau^{2}+\sigma_{n}^{2}),$ it follows that for $j\in S,$ we have&lt;/p&gt;
+$$
+\mathbb{E}[(\widehat{\theta}_{j}-\theta_{j})^{2}]\leq\sigma_{n}^{2}+\theta_{j}^{2}\exp\left(\frac{-(|\theta_{j}|-\tau)_{+}^{2}}{2\sigma_{n}^{2}}\right)\leq\sigma_{n}^{2}+C_{1}(\sigma_{n}^{2}+\tau^{2}).
+$$&lt;p&gt;For $j\not\in S,$ note that&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[(\widehat{\theta}_{j}-\theta_{j})^{2}] &amp;= \mathbb{E}\left[|\sigma_{n}\epsilon_{j}|^{2}\mathbf{1}(|\epsilon_{j}|\geq\frac{\tau}{\sigma_{n}})\right] \\
+	&amp;\leq\sqrt{\mathbb{E}[\sigma_{n}^{4}\epsilon_{j}^{4}]\mathbb{P}\left[|\epsilon_{j}|\geq\frac{\tau}{\sigma_{n}}\right]} \\
+	&amp;=\sqrt{3}\sigma_{n}^{2}\sqrt{\mathbb{P}\left[|\epsilon_{j}|\geq\frac{\tau}{\sigma_{n}}\right]} \\
+	&amp;\leq\sqrt{3}\sigma_{n}^{2}\sqrt{2\exp\left(-\frac{\tau^{2}}{2\sigma_{n}^{2}}\right)} \\
+	&amp;=\sqrt{6}\sigma_{n}^{2}\exp\left(-\frac{\tau^{2}}{4\sigma_{n}^{2}}\right).
+\end{aligned}
+$$&lt;p&gt;The complete $\ell_{2}$ risk for the hard thresholding estimator is then bounded by&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[\Vert\widehat{\theta}-\theta\Vert_{2}^{2}] &amp;= \sum_{j\in S}\mathbb{E}[(\widehat{\theta}_{j}-\theta_{j})^{2}]+\sum_{j\not\in S}\mathbb{E}[(\widehat{\theta}_{j}-\theta_{j})^{2}] \\
+	&amp;\leq\sigma_{n}^{2}|S|+C_{1}|S|(\sigma_{n}^{2}+\tau^{2})+C_{2}|[n]\backslash S|\sigma_{n}^{2}\exp\left(-\frac{\tau^{2}}{4\sigma_{n}^{2}}\right) \\
+	&amp;\leq k\sigma_{n}^{2}+C_{1}k(\tau^{2}+\sigma_{n}^{2})+C_{2}n\sigma_{n}^{2}\exp\left(-\frac{\tau^{2}}{4\sigma_{n}^{2}}\right).
+\end{aligned}
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;We need to choose an appropriate value for $\tau.$ Since $\Vert\sigma_{n}\epsilon\Vert_{\infty}\lesssim\sigma_{n}\sqrt{2\log n},$ a reasonable approach is to set $\tau\approx\sigma_{n}\sqrt{2\log n}.$ In fact, one can check that the following holds.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Suppose that $\theta$ is $k$-sparse. Let $\tau=2\sigma_{n}\sqrt{\log(n/k)}.$ Then&lt;/p&gt;
+$$
+\sup_{\Vert\theta\Vert_{0}\leq k}\mathbb{E}[\Vert\widehat{\theta}^{\tau}-\theta\Vert_{2}^{2}]\le Ck\sigma_{n}^{2}(1+\log(n/k))
+$$&lt;p&gt;for some universal constant $C&amp;gt;0.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Soft thresholding&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;soft-thresholding&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#soft-thresholding&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Instead of just chopping off observations, we can also shrink them. For $v\in\mathbb{R},$ define the soft thresholding operator to be&lt;/p&gt;
+$$
+S_{\lambda}(v)=\operatorname{sgn}(v)(|v|-\lambda)_{+}=\argmin_{u\in\mathbb{R}}\left\{ \frac{1}{2}(u-v)^{2}+\lambda|u|\right\} .
+$$&lt;p&gt;Then for $v\in\mathbb{R}^{n},$ we can define analogously&lt;/p&gt;
+$$
+S_{\lambda}(v)=\argmin_{u\in\mathbb{R}^{n}}\left\{ \frac{1}{2}\Vert u-v\Vert_{2}^{2}+\lambda\Vert u\Vert_{1}\right\} =(S_{\lambda}(v_{1}),\ldots,S_{\lambda}(v_{n}))^{T}.
+$$&lt;p&gt;We then define the soft thresholding estimator by $\widehat{\theta}=S_{\lambda}(Y).$&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Suppose that $\theta$ is $k$-sparse. If $\widehat{\theta}$ is the soft-thresholding estimator with $\lambda=\sqrt{2\sigma_{n}^{2}\log(n/k)},$ then&lt;/p&gt;
+$$
+\mathbb{E}[\Vert\widehat{\theta}-\theta\Vert_{2}^{2}]\leq Ck\sigma_{n}^{2}(1+\log(n/k)).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $\theta_{j}=0,$ then&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[(\widehat{\theta}_{j}-\theta_{j})^{2}] &amp;=\mathbb{E}[(\sigma_{n}|\epsilon_{j}|-\lambda)_{+}^{2}] \\
+	&amp;=\int_{0}^{\infty}\mathbb{P}[(\sigma_{n}|\epsilon_{j}|-\lambda)_{+}^{2}&gt;\alpha]\,d\alpha \\
+	&amp;\leq\int_{0}^{\infty}\mathbb{P}[\sigma_{n}|\epsilon_{j}|-\lambda&gt;\sqrt{\alpha}]\,d\alpha \\
+	&amp;=2\int_{\lambda}^{\infty}(t-\lambda)\mathbb{P}[\sigma_{n}|\epsilon_{j}|&gt;t]\,dt \\
+	&amp;\leq2\int_{\lambda}^{\infty}t\mathbb{P}[\sigma_{n}|\epsilon_{j}|&gt;t]\,dt \\
+	&amp;\leq4\int_{\lambda}^{\infty}t\exp\left(-\frac{t^{2}}{2\sigma_{n}^{2}}\right)\,dt \\
+	&amp;=4\sigma_{n}^{2}\exp\left(-\frac{\lambda^{2}}{2\sigma_{n}^{2}}\right).
+\end{aligned}
+$$&lt;p&gt;If $\theta_{j}\neq0,$ since $S_{\lambda}$ is 1-Lipschitz, we have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[(\widehat{\theta}_{j}-\theta_{j})^{2}] &amp;= \mathbb{E}[(\widehat{\theta}_{j}-S_{\lambda}(\theta_{j})+S_{\lambda}(\theta_{j})-\theta_{j})^{2}] \\
+	&amp;\leq2\mathbb{E}[(\widehat{\theta}_{j}-S_{\lambda}(\theta_{j}))^{2}]+2(S_{\lambda}(\theta_{j})-\theta_{j})^{2} \\
+	&amp;=2\mathbb{E}[(S_{\lambda}(Y_{j})-S_{\lambda}(\theta_{j}))^{2}]+2(S_{\lambda}(\theta_{j})-\theta_{j})^{2} \\
+	&amp;\leq2\mathbb{E}[(Y_{j}-\theta_{j})^{2}]+2\lambda^{2} \\
+	&amp;=2\sigma_{n}^{2}+2\lambda^{2}.
+\end{aligned}
+$$&lt;p&gt;
+Combining these two cases and substituting in $\lambda=\sqrt{2\sigma_{n}^{2}\log(n/k)},$ we have&lt;/p&gt;
+$$
+\begin{aligned}
+\mathbb{E}[\Vert\widehat{\theta}-\theta\Vert_{2}^{2}] &amp;\leq 2k(\sigma_{n}^{2}+\lambda^{2})+4n\sigma_{n}^{2}\exp\left(-\frac{\lambda^{2}}{2\sigma_{n}^{2}}\right) \\
+	&amp;=2k(\sigma_{n}^{2}+2\sigma_{n}^{2}\log(n/k))+4k\sigma_{n}^{2} \\
+	&amp;\leq Ck\sigma_{n}^{2}(1+\log(n/k)). 
+\end{aligned}
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
 
       </description>
     </item>
@@ -1424,6 +1971,190 @@ R(\widehat{\theta}_{\mathrm{JS}},\theta) &amp;\leq\frac{1}{n}\left(p-\frac{(p-2)
 	&amp;\leq\frac{2}{n}+R(\widehat{\theta}_{c^{\ast}},\theta).
 \end{aligned}
 $$&lt;p&gt;It is worth noting that $\frac{2}{n}$ is independent of the dimension $p$, so even in high dimensions the James-Stein estimator performs very closely to the optimal shrinkage estimator as long as the sample size is sufficiently large.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Estimation in the Noiseless Linear Model</title>
+      <link>http://localhost:1313/docs/ms2/noiseless/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/noiseless/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Suppose now we have observations $Y$ given by $Y=X\theta ,$ where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix with $n\ll d.$ Since there is no noise, instead of bounding the risk of an estimator, we can instead hope to recover the exact solution. Our goal is to find the sparsest solution to $Y=X\theta.$ This is equivalent to&lt;/p&gt;
+$$
+\min\left\{ \Vert\theta\Vert_{0}:Y=X\theta\right\} .
+$$&lt;p&gt;This optimization problem is computationally intractable. One possible solution to this issue is to replace the objective with a convex approximation such as $\Vert\theta\Vert_{1}.$ This gives us the basis pursuit linear program, which is the optimization problem&lt;/p&gt;
+$$
+\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .
+$$&lt;p&gt;Does the solution to the basis pursuit program recover the sparsest solution $\theta^{\ast}$? The answer depends on the null space of $X$ since the output to the basis pursuit linear program will find the minimizer of the $\ell^{1}$ norm in the affine subspace $\theta^{\ast}+\operatorname{null}(X).$&lt;/p&gt;
+&lt;h2&gt;The restricted subspace property&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-restricted-subspace-property&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-restricted-subspace-property&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For a set $S\subset [d],$ the critical cone is the subset of $\mathbb{R}^{d}$ given by&lt;/p&gt;
+$$
+\mathbb{C}(S):=\left\{ \Delta\in\mathbb{R}^{d}:\Vert\Delta_{S^{c}}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1}\right\} .
+$$&lt;p&gt;A matrix $X$ is said to satisfy the restricted nullspace property with respect to $S$ if&lt;/p&gt;
+$$
+\operatorname{null}(X)\cap\mathbb{C}(S)=\{0\}.
+$$&lt;p&gt;Another way to state the nullspace property is that every non-zero vector $\Delta\in\operatorname{null}(X)$ satisfies $\Vert\Delta_{S^{c}}\Vert_{1}&amp;gt;\Vert\Delta_{S}\Vert_{1}.$ Intuitively, if $S$ is the support of $\theta^{\ast}$ and $X$ satisfies the restricted nullspace property with respect to $S,$ moving from $\theta^{\ast}$ along $\operatorname{null}(X)$ increases the $\ell^{1}$ norm. Thus, the solution to the basis pursuit program will be exactly $\theta^{\ast}.$&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $S \subset [d]$ and $X\in\mathbb{R}^{n\times d}.$ The following are equivalent:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$X$ satisfies the restricted nullspace property with respect to $S.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For any $Y\in\mathbb{R}^{n},$ any $\theta^{\ast}\in\mathbb{R}^{d}$ with $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}$ is the unique solution to the basis pursuit program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;strong&gt;Proof of (1) $\Rightarrow$ (2):&lt;/strong&gt; Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that&lt;/p&gt;
+$$
+\begin{aligned}
+\Vert\theta_{S}^{\ast}\Vert_{1}	&amp;= \Vert\theta^{\ast}\Vert_{1}
+	\geq\Vert\widehat{\theta}\Vert_{1} \\ 
+	&amp;=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
+	&amp;=\Vert\theta^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
+	&amp;\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}.
+\end{aligned}
+$$&lt;p&gt;Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S}\Vert_{1}\leq\Vert\Delta_{S^{c}}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ To fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Proof of (2) $\Rightarrow$ (1):&lt;/strong&gt; Let $S\subset[d]$ and assume that for all $Y\in\mathbb{R}^{n},$ each $S$-sparse vector $\theta$ satisfying $Y=X\theta$ is the unique solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .$ We need to show that $\mathbb{C}(S)\cap\operatorname{null}(X)={0}.$ Suppose that $\theta^{\ast}\in\operatorname{null}(X)\backslash\{0\}.$ Consider the basis pursuit problem&lt;/p&gt;
+$$
+\min\left\{ \Vert\beta\Vert_{1}:X\beta=Y\right\} ,\quad Y=X\left(\begin{array}{c}
+\theta_{S}^{\ast}\\
+0
+\end{array}\right).
+$$&lt;p&gt;Since $\widehat{\beta}=(\theta_{S}^{\ast},0)^{T}$ is $S$-sparse and satisfies $X\widehat{\beta}=Y,$ it must be the unique solution to the basis pursuit linear program. Since $X\theta^{\ast}=0,$ it follows that&lt;/p&gt;
+$$
+X\left(\begin{array}{c}
+\theta_{S}^{\ast}\\
+0
+\end{array}\right)+X\left(\begin{array}{c}
+0\\
+\theta_{S^{c}}^{\ast}
+\end{array}\right)=0\implies X\left(\begin{array}{c}
+\theta_{S}^{\ast}\\
+0
+\end{array}\right)=X\left(\begin{array}{c}
+0\\
+-\theta_{S^{c}}^{\ast}
+\end{array}\right).
+$$&lt;p&gt;Therefore,&lt;/p&gt;
+$$
+\widetilde{\beta}=\left(\begin{array}{c}
+0\\
+-\theta_{S^{c}}^{\ast}
+\end{array}\right)
+$$&lt;p&gt;also satisfies $X\widetilde{\beta}=Y.$ Since $\widehat{\beta}$ is the unique solution to the basis pursuit program, it follows that&lt;/p&gt;
+$$
+\Vert \widehat{\beta} \Vert_1 \leq \Vert \widetilde{\beta} \Vert_1 \implies \Vert\theta_{S}^{\ast}\Vert_{1}&lt;\Vert\theta_{S^{c}}^{\ast}\Vert_{1}.
+$$&lt;p&gt;This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$&lt;/p&gt;
+&lt;h2&gt;The pairwise incoherence parameter&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-pairwise-incoherence-parameter&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-pairwise-incoherence-parameter&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ But how does one show that the restricted nullspace property hold? A useful quantity is the pairwise incoherence parameter of the design matrix, given by&lt;/p&gt;
+$$
+\delta_{PW}(X)=\max_{j,k=1,\ldots,d}\left|\frac{\langle X_{j},X_{k}\rangle}{n}-1_{\{j=k\}}\right|.
+$$&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subset $S \subset [d]$ of cardinality less than $s.$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;See HW3 for proof of the above.&lt;/p&gt;
+&lt;h2&gt;The restricted isometry property&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-restricted-isometry-property&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-restricted-isometry-property&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A more sophisticated version of the above result can be stated in terms of a related quantity. For $s\in\{1,2,\ldots,d\},$ we say that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted isometry property (RIP) of order $s$ with constant $\delta_{s}(X)&amp;gt;0$ if&lt;/p&gt;
+$$
+\left\Vert \frac{X_{S}^{T}X_{S}}{n}-I_{S}\right\Vert _{2}\leq\delta_{s}(X)
+$$&lt;p&gt;for all subsets $S$ of size at most $s.$ Let us try to understand the RIP property a little more.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;For $s=1,$ the property becomes $\left|\frac{X_{i}^{T}X_{i}}{n}-1\right|\leq\delta_{1}\implies\frac{\Vert X_{i}\Vert^{2}}{n}\in[1-\delta_{1},1+\delta_{1}],$ so the columns of $X / \sqrt{n}$ are all almost unit vectors.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For $s=2,$ if we assume that the columns of $X/\sqrt{n}$ are unit vectors, then&lt;/p&gt;
+$$
+\frac{X_{[j,k]}^{T}X_{[j,k]}}{n}-I_{[j,k]}=\left(\begin{array}{cc}
+\frac{\Vert X_{j}\Vert^{2}}{n}-1 &amp; \frac{\langle X_{j},X_{k}\rangle}{n}\\
+\frac{\langle X_{j},X_{k}\rangle}{n} &amp; \frac{\Vert X_{k}\Vert^{2}}{n}-1
+\end{array}\right)=\left(\begin{array}{cc}
+0 &amp; \frac{\langle X_{j},X_{k}\rangle}{n}\\
+\frac{\langle X_{j},X_{k}\rangle}{n} &amp; 0
+\end{array}\right).
+$$&lt;p&gt;The operator norm of this matrix is $\left|\frac{\langle X_{j},X_{k}\rangle}{n}\right|.$ Hence, we can set&lt;/p&gt;
+$$
+\delta_{2}=\max_{j\neq k}\left|\frac{\langle X_{j},X_{k}\rangle}{n}\right|
+$$&lt;p&gt;which is the pairwise incoherence parameter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More generally in the homework we will show that for any matrix $X\in\mathbb{R}^{n\times d}$ and sparsity level $s\in{1,\ldots,d},$&lt;/p&gt;
+$$
+\delta_{PW}(X)\leq\delta_{s}(X)\leq s\delta_{PW}(X)
+$$&lt;p&gt;and neither bound can be improved.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If $\delta_{2s}(X)&amp;lt;1/3,$ then the restricted nullspace property holds for any subset $S \subset [d]$ with $|S|\leq s.$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Assume that $\delta_{2s}(X)&amp;lt;1/3.$ Let $\theta\in\operatorname{null}(X)\backslash\{0\}.$ To show that $\theta\not\in\mathbb{C}(S)$ for any subset $S\subset[d]$ with $|S|\leq s,$ it suffices to show that $\Vert\theta_{S^{c}}\Vert&amp;gt;\Vert\theta_{S}\Vert$ when $S$ is chosen to be the index set corresponding to the $s$ largest entries of $\theta.$ For any subset $A\subset[d],$ let $\theta_{A}\in\mathbb{R}^{|A|}$ be the sub-vector of elements indexed by $A.$ Also, define $\widetilde{\theta}_{A}\in\mathbb{R}^{d}$ by&lt;/p&gt;
+$$
+(\widetilde{\theta}_{A})_{j}=\begin{cases}
+\theta_{j} &amp; \text{if }j\in A,\\
+0 &amp; \text{otherwise}.
+\end{cases}
+$$&lt;p&gt;Let us write $S^{c}=\bigcup_{j\geq1}S_{j}$ where $S_{1}$ is the subset of indices given by the $s$ largest values of $S^{c},$ $S_{2}$ is the subset of indices given by the $s$ largest values of $S^{c}\backslash S_{1},$ and so on. We can write&lt;/p&gt;
+$$
+\theta=\sum_{j=0}^{k}\widetilde{\theta}_{S_{j}}
+$$&lt;p&gt;where we set $S_{0}=S.$ By the RIP property, we have&lt;/p&gt;
+$$
+\Vert\theta_{S}\Vert_{2}^{2}-\frac{1}{n}\left\Vert X_{S}\theta_{S}\right\Vert _{2}^{2}\leq\left|\left\langle \left(\frac{X_{S}^{T}X_{S}}{n}-I_{S}\right)\theta_{S},\theta_{S}\right\rangle \right|\leq\delta_{2s}\Vert\theta_{S}\Vert_{2}^{2}.
+$$&lt;p&gt;Since $\Vert\theta _ {S}\Vert_{2}^{2}=\Vert\widetilde{\theta} _ {S}\Vert_{2}^{2}$ and $\Vert X _ {S}\theta_{S}\Vert _ {2}^{2}=\Vert X\widetilde{\theta} _ {S}\Vert_{2}^{2},$ it follows that&lt;/p&gt;
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{2}^{2}-\frac{1}{n}\Vert X\widetilde{\theta}_{S}\Vert_{2}^{2}\leq\delta_{2s}\Vert\widetilde{\theta}_{S}\Vert_{2}^{2},
+$$&lt;p&gt;which gives&lt;/p&gt;
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{2}^{2}\leq\frac{1}{1-\delta_{2s}}\left\Vert \frac{1}{\sqrt{n}}X\widetilde{\theta}_{S}\right\Vert _{2}^{2}.
+$$&lt;p&gt;Since $\theta\in\operatorname{null}(X),$ we have $X\widetilde{\theta} _ {S}=-\sum_{j=1}^{k}X\widetilde{\theta} _ {S_{j}},$ so&lt;/p&gt;
+$$
+\begin{aligned}
+\Vert\widetilde{\theta}_{S}\Vert_{2}^{2} &amp;\leq \frac{1}{1-\delta_{2s}}\left\langle \frac{1}{\sqrt{n}}X\widetilde{\theta}_{S},\frac{1}{\sqrt{n}}\sum_{j=1}^{k}-X\widetilde{\theta}_{S_{j}}\right\rangle \\
+	&amp;\leq\frac{1}{1-\delta_{2s}}\left|\left\langle \frac{1}{\sqrt{n}}X\widetilde{\theta}_{S},\frac{1}{\sqrt{n}}\sum_{j=1}^{k}X\widetilde{\theta}_{S_{j}}\right\rangle \right| \\
+	&amp;=\frac{1}{1-\delta_{2s}}\left|\frac{1}{n}\sum_{j=1}^{k}\widetilde{\theta}_{S}^{T}X^{T}X\widetilde{\theta}_{S_{j}}\right| \\
+	&amp;=\frac{1}{1-\delta_{2s}}\left|\frac{1}{n}\sum_{j=1}^{k}\widetilde{\theta}_{S}^{T}\left(X^{T}X-nI_{d}\right)\widetilde{\theta}_{S_{j}}\right|.
+\end{aligned}
+$$&lt;p&gt;Since $\left\Vert \frac{1}{n}X _ {S _ {0}\cup S_{j}}^{T}X _ {S _ {0}\cup S _ {j}}-I _ {2s}\right\Vert _ {2}\leq\delta _ {2s}$ by the RIP property, it follows that&lt;/p&gt;
+$$
+\left|\frac{1}{n}\sum_{j=1}^{k}\widetilde{\theta}_{S}^{T}\left(X^{T}X-nI_{d}\right)\widetilde{\theta}_{S_{j}}\right|\leq\delta_{2s}\Vert\widetilde{\theta}_{S}\Vert\sum_{k=1}^{k}\Vert\widetilde{\theta}_{S_{j}}\Vert,
+$$&lt;p&gt;giving&lt;/p&gt;
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{2}\leq\frac{\delta_{2s}}{1-\delta_{2s}}\sum_{j=1}^{k}\Vert\widetilde{\theta}_{S_{j}}\Vert.
+$$&lt;p&gt;By construction of $S_{j},$ we have $\Vert\widetilde{\theta} _ {S _ {j}}\Vert _ {\infty}\leq\frac{1}{s}\Vert\widetilde{\theta} _ {S _ {j-1}}\Vert _ {1},$ so&lt;/p&gt;
+$$
+\Vert\widetilde{\theta}_{S_{j}}\Vert_{2}^{2}=\sum_{j\in S_{j}}\theta_{j}^{2}\leq\Vert\widetilde{\theta}_{S_{j}}\Vert_{\infty}\Vert\widetilde{\theta}_{S_{j}}\Vert_{1}\leq\Vert\widetilde{\theta}_{S_{j}}\Vert_{\infty}\Vert\widetilde{\theta}_{S_{j-1}}\Vert_{1}\leq\frac{1}{s}\Vert\widetilde{\theta}_{S_{j-1}}\Vert_{1}^{2},
+$$&lt;p&gt;giving $\Vert\widetilde{\theta} _ {S_{j}}\Vert _ {2} \leq \frac{1}{\sqrt{s}}\Vert \widetilde{\theta} _ {S _ {j-1}}\Vert _ {1}.$ Thus,&lt;/p&gt;
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{1}\leq\sqrt{s}\Vert\widetilde{\theta}_{S}\Vert_{2}\leq\frac{\delta_{2s}}{1-\delta_{2s}}\left(\Vert\widetilde{\theta}_{S}\Vert_{1}+\sum_{j=1}^{k-1}\Vert\widetilde{\theta}_{S_{j}}\Vert_{1}\right)\leq\frac{\delta_{2s}}{1-\delta_{2s}}\left(\Vert\widetilde{\theta}_{S}\Vert_{1}+\Vert\widetilde{\theta}_{S^{c}}\Vert_{1}\right).
+$$&lt;p&gt;Finally, if $\delta_{2s}&amp;lt;1/3,$ then $\delta_{2s}/(1-\delta_{2s})&amp;lt;1/2,$ so&lt;/p&gt;
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{1}&lt;\frac{1}{2}\left(\Vert\widetilde{\theta}_{S}\Vert_{1}+\Vert\widetilde{\theta}_{S^{c}}\Vert_{1}\right)\implies\Vert\widetilde{\theta}_{S}\Vert_{1}&lt;\Vert\widetilde{\theta}_{S^{c}}\Vert_{1}.
+$$&lt;p&gt;This shows that $\theta\not\in\mathbb{C}(S).$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 
       </description>
     </item>
@@ -2252,7 +2983,7 @@ $$
 \sqrt{n}\left(\widetilde{\theta}-\theta^{\ast}\right)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})/I_{\theta^{\ast}}\rightsquigarrow N\left(0,\operatorname{Var}_{\theta^{\ast}}\left(\frac{S_{\theta^{\ast}}(X_{i})}{I_{\theta^{\ast}}}\right)\right)=N\left(0,I_{\theta^{\ast}}^{-1}\right).
 $$&lt;p&gt;Then since $\widetilde{\theta}\approx\widehat{\theta}$, intuitively we have also $\sqrt{n}\left(\widehat{\theta}-\theta^{\ast}\right)\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$&lt;/p&gt;
 &lt;h2&gt;The rigorous argument&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-rigorous-argument&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#the-rigorous-argument&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We will now give the rigorous argument which does not assume the existence of the second derivative of the log-likelihood. Instead of taking second derivative first and then apply the law of large numbers as we did above, we will apply the law of large numbers first. The key idea is that in some cases, the expectation operator can exhibit a smoothing property that allows $L(\theta):=\mathbb{E} _ {\theta^{\ast}}\log_{\theta}(X)$ to be twice differentiable even if the log-density is not. In this case, we have the second order Taylor expansion&lt;/p&gt;
+    &lt;a href=&#34;#the-rigorous-argument&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We will now give the rigorous argument which does not assume the existence of the second derivative of the log-likelihood. Instead of taking second derivative first and then apply the law of large numbers as we did above, we will apply the law of large numbers first. The key idea is that in some cases, the expectation operator can exhibit a smoothing property that allows $L(\theta):=\mathbb{E} _ {\theta^{\ast}}\log p _ {\theta}(X)$ to be twice differentiable even if the log-density is not. In this case, we have the second order Taylor expansion&lt;/p&gt;
 $$
 L(\theta^{\ast}+t)=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2}).
 $$&lt;p&gt;Let $L _ {n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})$ and define the empirical process operator $\nu_{n}$ by&lt;/p&gt;

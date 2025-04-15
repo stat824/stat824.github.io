@@ -1,0 +1,246 @@
+---
+date: '2025-02-27T21:18:39+10:00'
+draft: true
+math: true
+title: 'Estimation in the Noiseless Linear Model'
+weight: 7
+---
+Suppose now we have observations $Y$ given by $Y=X\theta ,$ where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix with $n\ll d.$ Since there is no noise, instead of bounding the risk of an estimator, we can instead hope to recover the exact solution. Our goal is to find the sparsest solution to $Y=X\theta.$ This is equivalent to 
+
+$$
+\min\left\{ \Vert\theta\Vert_{0}:Y=X\theta\right\} .
+$$
+
+This optimization problem is computationally intractable. One possible solution to this issue is to replace the objective with a convex approximation such as $\Vert\theta\Vert_{1}.$ This gives us the basis pursuit linear program, which is the optimization problem
+
+$$
+\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .
+$$
+
+Does the solution to the basis pursuit program recover the sparsest solution $\theta^{\ast}$? The answer depends on the null space of $X$ since the output to the basis pursuit linear program will find the minimizer of the $\ell^{1}$ norm in the affine subspace $\theta^{\ast}+\operatorname{null}(X).$ 
+
+## The restricted subspace property
+
+For a set $S\subset [d],$ the critical cone is the subset of $\mathbb{R}^{d}$ given by
+
+$$
+\mathbb{C}(S):=\left\{ \Delta\in\mathbb{R}^{d}:\Vert\Delta_{S^{c}}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1}\right\} .
+$$
+
+A matrix $X$ is said to satisfy the restricted nullspace property with respect to $S$ if
+
+$$
+\operatorname{null}(X)\cap\mathbb{C}(S)=\{0\}.
+$$
+
+
+Another way to state the nullspace property is that every non-zero vector $\Delta\in\operatorname{null}(X)$ satisfies $\Vert\Delta_{S^{c}}\Vert_{1}>\Vert\Delta_{S}\Vert_{1}.$ Intuitively, if $S$ is the support of $\theta^{\ast}$ and $X$ satisfies the restricted nullspace property with respect to $S,$ moving from $\theta^{\ast}$ along $\operatorname{null}(X)$ increases the $\ell^{1}$ norm. Thus, the solution to the basis pursuit program will be exactly $\theta^{\ast}.$
+
+{{% details title="Theorem" %}}
+Let $S \subset [d]$ and $X\in\mathbb{R}^{n\times d}.$ The following are equivalent:
+
+1. $X$ satisfies the restricted nullspace property with respect to $S.$
+
+2. For any $Y\in\mathbb{R}^{n},$ any $\theta^{\ast}\in\mathbb{R}^{d}$ with $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}$ is the unique solution to the basis pursuit program $\min\left\\{ \Vert\theta\Vert_{1}:Y=X\theta\right\\} .$ 
+{{% /details %}}
+
+
+**Proof of (1) $\Rightarrow$ (2):** Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\\{ \Vert\theta\Vert_{1}:Y=X\theta\right\\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that
+
+$$
+\begin{aligned}
+\Vert\theta_{S}^{\ast}\Vert_{1}	&= \Vert\theta^{\ast}\Vert_{1}
+	\geq\Vert\widehat{\theta}\Vert_{1} \\ 
+	&=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
+	&=\Vert\theta^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
+	&\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}.
+\end{aligned}
+$$
+
+Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S}\Vert_{1}\leq\Vert\Delta_{S^{c}}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ To fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$
+
+**Proof of (2) $\Rightarrow$ (1):** Let $S\subset[d]$ and assume that for all $Y\in\mathbb{R}^{n},$ each $S$-sparse vector $\theta$ satisfying $Y=X\theta$ is the unique solution to the basis pursuit linear program $\min\left\\{ \Vert\theta\Vert_{1}:Y=X\theta\right\\} .$ We need to show that $\mathbb{C}(S)\cap\operatorname{null}(X)=\{0\}.$ Suppose that $\theta^{\ast}\in\operatorname{null}(X)\backslash\\{0\\}.$ Consider the basis pursuit problem 
+
+$$
+\min\left\{ \Vert\beta\Vert_{1}:X\beta=Y\right\} ,\quad Y=X\left(\begin{array}{c}
+\theta_{S}^{\ast}\\
+0
+\end{array}\right).
+$$
+
+Since $\widehat{\beta}=(\theta_{S}^{\ast},0)^{T}$ is $S$-sparse and satisfies $X\widehat{\beta}=Y,$ it must be the unique solution to the basis pursuit linear program. Since $X\theta^{\ast}=0,$ it follows that 
+
+
+$$
+X\left(\begin{array}{c}
+\theta_{S}^{\ast}\\
+0
+\end{array}\right)+X\left(\begin{array}{c}
+0\\
+\theta_{S^{c}}^{\ast}
+\end{array}\right)=0\implies X\left(\begin{array}{c}
+\theta_{S}^{\ast}\\
+0
+\end{array}\right)=X\left(\begin{array}{c}
+0\\
+-\theta_{S^{c}}^{\ast}
+\end{array}\right).
+$$
+
+Therefore, 
+
+$$
+\widetilde{\beta}=\left(\begin{array}{c}
+0\\
+-\theta_{S^{c}}^{\ast}
+\end{array}\right)
+$$
+
+also satisfies $X\widetilde{\beta}=Y.$ Since $\widehat{\beta}$ is the unique solution to the basis pursuit program, it follows that 
+
+$$
+\Vert \widehat{\beta} \Vert_1 \leq \Vert \widetilde{\beta} \Vert_1 \implies \Vert\theta_{S}^{\ast}\Vert_{1}<\Vert\theta_{S^{c}}^{\ast}\Vert_{1}.
+$$
+
+This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$
+
+## The pairwise incoherence parameter
+
+By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ But how does one show that the restricted nullspace property hold? A useful quantity is the pairwise incoherence parameter of the design matrix, given by
+
+$$
+\delta_{PW}(X)=\max_{j,k=1,\ldots,d}\left|\frac{\langle X_{j},X_{k}\rangle}{n}-1_{\{j=k\}}\right|.
+$$
+
+{{% details title="Theorem" %}}
+If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subset $S \subset [d]$ of cardinality less than $s.$
+{{% /details %}}
+
+
+See HW3 for proof of the above. 
+
+## The restricted isometry property
+
+A more sophisticated version of the above result can be stated in terms of a related quantity. For $s\in\\{1,2,\ldots,d\\},$ we say that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted isometry property (RIP) of order $s$ with constant $\delta_{s}(X)>0$ if
+
+$$
+\left\Vert \frac{X_{S}^{T}X_{S}}{n}-I_{S}\right\Vert _{2}\leq\delta_{s}(X)
+$$
+
+for all subsets $S$ of size at most $s.$ Let us try to understand the RIP property a little more.
+
+* For $s=1,$ the property becomes $\left|\frac{X_{i}^{T}X_{i}}{n}-1\right|\leq\delta_{1}\implies\frac{\Vert X_{i}\Vert^{2}}{n}\in[1-\delta_{1},1+\delta_{1}],$ so the columns of $X / \sqrt{n}$ are all almost unit vectors. 
+
+* For $s=2,$ if we assume that the columns of $X/\sqrt{n}$ are unit vectors, then
+
+	$$
+\frac{X_{[j,k]}^{T}X_{[j,k]}}{n}-I_{[j,k]}=\left(\begin{array}{cc}
+\frac{\Vert X_{j}\Vert^{2}}{n}-1 & \frac{\langle X_{j},X_{k}\rangle}{n}\\
+\frac{\langle X_{j},X_{k}\rangle}{n} & \frac{\Vert X_{k}\Vert^{2}}{n}-1
+\end{array}\right)=\left(\begin{array}{cc}
+0 & \frac{\langle X_{j},X_{k}\rangle}{n}\\
+\frac{\langle X_{j},X_{k}\rangle}{n} & 0
+\end{array}\right).
+$$
+
+	The operator norm of this matrix is $\left|\frac{\langle X_{j},X_{k}\rangle}{n}\right|.$ Hence, we can set
+
+	$$
+\delta_{2}=\max_{j\neq k}\left|\frac{\langle X_{j},X_{k}\rangle}{n}\right|
+$$
+
+	which is the pairwise incoherence parameter. 
+
+
+
+More generally in the homework we will show that for any matrix $X\in\mathbb{R}^{n\times d}$ and sparsity level $s\in\{1,\ldots,d\},$ 
+
+$$
+\delta_{PW}(X)\leq\delta_{s}(X)\leq s\delta_{PW}(X)
+$$
+
+and neither bound can be improved. 
+
+{{% details title="Proposition" %}}
+If $\delta_{2s}(X)<1/3,$ then the restricted nullspace property holds for any subset $S \subset [d]$ with $|S|\leq s.$
+{{% /details %}}
+
+{{% details title="Proof" closed="true" %}}
+
+Assume that $\delta_{2s}(X)<1/3.$ Let $\theta\in\operatorname{null}(X)\backslash\\{0\\}.$ To show that $\theta\not\in\mathbb{C}(S)$ for any subset $S\subset[d]$ with $|S|\leq s,$ it suffices to show that $\Vert\theta_{S^{c}}\Vert>\Vert\theta_{S}\Vert$ when $S$ is chosen to be the index set corresponding to the $s$ largest entries of $\theta.$ For any subset $A\subset[d],$ let $\theta_{A}\in\mathbb{R}^{|A|}$ be the sub-vector of elements indexed by $A.$ Also, define $\widetilde{\theta}_{A}\in\mathbb{R}^{d}$ by 
+
+$$
+(\widetilde{\theta}_{A})_{j}=\begin{cases}
+\theta_{j} & \text{if }j\in A,\\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+Let us write $S^{c}=\bigcup_{j\geq1}S_{j}$ where $S_{1}$ is the subset of indices given by the $s$ largest values of $S^{c},$ $S_{2}$ is the subset of indices given by the $s$ largest values of $S^{c}\backslash S_{1},$ and so on. We can write
+
+$$
+\theta=\sum_{j=0}^{k}\widetilde{\theta}_{S_{j}}
+$$
+
+where we set $S_{0}=S.$ By the RIP property, we have
+
+$$
+\Vert\theta_{S}\Vert_{2}^{2}-\frac{1}{n}\left\Vert X_{S}\theta_{S}\right\Vert _{2}^{2}\leq\left|\left\langle \left(\frac{X_{S}^{T}X_{S}}{n}-I_{S}\right)\theta_{S},\theta_{S}\right\rangle \right|\leq\delta_{2s}\Vert\theta_{S}\Vert_{2}^{2}.
+$$
+
+Since $\Vert\theta _ {S}\Vert_{2}^{2}=\Vert\widetilde{\theta} _ {S}\Vert_{2}^{2}$ and $\Vert X _ {S}\theta_{S}\Vert _ {2}^{2}=\Vert X\widetilde{\theta} _ {S}\Vert_{2}^{2},$ it follows that
+
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{2}^{2}-\frac{1}{n}\Vert X\widetilde{\theta}_{S}\Vert_{2}^{2}\leq\delta_{2s}\Vert\widetilde{\theta}_{S}\Vert_{2}^{2},
+$$
+
+which gives 
+
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{2}^{2}\leq\frac{1}{1-\delta_{2s}}\left\Vert \frac{1}{\sqrt{n}}X\widetilde{\theta}_{S}\right\Vert _{2}^{2}.
+$$
+
+Since $\theta\in\operatorname{null}(X),$ we have $X\widetilde{\theta} _ {S}=-\sum_{j=1}^{k}X\widetilde{\theta} _ {S_{j}},$ so 
+
+$$
+\begin{aligned}
+\Vert\widetilde{\theta}_{S}\Vert_{2}^{2} &\leq \frac{1}{1-\delta_{2s}}\left\langle \frac{1}{\sqrt{n}}X\widetilde{\theta}_{S},\frac{1}{\sqrt{n}}\sum_{j=1}^{k}-X\widetilde{\theta}_{S_{j}}\right\rangle \\
+	&\leq\frac{1}{1-\delta_{2s}}\left|\left\langle \frac{1}{\sqrt{n}}X\widetilde{\theta}_{S},\frac{1}{\sqrt{n}}\sum_{j=1}^{k}X\widetilde{\theta}_{S_{j}}\right\rangle \right| \\
+	&=\frac{1}{1-\delta_{2s}}\left|\frac{1}{n}\sum_{j=1}^{k}\widetilde{\theta}_{S}^{T}X^{T}X\widetilde{\theta}_{S_{j}}\right| \\
+	&=\frac{1}{1-\delta_{2s}}\left|\frac{1}{n}\sum_{j=1}^{k}\widetilde{\theta}_{S}^{T}\left(X^{T}X-nI_{d}\right)\widetilde{\theta}_{S_{j}}\right|.
+\end{aligned}
+$$
+
+Since $\left\Vert \frac{1}{n}X _ {S _ {0}\cup S_{j}}^{T}X _ {S _ {0}\cup S _ {j}}-I _ {2s}\right\Vert _ {2}\leq\delta _ {2s}$ by the RIP property, it follows that 
+
+$$
+\left|\frac{1}{n}\sum_{j=1}^{k}\widetilde{\theta}_{S}^{T}\left(X^{T}X-nI_{d}\right)\widetilde{\theta}_{S_{j}}\right|\leq\delta_{2s}\Vert\widetilde{\theta}_{S}\Vert\sum_{k=1}^{k}\Vert\widetilde{\theta}_{S_{j}}\Vert,
+$$
+
+giving 
+
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{2}\leq\frac{\delta_{2s}}{1-\delta_{2s}}\sum_{j=1}^{k}\Vert\widetilde{\theta}_{S_{j}}\Vert.
+$$
+
+By construction of $S_{j},$ we have $\Vert\widetilde{\theta} _ {S _ {j}}\Vert _ {\infty}\leq\frac{1}{s}\Vert\widetilde{\theta} _ {S _ {j-1}}\Vert _ {1},$ so 
+
+$$
+\Vert\widetilde{\theta}_{S_{j}}\Vert_{2}^{2}=\sum_{j\in S_{j}}\theta_{j}^{2}\leq\Vert\widetilde{\theta}_{S_{j}}\Vert_{\infty}\Vert\widetilde{\theta}_{S_{j}}\Vert_{1}\leq\Vert\widetilde{\theta}_{S_{j}}\Vert_{\infty}\Vert\widetilde{\theta}_{S_{j-1}}\Vert_{1}\leq\frac{1}{s}\Vert\widetilde{\theta}_{S_{j-1}}\Vert_{1}^{2},
+$$
+
+giving $\Vert\widetilde{\theta} _ {S_{j}}\Vert _ {2} \leq \frac{1}{\sqrt{s}}\Vert \widetilde{\theta} _ {S _ {j-1}}\Vert _ {1}.$ Thus, 
+
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{1}\leq\sqrt{s}\Vert\widetilde{\theta}_{S}\Vert_{2}\leq\frac{\delta_{2s}}{1-\delta_{2s}}\left(\Vert\widetilde{\theta}_{S}\Vert_{1}+\sum_{j=1}^{k-1}\Vert\widetilde{\theta}_{S_{j}}\Vert_{1}\right)\leq\frac{\delta_{2s}}{1-\delta_{2s}}\left(\Vert\widetilde{\theta}_{S}\Vert_{1}+\Vert\widetilde{\theta}_{S^{c}}\Vert_{1}\right).
+$$
+
+
+Finally, if $\delta_{2s}<1/3,$ then $\delta_{2s}/(1-\delta_{2s})<1/2,$ so 
+
+$$
+\Vert\widetilde{\theta}_{S}\Vert_{1}<\frac{1}{2}\left(\Vert\widetilde{\theta}_{S}\Vert_{1}+\Vert\widetilde{\theta}_{S^{c}}\Vert_{1}\right)\implies\Vert\widetilde{\theta}_{S}\Vert_{1}<\Vert\widetilde{\theta}_{S^{c}}\Vert_{1}.
+$$
+
+This shows that $\theta\not\in\mathbb{C}(S).$
+{{% /details %}}

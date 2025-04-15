@@ -59,7 +59,7 @@ Then since $\widetilde{\theta}\approx\widehat{\theta}$, intuitively we have also
 
 ## The rigorous argument
 
-We will now give the rigorous argument which does not assume the existence of the second derivative of the log-likelihood. Instead of taking second derivative first and then apply the law of large numbers as we did above, we will apply the law of large numbers first. The key idea is that in some cases, the expectation operator can exhibit a smoothing property that allows $L(\theta):=\mathbb{E} _ {\theta^{\ast}}\log_{\theta}(X)$ to be twice differentiable even if the log-density is not. In this case, we have the second order Taylor expansion
+We will now give the rigorous argument which does not assume the existence of the second derivative of the log-likelihood. Instead of taking second derivative first and then apply the law of large numbers as we did above, we will apply the law of large numbers first. The key idea is that in some cases, the expectation operator can exhibit a smoothing property that allows $L(\theta):=\mathbb{E} _ {\theta^{\ast}}\log p _ {\theta}(X)$ to be twice differentiable even if the log-density is not. In this case, we have the second order Taylor expansion
 
 $$
 L(\theta^{\ast}+t)=L(\theta^{\ast})-\frac{t^{2}}{2}I_{\theta^{\ast}}+o(t^{2}).
