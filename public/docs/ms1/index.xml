@@ -757,7 +757,7 @@ $$&lt;p&gt;Then&lt;/p&gt;
 $$
 \begin{aligned}
 \frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&amp;= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\ 
-&amp;\qquad \qquad -\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
+&amp;\qquad \qquad +\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
 	&amp;\geq\epsilon\int_{(a,b)}\pi_{m}(\theta)\,d\theta \\
 	&amp;=\epsilon \mathbb{P}\left(\frac{a}{\sqrt{m}} &lt; N(0,1) &lt; \frac{b}{\sqrt{m}}\right) \\
 	&amp;=\epsilon\int_{\frac{a}{\sqrt{m}}}^{\frac{b}{\sqrt{m}}}\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}\,dx \\
