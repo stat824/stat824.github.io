@@ -1499,7 +1499,7 @@ $$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the sm
     </item>
     
     <item>
-      <title>Non-asymptotic Bounds for the Least Squares Estimator</title>
+      <title>Non-asymptotic Risk Estimates for the Least Squares Estimator</title>
       <link>http://localhost:1313/docs/ms2/ls/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
       
@@ -2018,13 +2018,13 @@ $$&lt;p&gt;Another way to state the nullspace property is that every non-zero ve
 &lt;p&gt;&lt;strong&gt;Proof of (1) $\Rightarrow$ (2):&lt;/strong&gt; Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that&lt;/p&gt;
 $$
 \begin{aligned}
-\Vert\theta_{S}^{\ast}\Vert_{1}	&amp;= \Vert\theta^{\ast}\Vert_{1}
-	\geq\Vert\widehat{\theta}\Vert_{1} \\ 
+\Vert\theta_{S}^{\ast}\Vert_{1}	&amp;= \Vert\theta^{\ast}\Vert_{1} \\
+	&amp;\geq\Vert\widehat{\theta}\Vert_{1} \\ 
 	&amp;=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
 	&amp;=\Vert\theta^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
 	&amp;\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}.
 \end{aligned}
-$$&lt;p&gt;Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S}\Vert_{1}\leq\Vert\Delta_{S^{c}}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ To fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$&lt;/p&gt;
+$$&lt;p&gt;Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S^c}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ The fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Proof of (2) $\Rightarrow$ (1):&lt;/strong&gt; Let $S\subset[d]$ and assume that for all $Y\in\mathbb{R}^{n},$ each $S$-sparse vector $\theta$ satisfying $Y=X\theta$ is the unique solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .$ We need to show that $\mathbb{C}(S)\cap\operatorname{null}(X)={0}.$ Suppose that $\theta^{\ast}\in\operatorname{null}(X)\backslash\{0\}.$ Consider the basis pursuit problem&lt;/p&gt;
 $$
 \min\left\{ \Vert\beta\Vert_{1}:X\beta=Y\right\} ,\quad Y=X\left(\begin{array}{c}
@@ -2057,7 +2057,7 @@ $$
 \Vert \widehat{\beta} \Vert_1 \leq \Vert \widetilde{\beta} \Vert_1 \implies \Vert\theta_{S}^{\ast}\Vert_{1}&lt;\Vert\theta_{S^{c}}^{\ast}\Vert_{1}.
 $$&lt;p&gt;This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$&lt;/p&gt;
 &lt;h2&gt;The pairwise incoherence parameter&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-pairwise-incoherence-parameter&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#the-pairwise-incoherence-parameter&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ But how does one show that the restricted nullspace property hold? A useful quantity is the pairwise incoherence parameter of the design matrix, given by&lt;/p&gt;
+    &lt;a href=&#34;#the-pairwise-incoherence-parameter&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ One way to show that the restricted nullspace property holds is by bounding the pairwise incoherence parameter of the design matrix, given by&lt;/p&gt;
 $$
 \delta_{PW}(X)=\max_{j,k=1,\ldots,d}\left|\frac{\langle X_{j},X_{k}\rangle}{n}-1_{\{j=k\}}\right|.
 $$&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
@@ -2065,7 +2065,7 @@ $$&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dar
     &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
   &lt;/summary&gt;
   &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
-    If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subset $S \subset [d]$ of cardinality less than $s.$
+    If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subsets $S \subset [d]$ with $|S| \leq s.$
   &lt;/div&gt;
 &lt;/details&gt;
 &lt;p&gt;See HW3 for proof of the above.&lt;/p&gt;

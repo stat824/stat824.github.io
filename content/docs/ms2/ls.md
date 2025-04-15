@@ -2,7 +2,7 @@
 date: '2025-02-27T21:18:39+10:00'
 draft: true
 math: true
-title: 'Non-asymptotic Bounds for the Least Squares Estimator'
+title: 'Non-asymptotic Risk Estimates for the Least Squares Estimator'
 weight: 5
 ---
 

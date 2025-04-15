@@ -49,15 +49,15 @@ Let $S \subset [d]$ and $X\in\mathbb{R}^{n\times d}.$ The following are equivale
 
 $$
 \begin{aligned}
-\Vert\theta_{S}^{\ast}\Vert_{1}	&= \Vert\theta^{\ast}\Vert_{1}
-	\geq\Vert\widehat{\theta}\Vert_{1} \\ 
+\Vert\theta_{S}^{\ast}\Vert_{1}	&= \Vert\theta^{\ast}\Vert_{1} \\
+	&\geq\Vert\widehat{\theta}\Vert_{1} \\ 
 	&=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
 	&=\Vert\theta^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
 	&\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}.
 \end{aligned}
 $$
 
-Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S}\Vert_{1}\leq\Vert\Delta_{S^{c}}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ To fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$
+Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S^c}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ The fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$
 
 **Proof of (2) $\Rightarrow$ (1):** Let $S\subset[d]$ and assume that for all $Y\in\mathbb{R}^{n},$ each $S$-sparse vector $\theta$ satisfying $Y=X\theta$ is the unique solution to the basis pursuit linear program $\min\left\\{ \Vert\theta\Vert_{1}:Y=X\theta\right\\} .$ We need to show that $\mathbb{C}(S)\cap\operatorname{null}(X)=\{0\}.$ Suppose that $\theta^{\ast}\in\operatorname{null}(X)\backslash\\{0\\}.$ Consider the basis pursuit problem 
 
@@ -106,14 +106,14 @@ This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$
 
 ## The pairwise incoherence parameter
 
-By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ But how does one show that the restricted nullspace property hold? A useful quantity is the pairwise incoherence parameter of the design matrix, given by
+By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ One way to show that the restricted nullspace property holds is by bounding the pairwise incoherence parameter of the design matrix, given by
 
 $$
 \delta_{PW}(X)=\max_{j,k=1,\ldots,d}\left|\frac{\langle X_{j},X_{k}\rangle}{n}-1_{\{j=k\}}\right|.
 $$
 
 {{% details title="Theorem" %}}
-If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subset $S \subset [d]$ of cardinality less than $s.$
+If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subsets $S \subset [d]$ with $|S| \leq s.$
 {{% /details %}}
 
 

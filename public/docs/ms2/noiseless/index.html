@@ -29,7 +29,7 @@ $$This optimization problem is computationally intractable. One possible solutio
 $$ \min\left\{ \Vert\theta\Vert_{0}:Y=X\theta\right\} . $$This optimization problem is computationally intractable. One possible solution to this issue is to replace the objective with a convex approximation such as $\Vert\theta\Vert_{1}.$ This gives us the basis pursuit linear program, which is the optimization problem">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="1083">
+  <meta itemprop="wordCount" content="1081">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Estimation in the Noiseless Linear Model">
   <meta name="twitter:description" content="Suppose now we have observations $Y$ given by $Y=X\theta ,$ where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix with $n\ll d.$ Since there is no noise, instead of bounding the risk of an estimator, we can instead hope to recover the exact solution. Our goal is to find the sparsest solution to $Y=X\theta.$ This is equivalent to
@@ -319,7 +319,7 @@ $$ \min\left\{ \Vert\theta\Vert_{0}:Y=X\theta\right\} . $$This optimization prob
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/ls/"
     
-  >Non-asymptotic Bounds for the Least Squares Estimator
+  >Non-asymptotic Risk Estimates for the Least Squares Estimator
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
@@ -563,7 +563,7 @@ $$ \min\left\{ \Vert\theta\Vert_{0}:Y=X\theta\right\} . $$This optimization prob
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/ls/"
     
-  >Non-asymptotic Bounds for the Least Squares Estimator
+  >Non-asymptotic Risk Estimates for the Least Squares Estimator
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
@@ -692,13 +692,13 @@ $$<p>Another way to state the nullspace property is that every non-zero vector $
 <p><strong>Proof of (1) $\Rightarrow$ (2):</strong> Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that</p>
 $$
 \begin{aligned}
-\Vert\theta_{S}^{\ast}\Vert_{1}	&= \Vert\theta^{\ast}\Vert_{1}
-	\geq\Vert\widehat{\theta}\Vert_{1} \\ 
+\Vert\theta_{S}^{\ast}\Vert_{1}	&= \Vert\theta^{\ast}\Vert_{1} \\
+	&\geq\Vert\widehat{\theta}\Vert_{1} \\ 
 	&=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
 	&=\Vert\theta^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
 	&\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}.
 \end{aligned}
-$$<p>Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S}\Vert_{1}\leq\Vert\Delta_{S^{c}}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ To fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$</p>
+$$<p>Adding $\Vert\Delta_{S}\Vert_{1}-\Vert\theta_{S}^{\ast}\Vert_{1}$ to each side we get $\Vert\Delta_{S^c}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1},$ and thus $\Delta\in\mathbb{C}(S).$ The fact that $\Delta\in\operatorname{null}(X)$ follows from the observations that $Y=X\theta^{\ast}$ and $Y=X\widehat{\theta},$ so $0=X(\widehat{\theta}-\theta^{\ast})=X\Delta .$ Since $X$ satisfies the restricted nullspace property with respect to $S,$ it follows that $\Delta=0,$ giving $\theta^{\ast}=\widehat{\theta}.$</p>
 <p><strong>Proof of (2) $\Rightarrow$ (1):</strong> Let $S\subset[d]$ and assume that for all $Y\in\mathbb{R}^{n},$ each $S$-sparse vector $\theta$ satisfying $Y=X\theta$ is the unique solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .$ We need to show that $\mathbb{C}(S)\cap\operatorname{null}(X)={0}.$ Suppose that $\theta^{\ast}\in\operatorname{null}(X)\backslash\{0\}.$ Consider the basis pursuit problem</p>
 $$
 \min\left\{ \Vert\beta\Vert_{1}:X\beta=Y\right\} ,\quad Y=X\left(\begin{array}{c}
@@ -731,7 +731,7 @@ $$
 \Vert \widehat{\beta} \Vert_1 \leq \Vert \widetilde{\beta} \Vert_1 \implies \Vert\theta_{S}^{\ast}\Vert_{1}<\Vert\theta_{S^{c}}^{\ast}\Vert_{1}.
 $$<p>This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$</p>
 <h2>The pairwise incoherence parameter<span class="hx-absolute -hx-mt-20" id="the-pairwise-incoherence-parameter"></span>
-    <a href="#the-pairwise-incoherence-parameter" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ But how does one show that the restricted nullspace property hold? A useful quantity is the pairwise incoherence parameter of the design matrix, given by</p>
+    <a href="#the-pairwise-incoherence-parameter" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ One way to show that the restricted nullspace property holds is by bounding the pairwise incoherence parameter of the design matrix, given by</p>
 $$
 \delta_{PW}(X)=\max_{j,k=1,\ldots,d}\left|\frac{\langle X_{j},X_{k}\rangle}{n}-1_{\{j=k\}}\right|.
 $$<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
@@ -739,7 +739,7 @@ $$<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg
     <strong class="hx-text-lg">Theorem</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subset $S \subset [d]$ of cardinality less than $s.$
+    If $\delta_{PW}(X)\leq\frac{1}{3s},$ then the restricted nullspace property holds for all subsets $S \subset [d]$ with $|S| \leq s.$
   </div>
 </details>
 <p>See HW3 for proof of the above.</p>
