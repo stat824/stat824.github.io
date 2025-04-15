@@ -1471,7 +1471,12 @@ $$&lt;p&gt;so $\hat{\theta}$ cannot be Bayes.&lt;/p&gt;
     Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,1), \theta\in\mathbb{R}$. Consider the loss function $L(\hat{\theta},\theta)=(\hat{\theta}-\theta)^{2}$. Then $\overline{X}$ is admissible.
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;The proof is by contradiction. Suppose that $\hat{\theta}=\overline{X}$ is inadmissible, so that there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq\frac{1}{n}$ for all $\theta\in\mathbb{R}$, and $R(\tilde{\theta},\theta_{0})&amp;lt;\frac{1}{n}$ for some $\theta_{0}\in\mathbb{R}$. Then there exists $\epsilon&amp;gt;0$ and $(a,b)\ni\theta_{0}$ such that $R(\tilde{\theta},\theta_{0})&amp;lt;\frac{1}{n}-\epsilon$. Consider $\pi_{m}=N(0,m)$. Then the Bayes risk is&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;The proof is by contradiction. Suppose that $\hat{\theta}=\overline{X}$ is inadmissible, so that there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq\frac{1}{n}$ for all $\theta\in\mathbb{R}$, and $R(\tilde{\theta},\theta_{0})&amp;lt;\frac{1}{n}$ for some $\theta_{0}\in\mathbb{R}$. Then there exists $\epsilon&amp;gt;0$ and $(a,b)\ni\theta_{0}$ such that $R(\tilde{\theta},\theta_{0})&amp;lt;\frac{1}{n}-\epsilon$. Consider $\pi_{m}=N(0,m)$. Then the Bayes risk is&lt;/p&gt;
 $$
 \int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta=\frac{1}{n+\frac{1}{m}},
 $$&lt;p&gt;and we have&lt;/p&gt;
@@ -1480,7 +1485,8 @@ $$
 $$&lt;p&gt;Then&lt;/p&gt;
 $$
 \begin{aligned}
-\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&amp;= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta-\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
+\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&amp;= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\ 
+&amp;\qquad \qquad -\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
 	&amp;\geq\epsilon\int_{(a,b)}\pi_{m}(\theta)\,d\theta \\
 	&amp;=\epsilon \mathbb{P}\left(\frac{a}{\sqrt{m}} &lt; N(0,1) &lt; \frac{b}{\sqrt{m}}\right) \\
 	&amp;=\epsilon\int_{\frac{a}{\sqrt{m}}}^{\frac{b}{\sqrt{m}}}\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}\,dx \\
@@ -1493,6 +1499,8 @@ $$&lt;p&gt;which is equivalent to&lt;/p&gt;
 $$
 \int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta&lt;\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta.
 $$&lt;p&gt;This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the smallest Bayes risk by definition.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;p&gt;Admissibility of $\overline{X}$ in higher dimensions is much more difficult. Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. For $p=2$, admissibility of $\overline{X}$ was proved by Stein. The proof involves constructing much more complex priors. Surprisingly, $\overline{X}$ is no longer admissible if $p \geq 3$. Brown proved in 1971 that this phenomenon (aptly named Stein&amp;rsquo;s paradox) is linked to the transience of the symmetric random walk in $p \geq 3$.&lt;/p&gt;
 
       </description>

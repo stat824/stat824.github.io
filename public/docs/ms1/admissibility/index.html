@@ -57,7 +57,7 @@ Then we say $\hat{\theta}$ is admissible if it is not inadmissible. To put it bl
 Bayes estimators Theorem Assume that the loss function is continuous. If $\hat{\theta}$ is Bayes, then it is admissible. Proof We will prove the contrapositive. Suppose that $\hat{\theta}$ is inadmissible. Then there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq R(\hat{\theta},\theta)$ for all $\theta\in\Theta$, and $R(\tilde{\theta},\theta_0) &lt; R(\hat{\theta},\theta_0)$ for some $\theta_0 \in \Theta$. By continuity, there exists an open set $\Theta_{0}\ni\theta_{0}$ and $\epsilon&gt;0$ such that $R(\tilde{\theta},\theta)&lt;R(\hat{\theta},\theta)-\epsilon$ for all $\theta\in\Theta_{0}$. Then">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="378">
+  <meta itemprop="wordCount" content="383">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Admissibility">
   <meta name="twitter:description" content="An estimator $\hat{\theta}$ is inadmissible if there exists $\tilde{\theta}$ such that
@@ -724,7 +724,12 @@ $$<p>so $\hat{\theta}$ cannot be Bayes.</p>
     Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,1), \theta\in\mathbb{R}$. Consider the loss function $L(\hat{\theta},\theta)=(\hat{\theta}-\theta)^{2}$. Then $\overline{X}$ is admissible.
   </div>
 </details>
-<p>The proof is by contradiction. Suppose that $\hat{\theta}=\overline{X}$ is inadmissible, so that there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq\frac{1}{n}$ for all $\theta\in\mathbb{R}$, and $R(\tilde{\theta},\theta_{0})&lt;\frac{1}{n}$ for some $\theta_{0}\in\mathbb{R}$. Then there exists $\epsilon&gt;0$ and $(a,b)\ni\theta_{0}$ such that $R(\tilde{\theta},\theta_{0})&lt;\frac{1}{n}-\epsilon$. Consider $\pi_{m}=N(0,m)$. Then the Bayes risk is</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>The proof is by contradiction. Suppose that $\hat{\theta}=\overline{X}$ is inadmissible, so that there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq\frac{1}{n}$ for all $\theta\in\mathbb{R}$, and $R(\tilde{\theta},\theta_{0})&lt;\frac{1}{n}$ for some $\theta_{0}\in\mathbb{R}$. Then there exists $\epsilon&gt;0$ and $(a,b)\ni\theta_{0}$ such that $R(\tilde{\theta},\theta_{0})&lt;\frac{1}{n}-\epsilon$. Consider $\pi_{m}=N(0,m)$. Then the Bayes risk is</p>
 $$
 \int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta=\frac{1}{n+\frac{1}{m}},
 $$<p>and we have</p>
@@ -733,7 +738,8 @@ $$
 $$<p>Then</p>
 $$
 \begin{aligned}
-\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta-\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
+\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\ 
+&\qquad \qquad -\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
 	&\geq\epsilon\int_{(a,b)}\pi_{m}(\theta)\,d\theta \\
 	&=\epsilon \mathbb{P}\left(\frac{a}{\sqrt{m}} < N(0,1) < \frac{b}{\sqrt{m}}\right) \\
 	&=\epsilon\int_{\frac{a}{\sqrt{m}}}^{\frac{b}{\sqrt{m}}}\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}\,dx \\
@@ -746,6 +752,8 @@ $$<p>which is equivalent to</p>
 $$
 \int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta<\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta.
 $$<p>This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the smallest Bayes risk by definition.</p>
+  </div>
+</details>
 <p>Admissibility of $\overline{X}$ in higher dimensions is much more difficult. Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\hat{\theta},\theta)=\Vert\hat{\theta}-\theta\Vert^{2}$. For $p=2$, admissibility of $\overline{X}$ was proved by Stein. The proof involves constructing much more complex priors. Surprisingly, $\overline{X}$ is no longer admissible if $p \geq 3$. Brown proved in 1971 that this phenomenon (aptly named Stein&rsquo;s paradox) is linked to the transience of the symmetric random walk in $p \geq 3$.</p>
 
         </div>
