@@ -226,13 +226,13 @@ $$
 \lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty}
 $$
 
-with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ it suffices to bound the maximum absolute value of the random variables
+with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ It suffices to bound the maximum absolute value of the random variables
 
 $$
-Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}, \quad j\in S^{c}.
+Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}
 $$
 
-Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have 
+over $j \in S^c.$ Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have 
 
 $$
 \Vert\Pi_{S^{\perp}}X_{j}\Vert_{2}\leq\Vert X_{j}\Vert_{2}\leq C\sqrt{n}.
@@ -256,7 +256,7 @@ $$
 \Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{\infty}\leq\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert _{\infty}+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
 $$
 
-We will focus on bounding the first quantity on the right. For each $i=1,\ldots,k,$ let $\widetilde{Z} _ {i}:=e _ {i}^{T}\left(\frac{1}{n}X _ {S}^{T}X _ {S}\right)^{-1}X _ {S}^{T}\frac{\epsilon}{n}.$ Since the components $\epsilon$ are i.i.d. \sigma^{2}-sub-Gaussian, the variable $\widetilde{Z}_{i}$ is sub-Gaussian with variance proxy
+We will focus on bounding the first quantity on the right. For each $i=1,\ldots,k,$ let $\widetilde{Z} _ {i}:=e _ {i}^{T}\left(\frac{1}{n}X _ {S}^{T}X _ {S}\right)^{-1}X _ {S}^{T}\frac{\epsilon}{n}.$ Since the components $\epsilon$ are i.i.d. $\sigma^{2}$-sub-Gaussian, the variable $\widetilde{Z}_{i}$ is sub-Gaussian with variance proxy
 
 $$
 \begin{aligned}

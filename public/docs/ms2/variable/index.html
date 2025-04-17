@@ -47,7 +47,7 @@ $$ \sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}. $$ Mutual in
 $$ \max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha. $$ To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="1352">
+  <meta itemprop="wordCount" content="1353">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Variable Selection with the Lasso">
   <meta name="twitter:description" content="Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$
@@ -899,10 +899,10 @@ $$
 <p>By the theorem, we only need to show that the chosen $\lambda_{n}$ satisfies the bound</p>
 $$
 \lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty}
-$$<p>with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ it suffices to bound the maximum absolute value of the random variables</p>
+$$<p>with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ It suffices to bound the maximum absolute value of the random variables</p>
 $$
-Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}, \quad j\in S^{c}.
-$$<p>Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have</p>
+Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}
+$$<p>over $j \in S^c.$ Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have</p>
 $$
 \Vert\Pi_{S^{\perp}}X_{j}\Vert_{2}\leq\Vert X_{j}\Vert_{2}\leq C\sqrt{n}.
 $$<p>Therefore, each variable $Z_{j}$ is $C^{2}\sigma^{2}/n$-sub-Gaussian, giving</p>
@@ -914,7 +914,7 @@ $$
 $$<p>It remains to show the $\ell_{\infty}$-bound. By the theorem, we have</p>
 $$
 \Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{\infty}\leq\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert _{\infty}+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
-$$<p>We will focus on bounding the first quantity on the right. For each $i=1,\ldots,k,$ let $\widetilde{Z} _ {i}:=e _ {i}^{T}\left(\frac{1}{n}X _ {S}^{T}X _ {S}\right)^{-1}X _ {S}^{T}\frac{\epsilon}{n}.$ Since the components $\epsilon$ are i.i.d. \sigma^{2}-sub-Gaussian, the variable $\widetilde{Z}_{i}$ is sub-Gaussian with variance proxy</p>
+$$<p>We will focus on bounding the first quantity on the right. For each $i=1,\ldots,k,$ let $\widetilde{Z} _ {i}:=e _ {i}^{T}\left(\frac{1}{n}X _ {S}^{T}X _ {S}\right)^{-1}X _ {S}^{T}\frac{\epsilon}{n}.$ Since the components $\epsilon$ are i.i.d. $\sigma^{2}$-sub-Gaussian, the variable $\widetilde{Z}_{i}$ is sub-Gaussian with variance proxy</p>
 $$
 \begin{aligned}
 \frac{\sigma^{2}}{n^{2}}\left\Vert e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}\right\Vert _{2}^{2}	&=\frac{\sigma^{2}}{n^{2}}e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}X_{S}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i} \\
