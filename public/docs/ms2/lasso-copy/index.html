@@ -10,19 +10,36 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Mathematical Statistics 2 – Statistics Notes</title>
-  <meta name="description" content="" /><link rel="canonical" href="http://localhost:1313/docs/ms2/" itemprop="url" />
+<title>Relaxed basis pursuit and the Lasso – Statistics Notes</title>
+  <meta name="description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+$$ Y=X\theta^{\ast}&#43;\epsilon $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
+$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either" /><link rel="canonical" href="http://localhost:1313/docs/ms2/lasso-copy/" itemprop="url" />
 
-<meta property="og:title" content="Mathematical Statistics 2" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/docs/ms2/" />
+<meta property="og:title" content="Relaxed basis pursuit and the Lasso" />
+<meta property="og:description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+$$
+Y=X\theta^{\ast}&#43;\epsilon
+$$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
+$$
+\frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
+$$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/ms2/lasso-copy/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
+<meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
-  <meta itemprop="name" content="Mathematical Statistics 2">
+  <meta itemprop="name" content="Relaxed basis pursuit and the Lasso">
+  <meta itemprop="description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+$$ Y=X\theta^{\ast}&#43;\epsilon $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
+$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
+  <meta itemprop="wordCount" content="2107">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mathematical Statistics 2">
+  <meta name="twitter:title" content="Relaxed basis pursuit and the Lasso">
+  <meta name="twitter:description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+$$ Y=X\theta^{\ast}&#43;\epsilon $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
+$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -264,13 +281,12 @@
       </div>
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/"
     
   >Mathematical Statistics 2
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a>
-  
               <div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -328,20 +344,41 @@
   >Estimation in the Noiseless Linear Model
     </a>
               
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms2/lasso-copy/"
+    
+  >Relaxed basis pursuit and the Lasso
+    </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#the-restricted-eigenvalue-condition"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >The restricted eigenvalue condition</a>
+            </li>
+          <li>
+              <a
+                href="#the-regularized-form-of-the-lasso"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >The regularized form of the Lasso</a>
+            </li>
+          <li>
+              <a
+                href="#bounds-on-prediction-error-for-the-lasso"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Bounds on prediction error for the Lasso</a>
+            </li>
+          </ul>
+  
+              
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/lasso/"
     
   >Relaxed basis pursuit and the Lasso
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms2/variable/"
-    
-  >Variable Selection with the Lasso
     </a>
               
             </li></ul>
@@ -505,7 +542,7 @@
       </div></li>
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/"
     
   >Mathematical Statistics 2
@@ -567,10 +604,10 @@
   >Estimation in the Noiseless Linear Model
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms2/lasso/"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/docs/ms2/lasso-copy/"
     
   >Relaxed basis pursuit and the Lasso
     </a>
@@ -578,9 +615,9 @@
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/docs/ms2/variable/"
+    href="/docs/ms2/lasso/"
     
-  >Variable Selection with the Lasso
+  >Relaxed basis pursuit and the Lasso
     </a>
               
             </li></ul>
@@ -620,8 +657,20 @@
 </div></div></aside>
     
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4">
-      <div class=" hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#the-restricted-eigenvalue-condition">The restricted eigenvalue condition
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#the-regularized-form-of-the-lasso">The regularized form of the Lasso
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#bounds-on-prediction-error-for-the-lasso">Bounds on prediction error for the Lasso
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
@@ -639,15 +688,364 @@
   <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/docs/">Notes</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Mathematical Statistics 2</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/ms2/">Mathematical Statistics 2</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Relaxed basis pursuit and the Lasso</div>
   </div>
 
         <div class="content">
-          <h1>Mathematical Statistics 2</h1>
-          
+          <h1>Relaxed basis pursuit and the Lasso</h1>
+          <p>We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that</p>
+$$
+Y=X\theta^{\ast}+\epsilon
+$$<p>where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing</p>
+$$
+\frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1},
+$$<p>where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either</p>
+$$
+\min_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq R\right\} \quad\text{for some }R>0,
+$$<p>or</p>
+$$
+\min_{\theta\in\mathbb{R}^{d}}\left\{ \Vert\theta\Vert_{1}:\frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}\leq b^{2}\right\} \quad\text{for some }b>0.
+$$<p>These are called the relaxed basis pursuit programs. By Lagrangian duality theory, all three families of convex programs are equivalent.</p>
+<h2>The restricted eigenvalue condition<span class="hx-absolute -hx-mt-20" id="the-restricted-eigenvalue-condition"></span>
+    <a href="#the-restricted-eigenvalue-condition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Definition</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>For $\alpha\geq1$ and $S\subset[d],$ define $\mathbb{C} _ {\alpha}(S):= \{\Delta\in\mathbb{R}^{d}:\Vert\Delta_{S^{c}}\Vert_{1}\leq\alpha\Vert\Delta_{S}\Vert_{1}\}.$ We say that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted eigenvalue condition over $S\subset[d]$ with parameters $(\alpha,\mu)$ if</p>
+$$
+\frac{1}{n}\Vert X\Delta\Vert_{2}^{2}\geq\mu\Vert\Delta\Vert_{2}^{2}\quad\text{for all }\Delta\in\mathbb{C}_{\alpha}(S).
+$$
+  </div>
+</details>
+<p>From where does the restricted eigenvalue condition arise? Suppose that we know $\Vert\theta^{\ast}\Vert_{1}=b$ and that</p>
+$$
+\widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq b\right\} .
+$$<p>Define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ Let us try to bound the quantity $\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}=\Vert\Delta\Vert_{2}.$ Let $S=\operatorname{supp}(\theta^{\ast}).$ Then $\Delta\in\mathbb{C}(S)$ since</p>
+$$
+\begin{aligned}
+\Vert\theta_{S}^{\ast}\Vert_{1}=b &\geq \Vert\widehat{\theta}\Vert_{1} \\
+	&=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
+	&=\Vert\theta_{S}^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
+	&\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}
+\end{aligned}
+$$<p>which implies $\Vert\Delta_{S}\Vert_{1}\geq\Vert\Delta_{S^{c}}\Vert_{1}.$ Also, from</p>
+$$
+\frac{1}{2}\Vert X\Delta-\epsilon\Vert_{2}^{2}=\frac{1}{2}\Vert X\widehat{\theta}-Y\Vert_{2}^{2}\leq\frac{1}{2}\Vert X\theta^{\ast}-Y\Vert_{2}^{2}=\frac{1}{2}\Vert\epsilon\Vert_{2}^{2},
+$$<p>expanding yields the inequality</p>
+$$
+\Vert X\Delta\Vert_{2}^{2}\leq2\Delta^{T}X^{T}\epsilon.
+$$<p>If $X$ satisfies the restricted eigenvalue condition over $S\subset[d]$ with parameters $(1,\mu),$ it follows that</p>
+$$
+\begin{aligned}
+n\mu\Vert\Delta\Vert_{2}^{2} &\leq 2\Delta^{T}X^{T}\epsilon \\
+	&\leq2\Vert\Delta\Vert_{1}\Vert X^{T}\epsilon\Vert_{\infty} \\
+	&\leq4\Vert\Delta_{S}\Vert_{1}\Vert X^{T}\epsilon\Vert_{\infty} \\
+	&\leq4\sqrt{k}\Vert\Delta_{S}\Vert_{2}\Vert X^{T}\epsilon\Vert_{\infty},
+\end{aligned}
+$$<p>where $k=|S|.$ This implies that</p>
+$$
+\Vert\Delta\Vert_{2}\leq\frac{4\sqrt{k}\Vert X^{T}\epsilon\Vert_{\infty}}{n\mu}.
+$$<p>Let us assume that the columns of $X$ are normalized so that $\max_{j=1,\ldots,d}\frac{\Vert X_{j}\Vert_{2}}{\sqrt{n}}\leq C.$ Then</p>
+$$
+\left\Vert \frac{X^{T}\epsilon}{n}\right\Vert _{\infty}=\max_{j=1,\ldots,d}\left|\frac{X_{j}^{T}\epsilon}{n}\right|
+$$<p>where $X_{j}^{T}\epsilon/n$ is a sub-Gaussian random variable with variance proxy $\sigma_{j}^{2}=\frac{1}{n^{2}}\sum_{i=1}^{n}X_{ij}^{2}\sigma^{2}\leq C^{2}\sigma^{2}/n.$ Therefore,</p>
+$$
+\mathbb{P}\left[\frac{\left\Vert X^{T}\epsilon\right\Vert _{\infty}}{n}>t\right]\leq2de^{-\frac{nt^{2}}{2C^{2}\sigma^{2}}}.
+$$<p>This yields</p>
+$$
+\mathbb{P}\left[\frac{\left\Vert X^{T}\epsilon\right\Vert _{\infty}}{n}>C\sigma\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right)\right]\leq2e^{-\frac{n\delta^{2}}{2}},
+$$<p>leading to the following result.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Theorem</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Let $b=\Vert\theta^{\ast}\Vert_{1}$ and suppose that $X\in\mathbb{R}^{n\times d}$ satisfies the $\operatorname{RE}(1,\mu)$ condition over $S=\operatorname{supp}(\theta^{\ast}).$ If the columns of $X$ are normalized so that</p>
+$$
+\max_{j=1,\ldots,d}\frac{\Vert X_{j}\Vert_{2}}{\sqrt{n}}\leq C,
+$$<p>then with probability at least $1-2e^{-\frac{n\delta^{2}}{2}}$ it holds that</p>
+$$
+\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}\leq\frac{4C\sigma}{\mu}\left(\sqrt{\frac{2k\log(d)}{n}}+\sqrt{k}\delta\right).
+$$
+  </div>
+</details>
+<h2>The regularized form of the Lasso<span class="hx-absolute -hx-mt-20" id="the-regularized-form-of-the-lasso"></span>
+    <a href="#the-regularized-form-of-the-lasso" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We now consider the Lasso program</p>
+$$
+\widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1}\right\} .
+$$<p>The challenge now is that we can no longer guarantee that $\widehat{\theta}-\theta^{\ast}$ belongs to the cone $\mathbb{C}(S).$ However, we have the following result instead.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Lemma</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    Assume that $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}.$ Then $\Delta=\widehat{\theta}-\theta^{\ast}$ satisfies $\Delta\in\mathbb{C}_{3}(S)$ where $S=\operatorname{supp}(\theta^{\ast}).$
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>By definition of $\widehat{\theta},$ we have</p>
+$$
+\frac{1}{2n}\Vert Y-X\widehat{\theta}\Vert_{2}^{2}+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}\leq\frac{1}{2n}\Vert Y-X\theta^{\ast}\Vert_{2}^{2}+\lambda_{n}\Vert\theta^{\ast}\Vert_{1}.
+$$<p>This gives</p>
+$$
+\frac{1}{2n}\Vert X\Delta-\epsilon\Vert_{2}^{2}+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}\leq\frac{1}{2n}\Vert\epsilon\Vert_{2}^{2}+\lambda_{n}\Vert\theta^{\ast}\Vert_{1},
+$$<p>and expanding gives</p>
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}).
+$$<p>Also, we have</p>
+$$
+\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}	=\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\theta_{S}^{\ast}+\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}
+	\leq\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1},
+$$<p>so</p>
+$$
+\begin{aligned}
+0\leq\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq \frac{1}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq\frac{\lambda_{n}}{2}(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1})+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
+\end{aligned}
+$$<p>Rearranging gives $\Vert\Delta_{S^{c}}\Vert_{1}\leq3\Vert\Delta_{S}\Vert_{1}.$</p>
+  </div>
+</details>
+<p>From the proof of the lemma, we have the inequalities</p>
+$$
+\begin{aligned}
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
+	&\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
+\end{aligned}
+$$<p>We call these the new basic inequalities. Using this lemma, we can prove the following.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Theorem</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ condition over $S=\operatorname{supp}(\theta^{\ast}).$ If $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n},$ then</p>
+$$
+\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2\mu}
+$$<p>where $k=|S|.$</p>
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We have</p>
+$$
+\begin{aligned}
+\mu\Vert\Delta\Vert_{2}^{2}\leq\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq\frac{1}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq\frac{\lambda_{n}}{2}(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1})+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq\frac{3\lambda_{n}}{2}\Vert\Delta_{S}\Vert_{1} \\
+	&\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta_{S}\Vert_{2} \\
+	&\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta\Vert_{2}.
+\end{aligned}
+$$<p>This yields $\Vert\Delta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2\mu}$ as desired.</p>
+  </div>
+</details>
+<p>We obtain the following as a corollary.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Corollary</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Assume that the columns of $X/\sqrt{n}$ are unit vectors. Let $\gamma\geq0$ and let</p>
+$$
+\lambda_{n}=2\sqrt{\frac{2(1+\gamma)\sigma^{2}\log(2d)}{n}}.
+$$<p>Then with probability at least $1-\frac{1}{(2d)^{\gamma}},$</p>
+$$
+\Vert\widehat{\theta}-\theta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2}=\frac{6\sqrt{2(1+\gamma)}}{\mu}\sqrt{\frac{\sigma^{2}k\log(2d)}{n}}.
+$$
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Note that $\frac{2}{n}X_{j}^{T}\epsilon$  is sub-Gaussian with variance proxy $\sigma_{j}^{2}=\frac{4}{n^{2}}\sum_{i=1}^{n}X_{ij}^{2}\sigma^{2}=\sigma^{2}/n,$ so</p>
+$$
+\mathbb{P}\left[\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}>t\right]\leq2d\exp\left(-\frac{nt^{2}}{2\sigma^{2}}\right).
+$$<p>Solving $2d\exp\left(-\frac{nt^{2}}{2\sigma^{2}}\right)=\frac{1}{(2d)^{\gamma}}$ gives</p>
+$$
+t=2\sqrt{\frac{2(1+\gamma)\sigma^{2}\log(2d)}{n}}.
+$$<p>Therefore, by choosing $\lambda_{n}$ to be this value, the condition $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}$ holds with probability at least $1-\frac{1}{(2d)^{\gamma}}.$</p>
+  </div>
+</details>
+<h2>Bounds on prediction error for the Lasso<span class="hx-absolute -hx-mt-20" id="bounds-on-prediction-error-for-the-lasso"></span>
+    <a href="#bounds-on-prediction-error-for-the-lasso" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Apart from the error in the parameter, sometimes we may also be interested in the prediction error</p>
+$$
+\frac{1}{n}\mathbb{E}[\Vert Y-X\widehat{\theta}\Vert_{2}^{2}]=\frac{1}{n}\mathbb{E}[\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}]+\sigma^{2}.
+$$<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Theorem</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Consider the regularized Lasso with $\lambda_{n}\geq2\Vert\frac{X^{T}\epsilon}{n}\Vert_{\infty}.$</p>
+<ol>
+<li>
+<p>Any optimal solution $\widehat{\theta}$ satisfies</p>
+$$
+\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq12\Vert\theta^{\ast}\Vert_{1}\lambda_{n}.
+$$</li>
+<li>
+<p>If the design matrix $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}),$ then</p>
+</li>
+</ol>
+$$
+\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq\frac{9k\lambda_{n}^{2}}{\mu}
+$$<p>where $k=|S|.$</p>
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Let $\widehat{\theta}$ be a solution to the Lasso program with $\lambda_{n}\geq2\Vert\frac{X^{T}\epsilon}{n}\Vert_{\infty}.$ Let $\Delta=\widehat{\theta}-\theta^{\ast}.$ We have</p>
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}	\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}),
+$$<p>where</p>
+$$
+\begin{aligned}
+\left|\frac{\langle X^{T}\epsilon,\Delta\rangle}{n}\right| &\leq \left\Vert \frac{X^{T}\epsilon}{n}\right\Vert _{\infty}\Vert\Delta\Vert_{1} \\
+	&\leq\frac{\lambda_{n}}{2}\left(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}\right) \\
+	&=\frac{\lambda_{n}}{2}\left(\Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{1}+\Vert\widehat{\theta}_{S^{c}}\Vert_{1}\right) \\
+	&\leq\frac{\lambda_{n}}{2}\left(\Vert\widehat{\theta}_{S}\Vert_{1}+\Vert\theta_{S}^{\ast}\Vert_{1}+\Vert\widehat{\theta}_{S^{c}} \\\Vert_{1}\right)\\
+	&=\frac{\lambda_{n}}{2}\left(\Vert\theta^{\ast}\Vert_{1}+\Vert\widehat{\theta}\Vert_{1}\right).
+\end{aligned}
+$$<p>This gives</p>
+$$
+0\leq\frac{\lambda_{n}}{2}\left(\Vert\theta^{\ast}\Vert_{1}+\Vert\widehat{\theta}\Vert_{1}\right)+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1})\implies\Vert\widehat{\theta}\Vert_{1}\leq3\Vert\theta^{\ast}\Vert_{1}
+$$<p>and hence</p>
+$$
+\Vert\Delta\Vert_{1}\leq\Vert\widehat{\theta}\Vert_{1}+\Vert\theta^{\ast}\Vert_{1}\leq4\Vert\theta^{\ast}\Vert_{1}.
+$$<p>Using this, we obtain</p>
+$$
+\begin{aligned}
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq \frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
+	&\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\theta^{\ast}+\Delta\Vert_{1}) \\
+	&\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}\Vert\Delta\Vert_{1} \\
+	&\leq\frac{12\lambda_{n}}{2}\Vert\theta^{\ast}\Vert_{1}
+\end{aligned}
+$$<p>which proves the first part of the theorem. For the second part of the theorem, assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}).$ From the proof of the previous theorem, we have</p>
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta\Vert_{2}.
+$$<p>We also have from a previous lemma that $\Delta\in\mathbb{C}_{3}(S),$ and since the $\operatorname{RE}(3,\mu)$ condition holds for $X$ we have</p>
+$$
+\Vert\Delta\Vert_{2}^{2}\leq\frac{1}{\mu n}\Vert X\Delta\Vert_{2}^{2}.
+$$<p>Thus,</p>
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2}\frac{1}{\sqrt{\mu n}}\Vert X\Delta\Vert_{2}\implies\frac{1}{\sqrt{n}}\Vert X\Delta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{\sqrt{\mu}}.
+$$<p>Squaring both sides of this inequality gives the desired result.</p>
+  </div>
+</details>
+<p>We make the following observations:</p>
+<ul>
+<li>
+<p>As seen in a previous computation, if the columns of $X$ satisfy $\max_{j=1,\ldots,d}\frac{\Vert X_{j}\Vert_{2}}{\sqrt{n}}\leq C,$ then we have</p>
+$$
+\mathbb{P}\left[\frac{\left\Vert X^{T}\epsilon\right\Vert _{\infty}}{n}\leq C\sigma\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right)\right]\geq1-2e^{-\frac{n\delta^{2}}{2}}.
+$$<p>Therefore, by choosing $\lambda_{n}=2C\sigma\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right),$ the first part of the theorem implies the upper bound</p>
+$$
+\frac{\Vert X(\widehat{\theta}-\theta^{\ast})\Vert_{2}^{2}}{n}\leq24C\sigma\Vert\theta^{\ast}\Vert_{1}\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right)
+$$<p>holds with the same high probability. We make no assumptions on the design matrix: $X$ could have as ill-conditioned as you could imagine, and this would still hold with high probability.</p>
+</li>
+<li>
+<p>If we assume further that $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}),$ then the second part of the theorem implies the bound</p>
+$$
+\frac{\Vert X(\widehat{\theta}-\theta^{\ast})\Vert_{2}^{2}}{n}\leq\frac{72}{\mu}C^{2}\sigma^{2}\left(\frac{2s\log(d)}{n}+s\delta^{2}\right),
+$$<p>which can be a substantially tighter bound.</p>
+</li>
+</ul>
+<p>For these reasons, the bound in the second part of the theorem is known as the fast rate for the Lasso, while the bound in the first part is known as the slow rate.</p>
+<p>2.7 Variable selection with the Lasso</p>
+<p>Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set S=\operatorname{supp}(\theta^{\ast}). We will make the following assumptions:</p>
+<p>• Lower eigenvalue: There exists c_{\min}&gt;0 such that\sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}.</p>
+<p>• Mutual incoherence: There exists \alpha\in[0,1) such that\max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha.</p>
+<p>To see what mutual incoherence means, suppose that we tried to predict the column vector X_{j} using a combination of the columns of X_{S}. The best weight vector \widehat{\omega}\in\mathbb{R}^{|S|} is the minimum 2-norm solution to the problem\min_{\omega}\Vert X_{j}-X_{S}\omega\Vert_{2}^{2},which is given by \widehat{\omega}=X_{S}^{\dagger}X_{j}=(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}.So the mutual incoherence is a bound on the 1-norm \Vert\widehat{\omega}\Vert_{1}. If we want to minimize it, the best case scenario occurs when the column space of X_{S} is orthogonal to X_{j}, in which case the optimal weight vector would be the zero vector. In general, we cannot expect this orthogonality to hold, so the mutual incoherence condition imposes a type of approximate orthogonality between the columns of X_{S} and X_{S^{c}}.</p>
+<p>Theorem 2.19. Consider the linear model Y=X\theta^{\ast}+\epsilon  where X\in\mathbb{R}^{n\times d} is a fixed design matrix and \epsilon\in\mathbb{R}^{n} is any random noise (not necessarily sub-Gaussian). Let S=\operatorname{supp}(\theta^{\ast}) and assume that the design matrix X satisfies the two conditions above. Then for any choice of \lambda_{n} such that\lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert <em>{\infty},where \Pi</em>{S^{\perp}}=I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T} is the orthogonal projection onto \operatorname{col}(X_{S})^{\perp}, the regularized Lasso has the following properties:</p>
+<ol>
+<li>
+<p>Uniqueness: There is a unique optimal solution \widehat{\theta}.</p>
+</li>
+<li>
+<p>No false inclusion: The solution \widehat{\theta} has its support set contained within the true support set S.</p>
+</li>
+<li>
+<p>\ell_{\infty}-bound: The error \widehat{\theta}-\theta^{\ast} satisfies \Vert\widehat{\theta}<em>{S}-\theta</em>{S}^{\ast}\Vert_{\infty}\leq B(\lambda_{n},X), whereB(\lambda_{n},X)=\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert <em>{\infty}+\left\Vert \left(\frac{X</em>{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert <em>{\infty}\lambda</em>{n}where \Vert A\Vert_{\infty}=\max_{i}\sum_{j}|A_{ij}|.</p>
+</li>
+<li>
+<p>No false exclusion: The solution \widehat{\theta} includes all indices i\in S such that \theta_{i}^{\ast}&gt;B(\lambda_{n},X) and hence is variable selection consistent if \min_{i\in S}|\theta_{i}^{\ast}|&gt;B(\lambda_{n},X).</p>
+</li>
+</ol>
+<p>As a reminder on convex optimization, given a convex function f:\mathbb{R}^{d}\to\mathbb{R}, we say that z\in\mathbb{R}^{d} is a subgradient of f at \theta , denoted by z\in\partial f(\theta), if we have</p>
+<p>f(\theta+\Delta)\geq f(\theta)+\langle z,\Delta\rangle\quad\text{for all }\Delta\in\mathbb{R}^{d}.Given the problem\min{f(x):h_{i}(x)\leq0\text{ for }i=1,\ldots,m,,g_{j}(x)=0\text{ for }j=1,\ldots,r},the Karush-Kuhn-Tucker (KKT) conditions are:</p>
+<p>• Stationarity: 0\in\partial f(x)+\sum_{i=1}^{m}u_{i}\partial h_{i}(x)+\sum_{j=1}^{r}v_{j}\partial g_{j}(x)</p>
+<p>• Complementary: u_{i}h_{i}(x)=0 for all i</p>
+<p>• Primal feasibility: h_{i}(x)\leq0 for all i and g_{j}(x)=0 for all j</p>
+<p>• Dual feasibility: u_{i}\geq0 for all i</p>
+<p>The necessary and sufficient conditions for optimality of the Lasso are that it must satisfy the KKT conditions. For f(\theta)=\Vert\theta\Vert_{1}, it can be found that z\in\partial f(\theta) if and only if z_{j}=\operatorname{sign}(\theta_{j}) for all j=1,\ldots,d where we allow \operatorname{sign}(0) to refer to any number in [-1,1]. The KKT conditions give the following characterization of solutions to the Lasso program.</p>
+<p>Lemma 2.20. Let F(\theta)=\frac{1}{2n}\Vert X\theta-Y\Vert_{2}^{2}, so that \nabla F(\theta)=\frac{1}{n}X^{T}(X\widehat{\theta}-Y). The vector \widehat{\theta}\in\mathbb{R}^{d} is a solution of the Lasso program with parameter \lambda_{n} if and only if\begin{cases}
+\nabla_{j}F(\widehat{\theta})=-\lambda_{n}\operatorname{sign}(\widehat{\theta}<em>{j}) &amp; \text{if }\widehat{\theta}</em>{j}\neq0,\
+|\nabla_{j}F(\widehat{\theta})|\leq\lambda_{n} &amp; \text{if }\widehat{\theta}<em>{j}=0.
+\end{cases}Moreover, if |\nabla</em>{j}F(\widehat{\theta})|&lt;\lambda_{n} for some solution \widehat{\theta}, then \widehat{\theta}_{j}=0 for all solutions of this program.</p>
+<p>Let us say that (\widehat{\theta},\widehat{z})\in\mathbb{R}^{d}\times\mathbb{R}^{d} is primal-dual optimal if \widehat{\theta} is a minimizer and \widehat{z}\in\partial\Vert\widehat{\theta}\Vert_{1}. The proof of the theorem will be based on a constructive procedure, known as the primal-dual witness (PDW) method, which constructs a pair (\widehat{\theta},\widehat{z})\in\mathbb{R}^{d}\times\mathbb{R}^{d} satisfying the condition \nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0 and such that \widehat{\theta} has the correct signed support. More precisely, we follow the following procedure:</p>
+<ol>
+<li>
+<p>Set \widehat{\theta}_{S^{c}}=0.</p>
+</li>
+<li>
+<p>Determine (\widehat{\theta}<em>{S},\widehat{z}</em>{S})\in\mathbb{R}^{|S|}\times\mathbb{R}^{|S|} by solving the oracle subproblem\widehat{\theta}<em>{S}\in\argmin</em>{\theta\in\mathbb{R}^{|S|}}\left{ \frac{1}{2n}\Vert Y-X_{S}\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta_{S}\Vert_{1}\right} and then choosing \widehat{z}<em>{S}\in\partial\Vert\widehat{\theta}</em>{S}\Vert_{1} such that \nabla f(\widehat{\theta}<em>{S})+\lambda</em>{n}\widehat{z}<em>{S}=0, where f(\theta)=\frac{1}{2n}\Vert Y-X</em>{S}\theta\Vert_{2}^{2}.</p>
+</li>
+<li>
+<p>Solve for z_{S^{c}}\in\mathbb{R}^{d-|S|} via the condition \nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0 and check if \Vert\widehat{z}<em>{S^{c}}\Vert</em>{\infty}&lt;1 holds.</p>
+</li>
+</ol>
+<p>We say that the PDW construction succeeds if the vector z_{S^{c}} constructed in Step 3 satisfies the condition \Vert\widehat{z}<em>{S^{c}}\Vert</em>{\infty}&lt;1, which would imply |\nabla_{j}F(\widehat{\theta})|&lt;\lambda_{n} for all j\in S^{c} and hence we can use the lemma to conclude there is no false inclusion. Note that we do not have access to the set S, so this is a purely hypothetical construction. This is not a problem as we only need to show that the Lasso program has a unique optimal solution which can be constructed in this way. We will then use this construction to show that the results of the theorem hold for the optimal solution.</p>
+<p>Lemma 2.21. If the lower eigenvalue condition holds, then success of the PDW construction implies that the vector (\widehat{\theta}_{S},0) is the unique optimal solution of the Lasso.</p>
+<p>Proof. If the PDW construction succeeds, then \widehat{\theta}=(\widehat{\theta}<em>{S},0) is an optimal solution with associated subgradient vector \widehat{z}\in\mathbb{R}^{d} satisfying \Vert\widehat{z}</em>{S^{c}}\Vert_{\infty}&lt;1 and \langle\widehat{z},\widehat{\theta}\rangle=\Vert\widehat{\theta}\Vert_{1}. Suppose that \widetilde{\theta} is another optimal solution. Then we must have F(\widehat{\theta})+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}=F(\widetilde{\theta})+\lambda_{n}\Vert\widetilde{\theta}\Vert_{1}, so writing \Vert\widehat{\theta}\Vert_{1}=\langle\widehat{z},\widehat{\theta}\rangle  and subtracting \langle\widehat{z},\widetilde{\theta}\rangle  from both sides, we getF(\widehat{\theta})-\lambda_{n}\langle\widehat{z},\widetilde{\theta}-\widehat{\theta}\rangle=F(\widetilde{\theta})+\lambda_{n}(\Vert\widetilde{\theta}\Vert_{1}-\langle\widehat{z},\widetilde{\theta}\rangle).But we have \lambda_{n}\widehat{z}=-\nabla F(\widehat{\theta}), which implies-F(\widetilde{\theta})+F(\widehat{\theta})+\langle\nabla F(\widehat{\theta}),\widetilde{\theta}-\widehat{\theta}\rangle=\lambda_{n}(\Vert\widetilde{\theta}\Vert_{1}-\langle\widehat{z},\widetilde{\theta}\rangle).By convexity of F, the left-hand side is non-positive, which implies that \Vert\widetilde{\theta}\Vert_{1}\leq\langle\widehat{z},\widetilde{\theta}\rangle . But we also have \langle\widehat{z},\widetilde{\theta}\rangle\leq\Vert\widehat{z}\Vert_{\infty}\Vert\widetilde{\theta}\Vert_{1}, so \Vert\widetilde{\theta}\Vert_{1}=\langle\widehat{z},\widetilde{\theta}\rangle . Since \Vert z_{S^{c}}\Vert_{\infty}&lt;1, this equality can only occur only if \theta_{j}=0 for all j\in S^{c}. Thus, all optimal solutions are supported only on S, and hence can be obtained by solving the oracle subproblem. Given the lower eigenvalue condition, this subproblem is strictly convex, and so has a unique minimizer.</p>
+<p>We now need to show that the vector \widehat{z}<em>{S^{c}} constructed in Step 3 always satisfies the condition \Vert\widehat{z}</em>{S^{c}}\Vert_{\infty}&lt;1. Note that since \widehat{\theta}<em>{S^{c}}=\theta</em>{S^{c}}^{\ast}=0, the condition \nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0, or \frac{1}{n}X^{T}(X\widehat{\theta}-Y)+\lambda_{n}\widehat{z}=0, can be written in block matrix form as\frac{1}{n}\left(\begin{array}{cc}
+X_{S}^{T}X_{S} &amp; X_{S}^{T}X_{S^{c}}\
+X_{S^{c}}^{T}X_{S} &amp; X_{S^{c}}^{T}X_{S^{c}}
+\end{array}\right)\left(\begin{array}{c}
+\widehat{\theta}<em>{S}-\theta</em>{S}^{\ast}\
+0
+\end{array}\right)-\frac{1}{n}\left(\begin{array}{c}
+X_{S}^{T}\epsilon\
+X_{S^{c}}^{T}\epsilon
+\end{array}\right)+\lambda_{n}\left(\begin{array}{c}
+\widehat{z}<em>{S}\
+\widehat{z}</em>{S^{c}}
+\end{array}\right)=\left(\begin{array}{c}
+0\
+0
+\end{array}\right).From the second equation above, we get\widehat{z}<em>{S^{c}}=-\frac{1}{\lambda</em>{n}n}X_{S^{c}}^{T}X_{S}(\widehat{\theta}<em>{S}-\theta</em>{S}^{\ast})+X_{S^{c}}^{T}\left(\frac{\epsilon}{\lambda_{n}n}\right).From the first equation above, we get\widehat{\theta}<em>{S}-\theta</em>{S}^{\ast}=(X_{S}^{T}X_{S})^{-1}X_{S}^{T}\epsilon-\lambda_{n}n(X_{S}^{T}X_{S})^{-1}\widehat{z}<em>{S}.Substituting this into the expression for \widehat{z}</em>{S^{c}} we had just obtained, we get\widehat{z}<em>{S^{c}}=\underbrace{X</em>{S^{c}}^{T}X_{S}(X_{S}^{T}X_{S})^{-1}\widehat{z}<em>{S}}</em>{A_{S}}+\underbrace{X_{S^{c}}^{T}[I-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{\lambda_{n}n}}<em>{B</em>{S^{c}}}.By the triangle inequality, we have \Vert\widehat{z}<em>{S^{c}}\Vert</em>{\infty}\leq\Vert A_{S}\Vert_{\infty}+\Vert B_{S^{c}}\Vert_{\infty}. By the mutual incoherence condition, we have \Vert A_{S}\Vert_{\infty}\leq\alpha . By our choice of regularization parameter, we have \Vert B_{S^{c}}\Vert_{\infty}\leq\frac{1}{2}(1-\alpha). Putting together the pieces, we conclude that \Vert\widehat{z}<em>{S^{c}}\Vert</em>{\infty}\leq\frac{1}{2}(1+\alpha)&lt;1. Finally, we note tha the \ell_{\infty}-bound follows from writing \widehat{\theta}<em>{S}-\theta</em>{S}^{\ast}=\left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}-\lambda_{n}\left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\widehat{z}_{S}and then applying the triangle inequality.</p>
+<p>2.7.1 The case of sub-Gaussian noise</p>
+<p>Let us now consider the special case where the noise is sub-Gaussian.</p>
+<p>Corollary 2.22. Consider the S-sparse linear model based on a noise vector \epsilon  with zero-mean independent and identically distributed \sigma^{2}-sub-Gaussian entries, and a deterministic design matrix X that satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that \max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C and choose\lambda_{n}=\frac{2C\sigma}{1-\alpha}\left(\sqrt{\frac{2\log(d-k)}{n}}+\delta\right)for some \delta&gt;0, where k=|S|. Then with probability at least 1-4e^{-\frac{n\delta^{2}}{2}}, the optimal solution \theta  is unique with its support contained within S and satisfies the \ell_{\infty}-error bound\Vert\widehat{\theta}<em>{S}-\theta</em>{S}^{\ast}\Vert_{\infty}\leq\frac{\sigma}{\sqrt{c_{\min}}}\left(\sqrt{\frac{2\log k}{n}}+\delta\right)+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert <em>{\infty}\lambda</em>{n}.</p>
+<p>Proof. By the theorem, we only need to show that the chosen \lambda_{n} satisfies the bound\lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert <em>{\infty}with probability at least 1-4e^{-\frac{n\delta^{2}}{2}}. it suffices to bound the maximum absolute value of the random variablesZ</em>{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}over j\in S^{c}. Since \Pi_{S^{\perp}} is an orthogonal projection matrix, we have \Vert\Pi_{S^{\perp}}X_{j}\Vert_{2}\leq\Vert X_{j}\Vert_{2}\leq C\sqrt{n} Therefore, each variable Z_{j} is C^{2}\sigma^{2}/n-sub-Gaussian, giving\mathbb{P}\left[\max_{j\in S^{c}}|Z_{j}|\geq t\right]\leq2(d-k)e^{-\frac{nt^{2}}{2C^{2}\sigma^{2}}}.Plugging in our choice of \lambda_{n}, we have\mathbb{P}\left[\max_{j\in S^{c}}|Z_{j}|\geq\frac{(1-\alpha)\lambda_{n}}{2}\right]\leq4e^{-\frac{n\delta^{2}}{2}}.It remains to show the \ell_{\infty}-bound. By the theorem, we have\Vert\widehat{\theta}<em>{S}-\theta</em>{S}^{\ast}\Vert_{\infty}\leq\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert <em>{\infty}+\left\Vert \left(\frac{X</em>{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert <em>{\infty}\lambda</em>{n}.We will focus on bounding the first quantity on the right. For each i=1,\ldots,k, let \widetilde{Z}<em>{i}:=e</em>{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}. Since the elements of the vector \epsilon  are i.i.d. \sigma^{2}-sub-Gaussian, the variable \widetilde{Z}<em>{i} is sub-Gaussian with variance proxy\frac{\sigma^{2}}{n^{2}}\left\Vert e</em>{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}\right\Vert <em>{2}^{2}	=\frac{\sigma^{2}}{n^{2}}e</em>{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}X_{S}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i}
+=\frac{\sigma^{2}}{n}e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i}
+\leq\frac{\sigma^{2}}{n}\left\Vert \left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}\right\Vert <em>{2}
+\leq\frac{\sigma^{2}}{nc</em>{\min}}.Consequently, for any \delta&gt;0, we have \mathbb{P}\left[\max_{i=1,\ldots,s}|\widetilde{Z}<em>{i}|&gt;\frac{\sigma}{\sqrt{c</em>{\min}}}\left(\sqrt{\frac{2\log k}{n}}+\delta\right)\right]\leq2e^{-\frac{n\delta^{2}}{2}}from which the claim follows.</p>
+
         </div>
         <div class="hx-mt-16"></div>
-        
+        <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
+        href="/docs/ms2/noiseless/"
+        title="Estimation in the Noiseless Linear Model"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Estimation in the Noiseless Linear Model</a><a
+        href="/docs/ms2/lasso/"
+        title="Relaxed basis pursuit and the Lasso"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
+      >Relaxed basis pursuit and the Lasso<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
@@ -666,6 +1064,30 @@
     <script defer src="/js/main.js" integrity=""></script>
 <script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
     <script defer src="/en.search.js" integrity=""></script>
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.7e5db7914b97e596a36c1abb67ccc7f174f8bb71d38c9a88c55b262ed1737f97.css" integrity="sha256-fl23kUuX5ZajbBq7Z8zH8XT4u3HTjJqIxVsmLtFzf5c=" />
+<script defer src="/lib/katex/katex.min.9f45307c5794ed247a0d095f3a62e52ef2215a67b2327203a7fd919959ae79d1.js" integrity="sha256-n0UwfFeU7SR6DQlfOmLlLvIhWmeyMnIDp/2RmVmuedE="></script>
+<script defer src="/lib/katex/auto-render.min.7b57d427ac6270677daf8d8380ded2cc73336f9149a167b8e1fe0d6ef66604ae.js" integrity="sha256-e1fUJ6xicGd9r42DgN7SzHMzb5FJoWe44f4NbvZmBK4="></script>
+<script defer src="/lib/katex/mhchem.min.f0ca03df194b8c3d6017ff455db6a0ef98857905663fa311a6cded788b15340b.js" integrity="sha256-8MoD3xlLjD1gF/9FXbag75iFeQVmP6MRps3teIsVNAs="></script>
+<script>
+  
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+        {left: "\\begin{align}", right: "\\end{align}", display: true},
+        {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+        {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+        {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        { left: "\\[", right: "\\]", display: true },
+      ],
+      throwOnError: false,
+    });
+  });
+</script>
 
   </body>
 </html>

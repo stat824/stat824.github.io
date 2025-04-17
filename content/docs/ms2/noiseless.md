@@ -21,7 +21,9 @@ Does the solution to the basis pursuit program recover the sparsest solution $\t
 
 ## The restricted subspace property
 
-For a set $S\subset [d],$ the critical cone is the subset of $\mathbb{R}^{d}$ given by
+{{% details title="Definition" %}}
+
+For a subset $S\subset [d],$ define the critical cone
 
 $$
 \mathbb{C}(S):=\left\{ \Delta\in\mathbb{R}^{d}:\Vert\Delta_{S^{c}}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1}\right\} .
@@ -32,9 +34,10 @@ A matrix $X$ is said to satisfy the restricted nullspace property with respect t
 $$
 \operatorname{null}(X)\cap\mathbb{C}(S)=\{0\}.
 $$
+{{% /details %}}
 
 
-Another way to state the nullspace property is that every non-zero vector $\Delta\in\operatorname{null}(X)$ satisfies $\Vert\Delta_{S^{c}}\Vert_{1}>\Vert\Delta_{S}\Vert_{1}.$ Intuitively, if $S$ is the support of $\theta^{\ast}$ and $X$ satisfies the restricted nullspace property with respect to $S,$ moving from $\theta^{\ast}$ along $\operatorname{null}(X)$ increases the $\ell^{1}$ norm. Thus, the solution to the basis pursuit program will be exactly $\theta^{\ast}.$
+Another way to state the restricted nullspace property is that every non-zero vector $\Delta\in\operatorname{null}(X)$ satisfies $\Vert\Delta_{S^{c}}\Vert_{1}>\Vert\Delta_{S}\Vert_{1}.$ Intuitively, if $S$ is the support of $\theta^{\ast}$ and $X$ satisfies the restricted nullspace property with respect to $S,$ moving from $\theta^{\ast}$ along $\operatorname{null}(X)$ increases the $\ell^{1}$ norm. Thus, the solution to the basis pursuit program will be exactly $\theta^{\ast}.$
 
 {{% details title="Theorem" %}}
 Let $S \subset [d]$ and $X\in\mathbb{R}^{n\times d}.$ The following are equivalent:
@@ -44,6 +47,7 @@ Let $S \subset [d]$ and $X\in\mathbb{R}^{n\times d}.$ The following are equivale
 2. For any $Y\in\mathbb{R}^{n},$ any $\theta^{\ast}\in\mathbb{R}^{d}$ with $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}$ is the unique solution to the basis pursuit program $\min\left\\{ \Vert\theta\Vert_{1}:Y=X\theta\right\\} .$ 
 {{% /details %}}
 
+{{% details title="Proof" closed="true" %}}
 
 **Proof of (1) $\Rightarrow$ (2):** Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\\{ \Vert\theta\Vert_{1}:Y=X\theta\right\\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that
 
@@ -103,6 +107,7 @@ $$
 $$
 
 This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$
+{{% /details %}}
 
 ## The pairwise incoherence parameter
 

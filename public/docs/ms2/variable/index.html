@@ -10,19 +10,51 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>Mathematical Statistics 2 – Statistics Notes</title>
-  <meta name="description" content="" /><link rel="canonical" href="http://localhost:1313/docs/ms2/" itemprop="url" />
+<title>Variable Selection with the Lasso – Statistics Notes</title>
+  <meta name="description" content="Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$
+Statements of assumptions and main result We will make the following assumptions:
+Lower eigenvalue: There exists $c_{\min}&gt;0$ such that
+$$ \sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}. $$ Mutual incoherence: There exists $\alpha\in[0,1)$ such that
+$$ \max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha. $$ To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem" /><link rel="canonical" href="http://localhost:1313/docs/ms2/variable/" itemprop="url" />
 
-<meta property="og:title" content="Mathematical Statistics 2" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/docs/ms2/" />
+<meta property="og:title" content="Variable Selection with the Lasso" />
+<meta property="og:description" content="Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$
+Statements of assumptions and main result
+    We will make the following assumptions:
 
-  <meta itemprop="name" content="Mathematical Statistics 2">
+
+Lower eigenvalue: There exists $c_{\min}&gt;0$ such that
+$$
+\sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}.
+$$
+
+Mutual incoherence: There exists $\alpha\in[0,1)$ such that
+$$
+\max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha.
+$$
+
+To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/ms2/variable/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
+<meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
+
+  <meta itemprop="name" content="Variable Selection with the Lasso">
+  <meta itemprop="description" content="Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$
+Statements of assumptions and main result We will make the following assumptions:
+Lower eigenvalue: There exists $c_{\min}&gt;0$ such that
+$$ \sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}. $$ Mutual incoherence: There exists $\alpha\in[0,1)$ such that
+$$ \max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha. $$ To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
+  <meta itemprop="wordCount" content="1352">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mathematical Statistics 2">
+  <meta name="twitter:title" content="Variable Selection with the Lasso">
+  <meta name="twitter:description" content="Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$
+Statements of assumptions and main result We will make the following assumptions:
+Lower eigenvalue: There exists $c_{\min}&gt;0$ such that
+$$ \sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}. $$ Mutual incoherence: There exists $\alpha\in[0,1)$ such that
+$$ \max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha. $$ To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -264,13 +296,12 @@
       </div>
             </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/"
     
   >Mathematical Statistics 2
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a>
-  
               <div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -336,13 +367,40 @@
   >Relaxed basis pursuit and the Lasso
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/docs/ms2/variable/"
     
   >Variable Selection with the Lasso
     </a>
+  
+    <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
+              <a
+                href="#statements-of-assumptions-and-main-result"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Statements of assumptions and main result</a>
+            </li>
+          <li>
+              <a
+                href="#kkt-conditions-for-the-lasso"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >KKT conditions for the Lasso</a>
+            </li>
+          <li>
+              <a
+                href="#the-primal-dual-witness-construction"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >The primal-dual witness construction</a>
+            </li>
+          <li>
+              <a
+                href="#the-case-of-sub-gaussian-noise"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >The case of sub-Gaussian noise</a>
+            </li>
+          </ul>
+  
               
             </li></ul>
       </div>
@@ -505,7 +563,7 @@
       </div></li>
           <li class="open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/"
     
   >Mathematical Statistics 2
@@ -575,9 +633,9 @@
   >Relaxed basis pursuit and the Lasso
     </a>
               
-            </li><li class="hx-flex hx-flex-col "><a
+            </li><li class="hx-flex hx-flex-col open"><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/docs/ms2/variable/"
     
   >Variable Selection with the Lasso
@@ -620,8 +678,24 @@
 </div></div></aside>
     
 <nav class="hextra-toc hx-order-last hx-hidden hx-w-64 hx-shrink-0 xl:hx-block print:hx-hidden hx-px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4">
-      <div class=" hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
+    <div class="hextra-scrollbar hx-sticky hx-top-16 hx-overflow-y-auto hx-pr-4 hx-pt-6 hx-text-sm [hyphens:auto] hx-max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:hx--mr-4 rtl:hx--ml-4"><p class="hx-mb-4 hx-font-semibold hx-tracking-tight">On this page</p><ul>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#statements-of-assumptions-and-main-result">Statements of assumptions and main result
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#kkt-conditions-for-the-lasso">KKT conditions for the Lasso
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#the-primal-dual-witness-construction">The primal-dual witness construction
+        </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#the-case-of-sub-gaussian-noise">The case of sub-Gaussian noise
+        </a>
+      </li></ul>
+      <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hx-inline ltr:hx-ml-1 rtl:hx-mr-1 hx-h-3.5 hx-w-3.5 hx-border hx-rounded-full hx-border-gray-500 hover:hx-border-gray-900 dark:hx-border-gray-400 dark:hover:hx-border-gray-100 contrast-more:hx-border-gray-800 contrast-more:dark:hx-border-gray-50">
@@ -639,15 +713,227 @@
   <div class="hx-mt-1.5 hx-flex hx-items-center hx-gap-1 hx-overflow-hidden hx-text-sm hx-text-gray-500 dark:hx-text-gray-400 contrast-more:hx-text-current">
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/docs/">Notes</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Mathematical Statistics 2</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
+          <a href="/docs/ms2/">Mathematical Statistics 2</a>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Variable Selection with the Lasso</div>
   </div>
 
         <div class="content">
-          <h1>Mathematical Statistics 2</h1>
-          
+          <h1>Variable Selection with the Lasso</h1>
+          <p>Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$</p>
+<h2>Statements of assumptions and main result<span class="hx-absolute -hx-mt-20" id="statements-of-assumptions-and-main-result"></span>
+    <a href="#statements-of-assumptions-and-main-result" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We will make the following assumptions:</p>
+<ul>
+<li>
+<p><strong>Lower eigenvalue:</strong> There exists $c_{\min}&gt;0$ such that</p>
+$$
+\sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}.
+$$</li>
+<li>
+<p><strong>Mutual incoherence:</strong> There exists $\alpha\in[0,1)$ such that</p>
+$$
+\max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha.
+$$</li>
+</ul>
+<p>To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem</p>
+$$
+\min_{\omega}\Vert X_{j}-X_{S}\omega\Vert_{2}^{2},
+$$<p>which is given by $\widehat{\omega}=X_{S}^{\dagger}X_{j}=(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}.$ So the mutual incoherence is a bound on the 1-norm $\Vert\widehat{\omega}\Vert_{1}.$ If we want to minimize it, the best case scenario occurs when the column space of $X_{S}$ is orthogonal to $X_{j},$ in which case the optimal weight vector would be the zero vector. In general, we cannot expect this orthogonality to hold, so the mutual incoherence condition imposes a type of approximate orthogonality between the columns of $X_{S}$ and $X_{S^{c}}.$</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Theorem</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Consider the linear model</p>
+$$
+Y=X\theta^{\ast}+\epsilon
+$$<p>where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix and $\epsilon\in\mathbb{R}^{n}$ is any random noise (not necessarily sub-Gaussian). Let $S=\operatorname{supp}(\theta^{\ast})$ and assume that the design matrix $X$ satisfies the lower eigenvalue and the mutual incoherence conditions above. Then for any choice of $\lambda_{n}$ such that</p>
+$$
+\lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty},
+$$<p>where $\Pi_{S^{\perp}}=I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}$ is the orthogonal projection onto $\operatorname{col}(X_{S})^{\perp},$ the regularized Lasso has the following properties:</p>
+<ol>
+<li>
+<p><strong>Uniqueness:</strong> There is a unique optimal solution $\widehat{\theta}.$</p>
+</li>
+<li>
+<p><strong>No false inclusion:</strong> The solution $\widehat{\theta}$ has its support set contained within the true support set $S.$</p>
+</li>
+<li>
+<p><strong>$\ell_{\infty}$-bound:</strong> The error $\widehat{\theta}-\theta^{\ast}$ satisfies $\Vert\widehat{\theta} _ {S}-\theta _ {S}^{\ast}\Vert_{\infty}\leq B(\lambda_{n},X),$ where</p>
+$$
+B(\lambda_{n},X)=\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert _{\infty}+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
+$$</li>
+<li>
+<p><strong>No false exclusion:</strong> The solution $\widehat{\theta}$ includes all indices $i\in S$ such that $\theta_{i}^{\ast}&gt;B(\lambda_{n},X)$ and hence is variable selection consistent if $\min_{i\in S}|\theta_{i}^{\ast}|&gt;B(\lambda_{n},X).$</p>
+</li>
+</ol>
+  </div>
+</details>
+<h2>KKT conditions for the Lasso<span class="hx-absolute -hx-mt-20" id="kkt-conditions-for-the-lasso"></span>
+    <a href="#kkt-conditions-for-the-lasso" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>As a reminder on convex optimization, given a convex function $f:\mathbb{R}^{d}\to\mathbb{R},$ we say that $z\in\mathbb{R}^{d}$ is a subgradient of $f$ at $\theta ,$ denoted by $z\in\partial f(\theta),$ if we have</p>
+$$
+f(\theta+\Delta)\geq f(\theta)+\langle z,\Delta\rangle\quad\text{for all }\Delta\in\mathbb{R}^{d}.
+$$<p>Given the constrained optimization problem</p>
+$$
+\min\{f(x):h_{i}(x)\leq0\text{ for }i=1,\ldots,m,\,g_{j}(x)=0\text{ for }j=1,\ldots,r\},
+$$<p>the Karush-Kuhn-Tucker (KKT) conditions are:</p>
+<ul>
+<li>
+<p>Stationarity: $0\in\partial f(x)+\sum_{i=1}^{m}u_{i}\partial h_{i}(x)+\sum_{j=1}^{r}v_{j}\partial g_{j}(x)$</p>
+</li>
+<li>
+<p>Complementary: $u_{i}h_{i}(x)=0$ for all $i$</p>
+</li>
+<li>
+<p>Primal feasibility: $h_{i}(x)\leq0$ for all $i$ and $g_{j}(x)=0$ for all $j$</p>
+</li>
+<li>
+<p>Dual feasibility: $u_{i}\geq0$ for all $i$</p>
+</li>
+</ul>
+<p>The necessary and sufficient conditions for optimality of the Lasso are that it must satisfy the KKT conditions. For $f(\theta)=\Vert\theta\Vert_{1},$ it can be found that $z\in\partial f(\theta)$ if and only if $z_{j}=\operatorname{sign}(\theta_{j})$ for all $j=1,\ldots,d$ where we define $\operatorname{sign}(0)$ to refer to any number in $[-1,1].$ The KKT conditions give the following characterization of solutions to the Lasso program.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Lemma</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Let $F(\theta)=\frac{1}{2n}\Vert X\theta-Y\Vert_{2}^{2},$ so that $\nabla F(\theta)=\frac{1}{n}X^{T}(X\widehat{\theta}-Y).$ The vector $\widehat{\theta}\in\mathbb{R}^{d}$ is a solution of the Lasso program with parameter $\lambda_{n}$ if and only if</p>
+$$
+\begin{cases}
+\nabla_{j}F(\widehat{\theta})=-\lambda_{n}\operatorname{sign}(\widehat{\theta}_{j}) & \text{if }\widehat{\theta}_{j}\neq0,\\
+|\nabla_{j}F(\widehat{\theta})|\leq\lambda_{n} & \text{if }\widehat{\theta}_{j}=0.
+\end{cases}
+$$<p>Moreover, if $|\nabla_{j}F(\widehat{\theta})|&lt;\lambda_{n}$ for some solution $\widehat{\theta},$ then $\widehat{\theta}_{j}=0$ for all solutions of this program.</p>
+  </div>
+</details>
+<h2>The primal-dual witness construction<span class="hx-absolute -hx-mt-20" id="the-primal-dual-witness-construction"></span>
+    <a href="#the-primal-dual-witness-construction" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>For the Lasso, let us say that $(\widehat{\theta},\widehat{z})\in\mathbb{R}^{d}\times\mathbb{R}^{d}$ is primal-dual optimal if $\widehat{\theta}$ is a minimizer and $\widehat{z}\in\partial\Vert\widehat{\theta}\Vert_{1}.$ The proof of the theorem will be based on a constructive procedure, known as the primal-dual witness (PDW) method, which constructs such a pair. It involves the following procedure:</p>
+<ol>
+<li>
+<p>Set $\widehat{\theta}_{S^{c}}=0.$</p>
+</li>
+<li>
+<p>Determine $(\widehat{\theta} _ {S},\widehat{z} _ {S})\in\mathbb{R}^{|S|}\times\mathbb{R}^{|S|}$ by solving the oracle subproblem</p>
+$$
+\widehat{\theta}_{S}\in\argmin_{\theta\in\mathbb{R}^{|S|}}\left\{ \frac{1}{2n}\Vert Y-X_{S}\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta_{S}\Vert_{1}\right\}
+$$<p>and then choosing $\widehat{z} _ {S}\in\partial\Vert\widehat{\theta} _ {S}\Vert _ {1}$ such that $\nabla f(\widehat{\theta} _ {S}) + \lambda_{n}\widehat{z} _ {S}=0,$ where $f(\theta)=\frac{1}{2n}\Vert Y-X_{S}\theta\Vert_{2}^{2}.$</p>
+</li>
+<li>
+<p>Solve for $z_{S^{c}}\in\mathbb{R}^{d-|S|}$ via the condition $\nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0$ and check if $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&lt;1$ holds.</p>
+</li>
+</ol>
+<p>We say that the PDW construction succeeds if the vector $z_{S^{c}}$ constructed in Step 3 satisfies the condition $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&lt;1,$ which would imply $|\nabla_{j}F(\widehat{\theta})|&lt;\lambda_{n}$ for all $j\in S^{c}$ and hence we can use the lemma to conclude there is no false inclusion. Note that we do not actually have access to the set $S,$ so this is a purely hypothetical construction. But this is not a problem as we only need to show that the Lasso program has a unique optimal solution which can be constructed in this way. We will then use this construction to show that the results of the theorem hold for the optimal solution.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Lemma</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    If the lower eigenvalue condition holds, then success of the PDW construction implies that the vector $(\widehat{\theta}_{S},0)$ is the unique optimal solution of the Lasso.
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>If the PDW construction succeeds, then $\widehat{\theta}=(\widehat{\theta} _ {S},0)$ is an optimal solution with associated subgradient vector $\widehat{z}\in\mathbb{R}^{d}$ satisfying $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&lt;1$ and $\langle\widehat{z},\widehat{\theta}\rangle=\Vert\widehat{\theta}\Vert _ {1}.$ Suppose that $\widetilde{\theta}$ is another optimal solution. Then we must have $F(\widehat{\theta})+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}=F(\widetilde{\theta})+\lambda_{n}\Vert\widetilde{\theta}\Vert_{1},$ so writing $\Vert\widehat{\theta}\Vert_{1}=\langle\widehat{z},\widehat{\theta}\rangle$  and subtracting $\langle\widehat{z},\widetilde{\theta}\rangle$ from both sides, we get</p>
+$$
+F(\widehat{\theta})-\lambda_{n}\langle\widehat{z},\widetilde{\theta}-\widehat{\theta}\rangle=F(\widetilde{\theta})+\lambda_{n}(\Vert\widetilde{\theta}\Vert_{1}-\langle\widehat{z},\widetilde{\theta}\rangle).
+$$<p>But we have $\lambda_{n}\widehat{z}=-\nabla F(\widehat{\theta}),$ which implies</p>
+$$
+-F(\widetilde{\theta})+F(\widehat{\theta})+\langle\nabla F(\widehat{\theta}),\widetilde{\theta}-\widehat{\theta}\rangle=\lambda_{n}(\Vert\widetilde{\theta}\Vert_{1}-\langle\widehat{z},\widetilde{\theta}\rangle).
+$$<p>By the convexity of $F,$ the left-hand side is non-positive, which implies that $\Vert\widetilde{\theta}\Vert_{1}\leq\langle\widehat{z},\widetilde{\theta}\rangle .$ But we also have $\langle\widehat{z},\widetilde{\theta}\rangle\leq\Vert\widehat{z}\Vert_{\infty}\Vert\widetilde{\theta}\Vert _ {1},$ so we must have $\Vert\widetilde{\theta}\Vert_{1}=\langle\widehat{z},\widetilde{\theta}\rangle .$ Since $\Vert z _ {S^{c}}\Vert _ {\infty}&lt;1,$ this equality can only occur only if $\widetilde{\theta}_{j}=0$ for all $j\in S^{c}.$ Thus, all optimal solutions are supported only on $S,$ and hence can be obtained by solving the oracle subproblem. Given the lower eigenvalue condition, this subproblem is strictly convex, and so has a unique minimizer.</p>
+  </div>
+</details>
+<p>We now need to show that the vector $\widehat{z} _ {S^{c}}$ constructed in Step 3 always satisfies the condition $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&lt;1.$ Note that since $\widehat{\theta} _ {S^{c}}=\theta _ {S^{c}}^{\ast}=0,$ the condition $\nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0,$ or $\frac{1}{n}X^{T}(X\widehat{\theta}-Y)+\lambda_{n}\widehat{z}=0,$ can be written in block matrix form as</p>
+$$
+\frac{1}{n}\left(\begin{array}{cc}
+X_{S}^{T}X_{S} & X_{S}^{T}X_{S^{c}}\\
+X_{S^{c}}^{T}X_{S} & X_{S^{c}}^{T}X_{S^{c}}
+\end{array}\right)\left(\begin{array}{c}
+\widehat{\theta}_{S}-\theta_{S}^{\ast}\\
+0
+\end{array}\right)-\frac{1}{n}\left(\begin{array}{c}
+X_{S}^{T}\epsilon\\
+X_{S^{c}}^{T}\epsilon
+\end{array}\right)+\lambda_{n}\left(\begin{array}{c}
+\widehat{z}_{S}\\
+\widehat{z}_{S^{c}}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0
+\end{array}\right).
+$$<p>From the second equation above, we get</p>
+$$
+\widehat{z}_{S^{c}}=-\frac{1}{\lambda_{n}n}X_{S^{c}}^{T}X_{S}(\widehat{\theta}_{S}-\theta_{S}^{\ast})+X_{S^{c}}^{T}\left(\frac{\epsilon}{\lambda_{n}n}\right).
+$$<p>Similarly, from the first equation, we get</p>
+$$
+\widehat{\theta}_{S}-\theta_{S}^{\ast}=(X_{S}^{T}X_{S})^{-1}X_{S}^{T}\epsilon-\lambda_{n}n(X_{S}^{T}X_{S})^{-1}\widehat{z}_{S}.
+$$<p>Substituting this into the expression for $\widehat{z} _ {S^{c}}$ we had just obtained, we get</p>
+$$
+\widehat{z}_{S^{c}}=\underbrace{X_{S^{c}}^{T}X_{S}(X_{S}^{T}X_{S})^{-1}\widehat{z}_{S}}_{A_{S}}+\underbrace{X_{S^{c}}^{T}[I-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{\lambda_{n}n}}_{B_{S^{c}}}.
+$$<p>By the triangle inequality, we have $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}\leq\Vert A _ {S}\Vert _ {\infty}+\Vert B _ {S^{c}}\Vert _ {\infty}.$ By mutual incoherence, we have $\Vert A _ {S}\Vert _ {\infty}\leq\alpha .$ By our choice of regularization parameter, we have $\Vert B_{S^{c}}\Vert_{\infty}\leq\frac{1}{2}(1-\alpha).$ Putting together the pieces, we conclude that $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}\leq\frac{1}{2}(1+\alpha)&lt;1.$ Finally, we note that the $\ell_{\infty}$-bound follows from writing</p>
+$$
+\widehat{\theta}_{S}-\theta_{S}^{\ast}=\left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}-\lambda_{n}\left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\widehat{z}_{S}
+$$<p>and then applying the triangle inequality.</p>
+<h2>The case of sub-Gaussian noise<span class="hx-absolute -hx-mt-20" id="the-case-of-sub-gaussian-noise"></span>
+    <a href="#the-case-of-sub-gaussian-noise" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Let us now consider the special case where the noise is sub-Gaussian, where we can say something more concrete.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Corollary</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Consider the linear model</p>
+$$
+Y=X\theta^{\ast}+\epsilon
+$$<p>where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix, $\theta^\ast$ is $S$-sparse, and the components of the noise vector $\epsilon\in\mathbb{R}^{n}$ are zero-mean independent and identically distributed $\sigma^{2}$-sub-Gaussian variables. Assume that $X$ that satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that $\max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C$ and choose</p>
+$$
+\lambda_{n}=\frac{2C\sigma}{1-\alpha}\left(\sqrt{\frac{2\log(d-k)}{n}}+\delta\right)
+$$<p>for some $\delta&gt;0,$ where $k=|S|.$ Then with probability at least $1-4e^{-\frac{n\delta^{2}}{2}},$ the optimal solution $\widehat{\theta}$ to the Lasso program is unique with its support contained within $S$ and satisfies the $\ell_{\infty}$-error bound</p>
+$$
+\Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{\infty}\leq\frac{\sigma}{\sqrt{c_{\min}}}\left(\sqrt{\frac{2\log k}{n}}+\delta\right)+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
+$$
+  </div>
+</details>
+<p>By the theorem, we only need to show that the chosen $\lambda_{n}$ satisfies the bound</p>
+$$
+\lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty}
+$$<p>with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ it suffices to bound the maximum absolute value of the random variables</p>
+$$
+Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}, \quad j\in S^{c}.
+$$<p>Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have</p>
+$$
+\Vert\Pi_{S^{\perp}}X_{j}\Vert_{2}\leq\Vert X_{j}\Vert_{2}\leq C\sqrt{n}.
+$$<p>Therefore, each variable $Z_{j}$ is $C^{2}\sigma^{2}/n$-sub-Gaussian, giving</p>
+$$
+\mathbb{P}\left[\max_{j\in S^{c}}|Z_{j}|\geq t\right]\leq2(d-k)e^{-\frac{nt^{2}}{2C^{2}\sigma^{2}}}.
+$$<p>Plugging in our choice of $\lambda_{n},$ it can be checked that</p>
+$$
+\mathbb{P}\left[\max_{j\in S^{c}}|Z_{j}|\geq\frac{(1-\alpha)\lambda_{n}}{2}\right]\leq4e^{-\frac{n\delta^{2}}{2}}.
+$$<p>It remains to show the $\ell_{\infty}$-bound. By the theorem, we have</p>
+$$
+\Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{\infty}\leq\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert _{\infty}+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
+$$<p>We will focus on bounding the first quantity on the right. For each $i=1,\ldots,k,$ let $\widetilde{Z} _ {i}:=e _ {i}^{T}\left(\frac{1}{n}X _ {S}^{T}X _ {S}\right)^{-1}X _ {S}^{T}\frac{\epsilon}{n}.$ Since the components $\epsilon$ are i.i.d. \sigma^{2}-sub-Gaussian, the variable $\widetilde{Z}_{i}$ is sub-Gaussian with variance proxy</p>
+$$
+\begin{aligned}
+\frac{\sigma^{2}}{n^{2}}\left\Vert e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}\right\Vert _{2}^{2}	&=\frac{\sigma^{2}}{n^{2}}e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}X_{S}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i} \\
+	&=\frac{\sigma^{2}}{n}e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i} \\
+	&\leq\frac{\sigma^{2}}{n}\left\Vert \left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}\right\Vert _{2} \\
+	&\leq\frac{\sigma^{2}}{nc_{\min}}.
+\end{aligned}
+$$<p>Consequently, for any $\delta&gt;0,$ we have</p>
+$$
+\mathbb{P}\left[\max_{i=1,\ldots,s}|\widetilde{Z}_{i}|>\frac{\sigma}{\sqrt{c_{\min}}}\left(\sqrt{\frac{2\log k}{n}}+\delta\right)\right]\leq2e^{-\frac{n\delta^{2}}{2}}
+$$<p>from which the claim follows.</p>
+
         </div>
         <div class="hx-mt-16"></div>
-        
+        <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a
+        href="/docs/ms2/lasso/"
+        title="Relaxed basis pursuit and the Lasso"
+        class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
+      ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Relaxed basis pursuit and the Lasso</a></div>
         
       </main>
     </article>
@@ -666,6 +952,30 @@
     <script defer src="/js/main.js" integrity=""></script>
 <script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
     <script defer src="/en.search.js" integrity=""></script>
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.7e5db7914b97e596a36c1abb67ccc7f174f8bb71d38c9a88c55b262ed1737f97.css" integrity="sha256-fl23kUuX5ZajbBq7Z8zH8XT4u3HTjJqIxVsmLtFzf5c=" />
+<script defer src="/lib/katex/katex.min.9f45307c5794ed247a0d095f3a62e52ef2215a67b2327203a7fd919959ae79d1.js" integrity="sha256-n0UwfFeU7SR6DQlfOmLlLvIhWmeyMnIDp/2RmVmuedE="></script>
+<script defer src="/lib/katex/auto-render.min.7b57d427ac6270677daf8d8380ded2cc73336f9149a167b8e1fe0d6ef66604ae.js" integrity="sha256-e1fUJ6xicGd9r42DgN7SzHMzb5FJoWe44f4NbvZmBK4="></script>
+<script defer src="/lib/katex/mhchem.min.f0ca03df194b8c3d6017ff455db6a0ef98857905663fa311a6cded788b15340b.js" integrity="sha256-8MoD3xlLjD1gF/9FXbag75iFeQVmP6MRps3teIsVNAs="></script>
+<script>
+  
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+        {left: "\\begin{align}", right: "\\end{align}", display: true},
+        {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+        {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+        {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        { left: "\\[", right: "\\]", display: true },
+      ],
+      throwOnError: false,
+    });
+  });
+</script>
 
   </body>
 </html>

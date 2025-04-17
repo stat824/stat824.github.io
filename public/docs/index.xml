@@ -1301,7 +1301,7 @@ $$
     &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
   &lt;/summary&gt;
   &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
-    Proof. Suppose that $\mathcal{M}$ is a $\delta$-packing of $T$ such that $|\mathcal{M}|=\mathcal{M}(\delta;T,d).$ We claim that $\mathcal{M}$ is a $\delta$-net of T. Indeed, if we suppose that there exists $z\in T$ such that $d(z,\mathcal{M})&amp;gt;\delta,$ then we can add $z$ to $\mathcal{M}$ to obtain a larger $\delta$-packing, which contradicts the assumption that $|\mathcal{M}|=\mathcal{M}(\delta;T,d).$ So we have $\mathcal{N}(\delta;T,d)\leq\mathcal{M}(\delta;T,d).$ Next, suppose that $\mathcal{N}={x_{1},\ldots,x_{N}}$ is a $\delta$-net of $T$ and $\mathcal{M}={y_{1},\ldots,y_{M}}$ is a $2\delta$-packing of $T.$ Then $T\subset\bigcup_{i=1}^{N}B(x_{i},\delta).$ Since each ball $B(x_{i},\delta)$ can contain at most one point from $\mathcal{M},$ it follows that $|\mathcal{M}|\leq|\mathcal{N}|.$ This gives $\mathcal{M}(2\delta;T,d)\leq\mathcal{N}(\delta;T,d).$
+    Suppose that $\mathcal{M}$ is a $\delta$-packing of $T$ such that $|\mathcal{M}|=\mathcal{M}(\delta;T,d).$ We claim that $\mathcal{M}$ is a $\delta$-net of T. Indeed, if we suppose that there exists $z\in T$ such that $d(z,\mathcal{M})&amp;gt;\delta,$ then we can add $z$ to $\mathcal{M}$ to obtain a larger $\delta$-packing, which contradicts the assumption that $|\mathcal{M}|=\mathcal{M}(\delta;T,d).$ So we have $\mathcal{N}(\delta;T,d)\leq\mathcal{M}(\delta;T,d).$ Next, suppose that $\mathcal{N}={x_{1},\ldots,x_{N}}$ is a $\delta$-net of $T$ and $\mathcal{M}={y_{1},\ldots,y_{M}}$ is a $2\delta$-packing of $T.$ Then $T\subset\bigcup_{i=1}^{N}B(x_{i},\delta).$ Since each ball $B(x_{i},\delta)$ can contain at most one point from $\mathcal{M},$ it follows that $|\mathcal{M}|\leq|\mathcal{N}|.$ This gives $\mathcal{M}(2\delta;T,d)\leq\mathcal{N}(\delta;T,d).$
   &lt;/div&gt;
 &lt;/details&gt;
 &lt;p&gt;Clearly, every compact subset of $\mathbb{R}^{d}$ admits a finite $\epsilon$-net. The following lemma gives an upper bound on the covering number of $\mathcal{B}_{2}.$&lt;/p&gt;
@@ -2000,13 +2000,21 @@ $$
 \min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\} .
 $$&lt;p&gt;Does the solution to the basis pursuit program recover the sparsest solution $\theta^{\ast}$? The answer depends on the null space of $X$ since the output to the basis pursuit linear program will find the minimizer of the $\ell^{1}$ norm in the affine subspace $\theta^{\ast}+\operatorname{null}(X).$&lt;/p&gt;
 &lt;h2&gt;The restricted subspace property&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-restricted-subspace-property&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#the-restricted-subspace-property&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For a set $S\subset [d],$ the critical cone is the subset of $\mathbb{R}^{d}$ given by&lt;/p&gt;
+    &lt;a href=&#34;#the-restricted-subspace-property&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Definition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For a subset $S\subset [d],$ define the critical cone&lt;/p&gt;
 $$
 \mathbb{C}(S):=\left\{ \Delta\in\mathbb{R}^{d}:\Vert\Delta_{S^{c}}\Vert_{1}\leq\Vert\Delta_{S}\Vert_{1}\right\} .
 $$&lt;p&gt;A matrix $X$ is said to satisfy the restricted nullspace property with respect to $S$ if&lt;/p&gt;
 $$
 \operatorname{null}(X)\cap\mathbb{C}(S)=\{0\}.
-$$&lt;p&gt;Another way to state the nullspace property is that every non-zero vector $\Delta\in\operatorname{null}(X)$ satisfies $\Vert\Delta_{S^{c}}\Vert_{1}&amp;gt;\Vert\Delta_{S}\Vert_{1}.$ Intuitively, if $S$ is the support of $\theta^{\ast}$ and $X$ satisfies the restricted nullspace property with respect to $S,$ moving from $\theta^{\ast}$ along $\operatorname{null}(X)$ increases the $\ell^{1}$ norm. Thus, the solution to the basis pursuit program will be exactly $\theta^{\ast}.$&lt;/p&gt;
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;Another way to state the restricted nullspace property is that every non-zero vector $\Delta\in\operatorname{null}(X)$ satisfies $\Vert\Delta_{S^{c}}\Vert_{1}&amp;gt;\Vert\Delta_{S}\Vert_{1}.$ Intuitively, if $S$ is the support of $\theta^{\ast}$ and $X$ satisfies the restricted nullspace property with respect to $S,$ moving from $\theta^{\ast}$ along $\operatorname{null}(X)$ increases the $\ell^{1}$ norm. Thus, the solution to the basis pursuit program will be exactly $\theta^{\ast}.$&lt;/p&gt;
 &lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
   &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
     &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
@@ -2023,7 +2031,12 @@ $$&lt;p&gt;Another way to state the nullspace property is that every non-zero ve
 &lt;/ol&gt;
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;&lt;strong&gt;Proof of (1) $\Rightarrow$ (2):&lt;/strong&gt; Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;&lt;strong&gt;Proof of (1) $\Rightarrow$ (2):&lt;/strong&gt; Assume that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted nullspace property with respect to $S\subset[d].$ Let $Y\in\mathbb{R}^{n}.$ Let $\widehat{\theta}$ be a solution to the basis pursuit linear program $\min\left\{ \Vert\theta\Vert_{1}:Y=X\theta\right\}$ and let $\theta^{\ast}$ satisfy $\operatorname{supp}(\theta^{\ast})=S$ and $Y=X\theta^{\ast}.$ Now define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ We will show that $\Delta\in\operatorname{null}(X)\cap\mathbb{C}(S)$ and hence $\Delta=0$ by our assumption. First note that&lt;/p&gt;
 $$
 \begin{aligned}
 \Vert\theta_{S}^{\ast}\Vert_{1}	&amp;= \Vert\theta^{\ast}\Vert_{1} \\
@@ -2064,6 +2077,8 @@ $$&lt;p&gt;also satisfies $X\widetilde{\beta}=Y.$ Since $\widehat{\beta}$ is the
 $$
 \Vert \widehat{\beta} \Vert_1 \leq \Vert \widetilde{\beta} \Vert_1 \implies \Vert\theta_{S}^{\ast}\Vert_{1}&lt;\Vert\theta_{S^{c}}^{\ast}\Vert_{1}.
 $$&lt;p&gt;This implies that $\theta^{\ast}\not\in\mathbb{C}(S).$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;h2&gt;The pairwise incoherence parameter&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-pairwise-incoherence-parameter&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#the-pairwise-incoherence-parameter&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;By the above theorem, if we can show that $X$ satisfies the restricted nullspace property with respect to the support of the sparsest solution $\theta^{\ast}$ to $Y=X\theta ,$ then solving the basis pursuit linear program recovers $\theta^{\ast}.$ One way to show that the restricted nullspace property holds is by bounding the pairwise incoherence parameter of the design matrix, given by&lt;/p&gt;
 $$
@@ -2451,6 +2466,288 @@ $$
     </item>
     
     <item>
+      <title>Relaxed basis pursuit and the Lasso</title>
+      <link>http://localhost:1313/docs/ms2/lasso/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/lasso/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that&lt;/p&gt;
+$$
+Y=X\theta^{\ast}+\epsilon
+$$&lt;p&gt;where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1},
+$$&lt;p&gt;where $\lambda_{n}&amp;gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either&lt;/p&gt;
+$$
+\min_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq R\right\} \quad\text{for some }R&gt;0,
+$$&lt;p&gt;or&lt;/p&gt;
+$$
+\min_{\theta\in\mathbb{R}^{d}}\left\{ \Vert\theta\Vert_{1}:\frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}\leq b^{2}\right\} \quad\text{for some }b&gt;0.
+$$&lt;p&gt;These are called the relaxed basis pursuit programs. By Lagrangian duality theory, all three families of convex programs are equivalent.&lt;/p&gt;
+&lt;h2&gt;The restricted eigenvalue condition&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-restricted-eigenvalue-condition&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-restricted-eigenvalue-condition&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Definition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;For $\alpha\geq1$ and $S\subset[d],$ define $\mathbb{C} _ {\alpha}(S):= \{\Delta\in\mathbb{R}^{d}:\Vert\Delta_{S^{c}}\Vert_{1}\leq\alpha\Vert\Delta_{S}\Vert_{1}\}.$ We say that $X\in\mathbb{R}^{n\times d}$ satisfies the restricted eigenvalue condition over $S\subset[d]$ with parameters $(\alpha,\mu)$ if&lt;/p&gt;
+$$
+\frac{1}{n}\Vert X\Delta\Vert_{2}^{2}\geq\mu\Vert\Delta\Vert_{2}^{2}\quad\text{for all }\Delta\in\mathbb{C}_{\alpha}(S).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;From where does the restricted eigenvalue condition arise? Suppose that we know $\Vert\theta^{\ast}\Vert_{1}=b$ and that&lt;/p&gt;
+$$
+\widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq b\right\} .
+$$&lt;p&gt;Define $\Delta$ so that $\widehat{\theta}=\theta^{\ast}+\Delta .$ Let us try to bound the quantity $\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}=\Vert\Delta\Vert_{2}.$ Let $S=\operatorname{supp}(\theta^{\ast}).$ Then $\Delta\in\mathbb{C}(S)$ since&lt;/p&gt;
+$$
+\begin{aligned}
+\Vert\theta_{S}^{\ast}\Vert_{1}=b &amp;\geq \Vert\widehat{\theta}\Vert_{1} \\
+	&amp;=\Vert\theta^{\ast}+\Delta\Vert_{1} \\
+	&amp;=\Vert\theta_{S}^{\ast}+\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1} \\
+	&amp;\geq\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}
+\end{aligned}
+$$&lt;p&gt;which implies $\Vert\Delta_{S}\Vert_{1}\geq\Vert\Delta_{S^{c}}\Vert_{1}.$ Also, from&lt;/p&gt;
+$$
+\frac{1}{2}\Vert X\Delta-\epsilon\Vert_{2}^{2}=\frac{1}{2}\Vert X\widehat{\theta}-Y\Vert_{2}^{2}\leq\frac{1}{2}\Vert X\theta^{\ast}-Y\Vert_{2}^{2}=\frac{1}{2}\Vert\epsilon\Vert_{2}^{2},
+$$&lt;p&gt;expanding yields the inequality&lt;/p&gt;
+$$
+\Vert X\Delta\Vert_{2}^{2}\leq2\Delta^{T}X^{T}\epsilon.
+$$&lt;p&gt;If $X$ satisfies the restricted eigenvalue condition over $S\subset[d]$ with parameters $(1,\mu),$ it follows that&lt;/p&gt;
+$$
+\begin{aligned}
+n\mu\Vert\Delta\Vert_{2}^{2} &amp;\leq 2\Delta^{T}X^{T}\epsilon \\
+	&amp;\leq2\Vert\Delta\Vert_{1}\Vert X^{T}\epsilon\Vert_{\infty} \\
+	&amp;\leq4\Vert\Delta_{S}\Vert_{1}\Vert X^{T}\epsilon\Vert_{\infty} \\
+	&amp;\leq4\sqrt{k}\Vert\Delta_{S}\Vert_{2}\Vert X^{T}\epsilon\Vert_{\infty},
+\end{aligned}
+$$&lt;p&gt;where $k=|S|.$ This implies that&lt;/p&gt;
+$$
+\Vert\Delta\Vert_{2}\leq\frac{4\sqrt{k}\Vert X^{T}\epsilon\Vert_{\infty}}{n\mu}.
+$$&lt;p&gt;Let us assume that the columns of $X$ are normalized so that $\max_{j=1,\ldots,d}\frac{\Vert X_{j}\Vert_{2}}{\sqrt{n}}\leq C.$ Then&lt;/p&gt;
+$$
+\left\Vert \frac{X^{T}\epsilon}{n}\right\Vert _{\infty}=\max_{j=1,\ldots,d}\left|\frac{X_{j}^{T}\epsilon}{n}\right|
+$$&lt;p&gt;where $X_{j}^{T}\epsilon/n$ is a sub-Gaussian random variable with variance proxy $\sigma_{j}^{2}=\frac{1}{n^{2}}\sum_{i=1}^{n}X_{ij}^{2}\sigma^{2}\leq C^{2}\sigma^{2}/n.$ Therefore,&lt;/p&gt;
+$$
+\mathbb{P}\left[\frac{\left\Vert X^{T}\epsilon\right\Vert _{\infty}}{n}&gt;t\right]\leq2de^{-\frac{nt^{2}}{2C^{2}\sigma^{2}}}.
+$$&lt;p&gt;This yields&lt;/p&gt;
+$$
+\mathbb{P}\left[\frac{\left\Vert X^{T}\epsilon\right\Vert _{\infty}}{n}&gt;C\sigma\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right)\right]\leq2e^{-\frac{n\delta^{2}}{2}},
+$$&lt;p&gt;leading to the following result.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $b=\Vert\theta^{\ast}\Vert_{1}$ and suppose that $X\in\mathbb{R}^{n\times d}$ satisfies the $\operatorname{RE}(1,\mu)$ condition over $S=\operatorname{supp}(\theta^{\ast}).$ If the columns of $X$ are normalized so that&lt;/p&gt;
+$$
+\max_{j=1,\ldots,d}\frac{\Vert X_{j}\Vert_{2}}{\sqrt{n}}\leq C,
+$$&lt;p&gt;then with probability at least $1-2e^{-\frac{n\delta^{2}}{2}}$ it holds that&lt;/p&gt;
+$$
+\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}\leq\frac{4C\sigma}{\mu}\left(\sqrt{\frac{2k\log(d)}{n}}+\sqrt{k}\delta\right).
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;The regularized form of the Lasso&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-regularized-form-of-the-lasso&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-regularized-form-of-the-lasso&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We now consider the Lasso program&lt;/p&gt;
+$$
+\widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1}\right\} .
+$$&lt;p&gt;The challenge now is that we can no longer guarantee that $\widehat{\theta}-\theta^{\ast}$ belongs to the cone $\mathbb{C}(S).$ However, we have the following result instead.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    Assume that $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}.$ Then $\Delta=\widehat{\theta}-\theta^{\ast}$ satisfies $\Delta\in\mathbb{C}_{3}(S)$ where $S=\operatorname{supp}(\theta^{\ast}).$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;By definition of $\widehat{\theta},$ we have&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert Y-X\widehat{\theta}\Vert_{2}^{2}+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}\leq\frac{1}{2n}\Vert Y-X\theta^{\ast}\Vert_{2}^{2}+\lambda_{n}\Vert\theta^{\ast}\Vert_{1}.
+$$&lt;p&gt;This gives&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert X\Delta-\epsilon\Vert_{2}^{2}+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}\leq\frac{1}{2n}\Vert\epsilon\Vert_{2}^{2}+\lambda_{n}\Vert\theta^{\ast}\Vert_{1},
+$$&lt;p&gt;and expanding gives&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}).
+$$&lt;p&gt;Also, we have&lt;/p&gt;
+$$
+\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}	=\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\theta_{S}^{\ast}+\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}
+	\leq\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1},
+$$&lt;p&gt;so&lt;/p&gt;
+$$
+\begin{aligned}
+0\leq\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &amp;\leq \frac{1}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&amp;\leq\frac{\lambda_{n}}{2}(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1})+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
+\end{aligned}
+$$&lt;p&gt;Rearranging gives $\Vert\Delta_{S^{c}}\Vert_{1}\leq3\Vert\Delta_{S}\Vert_{1}.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;From the proof of the lemma, we have the inequalities&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &amp;\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
+	&amp;\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
+\end{aligned}
+$$&lt;p&gt;We call these the new basic inequalities. Using this lemma, we can prove the following.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ condition over $S=\operatorname{supp}(\theta^{\ast}).$ If $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n},$ then&lt;/p&gt;
+$$
+\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2\mu}
+$$&lt;p&gt;where $k=|S|.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have&lt;/p&gt;
+$$
+\begin{aligned}
+\mu\Vert\Delta\Vert_{2}^{2}\leq\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &amp;\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&amp;\leq\frac{1}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&amp;\leq\frac{\lambda_{n}}{2}(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1})+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&amp;\leq\frac{3\lambda_{n}}{2}\Vert\Delta_{S}\Vert_{1} \\
+	&amp;\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta_{S}\Vert_{2} \\
+	&amp;\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta\Vert_{2}.
+\end{aligned}
+$$&lt;p&gt;This yields $\Vert\Delta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2\mu}$ as desired.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;We obtain the following as a corollary.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Corollary&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Assume that the columns of $X/\sqrt{n}$ are unit vectors. Let $\gamma\geq0$ and let&lt;/p&gt;
+$$
+\lambda_{n}=2\sqrt{\frac{2(1+\gamma)\sigma^{2}\log(2d)}{n}}.
+$$&lt;p&gt;Then with probability at least $1-\frac{1}{(2d)^{\gamma}},$&lt;/p&gt;
+$$
+\Vert\widehat{\theta}-\theta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2}=\frac{6\sqrt{2(1+\gamma)}}{\mu}\sqrt{\frac{\sigma^{2}k\log(2d)}{n}}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Note that $\frac{2}{n}X_{j}^{T}\epsilon$  is sub-Gaussian with variance proxy $\sigma_{j}^{2}=\frac{4}{n^{2}}\sum_{i=1}^{n}X_{ij}^{2}\sigma^{2}=\sigma^{2}/n,$ so&lt;/p&gt;
+$$
+\mathbb{P}\left[\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}&gt;t\right]\leq2d\exp\left(-\frac{nt^{2}}{2\sigma^{2}}\right).
+$$&lt;p&gt;Solving $2d\exp\left(-\frac{nt^{2}}{2\sigma^{2}}\right)=\frac{1}{(2d)^{\gamma}}$ gives&lt;/p&gt;
+$$
+t=2\sqrt{\frac{2(1+\gamma)\sigma^{2}\log(2d)}{n}}.
+$$&lt;p&gt;Therefore, by choosing $\lambda_{n}$ to be this value, the condition $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}$ holds with probability at least $1-\frac{1}{(2d)^{\gamma}}.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Bounds on prediction error for the Lasso&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;bounds-on-prediction-error-for-the-lasso&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bounds-on-prediction-error-for-the-lasso&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Apart from the error in the parameter, sometimes we may also be interested in the prediction error&lt;/p&gt;
+$$
+\frac{1}{n}\mathbb{E}[\Vert Y-X\widehat{\theta}\Vert_{2}^{2}]=\frac{1}{n}\mathbb{E}[\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}]+\sigma^{2}.
+$$&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Consider the regularized Lasso with $\lambda_{n}\geq2\Vert\frac{X^{T}\epsilon}{n}\Vert_{\infty}.$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Any optimal solution $\widehat{\theta}$ satisfies&lt;/p&gt;
+$$
+\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq12\Vert\theta^{\ast}\Vert_{1}\lambda_{n}.
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the design matrix $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}),$ then&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+$$
+\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq\frac{9k\lambda_{n}^{2}}{\mu}
+$$&lt;p&gt;where $k=|S|.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $\widehat{\theta}$ be a solution to the Lasso program with $\lambda_{n}\geq2\Vert\frac{X^{T}\epsilon}{n}\Vert_{\infty}.$ Let $\Delta=\widehat{\theta}-\theta^{\ast}.$ We have&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}	\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}),
+$$&lt;p&gt;where&lt;/p&gt;
+$$
+\begin{aligned}
+\left|\frac{\langle X^{T}\epsilon,\Delta\rangle}{n}\right| &amp;\leq \left\Vert \frac{X^{T}\epsilon}{n}\right\Vert _{\infty}\Vert\Delta\Vert_{1} \\
+	&amp;\leq\frac{\lambda_{n}}{2}\left(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1}\right) \\
+	&amp;=\frac{\lambda_{n}}{2}\left(\Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{1}+\Vert\widehat{\theta}_{S^{c}}\Vert_{1}\right) \\
+	&amp;\leq\frac{\lambda_{n}}{2}\left(\Vert\widehat{\theta}_{S}\Vert_{1}+\Vert\theta_{S}^{\ast}\Vert_{1}+\Vert\widehat{\theta}_{S^{c}} \\\Vert_{1}\right)\\
+	&amp;=\frac{\lambda_{n}}{2}\left(\Vert\theta^{\ast}\Vert_{1}+\Vert\widehat{\theta}\Vert_{1}\right).
+\end{aligned}
+$$&lt;p&gt;This gives&lt;/p&gt;
+$$
+0\leq\frac{\lambda_{n}}{2}\left(\Vert\theta^{\ast}\Vert_{1}+\Vert\widehat{\theta}\Vert_{1}\right)+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1})\implies\Vert\widehat{\theta}\Vert_{1}\leq3\Vert\theta^{\ast}\Vert_{1}
+$$&lt;p&gt;and hence&lt;/p&gt;
+$$
+\Vert\Delta\Vert_{1}\leq\Vert\widehat{\theta}\Vert_{1}+\Vert\theta^{\ast}\Vert_{1}\leq4\Vert\theta^{\ast}\Vert_{1}.
+$$&lt;p&gt;Using this, we obtain&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &amp;\leq \frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
+	&amp;\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\theta^{\ast}+\Delta\Vert_{1}) \\
+	&amp;\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}\Vert\Delta\Vert_{1} \\
+	&amp;\leq\frac{12\lambda_{n}}{2}\Vert\theta^{\ast}\Vert_{1}
+\end{aligned}
+$$&lt;p&gt;which proves the first part of the theorem. For the second part of the theorem, assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}).$ From the proof of the previous theorem, we have&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta\Vert_{2}.
+$$&lt;p&gt;We also have from a previous lemma that $\Delta\in\mathbb{C}_{3}(S),$ and since the $\operatorname{RE}(3,\mu)$ condition holds for $X$ we have&lt;/p&gt;
+$$
+\Vert\Delta\Vert_{2}^{2}\leq\frac{1}{\mu n}\Vert X\Delta\Vert_{2}^{2}.
+$$&lt;p&gt;Thus,&lt;/p&gt;
+$$
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2}\frac{1}{\sqrt{\mu n}}\Vert X\Delta\Vert_{2}\implies\frac{1}{\sqrt{n}}\Vert X\Delta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{\sqrt{\mu}}.
+$$&lt;p&gt;Squaring both sides of this inequality gives the desired result.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;We make the following observations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;As seen in a previous computation, if the columns of $X$ satisfy $\max_{j=1,\ldots,d}\frac{\Vert X_{j}\Vert_{2}}{\sqrt{n}}\leq C,$ then we have&lt;/p&gt;
+$$
+\mathbb{P}\left[\frac{\left\Vert X^{T}\epsilon\right\Vert _{\infty}}{n}\leq C\sigma\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right)\right]\geq1-2e^{-\frac{n\delta^{2}}{2}}.
+$$&lt;p&gt;Therefore, by choosing $\lambda_{n}=2C\sigma\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right),$ the first part of the theorem implies the upper bound&lt;/p&gt;
+$$
+\frac{\Vert X(\widehat{\theta}-\theta^{\ast})\Vert_{2}^{2}}{n}\leq24C\sigma\Vert\theta^{\ast}\Vert_{1}\left(\sqrt{\frac{2\log(d)}{n}}+\delta\right)
+$$&lt;p&gt;holds with the same high probability. We make no assumptions on the design matrix: $X$ could have as ill-conditioned as you could imagine, and this would still hold with high probability.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If we assume further that $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}),$ then the second part of the theorem implies the bound&lt;/p&gt;
+$$
+\frac{\Vert X(\widehat{\theta}-\theta^{\ast})\Vert_{2}^{2}}{n}\leq\frac{72}{\mu}C^{2}\sigma^{2}\left(\frac{2s\log(d)}{n}+s\delta^{2}\right),
+$$&lt;p&gt;which can be a substantially tighter bound.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For these reasons, the bound in the second part of the theorem is known as the fast rate for the Lasso, while the bound in the first part is known as the slow rate.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Uniformly Minimum Variance Unbiased Estimators</title>
       <link>http://localhost:1313/docs/ms1/umvue/</link>
       <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
@@ -2569,6 +2866,224 @@ $$&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Variable Selection with the Lasso</title>
+      <link>http://localhost:1313/docs/ms2/variable/</link>
+      <pubDate>Thu, 27 Feb 2025 21:18:39 +1000</pubDate>
+      
+      <guid>http://localhost:1313/docs/ms2/variable/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$&lt;/p&gt;
+&lt;h2&gt;Statements of assumptions and main result&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;statements-of-assumptions-and-main-result&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#statements-of-assumptions-and-main-result&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We will make the following assumptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lower eigenvalue:&lt;/strong&gt; There exists $c_{\min}&amp;gt;0$ such that&lt;/p&gt;
+$$
+\sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}.
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Mutual incoherence:&lt;/strong&gt; There exists $\alpha\in[0,1)$ such that&lt;/p&gt;
+$$
+\max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha.
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem&lt;/p&gt;
+$$
+\min_{\omega}\Vert X_{j}-X_{S}\omega\Vert_{2}^{2},
+$$&lt;p&gt;which is given by $\widehat{\omega}=X_{S}^{\dagger}X_{j}=(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}.$ So the mutual incoherence is a bound on the 1-norm $\Vert\widehat{\omega}\Vert_{1}.$ If we want to minimize it, the best case scenario occurs when the column space of $X_{S}$ is orthogonal to $X_{j},$ in which case the optimal weight vector would be the zero vector. In general, we cannot expect this orthogonality to hold, so the mutual incoherence condition imposes a type of approximate orthogonality between the columns of $X_{S}$ and $X_{S^{c}}.$&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Theorem&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Consider the linear model&lt;/p&gt;
+$$
+Y=X\theta^{\ast}+\epsilon
+$$&lt;p&gt;where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix and $\epsilon\in\mathbb{R}^{n}$ is any random noise (not necessarily sub-Gaussian). Let $S=\operatorname{supp}(\theta^{\ast})$ and assume that the design matrix $X$ satisfies the lower eigenvalue and the mutual incoherence conditions above. Then for any choice of $\lambda_{n}$ such that&lt;/p&gt;
+$$
+\lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty},
+$$&lt;p&gt;where $\Pi_{S^{\perp}}=I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}$ is the orthogonal projection onto $\operatorname{col}(X_{S})^{\perp},$ the regularized Lasso has the following properties:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Uniqueness:&lt;/strong&gt; There is a unique optimal solution $\widehat{\theta}.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;No false inclusion:&lt;/strong&gt; The solution $\widehat{\theta}$ has its support set contained within the true support set $S.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;$\ell_{\infty}$-bound:&lt;/strong&gt; The error $\widehat{\theta}-\theta^{\ast}$ satisfies $\Vert\widehat{\theta} _ {S}-\theta _ {S}^{\ast}\Vert_{\infty}\leq B(\lambda_{n},X),$ where&lt;/p&gt;
+$$
+B(\lambda_{n},X)=\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert _{\infty}+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;No false exclusion:&lt;/strong&gt; The solution $\widehat{\theta}$ includes all indices $i\in S$ such that $\theta_{i}^{\ast}&amp;gt;B(\lambda_{n},X)$ and hence is variable selection consistent if $\min_{i\in S}|\theta_{i}^{\ast}|&amp;gt;B(\lambda_{n},X).$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;KKT conditions for the Lasso&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;kkt-conditions-for-the-lasso&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#kkt-conditions-for-the-lasso&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;As a reminder on convex optimization, given a convex function $f:\mathbb{R}^{d}\to\mathbb{R},$ we say that $z\in\mathbb{R}^{d}$ is a subgradient of $f$ at $\theta ,$ denoted by $z\in\partial f(\theta),$ if we have&lt;/p&gt;
+$$
+f(\theta+\Delta)\geq f(\theta)+\langle z,\Delta\rangle\quad\text{for all }\Delta\in\mathbb{R}^{d}.
+$$&lt;p&gt;Given the constrained optimization problem&lt;/p&gt;
+$$
+\min\{f(x):h_{i}(x)\leq0\text{ for }i=1,\ldots,m,\,g_{j}(x)=0\text{ for }j=1,\ldots,r\},
+$$&lt;p&gt;the Karush-Kuhn-Tucker (KKT) conditions are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Stationarity: $0\in\partial f(x)+\sum_{i=1}^{m}u_{i}\partial h_{i}(x)+\sum_{j=1}^{r}v_{j}\partial g_{j}(x)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Complementary: $u_{i}h_{i}(x)=0$ for all $i$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Primal feasibility: $h_{i}(x)\leq0$ for all $i$ and $g_{j}(x)=0$ for all $j$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dual feasibility: $u_{i}\geq0$ for all $i$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The necessary and sufficient conditions for optimality of the Lasso are that it must satisfy the KKT conditions. For $f(\theta)=\Vert\theta\Vert_{1},$ it can be found that $z\in\partial f(\theta)$ if and only if $z_{j}=\operatorname{sign}(\theta_{j})$ for all $j=1,\ldots,d$ where we define $\operatorname{sign}(0)$ to refer to any number in $[-1,1].$ The KKT conditions give the following characterization of solutions to the Lasso program.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Let $F(\theta)=\frac{1}{2n}\Vert X\theta-Y\Vert_{2}^{2},$ so that $\nabla F(\theta)=\frac{1}{n}X^{T}(X\widehat{\theta}-Y).$ The vector $\widehat{\theta}\in\mathbb{R}^{d}$ is a solution of the Lasso program with parameter $\lambda_{n}$ if and only if&lt;/p&gt;
+$$
+\begin{cases}
+\nabla_{j}F(\widehat{\theta})=-\lambda_{n}\operatorname{sign}(\widehat{\theta}_{j}) &amp; \text{if }\widehat{\theta}_{j}\neq0,\\
+|\nabla_{j}F(\widehat{\theta})|\leq\lambda_{n} &amp; \text{if }\widehat{\theta}_{j}=0.
+\end{cases}
+$$&lt;p&gt;Moreover, if $|\nabla_{j}F(\widehat{\theta})|&amp;lt;\lambda_{n}$ for some solution $\widehat{\theta},$ then $\widehat{\theta}_{j}=0$ for all solutions of this program.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;The primal-dual witness construction&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-primal-dual-witness-construction&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-primal-dual-witness-construction&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For the Lasso, let us say that $(\widehat{\theta},\widehat{z})\in\mathbb{R}^{d}\times\mathbb{R}^{d}$ is primal-dual optimal if $\widehat{\theta}$ is a minimizer and $\widehat{z}\in\partial\Vert\widehat{\theta}\Vert_{1}.$ The proof of the theorem will be based on a constructive procedure, known as the primal-dual witness (PDW) method, which constructs such a pair. It involves the following procedure:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Set $\widehat{\theta}_{S^{c}}=0.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Determine $(\widehat{\theta} _ {S},\widehat{z} _ {S})\in\mathbb{R}^{|S|}\times\mathbb{R}^{|S|}$ by solving the oracle subproblem&lt;/p&gt;
+$$
+\widehat{\theta}_{S}\in\argmin_{\theta\in\mathbb{R}^{|S|}}\left\{ \frac{1}{2n}\Vert Y-X_{S}\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta_{S}\Vert_{1}\right\}
+$$&lt;p&gt;and then choosing $\widehat{z} _ {S}\in\partial\Vert\widehat{\theta} _ {S}\Vert _ {1}$ such that $\nabla f(\widehat{\theta} _ {S}) + \lambda_{n}\widehat{z} _ {S}=0,$ where $f(\theta)=\frac{1}{2n}\Vert Y-X_{S}\theta\Vert_{2}^{2}.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Solve for $z_{S^{c}}\in\mathbb{R}^{d-|S|}$ via the condition $\nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0$ and check if $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&amp;lt;1$ holds.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We say that the PDW construction succeeds if the vector $z_{S^{c}}$ constructed in Step 3 satisfies the condition $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&amp;lt;1,$ which would imply $|\nabla_{j}F(\widehat{\theta})|&amp;lt;\lambda_{n}$ for all $j\in S^{c}$ and hence we can use the lemma to conclude there is no false inclusion. Note that we do not actually have access to the set $S,$ so this is a purely hypothetical construction. But this is not a problem as we only need to show that the Lasso program has a unique optimal solution which can be constructed in this way. We will then use this construction to show that the results of the theorem hold for the optimal solution.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Lemma&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    If the lower eigenvalue condition holds, then success of the PDW construction implies that the vector $(\widehat{\theta}_{S},0)$ is the unique optimal solution of the Lasso.
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If the PDW construction succeeds, then $\widehat{\theta}=(\widehat{\theta} _ {S},0)$ is an optimal solution with associated subgradient vector $\widehat{z}\in\mathbb{R}^{d}$ satisfying $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&amp;lt;1$ and $\langle\widehat{z},\widehat{\theta}\rangle=\Vert\widehat{\theta}\Vert _ {1}.$ Suppose that $\widetilde{\theta}$ is another optimal solution. Then we must have $F(\widehat{\theta})+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}=F(\widetilde{\theta})+\lambda_{n}\Vert\widetilde{\theta}\Vert_{1},$ so writing $\Vert\widehat{\theta}\Vert_{1}=\langle\widehat{z},\widehat{\theta}\rangle$  and subtracting $\langle\widehat{z},\widetilde{\theta}\rangle$ from both sides, we get&lt;/p&gt;
+$$
+F(\widehat{\theta})-\lambda_{n}\langle\widehat{z},\widetilde{\theta}-\widehat{\theta}\rangle=F(\widetilde{\theta})+\lambda_{n}(\Vert\widetilde{\theta}\Vert_{1}-\langle\widehat{z},\widetilde{\theta}\rangle).
+$$&lt;p&gt;But we have $\lambda_{n}\widehat{z}=-\nabla F(\widehat{\theta}),$ which implies&lt;/p&gt;
+$$
+-F(\widetilde{\theta})+F(\widehat{\theta})+\langle\nabla F(\widehat{\theta}),\widetilde{\theta}-\widehat{\theta}\rangle=\lambda_{n}(\Vert\widetilde{\theta}\Vert_{1}-\langle\widehat{z},\widetilde{\theta}\rangle).
+$$&lt;p&gt;By the convexity of $F,$ the left-hand side is non-positive, which implies that $\Vert\widetilde{\theta}\Vert_{1}\leq\langle\widehat{z},\widetilde{\theta}\rangle .$ But we also have $\langle\widehat{z},\widetilde{\theta}\rangle\leq\Vert\widehat{z}\Vert_{\infty}\Vert\widetilde{\theta}\Vert _ {1},$ so we must have $\Vert\widetilde{\theta}\Vert_{1}=\langle\widehat{z},\widetilde{\theta}\rangle .$ Since $\Vert z _ {S^{c}}\Vert _ {\infty}&amp;lt;1,$ this equality can only occur only if $\widetilde{\theta}_{j}=0$ for all $j\in S^{c}.$ Thus, all optimal solutions are supported only on $S,$ and hence can be obtained by solving the oracle subproblem. Given the lower eigenvalue condition, this subproblem is strictly convex, and so has a unique minimizer.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;We now need to show that the vector $\widehat{z} _ {S^{c}}$ constructed in Step 3 always satisfies the condition $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}&amp;lt;1.$ Note that since $\widehat{\theta} _ {S^{c}}=\theta _ {S^{c}}^{\ast}=0,$ the condition $\nabla F(\widehat{\theta})+\lambda_{n}\widehat{z}=0,$ or $\frac{1}{n}X^{T}(X\widehat{\theta}-Y)+\lambda_{n}\widehat{z}=0,$ can be written in block matrix form as&lt;/p&gt;
+$$
+\frac{1}{n}\left(\begin{array}{cc}
+X_{S}^{T}X_{S} &amp; X_{S}^{T}X_{S^{c}}\\
+X_{S^{c}}^{T}X_{S} &amp; X_{S^{c}}^{T}X_{S^{c}}
+\end{array}\right)\left(\begin{array}{c}
+\widehat{\theta}_{S}-\theta_{S}^{\ast}\\
+0
+\end{array}\right)-\frac{1}{n}\left(\begin{array}{c}
+X_{S}^{T}\epsilon\\
+X_{S^{c}}^{T}\epsilon
+\end{array}\right)+\lambda_{n}\left(\begin{array}{c}
+\widehat{z}_{S}\\
+\widehat{z}_{S^{c}}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0
+\end{array}\right).
+$$&lt;p&gt;From the second equation above, we get&lt;/p&gt;
+$$
+\widehat{z}_{S^{c}}=-\frac{1}{\lambda_{n}n}X_{S^{c}}^{T}X_{S}(\widehat{\theta}_{S}-\theta_{S}^{\ast})+X_{S^{c}}^{T}\left(\frac{\epsilon}{\lambda_{n}n}\right).
+$$&lt;p&gt;Similarly, from the first equation, we get&lt;/p&gt;
+$$
+\widehat{\theta}_{S}-\theta_{S}^{\ast}=(X_{S}^{T}X_{S})^{-1}X_{S}^{T}\epsilon-\lambda_{n}n(X_{S}^{T}X_{S})^{-1}\widehat{z}_{S}.
+$$&lt;p&gt;Substituting this into the expression for $\widehat{z} _ {S^{c}}$ we had just obtained, we get&lt;/p&gt;
+$$
+\widehat{z}_{S^{c}}=\underbrace{X_{S^{c}}^{T}X_{S}(X_{S}^{T}X_{S})^{-1}\widehat{z}_{S}}_{A_{S}}+\underbrace{X_{S^{c}}^{T}[I-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{\lambda_{n}n}}_{B_{S^{c}}}.
+$$&lt;p&gt;By the triangle inequality, we have $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}\leq\Vert A _ {S}\Vert _ {\infty}+\Vert B _ {S^{c}}\Vert _ {\infty}.$ By mutual incoherence, we have $\Vert A _ {S}\Vert _ {\infty}\leq\alpha .$ By our choice of regularization parameter, we have $\Vert B_{S^{c}}\Vert_{\infty}\leq\frac{1}{2}(1-\alpha).$ Putting together the pieces, we conclude that $\Vert\widehat{z} _ {S^{c}}\Vert _ {\infty}\leq\frac{1}{2}(1+\alpha)&amp;lt;1.$ Finally, we note that the $\ell_{\infty}$-bound follows from writing&lt;/p&gt;
+$$
+\widehat{\theta}_{S}-\theta_{S}^{\ast}=\left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}-\lambda_{n}\left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\widehat{z}_{S}
+$$&lt;p&gt;and then applying the triangle inequality.&lt;/p&gt;
+&lt;h2&gt;The case of sub-Gaussian noise&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;the-case-of-sub-gaussian-noise&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-case-of-sub-gaussian-noise&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Let us now consider the special case where the noise is sub-Gaussian, where we can say something more concrete.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Corollary&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Consider the linear model&lt;/p&gt;
+$$
+Y=X\theta^{\ast}+\epsilon
+$$&lt;p&gt;where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix, $\theta^\ast$ is $S$-sparse, and the components of the noise vector $\epsilon\in\mathbb{R}^{n}$ are zero-mean independent and identically distributed $\sigma^{2}$-sub-Gaussian variables. Assume that $X$ that satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that $\max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C$ and choose&lt;/p&gt;
+$$
+\lambda_{n}=\frac{2C\sigma}{1-\alpha}\left(\sqrt{\frac{2\log(d-k)}{n}}+\delta\right)
+$$&lt;p&gt;for some $\delta&amp;gt;0,$ where $k=|S|.$ Then with probability at least $1-4e^{-\frac{n\delta^{2}}{2}},$ the optimal solution $\widehat{\theta}$ to the Lasso program is unique with its support contained within $S$ and satisfies the $\ell_{\infty}$-error bound&lt;/p&gt;
+$$
+\Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{\infty}\leq\frac{\sigma}{\sqrt{c_{\min}}}\left(\sqrt{\frac{2\log k}{n}}+\delta\right)+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;By the theorem, we only need to show that the chosen $\lambda_{n}$ satisfies the bound&lt;/p&gt;
+$$
+\lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty}
+$$&lt;p&gt;with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ it suffices to bound the maximum absolute value of the random variables&lt;/p&gt;
+$$
+Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}, \quad j\in S^{c}.
+$$&lt;p&gt;Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have&lt;/p&gt;
+$$
+\Vert\Pi_{S^{\perp}}X_{j}\Vert_{2}\leq\Vert X_{j}\Vert_{2}\leq C\sqrt{n}.
+$$&lt;p&gt;Therefore, each variable $Z_{j}$ is $C^{2}\sigma^{2}/n$-sub-Gaussian, giving&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{j\in S^{c}}|Z_{j}|\geq t\right]\leq2(d-k)e^{-\frac{nt^{2}}{2C^{2}\sigma^{2}}}.
+$$&lt;p&gt;Plugging in our choice of $\lambda_{n},$ it can be checked that&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{j\in S^{c}}|Z_{j}|\geq\frac{(1-\alpha)\lambda_{n}}{2}\right]\leq4e^{-\frac{n\delta^{2}}{2}}.
+$$&lt;p&gt;It remains to show the $\ell_{\infty}$-bound. By the theorem, we have&lt;/p&gt;
+$$
+\Vert\widehat{\theta}_{S}-\theta_{S}^{\ast}\Vert_{\infty}\leq\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}X_{S}^{T}\frac{\epsilon}{n}\right\Vert _{\infty}+\left\Vert \left(\frac{X_{S}^{T}X_{S}}{n}\right)^{-1}\right\Vert _{\infty}\lambda_{n}.
+$$&lt;p&gt;We will focus on bounding the first quantity on the right. For each $i=1,\ldots,k,$ let $\widetilde{Z} _ {i}:=e _ {i}^{T}\left(\frac{1}{n}X _ {S}^{T}X _ {S}\right)^{-1}X _ {S}^{T}\frac{\epsilon}{n}.$ Since the components $\epsilon$ are i.i.d. \sigma^{2}-sub-Gaussian, the variable $\widetilde{Z}_{i}$ is sub-Gaussian with variance proxy&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{\sigma^{2}}{n^{2}}\left\Vert e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}\right\Vert _{2}^{2}	&amp;=\frac{\sigma^{2}}{n^{2}}e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}X_{S}^{T}X_{S}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i} \\
+	&amp;=\frac{\sigma^{2}}{n}e_{i}^{T}\left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}e_{i} \\
+	&amp;\leq\frac{\sigma^{2}}{n}\left\Vert \left(\frac{1}{n}X_{S}^{T}X_{S}\right)^{-1}\right\Vert _{2} \\
+	&amp;\leq\frac{\sigma^{2}}{nc_{\min}}.
+\end{aligned}
+$$&lt;p&gt;Consequently, for any $\delta&amp;gt;0,$ we have&lt;/p&gt;
+$$
+\mathbb{P}\left[\max_{i=1,\ldots,s}|\widetilde{Z}_{i}|&gt;\frac{\sigma}{\sqrt{c_{\min}}}\left(\sqrt{\frac{2\log k}{n}}+\delta\right)\right]\leq2e^{-\frac{n\delta^{2}}{2}}
+$$&lt;p&gt;from which the claim follows.&lt;/p&gt;
 
       </description>
     </item>
