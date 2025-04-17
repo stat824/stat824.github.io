@@ -205,7 +205,7 @@ $$
 Y=X\theta^{\ast}+\epsilon
 $$
 
-where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix, $\theta^\ast$ is $S$-sparse, and the components of the noise vector $\epsilon\in\mathbb{R}^{n}$ are zero-mean independent and identically distributed $\sigma^{2}$-sub-Gaussian variables. Assume that $X$ that satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that $\max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C$ and choose
+where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix, $\theta^\ast$ is $S$-sparse, and the components of the noise vector $\epsilon\in\mathbb{R}^{n}$ are zero-mean independent and identically distributed $\sigma^{2}$-sub-Gaussian variables. Assume that $X$ satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that $\max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C$ and choose
 
 $$
 \lambda_{n}=\frac{2C\sigma}{1-\alpha}\left(\sqrt{\frac{2\log(d-k)}{n}}+\delta\right)
@@ -229,7 +229,7 @@ $$
 with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ It suffices to bound the maximum absolute value of the random variables
 
 $$
-Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}
+Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}
 $$
 
 over $j \in S^c.$ Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have 

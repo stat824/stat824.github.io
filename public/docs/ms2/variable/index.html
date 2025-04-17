@@ -47,7 +47,7 @@ $$ \sigma_{\min}\left(\frac{X_{S}^{T}X_{S}}{n}\right)\geq c_{\min}. $$ Mutual in
 $$ \max_{j\in S^{c}}\Vert(X_{S}^{T}X_{S})^{-1}X_{S}^{T}X_{j}\Vert_{1}\leq\alpha. $$ To see what mutual incoherence means, suppose that we tried to predict the column vector $X_{j}$ using a combination of the columns of $X_{S}.$ The best weight vector $\widehat{\omega}\in\mathbb{R}^{|S|}$ is the minimum 2-norm solution to the problem">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="1353">
+  <meta itemprop="wordCount" content="1352">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Variable Selection with the Lasso">
   <meta name="twitter:description" content="Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$
@@ -887,7 +887,7 @@ $$<p>and then applying the triangle inequality.</p>
     <p>Consider the linear model</p>
 $$
 Y=X\theta^{\ast}+\epsilon
-$$<p>where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix, $\theta^\ast$ is $S$-sparse, and the components of the noise vector $\epsilon\in\mathbb{R}^{n}$ are zero-mean independent and identically distributed $\sigma^{2}$-sub-Gaussian variables. Assume that $X$ that satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that $\max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C$ and choose</p>
+$$<p>where $X\in\mathbb{R}^{n\times d}$ is a fixed design matrix, $\theta^\ast$ is $S$-sparse, and the components of the noise vector $\epsilon\in\mathbb{R}^{n}$ are zero-mean independent and identically distributed $\sigma^{2}$-sub-Gaussian variables. Assume that $X$ satisfies the lower eigenvalue and the mutual incoherence assumptions. Suppose also that $\max_{j=1,\ldots,d}\Vert X_{j}\Vert_{2}/\sqrt{n}\leq C$ and choose</p>
 $$
 \lambda_{n}=\frac{2C\sigma}{1-\alpha}\left(\sqrt{\frac{2\log(d-k)}{n}}+\delta\right)
 $$<p>for some $\delta&gt;0,$ where $k=|S|.$ Then with probability at least $1-4e^{-\frac{n\delta^{2}}{2}},$ the optimal solution $\widehat{\theta}$ to the Lasso program is unique with its support contained within $S$ and satisfies the $\ell_{\infty}$-error bound</p>
@@ -901,7 +901,7 @@ $$
 \lambda_{n}\geq\frac{2}{1-\alpha}\left\Vert X_{S^{c}}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}\right\Vert _{\infty}
 $$<p>with probability at least $1-4e^{-\frac{n\delta^{2}}{2}}.$ It suffices to bound the maximum absolute value of the random variables</p>
 $$
-Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}=X_{j}^{T}[I_{n}-X_{S}(X_{S}^{T}X_{S})^{-1}X_{S}^{T}]\frac{\epsilon}{n}
+Z_{j}=X_{j}^{T}\Pi_{S^{\perp}}\frac{\epsilon}{n}
 $$<p>over $j \in S^c.$ Since $\Pi_{S^{\perp}}$ is an orthogonal projection matrix, we have</p>
 $$
 \Vert\Pi_{S^{\perp}}X_{j}\Vert_{2}\leq\Vert X_{j}\Vert_{2}\leq C\sqrt{n}.
