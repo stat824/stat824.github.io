@@ -1,0 +1,21 @@
+{
+  "authMethod": "AUTOMATIC",
+  "server": "play.btehkmu.com",
+  "portLocal": 25565,
+  "extendedRenderDistance": 0,
+  "levelSeed": 0,
+  "worldOutputDir": "world",
+  "centerX": 0,
+  "centerZ": 0,
+  "renderOtherPlayers": false,
+  "disableWriteChunks": false,
+  "disableWorldGen": false,
+  "disableSrvLookup": false,
+  "disableMarkUnsavedChunks": false,
+  "markOldChunks": true,
+  "ignoreBlockChanges": false,
+  "disableInfoMessages": false,
+  "drawExtendedChunks": false,
+  "enableCaveRenderMode": false,
+  "smoothZooming": true
+}

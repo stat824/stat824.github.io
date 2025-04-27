@@ -25,7 +25,7 @@
   <meta itemprop="description" content="Why do concentration inequalities matter? Suppose that we put 10 equally spaced points along each axis of the unit cube in $\mathbb{R}^{p}.$ This gives us $10^{p}$ points in total, which scales exponentially with the dimension $p.$ This is the curse of dimensonality. It paints a bleak scenario for statistics in high-dimensions because at first glance, it seems like we would need an almost infinite amount of data to answer reasonably any type of question when $p$ is large. However, data in high-dimensions can sometimes exhibit appealing properties that make estimation possible. For example, suppose that $X$ follows the unit distribution on the unit sphere of $\mathbb{R}^{p}.$ Then for any Lipschitz function $f$, one has">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="376">
+  <meta itemprop="wordCount" content="387">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Introduction to Concentration Inequalities">
   <meta name="twitter:description" content="Why do concentration inequalities matter? Suppose that we put 10 equally spaced points along each axis of the unit cube in $\mathbb{R}^{p}.$ This gives us $10^{p}$ points in total, which scales exponentially with the dimension $p.$ This is the curse of dimensonality. It paints a bleak scenario for statistics in high-dimensions because at first glance, it seems like we would need an almost infinite amount of data to answer reasonably any type of question when $p$ is large. However, data in high-dimensions can sometimes exhibit appealing properties that make estimation possible. For example, suppose that $X$ follows the unit distribution on the unit sphere of $\mathbb{R}^{p}.$ Then for any Lipschitz function $f$, one has">
@@ -721,10 +721,19 @@ $$
 $$<p>which holds for all $k \geq 1.$ Moreover, if $X$ has a moment generating function in a neighbourhood of 0 so that there exists $b&gt;0$ such that $\phi(\lambda)=\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ exists for all $|\lambda|\leq b,$ then Markov&rsquo;s inequality implies</p>
 $$
 \mathbb{P}[X-\mathbb{E}[X]\geq t]=\mathbb{P}[e^{\lambda(X-\mathbb{E}[X])}\geq e^{\lambda t}]\leq\frac{\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]}{e^{\lambda t}}.
-$$<p>This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound</p>
+$$<p>This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Chernoff bound</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>If $\phi(\lambda)=\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ exists for all $|\lambda|\leq b,$ then</p>
 $$
-\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]-\lambda t\right).
+\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log \phi(\lambda)-\lambda t\right).
 $$
+  </div>
+</details>
+
         </div>
         <div class="hx-mt-16"></div>
         <div class="hx-mb-8 hx-flex hx-items-center hx-border-t hx-pt-8 dark:hx-border-neutral-800 contrast-more:hx-border-neutral-400 dark:contrast-more:hx-border-neutral-400 print:hx-hidden"><a

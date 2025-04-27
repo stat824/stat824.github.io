@@ -28,7 +28,7 @@ Definition and basic properties
 Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="875">
+  <meta itemprop="wordCount" content="876">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sub-Gaussian Random Variables">
   <meta name="twitter:description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
@@ -814,7 +814,12 @@ $$
 </ol>
   </div>
 </details>
-<p><strong>Proof of $(1) \Longrightarrow (2)$:</strong> We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p><strong>Proof of $(1) \Longrightarrow (2)$:</strong> We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then</p>
 $$
 \frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq4\sqrt{\pi}e\quad\text{for all }t\geq0.
 $$<p>Firstly, by the Chernoff bound for sub-Gaussian variables, we have $\mathbb{P}[X\geq t]\leq e^{-t^{2}/2\sigma^{2}}.$ Then using a property for Gaussian variables (called the Mills-ratio for Gaussian tails, see homework), we have</p>
@@ -888,6 +893,8 @@ $$<p>If $c\in(0,1/2),$ then we have $\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{2}}}]\
 $$
 \mathbb{E}[e^{\lambda X}]\leq e^{2\lambda^{2}\sigma^{2}}e^{1/4}\leq e^{2\lambda^{2}\sigma^{2}+\frac{9}{16}\lambda^{2}\sigma^{2}}\leq e^{3\lambda^{2}\sigma^{2}}.
 $$<p>Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$</p>
+  </div>
+</details>
 <h2>Sub-Gaussian vectors and matrices<span class="hx-absolute -hx-mt-20" id="sub-gaussian-vectors-and-matrices"></span>
     <a href="#sub-gaussian-vectors-and-matrices" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We can also talk about sub-Gaussian random vectors and matrices.</p>
 <ul>

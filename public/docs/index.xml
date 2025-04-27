@@ -70,10 +70,19 @@ $$
 $$&lt;p&gt;which holds for all $k \geq 1.$ Moreover, if $X$ has a moment generating function in a neighbourhood of 0 so that there exists $b&amp;gt;0$ such that $\phi(\lambda)=\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ exists for all $|\lambda|\leq b,$ then Markov&amp;rsquo;s inequality implies&lt;/p&gt;
 $$
 \mathbb{P}[X-\mathbb{E}[X]\geq t]=\mathbb{P}[e^{\lambda(X-\mathbb{E}[X])}\geq e^{\lambda t}]\leq\frac{\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]}{e^{\lambda t}}.
-$$&lt;p&gt;This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound&lt;/p&gt;
+$$&lt;p&gt;This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Chernoff bound&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;If $\phi(\lambda)=\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ exists for all $|\lambda|\leq b,$ then&lt;/p&gt;
 $$
-\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]-\lambda t\right).
+\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log \phi(\lambda)-\lambda t\right).
 $$
+  &lt;/div&gt;
+&lt;/details&gt;
+
       </description>
     </item>
     
@@ -466,7 +475,12 @@ $$
 &lt;/ol&gt;
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;&lt;strong&gt;Proof of $(1) \Longrightarrow (2)$:&lt;/strong&gt; We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;&lt;strong&gt;Proof of $(1) \Longrightarrow (2)$:&lt;/strong&gt; We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then&lt;/p&gt;
 $$
 \frac{\mathbb{P}[X\geq t]}{\mathbb{P}[Z\geq t]}\leq4\sqrt{\pi}e\quad\text{for all }t\geq0.
 $$&lt;p&gt;Firstly, by the Chernoff bound for sub-Gaussian variables, we have $\mathbb{P}[X\geq t]\leq e^{-t^{2}/2\sigma^{2}}.$ Then using a property for Gaussian variables (called the Mills-ratio for Gaussian tails, see homework), we have&lt;/p&gt;
@@ -540,6 +554,8 @@ $$&lt;p&gt;If $c\in(0,1/2),$ then we have $\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{
 $$
 \mathbb{E}[e^{\lambda X}]\leq e^{2\lambda^{2}\sigma^{2}}e^{1/4}\leq e^{2\lambda^{2}\sigma^{2}+\frac{9}{16}\lambda^{2}\sigma^{2}}\leq e^{3\lambda^{2}\sigma^{2}}.
 $$&lt;p&gt;Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;h2&gt;Sub-Gaussian vectors and matrices&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;sub-gaussian-vectors-and-matrices&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#sub-gaussian-vectors-and-matrices&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can also talk about sub-Gaussian random vectors and matrices.&lt;/p&gt;
 &lt;ul&gt;

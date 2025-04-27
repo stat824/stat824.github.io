@@ -125,6 +125,8 @@ Suppose that $X$ is a random variable with zero mean. The following are equivale
 
 {{% /details %}}
 
+{{% details title="Proof" closed="true" %}}
+
 **Proof of $(1) \Longrightarrow (2)$:** We will show that if $X$ is $\sigma^{2}$-sub-Gaussian with zero mean, then 
 
 $$
@@ -258,6 +260,7 @@ $$
 $$
 
 Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$
+{{% /details %}}
 
 ## Sub-Gaussian vectors and matrices
 

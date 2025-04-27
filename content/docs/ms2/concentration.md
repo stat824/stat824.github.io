@@ -65,9 +65,14 @@ $$
 \mathbb{P}[X-\mathbb{E}[X]\geq t]=\mathbb{P}[e^{\lambda(X-\mathbb{E}[X])}\geq e^{\lambda t}]\leq\frac{\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]}{e^{\lambda t}}.
 $$
 
-This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound
+This holds for all $|\lambda|\leq b$, and optimizing it with respect to $\lambda$ gives the Chernoff bound.
+
+{{% details title="Chernoff bound" %}}
+
+If $\phi(\lambda)=\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]$ exists for all $|\lambda|\leq b,$ then
 
 $$
-\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log\mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]-\lambda t\right).
+\log\mathbb{P}[X-\mathbb{E}[X]\geq t]\leq\inf_{|\lambda|\leq b}\left(\log \phi(\lambda)-\lambda t\right).
 $$
+{{% /details %}}
 
