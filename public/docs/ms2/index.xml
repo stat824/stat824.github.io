@@ -95,20 +95,27 @@ $$
       <description>
         
         
-        &lt;p&gt;The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.&lt;/p&gt;
+        &lt;p&gt;In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.&lt;/p&gt;
 &lt;h2&gt;Definition and basic properties&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;definition-and-basic-properties&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#definition-and-basic-properties&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda X}]=e^{\mu\lambda+\frac{\lambda^{2}\sigma^{2}}{2}},\quad\lambda\in\mathbb{R}.
-$$&lt;p&gt;Then we say a random variable $X$ is $\sigma^{2}$-sub Gaussian if&lt;/p&gt;
+$$&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Definition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We say a random variable $X$ is $\sigma^{2}$-sub Gaussian if&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}\quad\text{for all }\lambda\in\mathbb{R}.
 $$&lt;p&gt;We call $\sigma$ the sub-Gaussian parameter.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Suppose that $\epsilon$ is a Rademacher random variable. Then&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example.&lt;/strong&gt; Suppose that $\epsilon$ is a Rademacher random variable. Then&lt;/p&gt;
 $$
 \begin{aligned}
 \mathbb{E}[e^{\lambda X}] &amp;= \frac{e^{\lambda}+e^{-\lambda}}{2} \\
@@ -125,7 +132,7 @@ $$&lt;p&gt;which shows that Rademacher random variables are sub-Gaussian with pa
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example.&lt;/strong&gt; If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}(b-a)^{2}}{8}}\quad\text{for all }\lambda\in\mathbb{R}.
 $$&lt;p&gt;See homework for proof.&lt;/p&gt;
@@ -167,7 +174,7 @@ $$&lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border 
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;If $X \in[a,b]$ almost surely, then&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example.&lt;/strong&gt; If $X \in[a,b]$ almost surely, then&lt;/p&gt;
 $$
 \mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
 $$&lt;/div&gt;
@@ -196,7 +203,7 @@ $$
     &lt;p&gt;Suppose that $X$ is a random variable with zero mean. The following are equivalent:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;There is a constant $\sigma^2 &amp;gt; 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$&lt;/p&gt;
+&lt;p&gt;There is a constant $\sigma \geq 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;There is a constant $c\geq1$ and a Gaussian random variable $Z\sim N(0,\tau^{2})$ such that $\mathbb{P}[|X|\geq s]\leq c\mathbb{P}[|Z|\geq s]$ for all $s\geq0.$&lt;/p&gt;
@@ -205,7 +212,7 @@ $$
 &lt;p&gt;There is a constant $\theta\geq0$ such that $\mathbb{E}[X^{2k}]\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}$ for all $k=1,2,\ldots$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}}$ for all $s\in[0,1).$&lt;/p&gt;
+&lt;p&gt;There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\lambda X^{2}}]\leq\frac{1}{\sqrt{1-2\lambda \sigma^2}}$ for all $0 \leq \lambda &amp;lt; \frac{1}{2\sigma^2}.$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
   &lt;/div&gt;
@@ -291,6 +298,22 @@ $$
 $$&lt;p&gt;Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$&lt;/p&gt;
   &lt;/div&gt;
 &lt;/details&gt;
+&lt;p&gt;For an $\mathbb{R}$-valued random variable $X,$ the Orlicz 2-norm of $X$ is defined to be&lt;/p&gt;
+$$
+\Vert X\Vert_{\psi_2}:=\inf\{t\in\mathbb{R}_{+}:\mathbb{E}[\exp(X^2/t^2)]\leq2\}.
+$$&lt;p&gt;It can be shown that this is indeed a norm.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have $\Vert X\Vert_{\psi_2} &amp;lt;\infty$ if and only if $X$ is sub-Gaussian.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If $X$ is mean-zero and $\sigma^2$-sub-Gaussian, then $\Vert X\Vert_{\psi_2} \leq C_1 \sigma$ for some absolute constant $C_1 &amp;gt; 0.$&lt;/li&gt;
+&lt;li&gt;If $\Vert X \Vert_{\psi_2} \leq \sigma$, then $X$ is $C_2 \sigma^2$-sub-Gaussian for some absolute constant $C_2 &amp;gt; 0.$&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;h2&gt;Sub-Gaussian vectors and matrices&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;sub-gaussian-vectors-and-matrices&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#sub-gaussian-vectors-and-matrices&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can also talk about sub-Gaussian random vectors and matrices.&lt;/p&gt;
 &lt;ul&gt;
@@ -310,7 +333,7 @@ $$&lt;p&gt;Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sig
       <description>
         
         
-        &lt;p&gt;We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by&lt;/p&gt;
+        &lt;p&gt;We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda X}]=\frac{1}{1-\lambda^{2}}\leq e^{2\lambda^{2}}\quad\text{for all }|\lambda|&lt;1.
 $$&lt;p&gt;So the moment generating function of the Laplace distribution is bounded by that of a Gaussian in a neighborhood of 0 but does not exist everywhere on the real line. It turns out that all distributions that have tails at most as heavy as that of a Laplace distribution satisfy such a property.&lt;/p&gt;
@@ -352,21 +375,29 @@ $$
   &lt;/div&gt;
 &lt;/details&gt;
 &lt;h2&gt;Definition and basic properties&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;definition-and-basic-properties&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#definition-and-basic-properties&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We say a random variable $X$ is $(\tau^{2},b)$-sub-exponential if there exist non-negative numbers $\tau^2$ and $b$ such that&lt;/p&gt;
+    &lt;a href=&#34;#definition-and-basic-properties&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Definition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We say a random variable $X$ is $(\tau^{2},b)$-sub-exponential if there exist non-negative numbers $\tau^2$ and $b$ such that&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\tau^{2}}{2}}\quad\text{for all }|\lambda| &lt; \frac{1}{b}.
-$$&lt;p&gt;It follows directly from this definition that sub-Gaussian variables are sub-exponential.&lt;/p&gt;
+$$
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;It follows directly from this definition that sub-Gaussian variables are sub-exponential.&lt;/p&gt;
 &lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda&amp;lt;\frac{1}{2},$&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example.&lt;/strong&gt; Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda&amp;lt;\frac{1}{2},$&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\lambda(z^{2}-1)}e^{-z^{2}/2}\,dz=\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}.\
 $$&lt;p&gt;The integral does not converge if $\lambda&amp;gt;\frac{1}{2},$ so this variable is not sub-Gaussian. However, in a neighborhood of 0, we find that&lt;/p&gt;
 $$
-\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2}.
-$$&lt;p&gt;This holds for all $|\lambda|\leq\frac{1}{4},$ so $X\sim\chi^{2}$ is sub-exponential with parameters $(2,4)$.&lt;/p&gt;
+\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2},
+$$&lt;p&gt;so $X\sim\chi^{2}$ is sub-exponential.&lt;/p&gt;
 &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -377,10 +408,9 @@ $$&lt;p&gt;This holds for all $|\lambda|\leq\frac{1}{4},$ so $X\sim\chi^{2}$ is 
     &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
   &lt;/summary&gt;
   &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
-    Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential. Then $\sum_{i=1}^{n}X_{i}$ is $(\sum_{i=1}^{n}\tau_{i}^{2},\max_{i\leq n}b_{i})$-sub-exponential.
+    Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential, and let $a_1,\ldots,a_n \in \mathbb{R}.$ Then $\sum_{i=1}^{n}a_i X_{i}$ is $(\sum_{i=1}^{n}a_i^2 \tau_{i}^{2},\max_{i}|a_i b_i|)$-sub-exponential.
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;See homework for proof of the above result.&lt;/p&gt;
 &lt;h2&gt;Chernoff bound for sub-exponential variables&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;chernoff-bound-for-sub-exponential-variables&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#chernoff-bound-for-sub-exponential-variables&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Let us derive the Chernoff bound for sub-exponential variables. Assume that $X$ is $(\tau^{2},b)$-sub-exponential. For $t \geq 0$, define $g(\lambda,t)=\frac{\lambda^{2}\tau^{2}}{2}-\lambda t$ and $g^{\ast}(t)=\inf_{\lambda\in[0,1/b)}g(\lambda,t).$ We have&lt;/p&gt;
 $$
@@ -407,7 +437,12 @@ $$&lt;p&gt;where $\mu=\mathbb{E}[X]$ and $\sigma^{2}=\operatorname{Var}[X].$ A s
     If $X$ satisfies Bernstein&amp;rsquo;s condition with parameter $b$, then $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential.
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;To see this, for $|\lambda|&amp;lt;\frac{1}{b},$ we expand the moment generating function to get&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;To see this, for $|\lambda|&amp;lt;\frac{1}{b},$ we expand the moment generating function to get&lt;/p&gt;
 $$
 \begin{aligned}
 \mathbb{E}[e^{\lambda(X-\mu)}] &amp;= 1+\frac{\lambda^{2}\sigma^{2}}{2}+\sum_{k=3}^{\infty}\lambda^{k}\frac{\mathbb{E}[(X-\mu)^{k}]}{k!} \\
@@ -416,6 +451,8 @@ $$
 	&amp;\leq e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}.
 \end{aligned}
 $$&lt;p&gt;If $|\lambda|&amp;lt;\frac{1}{2b},$ then $e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}\leq e^{\lambda^{2}\sigma^{2}}=e^{\frac{\lambda^{2}(\sqrt{2}\sigma)^{2}}{2}},$ so $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
   &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
     &lt;strong class=&#34;hx-text-lg&#34;&gt;Bernstein-type bound&lt;/strong&gt;
@@ -466,7 +503,12 @@ $$
 $$
   &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;To prove it, define $h(u)=2\frac{e^{u}-u-1}{u^{2}}=2\sum_{k=2}^{\infty}\frac{u^{k-2}}{k!}.$ Then&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; &gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proof&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;To prove it, define $h(u)=2\frac{e^{u}-u-1}{u^{2}}=2\sum_{k=2}^{\infty}\frac{u^{k-2}}{k!}.$ Then&lt;/p&gt;
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=1+\frac{1}{2}\lambda^{2}\mathbb{E}[(X-\mathbb{E}[X])^{2}h(\lambda(X-\mathbb{E}[X]))].
 $$&lt;p&gt;For all $x\in(-\infty,0),$ $x&amp;rsquo;\in[0,b],$ and $\lambda&amp;gt;0,$ we have&lt;/p&gt;
@@ -484,6 +526,52 @@ $$
 \mathbb{P}\left[\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq n\delta\right]&amp;\leq e^{-\lambda n\delta}\mathbb{E}[e^{\lambda\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])}] \\ &amp;\leq\exp\left(-\lambda n\delta+\frac{\lambda^{2}\sum_{i=1}^{n}\sigma_{i}^{2}}{2(1-\frac{\lambda b}{3})}\right).
 \end{aligned}
 $$&lt;p&gt;Substituting in $\lambda=\frac{n\delta}{\sum_{i=1}^{n}\sigma_{i}^{2}+\frac{b\delta}{3}}\in[0,\frac{3}{b})$ and simplifying yields the desired bound.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;h2&gt;Characterizations of sub-exponential variables&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;characterizations-of-sub-exponential-variables&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#characterizations-of-sub-exponential-variables&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We consider several equivalent characterizations of sub-exponential variables.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;Suppose that $X$ is a random variable with zero mean. The following are equivalent:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There are non-negative real numbers $(\nu,\alpha)$ such that&lt;/p&gt;
+$$
+\mathbb{E}[e^{\lambda X}]\leq e^{\nu^{2}\lambda^{2}/2}\quad\text{for all }|\lambda|\leq\frac{1}{\alpha}.
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is a constant $c_{0}&amp;gt;0$ such that $\mathbb{E}[e^{\lambda X}]&amp;lt;\infty$ for all $|\lambda|\leq c_{0}.$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There are constants $c_{1},c_{2}&amp;gt;0$ such that&lt;/p&gt;
+$$
+\mathbb{P}[|X|\geq t]\leq c_{1}e^{-c_{2}t}\quad\text{for all }t\geq0.
+$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\sup_{k\geq1}\left(\frac{\mathbb{E}[|X|^{k}]}{k!}\right)^{1/k}&amp;lt;\infty .$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;For an $\mathbb{R}$-valued random variable $X,$ define its Orlicz 1-norm to be&lt;/p&gt;
+$$
+\Vert X\Vert_{\psi_1}:=\inf\{t\in\mathbb{R}_{+}:\mathbb{E}[\exp(|X|/t)]\leq2\}.
+$$&lt;p&gt;This norm characterizes sub-exponentiality.&lt;/p&gt;
+&lt;details class=&#34;last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group&#34; open&gt;
+  &lt;summary class=&#34;hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[&#39;&#39;] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90&#34;&gt;
+    &lt;strong class=&#34;hx-text-lg&#34;&gt;Proposition&lt;/strong&gt;
+  &lt;/summary&gt;
+  &lt;div class=&#34;hx-p-2 hx-overflow-hidden&#34;&gt;
+    &lt;p&gt;We have $\Vert X\Vert_{\psi_1} &amp;lt;\infty$ if and only if $X$ is sub-exponential. Moreover:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We have the concentration inequality $\mathbb{P}[|X| \geq t] \leq 2e^{-t / \Vert X\Vert_{\psi_1}}.$&lt;/li&gt;
+&lt;li&gt;If $X$ is $(\tau^2, b)$-sub-exponential with zero mean, then $\Vert X \Vert_{\psi_2}$ and $\tau$ differ by an absolute constant factor.&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
 
       </description>
     </item>
@@ -668,21 +756,12 @@ $$&lt;p&gt;Then take $t=\sigma\sqrt{8d\log(6)}+2\sigma\sqrt{2\log(1/\delta)}.$&l
   &lt;/div&gt;
 &lt;/details&gt;
 &lt;h2&gt;A note on coverings and packings&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;a-note-on-coverings-and-packings&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#a-note-on-coverings-and-packings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Covering and packings are extremely useful notions to derive bounds in learning theory at large. We point out two different uses of these notions:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;To control tails over infinite sets (like we just did with the $\ell_{2}$-ball).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;To measure the “size” of a set with infinitely many elements. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;We look at the covering numbers of a few classes of functions.&lt;/p&gt;
+    &lt;a href=&#34;#a-note-on-coverings-and-packings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Covering and packings are extremely useful notions to derive bounds in learning theory at large. Apart from its use in controlling tails over infinite sets (like we just did with the $\ell_{2}$-ball), it can also be used as a measure of the size of an infinite set. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class.&lt;/p&gt;
 &lt;div class=&#34;hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300&#34;&gt;
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example.&lt;/strong&gt; For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class&lt;/p&gt;
 $$
 \mathcal{P}=\{f_{\theta}:\theta\in[0,1]\}.
 $$&lt;p&gt;The set $\mathcal{P}$ is a metric space under the uniform norm. We claim that its covering number in terms of the sup-norm is bounded above and below as&lt;/p&gt;
@@ -705,7 +784,7 @@ $$&lt;/div&gt;
   &lt;div class=&#34;ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2&#34;&gt;&lt;/div&gt;
 
   &lt;div class=&#34;hx-w-full hx-min-w-0 hx-leading-7&#34;&gt;
-    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;Consider the class of Lipschitz functions on the unit interval&lt;/p&gt;
+    &lt;div class=&#34;hx-mt-6 hx-leading-7 first:hx-mt-0&#34;&gt;&lt;p&gt;&lt;strong&gt;Example.&lt;/strong&gt; Consider the class of Lipschitz functions on the unit interval&lt;/p&gt;
 $$
 \mathcal{F}_{L}=\{g:[0,1]\to\mathbb{R}:g(0)=0,\,|g(x)-g(y)|\leq L|x-y|\text{ for all }x,y\in[0,1]\}.
 $$&lt;p&gt;It is known that for sufficiently smaller $\delta&amp;gt;0,$ we have&lt;/p&gt;
@@ -1169,7 +1248,7 @@ $$
 $$&lt;p&gt;which is the pairwise incoherence parameter.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;More generally in the homework we will show that for any matrix $X\in\mathbb{R}^{n\times d}$ and sparsity level $s\in{1,\ldots,d},$&lt;/p&gt;
+&lt;p&gt;More generally in the homework we will show that for any matrix $X\in\mathbb{R}^{n\times d}$ and sparsity level $s\in\{1,\ldots,d\},$&lt;/p&gt;
 $$
 \delta_{PW}(X)\leq\delta_{s}(X)\leq s\delta_{PW}(X)
 $$&lt;p&gt;and neither bound can be improved.&lt;/p&gt;

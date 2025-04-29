@@ -158,7 +158,7 @@ $$
 
 
 
-More generally in the homework we will show that for any matrix $X\in\mathbb{R}^{n\times d}$ and sparsity level $s\in\{1,\ldots,d\},$ 
+More generally in the homework we will show that for any matrix $X\in\mathbb{R}^{n\times d}$ and sparsity level $s\in\\{1,\ldots,d\\},$ 
 
 $$
 \delta_{PW}(X)\leq\delta_{s}(X)\leq s\delta_{PW}(X)

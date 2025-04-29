@@ -5,7 +5,7 @@ math: true
 title: 'Sub-exponential Random Variables'
 weight: 3
 ---
-We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by
+We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by
 
 $$
 \mathbb{E}[e^{\lambda X}]=\frac{1}{1-\lambda^{2}}\leq e^{2\lambda^{2}}\quad\text{for all }|\lambda|<1.
@@ -52,16 +52,19 @@ $$
 
 ## Definition and basic properties
 
+{{% details title="Definition" %}}
+
 We say a random variable $X$ is $(\tau^{2},b)$-sub-exponential if there exist non-negative numbers $\tau^2$ and $b$ such that
 
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\tau^{2}}{2}}\quad\text{for all }|\lambda| < \frac{1}{b}.
 $$
+{{% /details %}}
 
 It follows directly from this definition that sub-Gaussian variables are sub-exponential.
 
 {{< callout >}}
-Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda<\frac{1}{2},$ 
+**Example.** Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda<\frac{1}{2},$ 
 
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\lambda(z^{2}-1)}e^{-z^{2}/2}\,dz=\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}.\
@@ -70,21 +73,19 @@ $$
 The integral does not converge if $\lambda>\frac{1}{2},$ so this variable is not sub-Gaussian. However, in a neighborhood of 0, we find that
 
 $$
-\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2}.
+\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2},
 $$
 
-This holds for all $|\lambda|\leq\frac{1}{4},$ so $X\sim\chi^{2}$ is sub-exponential with parameters $(2,4)$. 
+so $X\sim\chi^{2}$ is sub-exponential.
 {{< /callout >}}
 
 To verify that a random variable is sub-exponential, we can explicitly bound the moment generating function, but this can sometimes be impractical. Another way to verify that a random variable is sub-exponential is by recognizing it as a sum of independent sub-exponential variables.
 
 {{% details title="Proposition" %}}
 
-Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential. Then $\sum_{i=1}^{n}X_{i}$ is $(\sum_{i=1}^{n}\tau_{i}^{2},\max_{i\leq n}b_{i})$-sub-exponential. 
+Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential, and let $a_1,\ldots,a_n \in \mathbb{R}.$ Then $\sum_{i=1}^{n}a_i X_{i}$ is $(\sum_{i=1}^{n}a_i^2 \tau_{i}^{2},\max_{i}|a_i b_i|)$-sub-exponential. 
 
 {{% /details %}}
-
-See homework for proof of the above result.
 
 ## Chernoff bound for sub-exponential variables 
 
@@ -123,6 +124,8 @@ where $\mu=\mathbb{E}[X]$ and $\sigma^{2}=\operatorname{Var}[X].$ A sufficient c
 If $X$ satisfies Bernstein's condition with parameter $b$, then $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential. 
 {{% /details %}}
 
+{{% details title="Proof" closed="true" %}}
+
 To see this, for $|\lambda|<\frac{1}{b},$ we expand the moment generating function to get
 
 $$
@@ -135,6 +138,7 @@ $$
 $$
 
 If $|\lambda|<\frac{1}{2b},$ then $e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}\leq e^{\lambda^{2}\sigma^{2}}=e^{\frac{\lambda^{2}(\sqrt{2}\sigma)^{2}}{2}},$ so $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential. 
+{{% /details %}}
 
 {{% details title="Bernstein-type bound" %}}
 If $X$ satisfies Bernstein's condition with parameter $b,$ then
@@ -182,6 +186,8 @@ $$
 $$
 {{% /details %}}
 
+{{% details title="Proof" closed="true" %}}
+
 To prove it, define $h(u)=2\frac{e^{u}-u-1}{u^{2}}=2\sum_{k=2}^{\infty}\frac{u^{k-2}}{k!}.$ Then 
 
 $$
@@ -215,3 +221,42 @@ $$
 $$
 
 Substituting in $\lambda=\frac{n\delta}{\sum_{i=1}^{n}\sigma_{i}^{2}+\frac{b\delta}{3}}\in[0,\frac{3}{b})$ and simplifying yields the desired bound.
+{{% /details %}}
+
+## Characterizations of sub-exponential variables
+We consider several equivalent characterizations of sub-exponential variables.
+{{% details title="Proposition" %}}
+Suppose that $X$ is a random variable with zero mean. The following are equivalent:
+
+1. There are non-negative real numbers $(\nu,\alpha)$ such that
+
+	$$
+\mathbb{E}[e^{\lambda X}]\leq e^{\nu^{2}\lambda^{2}/2}\quad\text{for all }|\lambda|\leq\frac{1}{\alpha}.
+$$
+
+2. There is a constant $c_{0}>0$ such that $\mathbb{E}[e^{\lambda X}]<\infty$ for all $|\lambda|\leq c_{0}.$ 
+
+3. There are constants $c_{1},c_{2}>0$ such that
+
+	$$
+\mathbb{P}[|X|\geq t]\leq c_{1}e^{-c_{2}t}\quad\text{for all }t\geq0.
+$$
+
+4. $\sup_{k\geq1}\left(\frac{\mathbb{E}[|X|^{k}]}{k!}\right)^{1/k}<\infty .$
+{{% /details %}}
+
+For an $\mathbb{R}$-valued random variable $X,$ define its Orlicz 1-norm to be
+
+$$
+\Vert X\Vert_{\psi_1}:=\inf\{t\in\mathbb{R}_{+}:\mathbb{E}[\exp(|X|/t)]\leq2\}.
+$$
+
+This norm characterizes sub-exponentiality.  
+
+{{% details title="Proposition" %}}
+
+We have $\Vert X\Vert_{\psi_1} <\infty$ if and only if $X$ is sub-exponential. Moreover:
+* We have the concentration inequality $\mathbb{P}[|X| \geq t] \leq 2e^{-t / \Vert X\Vert_{\psi_1}}.$
+* If $X$ is $(\tau^2, b)$-sub-exponential with zero mean, then $\Vert X \Vert_{\psi_2}$ and $\tau$ differ by an absolute constant factor. 
+
+{{% /details %}}

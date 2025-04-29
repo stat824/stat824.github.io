@@ -5,9 +5,10 @@ math: true
 title: 'Sub-Gaussian Random Variables'
 weight: 2
 ---
-The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable. 
+In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable. 
 
 ## Definition and basic properties
+
 
 If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is
 
@@ -15,7 +16,9 @@ $$
 \mathbb{E}[e^{\lambda X}]=e^{\mu\lambda+\frac{\lambda^{2}\sigma^{2}}{2}},\quad\lambda\in\mathbb{R}.
 $$
 
-Then we say a random variable $X$ is $\sigma^{2}$-sub Gaussian if
+{{% details title="Definition" %}}
+
+We say a random variable $X$ is $\sigma^{2}$-sub Gaussian if
 
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}\quad\text{for all }\lambda\in\mathbb{R}.
@@ -23,8 +26,10 @@ $$
 
 We call $\sigma$ the sub-Gaussian parameter. 
 
+{{% /details %}}
+
 {{< callout >}}
-Suppose that $\epsilon$ is a Rademacher random variable. Then
+**Example.** Suppose that $\epsilon$ is a Rademacher random variable. Then
 
 $$
 \begin{aligned}
@@ -39,7 +44,7 @@ which shows that Rademacher random variables are sub-Gaussian with parameter $\s
 {{< /callout >}}
 
 {{< callout >}}
-If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that
+**Example.** If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that
 
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}(b-a)^{2}}{8}}\quad\text{for all }\lambda\in\mathbb{R}.
@@ -87,7 +92,7 @@ $$
 $$
 
 {{< callout >}}
-If $X \in[a,b]$ almost surely, then
+**Example.** If $X \in[a,b]$ almost surely, then
 
 $$
 \mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
@@ -115,13 +120,13 @@ Next, we consider several equivalent characterizations of sub-Gaussian variables
 
 Suppose that $X$ is a random variable with zero mean. The following are equivalent:
 
-1. There is a constant $\sigma^2 > 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$
+1. There is a constant $\sigma \geq 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$
 
 2. There is a constant $c\geq1$ and a Gaussian random variable $Z\sim N(0,\tau^{2})$ such that $\mathbb{P}[|X|\geq s]\leq c\mathbb{P}[|Z|\geq s]$ for all $s\geq0.$
 
 3. There is a constant $\theta\geq0$ such that $\mathbb{E}[X^{2k}]\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}$ for all $k=1,2,\ldots$
 
-4. There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}}$ for all $s\in[0,1).$ 
+4. There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\lambda X^{2}}]\leq\frac{1}{\sqrt{1-2\lambda \sigma^2}}$ for all $0 \leq \lambda < \frac{1}{2\sigma^2}.$ 
 
 {{% /details %}}
 
@@ -261,6 +266,23 @@ $$
 
 Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$
 {{% /details %}}
+
+For an $\mathbb{R}$-valued random variable $X,$ the Orlicz 2-norm of $X$ is defined to be
+
+$$
+\Vert X\Vert_{\psi_2}:=\inf\{t\in\mathbb{R}_{+}:\mathbb{E}[\exp(X^2/t^2)]\leq2\}.
+$$
+
+It can be shown that this is indeed a norm. 
+
+{{% details title="Proposition" %}}
+
+We have $\Vert X\Vert_{\psi_2} <\infty$ if and only if $X$ is sub-Gaussian. 
+* If $X$ is mean-zero and $\sigma^2$-sub-Gaussian, then $\Vert X\Vert_{\psi_2} \leq C_1 \sigma$ for some absolute constant $C_1 > 0.$ 
+* If $\Vert X \Vert_{\psi_2} \leq \sigma$, then $X$ is $C_2 \sigma^2$-sub-Gaussian for some absolute constant $C_2 > 0.$
+
+{{% /details %}}
+
 
 ## Sub-Gaussian vectors and matrices
 

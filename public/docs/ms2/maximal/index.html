@@ -51,7 +51,7 @@ $$ \mathbb{E}\left[\max_{1\leq i\leq N}X_{i}\right]\leq\sigma\sqrt{2\log N}\quad
 $$ \mathbb{P}\left[\max_{1\leq i\leq N}X_{i}&gt;t\right]\leq Ne^{-\frac{t^{2}}{2\sigma^{2}}}\quad\text{and}\quad\mathbb{P}\left[\max_{1\leq i\leq N}|X_{i}|&gt;t\right]\leq2Ne^{-\frac{t^{2}}{2\sigma^{2}}}. $$ Proof For all $s&gt;0,$ we have">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="1213">
+  <meta itemprop="wordCount" content="1202">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Maximal Inequalities for Sub-Gaussians">
   <meta name="twitter:description" content="Maximum over a finite set We first consider maximum over a finite set of sub-Gaussian variables.
@@ -895,21 +895,12 @@ $$<p>Then take $t=\sigma\sqrt{8d\log(6)}+2\sigma\sqrt{2\log(1/\delta)}.$</p>
   </div>
 </details>
 <h2>A note on coverings and packings<span class="hx-absolute -hx-mt-20" id="a-note-on-coverings-and-packings"></span>
-    <a href="#a-note-on-coverings-and-packings" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Covering and packings are extremely useful notions to derive bounds in learning theory at large. We point out two different uses of these notions:</p>
-<ol>
-<li>
-<p>To control tails over infinite sets (like we just did with the $\ell_{2}$-ball).</p>
-</li>
-<li>
-<p>To measure the “size” of a set with infinitely many elements. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class.</p>
-</li>
-</ol>
-<p>We look at the covering numbers of a few classes of functions.</p>
+    <a href="#a-note-on-coverings-and-packings" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Covering and packings are extremely useful notions to derive bounds in learning theory at large. Apart from its use in controlling tails over infinite sets (like we just did with the $\ell_{2}$-ball), it can also be used as a measure of the size of an infinite set. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class.</p>
 <div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><strong>Example.</strong> For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class</p>
 $$
 \mathcal{P}=\{f_{\theta}:\theta\in[0,1]\}.
 $$<p>The set $\mathcal{P}$ is a metric space under the uniform norm. We claim that its covering number in terms of the sup-norm is bounded above and below as</p>
@@ -932,7 +923,7 @@ $$</div>
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Consider the class of Lipschitz functions on the unit interval</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><strong>Example.</strong> Consider the class of Lipschitz functions on the unit interval</p>
 $$
 \mathcal{F}_{L}=\{g:[0,1]\to\mathbb{R}:g(0)=0,\,|g(x)-g(y)|\leq L|x-y|\text{ for all }x,y\in[0,1]\}.
 $$<p>It is known that for sufficiently smaller $\delta&gt;0,$ we have</p>

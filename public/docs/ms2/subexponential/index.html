@@ -11,23 +11,23 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>Sub-exponential Random Variables – Statistics Notes</title>
-  <meta name="description" content="We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by" /><link rel="canonical" href="http://localhost:1313/docs/ms2/subexponential/" itemprop="url" />
+  <meta name="description" content="We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by" /><link rel="canonical" href="http://localhost:1313/docs/ms2/subexponential/" itemprop="url" />
 
 <meta property="og:title" content="Sub-exponential Random Variables" />
-<meta property="og:description" content="We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by" />
+<meta property="og:description" content="We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/ms2/subexponential/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
 <meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
   <meta itemprop="name" content="Sub-exponential Random Variables">
-  <meta itemprop="description" content="We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by">
+  <meta itemprop="description" content="We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="949">
+  <meta itemprop="wordCount" content="1075">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sub-exponential Random Variables">
-  <meta name="twitter:description" content="We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by">
+  <meta name="twitter:description" content="We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -323,6 +323,12 @@
                 href="#one-sided-bernsteins-inequality"
                 class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
               >One-sided Bernstein’s inequality</a>
+            </li>
+          <li>
+              <a
+                href="#characterizations-of-sub-exponential-variables"
+                class="hx-flex hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [word-break:break-word] hx-cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:hx-border hx-gap-2 before:hx-opacity-25 before:hx-content-['#'] hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:hx-text-gray-900 contrast-more:dark:hx-text-gray-50 contrast-more:hx-border-transparent contrast-more:hover:hx-border-gray-900 contrast-more:dark:hover:hx-border-gray-50"
+              >Characterizations of sub-exponential variables</a>
             </li>
           </ul>
   
@@ -667,6 +673,10 @@
       <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
         <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#one-sided-bernsteins-inequality">One-sided Bernstein’s inequality
         </a>
+      </li>
+      <li class="hx-my-2 hx-scroll-my-6 hx-scroll-py-6">
+        <a class="hx-font-semibold hx-inline-block hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-300 contrast-more:hx-text-gray-900 contrast-more:hx-underline contrast-more:dark:hx-text-gray-50 hx-w-full hx-break-words" href="#characterizations-of-sub-exponential-variables">Characterizations of sub-exponential variables
+        </a>
       </li></ul>
       <div class="hx-mt-8 hx-border-t hx-bg-white hx-pt-8 hx-shadow-[0_-12px_16px_white] dark:hx-bg-dark dark:hx-shadow-[0_-12px_16px_#111] hx-sticky hx-bottom-0 hx-flex hx-flex-col hx-items-start hx-gap-2 hx-pb-8 dark:hx-border-neutral-800 contrast-more:hx-border-t contrast-more:hx-border-neutral-400 contrast-more:hx-shadow-none contrast-more:dark:hx-border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="hx-transition-all hx-duration-75 hx-opacity-0 hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50">
@@ -694,7 +704,7 @@
 
         <div class="content">
           <h1>Sub-exponential Random Variables</h1>
-          <p>We consider a class of random variables which we call sub-exponential random variables. Sub-exponential variables are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by</p>
+          <p>We now consider a class of random variables which are allowed to have heavier tails than sub-Gaussian variables. To motivate the definition, let us suppose that $X$ has the double exponential or Laplace distribution with parameter 1, so that $\mathbb{P}[|X|\geq t]\leq e^{-t}$ for all $t\geq0.$ The tails of this distribution do not decay as fast as the Gaussian ones. This tail behavior is captured by the moment generating function, which is given by</p>
 $$
 \mathbb{E}[e^{\lambda X}]=\frac{1}{1-\lambda^{2}}\leq e^{2\lambda^{2}}\quad\text{for all }|\lambda|<1.
 $$<p>So the moment generating function of the Laplace distribution is bounded by that of a Gaussian in a neighborhood of 0 but does not exist everywhere on the real line. It turns out that all distributions that have tails at most as heavy as that of a Laplace distribution satisfy such a property.</p>
@@ -736,21 +746,29 @@ $$
   </div>
 </details>
 <h2>Definition and basic properties<span class="hx-absolute -hx-mt-20" id="definition-and-basic-properties"></span>
-    <a href="#definition-and-basic-properties" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We say a random variable $X$ is $(\tau^{2},b)$-sub-exponential if there exist non-negative numbers $\tau^2$ and $b$ such that</p>
+    <a href="#definition-and-basic-properties" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Definition</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We say a random variable $X$ is $(\tau^{2},b)$-sub-exponential if there exist non-negative numbers $\tau^2$ and $b$ such that</p>
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\tau^{2}}{2}}\quad\text{for all }|\lambda| < \frac{1}{b}.
-$$<p>It follows directly from this definition that sub-Gaussian variables are sub-exponential.</p>
+$$
+  </div>
+</details>
+<p>It follows directly from this definition that sub-Gaussian variables are sub-exponential.</p>
 <div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda&lt;\frac{1}{2},$</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><strong>Example.</strong> Let $Z\sim N(0,1).$ Consider $X=Z^{2} \sim \chi^2.$ Then for $\lambda&lt;\frac{1}{2},$</p>
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\lambda(z^{2}-1)}e^{-z^{2}/2}\,dz=\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}.\
 $$<p>The integral does not converge if $\lambda&gt;\frac{1}{2},$ so this variable is not sub-Gaussian. However, in a neighborhood of 0, we find that</p>
 $$
-\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2}.
-$$<p>This holds for all $|\lambda|\leq\frac{1}{4},$ so $X\sim\chi^{2}$ is sub-exponential with parameters $(2,4)$.</p>
+\frac{e^{-\lambda}}{\sqrt{1-2\lambda}}\leq e^{2\lambda^{2}}=e^{4\lambda^{2}/2},
+$$<p>so $X\sim\chi^{2}$ is sub-exponential.</p>
 </div>
   </div>
 </div>
@@ -761,10 +779,9 @@ $$<p>This holds for all $|\lambda|\leq\frac{1}{4},$ so $X\sim\chi^{2}$ is sub-ex
     <strong class="hx-text-lg">Proposition</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential. Then $\sum_{i=1}^{n}X_{i}$ is $(\sum_{i=1}^{n}\tau_{i}^{2},\max_{i\leq n}b_{i})$-sub-exponential.
+    Let $X_{1},\ldots,X_{n}$ be independent random variables such that $X_i$ is $(\tau_i^2, b_i)$-sub-exponential, and let $a_1,\ldots,a_n \in \mathbb{R}.$ Then $\sum_{i=1}^{n}a_i X_{i}$ is $(\sum_{i=1}^{n}a_i^2 \tau_{i}^{2},\max_{i}|a_i b_i|)$-sub-exponential.
   </div>
 </details>
-<p>See homework for proof of the above result.</p>
 <h2>Chernoff bound for sub-exponential variables<span class="hx-absolute -hx-mt-20" id="chernoff-bound-for-sub-exponential-variables"></span>
     <a href="#chernoff-bound-for-sub-exponential-variables" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Let us derive the Chernoff bound for sub-exponential variables. Assume that $X$ is $(\tau^{2},b)$-sub-exponential. For $t \geq 0$, define $g(\lambda,t)=\frac{\lambda^{2}\tau^{2}}{2}-\lambda t$ and $g^{\ast}(t)=\inf_{\lambda\in[0,1/b)}g(\lambda,t).$ We have</p>
 $$
@@ -791,7 +808,12 @@ $$<p>where $\mu=\mathbb{E}[X]$ and $\sigma^{2}=\operatorname{Var}[X].$ A suffici
     If $X$ satisfies Bernstein&rsquo;s condition with parameter $b$, then $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential.
   </div>
 </details>
-<p>To see this, for $|\lambda|&lt;\frac{1}{b},$ we expand the moment generating function to get</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>To see this, for $|\lambda|&lt;\frac{1}{b},$ we expand the moment generating function to get</p>
 $$
 \begin{aligned}
 \mathbb{E}[e^{\lambda(X-\mu)}] &= 1+\frac{\lambda^{2}\sigma^{2}}{2}+\sum_{k=3}^{\infty}\lambda^{k}\frac{\mathbb{E}[(X-\mu)^{k}]}{k!} \\
@@ -800,6 +822,8 @@ $$
 	&\leq e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}.
 \end{aligned}
 $$<p>If $|\lambda|&lt;\frac{1}{2b},$ then $e^{\frac{\lambda^{2}\sigma^{2}}{2(1-b|\lambda|)}}\leq e^{\lambda^{2}\sigma^{2}}=e^{\frac{\lambda^{2}(\sqrt{2}\sigma)^{2}}{2}},$ so $X$ is $(\sqrt{2}\sigma,2b)$-sub-exponential.</p>
+  </div>
+</details>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Bernstein-type bound</strong>
@@ -850,7 +874,12 @@ $$
 $$
   </div>
 </details>
-<p>To prove it, define $h(u)=2\frac{e^{u}-u-1}{u^{2}}=2\sum_{k=2}^{\infty}\frac{u^{k-2}}{k!}.$ Then</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>To prove it, define $h(u)=2\frac{e^{u}-u-1}{u^{2}}=2\sum_{k=2}^{\infty}\frac{u^{k-2}}{k!}.$ Then</p>
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]=1+\frac{1}{2}\lambda^{2}\mathbb{E}[(X-\mathbb{E}[X])^{2}h(\lambda(X-\mathbb{E}[X]))].
 $$<p>For all $x\in(-\infty,0),$ $x&rsquo;\in[0,b],$ and $\lambda&gt;0,$ we have</p>
@@ -868,6 +897,52 @@ $$
 \mathbb{P}\left[\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])\geq n\delta\right]&\leq e^{-\lambda n\delta}\mathbb{E}[e^{\lambda\sum_{i=1}^{n}(X_{i}-\mathbb{E}[X_{i}])}] \\ &\leq\exp\left(-\lambda n\delta+\frac{\lambda^{2}\sum_{i=1}^{n}\sigma_{i}^{2}}{2(1-\frac{\lambda b}{3})}\right).
 \end{aligned}
 $$<p>Substituting in $\lambda=\frac{n\delta}{\sum_{i=1}^{n}\sigma_{i}^{2}+\frac{b\delta}{3}}\in[0,\frac{3}{b})$ and simplifying yields the desired bound.</p>
+  </div>
+</details>
+<h2>Characterizations of sub-exponential variables<span class="hx-absolute -hx-mt-20" id="characterizations-of-sub-exponential-variables"></span>
+    <a href="#characterizations-of-sub-exponential-variables" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We consider several equivalent characterizations of sub-exponential variables.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proposition</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>Suppose that $X$ is a random variable with zero mean. The following are equivalent:</p>
+<ol>
+<li>
+<p>There are non-negative real numbers $(\nu,\alpha)$ such that</p>
+$$
+\mathbb{E}[e^{\lambda X}]\leq e^{\nu^{2}\lambda^{2}/2}\quad\text{for all }|\lambda|\leq\frac{1}{\alpha}.
+$$</li>
+<li>
+<p>There is a constant $c_{0}&gt;0$ such that $\mathbb{E}[e^{\lambda X}]&lt;\infty$ for all $|\lambda|\leq c_{0}.$</p>
+</li>
+<li>
+<p>There are constants $c_{1},c_{2}&gt;0$ such that</p>
+$$
+\mathbb{P}[|X|\geq t]\leq c_{1}e^{-c_{2}t}\quad\text{for all }t\geq0.
+$$</li>
+<li>
+<p>$\sup_{k\geq1}\left(\frac{\mathbb{E}[|X|^{k}]}{k!}\right)^{1/k}&lt;\infty .$</p>
+</li>
+</ol>
+  </div>
+</details>
+<p>For an $\mathbb{R}$-valued random variable $X,$ define its Orlicz 1-norm to be</p>
+$$
+\Vert X\Vert_{\psi_1}:=\inf\{t\in\mathbb{R}_{+}:\mathbb{E}[\exp(|X|/t)]\leq2\}.
+$$<p>This norm characterizes sub-exponentiality.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proposition</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We have $\Vert X\Vert_{\psi_1} &lt;\infty$ if and only if $X$ is sub-exponential. Moreover:</p>
+<ul>
+<li>We have the concentration inequality $\mathbb{P}[|X| \geq t] \leq 2e^{-t / \Vert X\Vert_{\psi_1}}.$</li>
+<li>If $X$ is $(\tau^2, b)$-sub-exponential with zero mean, then $\Vert X \Vert_{\psi_2}$ and $\tau$ differ by an absolute constant factor.</li>
+</ul>
+  </div>
+</details>
 
         </div>
         <div class="hx-mt-16"></div>

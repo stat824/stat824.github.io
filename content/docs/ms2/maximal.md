@@ -209,16 +209,10 @@ Then take $t=\sigma\sqrt{8d\log(6)}+2\sigma\sqrt{2\log(1/\delta)}.$
 
 ## A note on coverings and packings
 
-Covering and packings are extremely useful notions to derive bounds in learning theory at large. We point out two different uses of these notions:
-
-1. To control tails over infinite sets (like we just did with the $\ell_{2}$-ball).
-
-2. To measure the “size” of a set with infinitely many elements. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class. 
-
-We look at the covering numbers of a few classes of functions.
+Covering and packings are extremely useful notions to derive bounds in learning theory at large. Apart from its use in controlling tails over infinite sets (like we just did with the $\ell_{2}$-ball), it can also be used as a measure of the size of an infinite set. Many statistical problems require manipulating and controlling the behaviour of random variables indexed by sets with an infinite number of elements. Examples include continuous-time random walks, empirical process theory, etc. In this context, covering and packings are useful to define “metric entropy” (which is just the log of the covering number) which we can understand as a measure of the complexity of a class. 
 
 {{< callout  >}}
-For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class
+**Example.** For any fixed $\theta,$ define the real-valued function $f_{\theta}(x)=1-e^{-\theta x}$ for $x\in[0,1],$ and consider the function class
 
 $$
 \mathcal{P}=\{f_{\theta}:\theta\in[0,1]\}.
@@ -250,7 +244,7 @@ $$
 {{< /callout >}}
 
 {{< callout >}}
-Consider the class of Lipschitz functions on the unit interval
+**Example.** Consider the class of Lipschitz functions on the unit interval
 
 $$
 \mathcal{F}_{L}=\{g:[0,1]\to\mathbb{R}:g(0)=0,\,|g(x)-g(y)|\leq L|x-y|\text{ for all }x,y\in[0,1]\}.

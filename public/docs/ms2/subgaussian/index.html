@@ -11,11 +11,11 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 <title>Sub-Gaussian Random Variables – Statistics Notes</title>
-  <meta name="description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+  <meta name="description" content="In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
 Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is" /><link rel="canonical" href="http://localhost:1313/docs/ms2/subgaussian/" itemprop="url" />
 
 <meta property="og:title" content="Sub-Gaussian Random Variables" />
-<meta property="og:description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+<meta property="og:description" content="In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
 Definition and basic properties
     If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is" />
 <meta property="og:type" content="article" />
@@ -24,14 +24,14 @@ Definition and basic properties
 <meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
   <meta itemprop="name" content="Sub-Gaussian Random Variables">
-  <meta itemprop="description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+  <meta itemprop="description" content="In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
 Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="876">
+  <meta itemprop="wordCount" content="960">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sub-Gaussian Random Variables">
-  <meta name="twitter:description" content="The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
+  <meta name="twitter:description" content="In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.
 Definition and basic properties If $X$ follows a Gaussian distribution with mean $\mu$ and variance $\sigma^{2},$ recall that its moment generating function is">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
@@ -699,20 +699,27 @@ Definition and basic properties If $X$ follows a Gaussian distribution with mean
 
         <div class="content">
           <h1>Sub-Gaussian Random Variables</h1>
-          <p>The form of the tail depends on the growth rate of the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to their moment generating functions, which controls how nice their tail behaviour is. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.</p>
+          <p>In the Chernoff bound, the form of the tail depends on the moment generating function $\phi(\lambda),$ so it is natural to define families of random variables according to the growth rate of their moment generating functions. Sub-Gaussian random variables are random variables whose tail behaviour is at least as nice as that of a Gaussian random variable.</p>
 <h2>Definition and basic properties<span class="hx-absolute -hx-mt-20" id="definition-and-basic-properties"></span>
     <a href="#definition-and-basic-properties" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>If $X$ follows a Gaussian distribution with mean $\mu$  and variance $\sigma^{2},$ recall that its moment generating function is</p>
 $$
 \mathbb{E}[e^{\lambda X}]=e^{\mu\lambda+\frac{\lambda^{2}\sigma^{2}}{2}},\quad\lambda\in\mathbb{R}.
-$$<p>Then we say a random variable $X$ is $\sigma^{2}$-sub Gaussian if</p>
+$$<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Definition</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We say a random variable $X$ is $\sigma^{2}$-sub Gaussian if</p>
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}\quad\text{for all }\lambda\in\mathbb{R}.
 $$<p>We call $\sigma$ the sub-Gaussian parameter.</p>
+  </div>
+</details>
 <div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2 ltr:hx-pr-4 rtl:hx-pl-4 contrast-more:hx-border-current contrast-more:dark:hx-border-current hx-border-orange-100 hx-bg-orange-50 hx-text-orange-800 dark:hx-border-orange-400/30 dark:hx-bg-orange-400/20 dark:hx-text-orange-300">
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>Suppose that $\epsilon$ is a Rademacher random variable. Then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><strong>Example.</strong> Suppose that $\epsilon$ is a Rademacher random variable. Then</p>
 $$
 \begin{aligned}
 \mathbb{E}[e^{\lambda X}] &= \frac{e^{\lambda}+e^{-\lambda}}{2} \\
@@ -729,7 +736,7 @@ $$<p>which shows that Rademacher random variables are sub-Gaussian with paramete
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><strong>Example.</strong> If $X$ is a bounded random variable such that $X \in [a,b]$ almost surely, then $X$ is sub-Gaussian with parameter $\sigma = \frac{b - a}{2},$ so that</p>
 $$
 \mathbb{E}[e^{\lambda(X-\mathbb{E}[X])}]\leq e^{\frac{\lambda^{2}(b-a)^{2}}{8}}\quad\text{for all }\lambda\in\mathbb{R}.
 $$<p>See homework for proof.</p>
@@ -771,7 +778,7 @@ $$<div class="hx-overflow-x-auto hx-mt-6 hx-flex hx-rounded-lg hx-border hx-py-2
   <div class="ltr:hx-pl-3 ltr:hx-pr-2 rtl:hx-pr-3 rtl:hx-pl-2"></div>
 
   <div class="hx-w-full hx-min-w-0 hx-leading-7">
-    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p>If $X \in[a,b]$ almost surely, then</p>
+    <div class="hx-mt-6 hx-leading-7 first:hx-mt-0"><p><strong>Example.</strong> If $X \in[a,b]$ almost surely, then</p>
 $$
 \mathbb{P}[X - \mathbb{E}[X] \geq t]\leq\exp\left(-\frac{2t^{2}}{(b-a)^{2}}\right).
 $$</div>
@@ -800,7 +807,7 @@ $$
     <p>Suppose that $X$ is a random variable with zero mean. The following are equivalent:</p>
 <ol>
 <li>
-<p>There is a constant $\sigma^2 &gt; 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$</p>
+<p>There is a constant $\sigma \geq 0$ such that $\mathbb{E}[e^{\lambda X}]\leq e^{\frac{\lambda^{2}\sigma^{2}}{2}}$ for all $\lambda\in\mathbb{R}.$</p>
 </li>
 <li>
 <p>There is a constant $c\geq1$ and a Gaussian random variable $Z\sim N(0,\tau^{2})$ such that $\mathbb{P}[|X|\geq s]\leq c\mathbb{P}[|Z|\geq s]$ for all $s\geq0.$</p>
@@ -809,7 +816,7 @@ $$
 <p>There is a constant $\theta\geq0$ such that $\mathbb{E}[X^{2k}]\leq\frac{(2k)!}{2^{k}k!}\theta^{2k}$ for all $k=1,2,\ldots$</p>
 </li>
 <li>
-<p>There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\frac{sX^{2}}{2\sigma^{2}}}]\leq\frac{1}{\sqrt{1-s}}$ for all $s\in[0,1).$</p>
+<p>There is a constant $\sigma\geq0$ such that $\mathbb{E}[e^{\lambda X^{2}}]\leq\frac{1}{\sqrt{1-2\lambda \sigma^2}}$ for all $0 \leq \lambda &lt; \frac{1}{2\sigma^2}.$</p>
 </li>
 </ol>
   </div>
@@ -893,6 +900,22 @@ $$<p>If $c\in(0,1/2),$ then we have $\mathbb{E}[e^{\frac{cX^{2}}{2\sigma^{2}}}]\
 $$
 \mathbb{E}[e^{\lambda X}]\leq e^{2\lambda^{2}\sigma^{2}}e^{1/4}\leq e^{2\lambda^{2}\sigma^{2}+\frac{9}{16}\lambda^{2}\sigma^{2}}\leq e^{3\lambda^{2}\sigma^{2}}.
 $$<p>Therefore, we have $\mathbb{E}[e^{\lambda X}]\leq e^{3\lambda^{2}\sigma^{2}}$ for all $\lambda\in\mathbb{R}.$</p>
+  </div>
+</details>
+<p>For an $\mathbb{R}$-valued random variable $X,$ the Orlicz 2-norm of $X$ is defined to be</p>
+$$
+\Vert X\Vert_{\psi_2}:=\inf\{t\in\mathbb{R}_{+}:\mathbb{E}[\exp(X^2/t^2)]\leq2\}.
+$$<p>It can be shown that this is indeed a norm.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proposition</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>We have $\Vert X\Vert_{\psi_2} &lt;\infty$ if and only if $X$ is sub-Gaussian.</p>
+<ul>
+<li>If $X$ is mean-zero and $\sigma^2$-sub-Gaussian, then $\Vert X\Vert_{\psi_2} \leq C_1 \sigma$ for some absolute constant $C_1 &gt; 0.$</li>
+<li>If $\Vert X \Vert_{\psi_2} \leq \sigma$, then $X$ is $C_2 \sigma^2$-sub-Gaussian for some absolute constant $C_2 &gt; 0.$</li>
+</ul>
   </div>
 </details>
 <h2>Sub-Gaussian vectors and matrices<span class="hx-absolute -hx-mt-20" id="sub-gaussian-vectors-and-matrices"></span>
