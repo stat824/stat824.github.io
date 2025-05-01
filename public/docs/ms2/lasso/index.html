@@ -10,36 +10,42 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>The Lasso Program – Statistics Notes</title>
-  <meta name="description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+<title>Lasso – Statistics Notes</title>
+  <meta name="description" content="Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
 $$ Y=X\theta^{\ast}&#43;\epsilon $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
-$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either" /><link rel="canonical" href="http://localhost:1313/docs/ms2/lasso/" itemprop="url" />
+$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either
+$$ \min_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq R\right\} \quad\text{for some }R&gt;0, $$or" /><link rel="canonical" href="http://localhost:1313/docs/ms2/lasso/" itemprop="url" />
 
-<meta property="og:title" content="The Lasso Program" />
-<meta property="og:description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+<meta property="og:title" content="Lasso" />
+<meta property="og:description" content="Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
 $$
 Y=X\theta^{\ast}&#43;\epsilon
 $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
 $$
 \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
-$$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either" />
+$$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either
+$$
+\min_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq R\right\} \quad\text{for some }R&gt;0,
+$$or" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/ms2/lasso/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-02-27T21:18:39+10:00" />
 <meta property="article:modified_time" content="2025-02-27T21:18:39+10:00" />
 
-  <meta itemprop="name" content="The Lasso Program">
-  <meta itemprop="description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+  <meta itemprop="name" content="Lasso">
+  <meta itemprop="description" content="Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
 $$ Y=X\theta^{\ast}&#43;\epsilon $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
-$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either">
+$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either
+$$ \min_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq R\right\} \quad\text{for some }R&gt;0, $$or">
   <meta itemprop="datePublished" content="2025-02-27T21:18:39+10:00">
   <meta itemprop="dateModified" content="2025-02-27T21:18:39+10:00">
-  <meta itemprop="wordCount" content="933">
+  <meta itemprop="wordCount" content="958">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="The Lasso Program">
-  <meta name="twitter:description" content="We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+  <meta name="twitter:title" content="Lasso">
+  <meta name="twitter:description" content="Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
 $$ Y=X\theta^{\ast}&#43;\epsilon $$where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing
-$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either">
+$$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1}, $$where $\lambda_{n}&gt;0$ is a hyperparameter. This is called the Lasso program. Alternatively, one can consider different constrained forms of the Lasso, either
+$$ \min_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}:\Vert\theta\Vert_{1}\leq R\right\} \quad\text{for some }R&gt;0, $$or">
 
     <link href="/css/compiled/main.css" rel="stylesheet" />
 
@@ -349,7 +355,7 @@ $$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
       sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/docs/ms2/lasso/"
     
-  >The Lasso Program
+  >Lasso
     </a>
   
     <ul class='hx-flex hx-flex-col hx-gap-1 hx-relative before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] dark:before:hx-bg-neutral-800 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-pr-3 rtl:before:hx-right-0 ltr:hx-ml-3 rtl:hx-mr-3'><li>
@@ -378,7 +384,7 @@ $$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/variable/"
     
-  >Variable Selection with the Lasso
+  >Variable Selection with Lasso
     </a>
               
             </li></ul>
@@ -609,7 +615,7 @@ $$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
       sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
     href="/docs/ms2/lasso/"
     
-  >The Lasso Program
+  >Lasso
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
@@ -617,7 +623,7 @@ $$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/docs/ms2/variable/"
     
-  >Variable Selection with the Lasso
+  >Variable Selection with Lasso
     </a>
               
             </li></ul>
@@ -691,12 +697,12 @@ $$ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}&#43;\lambda_{n}\Vert\theta\Vert_{1},
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/docs/ms2/">Mathematical Statistics 2</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">The Lasso Program</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">Lasso</div>
   </div>
 
         <div class="content">
-          <h1>The Lasso Program</h1>
-          <p>We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that</p>
+          <h1>Lasso</h1>
+          <p>Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that</p>
 $$
 Y=X\theta^{\ast}+\epsilon
 $$<p>where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon$ is sub-Gaussian noise with independent components. A natural extension of the basis pursuit program is based on minimizing</p>
@@ -777,13 +783,19 @@ $$
     <a href="#the-regularized-form-of-the-lasso" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>We now consider the Lasso program</p>
 $$
 \widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1}\right\} .
-$$<p>The challenge now is that we can no longer guarantee that $\widehat{\theta}-\theta^{\ast}$ belongs to the cone $\mathbb{C}(S).$ However, we have the following result instead.</p>
+$$<p>The challenge now is that we can no longer guarantee that $\Delta = \widehat{\theta}-\theta^{\ast}$ belongs to the cone $\mathbb{C}(S).$ However, we instead have $\Delta \in \mathbb{C}_3(S).$ First, we prove two inequalities known as the new basic inequalities.</p>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Lemma</strong>
   </summary>
   <div class="hx-p-2 hx-overflow-hidden">
-    Assume that $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}.$ Then $\Delta=\widehat{\theta}-\theta^{\ast}$ satisfies $\Delta\in\mathbb{C}_{3}(S)$ where $S=\operatorname{supp}(\theta^{\ast}).$
+    <p>Let $\Delta = \widehat{\theta}-\theta^{\ast}.$ We have</p>
+$$
+\begin{aligned}
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
+	&\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
+\end{aligned}
+$$<p>These are called the new basic inequalities.</p>
   </div>
 </details>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
@@ -799,12 +811,30 @@ $$
 \frac{1}{2n}\Vert X\Delta-\epsilon\Vert_{2}^{2}+\lambda_{n}\Vert\widehat{\theta}\Vert_{1}\leq\frac{1}{2n}\Vert\epsilon\Vert_{2}^{2}+\lambda_{n}\Vert\theta^{\ast}\Vert_{1},
 $$<p>and expanding gives</p>
 $$
-\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}).
-$$<p>Also, we have</p>
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}),
+$$<p>which is the first inequality. Also, we have</p>
 $$
 \Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}	=\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\theta_{S}^{\ast}+\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}
 	\leq\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1},
-$$<p>so</p>
+$$<p>
+which gives the second inequality.</p>
+  </div>
+</details>
+<p>An almost immediate consequence is the following.</p>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Corollary</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    Assume that $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}.$ Then $\Delta=\widehat{\theta}-\theta^{\ast}$ satisfies $\Delta\in\mathbb{C}_{3}(S)$ where $S=\operatorname{supp}(\theta^{\ast}).$
+  </div>
+</details>
+<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" >
+  <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
+    <strong class="hx-text-lg">Proof</strong>
+  </summary>
+  <div class="hx-p-2 hx-overflow-hidden">
+    <p>From the second inequality, we have</p>
 $$
 \begin{aligned}
 0\leq\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq \frac{1}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
@@ -813,13 +843,7 @@ $$
 $$<p>Rearranging gives $\Vert\Delta_{S^{c}}\Vert_{1}\leq3\Vert\Delta_{S}\Vert_{1}.$</p>
   </div>
 </details>
-<p>From the proof of the lemma, we have the inequalities</p>
-$$
-\begin{aligned}
-\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
-	&\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
-\end{aligned}
-$$<p>We call these the new basic inequalities. Using this lemma, we can prove the following.</p>
+<p>We can also prove the following bound on the error.</p>
 <details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg-neutral-800 hx-p-2 hx-mt-4 hx-group" open>
   <summary class="hx-flex hx-items-center hx-cursor-pointer hx-select-none hx-list-none hx-p-1 hx-rounded hx-transition-colors hover:hx-bg-gray-100 dark:hover:hx-bg-neutral-800 before:hx-mr-1 before:hx-inline-block before:hx-transition-transform before:hx-content-[''] dark:before:hx-invert rtl:before:hx-rotate-180 group-open:before:hx-rotate-90">
     <strong class="hx-text-lg">Theorem</strong>
@@ -892,7 +916,7 @@ $$<details class="last-of-type:hx-mb-0 hx-rounded-lg hx-bg-neutral-50 dark:hx-bg
 <li>
 <p>Any optimal solution $\widehat{\theta}$ satisfies</p>
 $$
-\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq12\Vert\theta^{\ast}\Vert_{1}\lambda_{n}.
+\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq 6\Vert\theta^{\ast}\Vert_{1}\lambda_{n}.
 $$</li>
 <li>
 <p>If the design matrix $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}),$ then</p>
@@ -930,9 +954,8 @@ $$<p>Using this, we obtain</p>
 $$
 \begin{aligned}
 \frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq \frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
-	&\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\theta^{\ast}+\Delta\Vert_{1}) \\
-	&\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}\Vert\Delta\Vert_{1} \\
-	&\leq\frac{12\lambda_{n}}{2}\Vert\theta^{\ast}\Vert_{1}
+	&\leq\frac{\lambda_{n}}{2}(4 \Vert\theta^\ast\Vert_{1})+\lambda_{n}\Vert\theta^{\ast}\Vert_{1} \\
+	&\leq\frac{6\lambda_{n}}{2}\Vert\theta^{\ast}\Vert_{1}
 \end{aligned}
 $$<p>which proves the first part of the theorem. For the second part of the theorem, assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}).$ From the proof of the previous theorem, we have</p>
 $$
@@ -974,9 +997,9 @@ $$<p>which can be a substantially tighter bound.</p>
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-pr-4 rtl:hx-pl-4"
       ><svg class="hx-inline hx-h-5 hx-shrink-0 ltr:hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Estimation in the Noiseless Linear Model</a><a
         href="/docs/ms2/variable/"
-        title="Variable Selection with the Lasso"
+        title="Variable Selection with Lasso"
         class="hx-flex hx-max-w-[50%] hx-items-center hx-gap-1 hx-py-4 hx-text-base hx-font-medium hx-text-gray-600 hx-transition-colors [word-break:break-word] hover:hx-text-primary-600 dark:hx-text-gray-300 md:hx-text-lg ltr:hx-ml-auto ltr:hx-pl-4 ltr:hx-text-right rtl:hx-mr-auto rtl:hx-pr-4 rtl:hx-text-left"
-      >Variable Selection with the Lasso<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Variable Selection with Lasso<svg class="hx-inline hx-h-5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>

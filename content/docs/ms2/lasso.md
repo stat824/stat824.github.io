@@ -2,11 +2,11 @@
 date: '2025-02-27T21:18:39+10:00'
 draft: true
 math: true
-title: 'The Lasso Program'
+title: 'Lasso'
 weight: 8
 ---
 
-We turn to the setting where there is noise in observations. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
 
 $$
 Y=X\theta^{\ast}+\epsilon
@@ -132,10 +132,19 @@ $$
 \widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1}\right\} .
 $$
 
-The challenge now is that we can no longer guarantee that $\widehat{\theta}-\theta^{\ast}$ belongs to the cone $\mathbb{C}(S).$ However, we have the following result instead. 
+The challenge now is that we can no longer guarantee that $\Delta = \widehat{\theta}-\theta^{\ast}$ belongs to the cone $\mathbb{C}(S).$ However, we instead have $\Delta \in \mathbb{C}_3(S).$ First, we prove two inequalities known as the new basic inequalities.
 
 {{% details title="Lemma" %}}
-Assume that $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}.$ Then $\Delta=\widehat{\theta}-\theta^{\ast}$ satisfies $\Delta\in\mathbb{C}_{3}(S)$ where $S=\operatorname{supp}(\theta^{\ast}).$
+Let $\Delta = \widehat{\theta}-\theta^{\ast}.$ We have
+
+$$
+\begin{aligned}
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
+	&\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
+\end{aligned}
+$$
+
+These are called the new basic inequalities. 
 {{% /details %}}
 
 {{% details title="Proof" closed="true" %}}
@@ -155,17 +164,28 @@ $$
 and expanding gives
 
 $$
-\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}).
+\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2}\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}),
 $$
 
-Also, we have
+which is the first inequality. Also, we have
 
 $$
 \Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}	=\Vert\theta_{S}^{\ast}\Vert_{1}-\Vert\theta_{S}^{\ast}+\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}
 	\leq\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1},
 $$
+which gives the second inequality.
+{{% /details %}}
 
-so
+
+An almost immediate consequence is the following. 
+
+{{% details title="Corollary" %}}
+Assume that $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}.$ Then $\Delta=\widehat{\theta}-\theta^{\ast}$ satisfies $\Delta\in\mathbb{C}_{3}(S)$ where $S=\operatorname{supp}(\theta^{\ast}).$
+{{% /details %}}
+
+{{% details title="Proof" closed="true" %}}
+
+From the second inequality, we have
 
 $$
 \begin{aligned}
@@ -177,16 +197,7 @@ $$
 Rearranging gives $\Vert\Delta_{S^{c}}\Vert_{1}\leq3\Vert\Delta_{S}\Vert_{1}.$
 {{% /details %}}
 
-From the proof of the lemma, we have the inequalities
-
-$$
-\begin{aligned}
-\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
-	&\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}).
-\end{aligned}
-$$
-
-We call these the new basic inequalities. Using this lemma, we can prove the following. 
+We can also prove the following bound on the error. 
 
 {{% details title="Theorem" %}}
 Assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ condition over $S=\operatorname{supp}(\theta^{\ast}).$ If $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n},$ then
@@ -261,7 +272,7 @@ Consider the regularized Lasso with $\lambda_{n}\geq2\Vert\frac{X^{T}\epsilon}{n
 1. Any optimal solution $\widehat{\theta}$ satisfies
 
 	$$
-\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq12\Vert\theta^{\ast}\Vert_{1}\lambda_{n}.
+\frac{\Vert X(\theta^{\ast}-\widehat{\theta})\Vert_{2}^{2}}{n}\leq 6\Vert\theta^{\ast}\Vert_{1}\lambda_{n}.
 $$
 
 2. If the design matrix $X$ satisfies the $\operatorname{RE}(3,\mu)$ property over $S=\operatorname{supp}(\theta^{\ast}),$ then
@@ -310,9 +321,8 @@ Using this, we obtain
 $$
 \begin{aligned}
 \frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq \frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\widehat{\theta}\Vert_{1}) \\
-	&\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\theta^{\ast}\Vert_{1}-\Vert\theta^{\ast}+\Delta\Vert_{1}) \\
-	&\leq\frac{\lambda_{n}}{2}\Vert\Delta\Vert_{1}+\lambda_{n}\Vert\Delta\Vert_{1} \\
-	&\leq\frac{12\lambda_{n}}{2}\Vert\theta^{\ast}\Vert_{1}
+	&\leq\frac{\lambda_{n}}{2}(4 \Vert\theta^\ast\Vert_{1})+\lambda_{n}\Vert\theta^{\ast}\Vert_{1} \\
+	&\leq\frac{6\lambda_{n}}{2}\Vert\theta^{\ast}\Vert_{1}
 \end{aligned}
 $$
 

@@ -2,7 +2,7 @@
 date: '2025-02-27T21:18:39+10:00'
 draft: true
 math: true
-title: 'Variable Selection with the Lasso'
+title: 'Variable Selection with Lasso'
 weight: 9
 ---
 
