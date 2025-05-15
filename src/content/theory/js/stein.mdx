@@ -1,0 +1,132 @@
+import { Callout } from 'nextra/components'
+
+# Risk estimate for the James-Stein estimator
+
+We shall prove that for $p \geq 3$, the James-Stein estimator has strictly smaller risk than the sample mean at every $\theta \in \mathbb{R}^p$. We will need Stein's lemma for the proof.
+
+<details open>
+<summary>Stein's Lemma</summary>
+
+If $Z \sim N(0, I_p)$, then we have 
+
+$$
+\mathbb{E} [\langle Z, g(Z) \rangle] = \mathbb{E} [\langle \nabla, g(Z) \rangle]
+$$
+
+for any $g \in C^1(\mathbb{R}^p ; \mathbb{R}^p)$ for which both expectations exist.
+</details>
+
+<details>
+<summary>Proof</summary>
+
+We will start with the $p=1$ case. Let $\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}$. Then $\phi'(x)=-x\phi(x)$, so 
+
+$$
+\mathbb{E}[Zg(Z)]=\int xg(x)\phi(x)\,dx=-\int\phi'(x)g(x)\,dx=\int\phi(x)g'(x)\,dx=\mathbb{E}[g'(Z)]
+$$
+
+where the second last equality follows from integration by parts. Now suppose that $p > 1$. Then we can write $Z = (Z_1, \ldots, Z_p)$ where $Z_1,\ldots,Z_p$ each follows a standard normal distribution. Then
+
+$$
+\begin{aligned}
+\mathbb{E}[\langle Z,g(Z)\rangle] &=\sum_{i=1}^{p}\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[Z_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})|Z_{1},\ldots,Z_{i-1},Z_{i+1},\ldots,Z_{p}]] \\
+	&=\sum_{i=1}^{p}\mathbb{E}[\partial_{i}g_{i}(Z_{1},\ldots,Z_{p})] \\
+	&=\mathbb{E}[\langle\nabla,g(Z)\rangle],
+\end{aligned}
+$$
+
+where the third equality follows from the $p=1$ case.
+
+</details>
+
+Using Stein's lemma, we can prove the following. 
+
+<details open>
+<summary>Theorem</summary>
+
+Let $p \geq 3$. Then for all $\theta \in \mathbb{R}^p$, we have
+
+$$
+R(\widehat{\theta}_{\text{JS}},\theta)=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}_{\theta}\frac{1}{\Vert\sqrt{n}\theta+Z\Vert^{2}}\right),\quad Z\sim N(0,1).
+$$
+
+In particular, we have
+
+$$
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} <\frac{p}{n}=\mathbb{E}_{\theta}\Vert\overline{X}-\theta\Vert^{2}
+$$
+
+for all $\theta\in\mathbb{R}^{p}$.
+
+</details>
+
+<details>
+<summary>Proof</summary>
+
+
+Let us write $\overline{X}=\frac{1}{\sqrt{n}}(\mu+Z)$ where $Z\sim N(0,I_{p})$ and $\mu=\sqrt{n}\theta$. We have
+
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} &=\mathbb{E}_{\theta}\left\Vert \left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}-\theta\right\Vert ^{2} \\
+	&=\mathbb{E}_{\theta}\left\Vert \overline{X}-\theta-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\overline{X}\right\Vert ^{2} \\
+	&=\mathbb{E}_{\theta}\left\Vert \frac{1}{\sqrt{n}}Z-\frac{p-2}{\Vert\mu+Z\Vert^{2}}\frac{1}{\sqrt{n}}(\mu+Z)\right\Vert ^{2} \\
+	&=\frac{1}{n}\mathbb{E}_{\theta}\left\Vert Z-\frac{p-2}{\Vert\mu+Z\Vert^{2}}(\mu+Z)\right\Vert ^{2} \\
+	&=\frac{1}{n}\left(\mathbb{E}_{\theta}\Vert Z\Vert^{2}+\mathbb{E}_{\theta}\frac{(p-2)^{2}}{\Vert\mu+Z\Vert^{2}}-2(p-2)\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle \right).
+\end{aligned}
+$$
+
+We have 
+
+$$
+\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle =\mathbb{E}_{\theta}\langle Z,g(Z)\rangle,
+$$
+
+where $g_{j}(z)=\frac{\mu_{j}+z_{j}}{\Vert\mu+z\Vert^{2}}$. Computing the derivative gives
+
+$$
+\frac{\partial}{\partial z_{j}}g_{j}(z)=\frac{\Vert\mu+z\Vert^{2}-2(\mu_{j}+z_{j})^{2}}{\Vert\mu+z\Vert^{4}},
+$$
+
+so by Stein's lemma we have
+
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle  &=\sum_{j=1}^{p}\mathbb{E}_{\theta}\frac{\partial}{\partial z_{j}}g_{j}(Z) \\
+	&=\sum_{j=1}^{p}\mathbb{E}_{\theta}\frac{\Vert\mu+Z\Vert^{2}-2(\mu_{j}+Z_{j})^{2}}{\Vert\mu+Z\Vert^{4}} \\
+	&=\mathbb{E}_{\theta}\frac{(p-2)\Vert\mu+Z\Vert^{2}}{\Vert\mu+Z\Vert^{4}} \\
+	&=\mathbb{E}_{\theta}\frac{p-2}{\Vert\mu+Z\Vert^{2}}.
+\end{aligned}
+$$
+
+Then 
+
+$$
+\begin{aligned}
+\mathbb{E}_{\theta}\Vert\widehat{\theta}_{\mathrm{JS}}-\theta\Vert^{2} &= \frac{1}{n}\left(\mathbb{E}_{\theta}\Vert Z\Vert^{2}+\mathbb{E}_{\theta}\frac{(p-2)^{2}}{\Vert\mu+Z\Vert^{2}}-2(p-2)\mathbb{E}_{\theta}\left\langle Z,\frac{\mu+Z}{\Vert\mu+Z\Vert^{2}}\right\rangle \right). \\
+	&=\frac{1}{n}\left(p-(p-2)^{2}\mathbb{E}_{\theta}\frac{1}{\Vert\mu+Z\Vert^{2}}\right) \\
+	&<\frac{p}{n}.
+\end{aligned}
+$$
+
+</details>
+
+
+<Callout type="info">
+
+Observe that $R(\widehat{\theta} _ {\text{JS}},\theta)$ depends only on the magnitude of $\theta$, so we have 
+
+$$
+\lim_{\Vert\theta\Vert\to\infty}R(\widehat{\theta}_{\text{JS}},\theta)=\frac{p}{n},
+$$
+
+which implies
+
+$$
+\sup_{\theta\in\mathbb{R}^{p}}R(\widehat{\theta}_{\text{JS}},\theta)=\sup_{\theta\in\mathbb{R}^{p}}R(\overline{X},\theta).
+$$
+
+</Callout>
+

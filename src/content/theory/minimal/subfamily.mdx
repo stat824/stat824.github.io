@@ -1,0 +1,127 @@
+# Minimal sufficiency, sub-family lemma
+
+We say that a statistic $S$ is minimal sufficient if it is sufficient and for every sufficient $T$, there is a measurable function $f$ such that $S=f(T)$. How do we find minimal sufficient statistic? One way is the sub-family method, which is based on the following observation. 
+
+<details open>
+<summary>Lemma</summary>
+
+Suppose that $\Theta_{0}\subseteq\Theta$ and $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta_{0})$ and sufficient for $(P_{\theta}:\theta\in\Theta)$. Then $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta)$. 
+
+</details>
+
+<details>
+<summary>Proof</summary>
+
+Suppose that $T$ is sufficient for $(P_{\theta}:\theta\in\Theta)$. Then $T$ is sufficient for $(P_{\theta}:\theta\in\Theta_{0})$, so since $S$ is minimal sufficient for $(P_{\theta}:\theta\in\Theta_{0})$, it follows that $S$ is a function of $T$. 
+
+</details>
+
+<details open>
+<summary>Theorem</summary>
+
+For a discrete or continuous statistical model $(P_{\theta}:\theta\in\{\theta_{0},\ldots,\theta_{d}\})$ with finite parameter space and common support, 
+
+$$
+T(X)=\left(\frac{p(X|\theta_{1})}{p(X|\theta_{0})},\frac{p(X|\theta_{2})}{p(X|\theta_{0})},\ldots,\frac{p(X|\theta_{d})}{p(X|\theta_{0})}\right)
+$$
+
+is a minimal sufficient statistic. 
+
+</details>
+
+<details>
+<summary>Proof</summary>
+
+For $j=1,\ldots,d$, we have $p(x|\theta_{j})=T_{j}(x)p(x|\theta_{0})$, so if we define
+
+$$
+g_{\theta_{j}}(T(x))=\begin{cases}
+1 & \text{if }j=0,\\
+T_{j}(x) & \text{if }j=1,\ldots,d,
+\end{cases}\quad\text{and}\quad h(x)=p(x|\theta_{0}),
+$$
+
+we see that $T$ is sufficient by the factorization theorem. For any sufficient $T'$, the factorization theorem implies the likelihood ratio is a function of $T'$, so $T$ is a function of $T'$. 
+
+</details>
+
+<details open>
+<summary>Example</summary>
+
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$ where $P_{\theta}=\text{Ber}(\theta)$ and $\theta\in[0,1]$. Consider $\theta_{0}=0.5$ and $\theta_{1}=0.6$. Then
+
+$$
+\begin{aligned}
+\frac{p(X|\theta_{1})}{p(X|\theta_{0})} &= \frac{\theta_{1}^{\sum_{i=1}^{n}X_{i}}(1-\theta_{1})^{n-\sum_{i=1}^{n}X_{i}}}{\theta_{0}^{\sum_{i=1}^{n}X_{i}}(1-\theta_{0})^{n-\sum_{i=1}^{n}X_{i}}} \\
+&=\left(\frac{\theta_{1}(1-\theta_{0})}{\theta_{0}(1-\theta_{1})}\right)^{\sum_{i=1}^{n}X_{i}}\left(\frac{1-\theta_{1}}{1-\theta_{0}}\right)^{n} \\
+&=\left(\frac{3}{2}\right)^{\sum_{i=1}^{n}X_{i}}\left(\frac{4}{5}\right)^{n}.
+\end{aligned}
+$$
+
+This statistic is equivalent to $T(X)=\sum_{i=1}^{n}X_{i}$, so by the previous theorem we see that $T(X)$ is minimal sufficient for the sub-family $(P_{\theta}:\theta\in\{0.5,0.6\})$. We have seen before that $T(X)$ is sufficient for $(P_{\theta}:\theta\in[0,1])$, so the sub-family lemma yields that $T(X)$ is minimal sufficient for $(P_{\theta}:\theta\in[0,1])$.
+
+</details>
+
+As an application of the sub-family lemma, we can prove the following fact about minimal exponential families.
+
+<details open>
+<summary>Theorem</summary>
+
+If $(P_{\theta}:\theta\in H)$ is a minimal exponential family in canonical form 
+
+$$
+p(x|\eta)=\exp\left(\langle\eta,T(x)\rangle-A(\eta)\right)h(x),
+$$
+
+then $T(X)$ is minimal sufficient. 
+
+</details>
+
+<details>
+<summary>Proof</summary>
+
+Since the exponential family is minimal, we can find $\eta_{0},\ldots,\eta_{d}\in H$ such that
+
+$$
+\left(\begin{array}{c}
+(\eta_{1}-\eta_{0})^{T}\\
+(\eta_{2}-\eta_{1})^{T}\\
+\vdots\\
+(\eta_{d}-\eta_{0})^{T}
+\end{array}\right)\in\mathbb{R}^{d\times d}
+$$
+
+has full rank. To see this, note that if the exponential family is full rank, then $H$ is an open rectangle, so it immediately follows. If the exponential family is curved, then this follows from the non-zero curvature of the function which relates the components of $\eta$. Then we know that
+
+$$
+\left(\frac{p(X|\eta_{1})}{p(X|\eta_{0})},\ldots,\frac{p(X|\eta_{d})}{p(X|\eta_{0})}\right)
+$$
+
+is minimal sufficient for $(P_{\eta}:\eta\in\{\eta_{1},\ldots,\eta_{d}\})$. Note that
+
+$$
+\frac{p(X|\eta_{j})}{p(X|\eta_{0})}=\frac{\exp\left(\langle\eta_{j},T(X)\rangle-A(\eta_{j})\right)}{\exp\left(\langle\eta_{0},T(X)\rangle-A(\eta_{0})\right)}=\exp\left(\left\langle \eta_{j}-\eta_{0},T(X)\right\rangle -A(\eta_{j})+A(\eta_{0})\right),
+$$
+
+which is equivalent to
+
+$$
+\left(\begin{array}{c}
+\left\langle \eta_{1}-\eta_{0},T(x)\right\rangle \\
+\left\langle \eta_{2}-\eta_{0},T(x)\right\rangle \\
+\vdots\\
+\left\langle \eta_{d}-\eta_{0},T(x)\right\rangle 
+\end{array}\right)=\left(\begin{array}{c}
+(\eta_{1}-\eta_{0})^{T}\\
+(\eta_{2}-\eta_{0})^{T}\\
+\vdots\\
+(\eta_{d}-\eta_{0})^{T}
+\end{array}\right)T(X),
+$$
+
+which is equivalent to $T(X)$. Since $T(X)$ is sufficient for the whole family $(P_{\eta}:\eta\in H)$, it follows from the sub-family lemma that $T(X)$ is minimal sufficient. 
+
+</details>
+
+
+One of the restrictions of the sub-family method is that the support of all the distributions in the family must have the same support. This is not an issue for exponential families as the support depends only on the base measure $h(x)$, but it could be an issue for other distributions like $P_{\theta}=\text{Unif}(0,\theta)$. 

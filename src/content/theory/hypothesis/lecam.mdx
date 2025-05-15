@@ -1,0 +1,104 @@
+import { Callout } from 'nextra/components'
+
+# Le Cam's two point method
+
+Le Cam's two point method gives us a way to lower bound the minimax risk. The idea is basically that
+
+$$
+\inf_{\hat{\theta}}\sup_{\theta\in\Theta}R(\hat{\theta},\theta)\geq\inf_{\hat{\theta}}\sup_{\theta\in\{\theta_{1},\theta_{2}\}}R(\hat{\theta},\theta).
+$$
+
+<details open>
+<summary>Le Cam's Method</summary>
+
+If we consider the squared loss function, then
+
+$$
+\inf_{\hat{\theta}}\sup_{\theta\in\{\theta_{1},\theta_{2}\}}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2}\geq\frac{(\theta_{1}-\theta_{2})^{2}}{4}\int\min(p_{\theta_{1}},p_{\theta_{2}}).
+$$
+</details>
+
+<details>
+<summary>Proof</summary>
+
+We have
+
+$$
+\begin{aligned}
+\inf_{\hat{\theta}}\sup_{\theta\in\{\theta_{1},\theta_{2}\}}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2} &\geq\inf_{\hat{\theta}}\left(\frac{1}{2}\mathbb{E}_{\theta_{1}}(\hat{\theta}-\theta_{1})^{2}+\frac{1}{2}\mathbb{E}_{\theta_{2}}(\hat{\theta}-\theta_{2})^{2}\right) \\
+	&=\frac{1}{2}\inf_{\hat{\theta}}\int\left[(\hat{\theta}-\theta_{1})^{2}p_{\theta_{1}}+(\hat{\theta}-\theta_{2})^{2}p_{\theta_{2}}\right] \\
+	&\geq\frac{1}{2}\inf_{\hat{\theta}}\int\left[(\hat{\theta}-\theta_{1})^{2}+(\hat{\theta}-\theta_{2})^{2}\right]\min(p_{\theta_{1}},p_{\theta_{2}}) \\
+	&\geq\frac{1}{2}\inf_{\hat{\theta}}\int\frac{1}{2}(\theta_{1}-\theta_{2})^{2}\min(p_{\theta_{1}},p_{\theta_{2}}) \\
+	&=\frac{1}{4}(\theta_{1}-\theta_{2})^{2}\int\min(p_{\theta_{1}},p_{\theta_{2}}).
+\end{aligned}
+$$
+</details>
+
+<Callout type="info">
+Notice that $\int\min(p_{\theta_{1}},p_{\theta_{2}})$ is the optimal testing error for the two point test $H_0 : \theta = \theta_1$ versus $H_1 : \theta = \theta_2$.
+</Callout>
+
+To get the sharpest lower bound, we should choose $\theta_{1}$ and $\theta_{2}$ to be as far away as possible. 
+
+<details open>
+<summary>Example</summary>
+
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$ where $\theta\in\mathbb{R}$. Let $\theta_{1}=0$ and $\theta_{2}=\frac{1}{\sqrt{n}}$. Then by Le Cam's two point method and the Neyman-Pearson lemma, we have
+
+$$
+\begin{aligned}
+\inf_{\hat{\theta}}\sup_{\theta\in\{\theta_{1},\theta_{2}\}}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2} &\geq\frac{1}{4n}\inf_{\phi}\left(P_{0}^{n}\phi+P_{\frac{1}{\sqrt{n}}}^{n}(1-\phi)\right) \\
+	&\geq\frac{1}{4n}P_{0}^{n}( \{ p_{0}^{n} < p_{\frac{1}{\sqrt{n}}}^{n}\}) \\
+	&=\frac{1}{4n}P_{0}^{n}\left(\left\{ \prod_{i=1}^{n}\frac{e^{-\frac{1}{2}(X_{i}-\frac{1}{\sqrt{n}})^{2}}}{e^{-\frac{1}{2}X_{i}^{2}}}>1\right\} \right) \\
+	&=\frac{1}{4n}P_{0}^{n}\left(\left\{ \sum_{i=1}^{n}\left[\left(X_{i}-\frac{1}{\sqrt{n}}\right)^{2}-X_{i}^{2}\right]<0\right\} \right) \\
+	&=\frac{1}{4n}P_{0}^{n}\left(\left\{ \frac{1}{\sqrt{n}}\sum_{i=1}^{n}X_{i}>\frac{1}{2}\right\} \right) \\
+	&=\frac{1}{4n}\mathbb{P}(N(0,1)>\frac{1}{2}),
+\end{aligned}
+$$
+
+so we have the lower bound
+
+$$
+\inf_{\hat{\theta}}\sup_{\theta\in\mathbb{R}}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2}\geq Cn^{-1}
+$$
+
+where $C=\frac{\mathbb{P}(N(0,1)>\frac{1}{2})}{4}$. 
+
+</details>
+
+<details open>
+<summary>Example</summary>
+
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$ where $\theta\in [0,1]$. Let $\widehat{\theta}=X_{(n)}$. Then
+
+$$
+\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2} = \int_{0}^{\theta}(t-\theta)^{2}\theta^{-n}nt^{n-1}\,dt =\frac{2\theta^{2}}{(n+1)(n+2)},
+$$
+
+so 
+
+$$
+\sup_{\theta\in[0,1]}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2}=\frac{2}{(n+1)(n+2)}=O(n^{-2}).
+$$
+
+This gives an upper bound on the minimax rate. For the lower bound, we can use Le Cam's method. Let $\theta_{1}=1$ and $\theta_{2}=1-\frac{1}{n}$. Then
+
+
+$$
+\begin{aligned}
+\inf_{\hat{\theta}}\sup_{\theta\in\{\theta_{1},\theta_{2}\}}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2} &\geq\frac{1}{4n^{2}}\int p_{1}^{n}\land p_{1-\frac{1}{n}}^{n} \\
+	&\geq\frac{1}{8n^{2}}\left(\int\sqrt{p_{1}^{n}p_{1-\frac{1}{n}}^{n}}\right)^{2} \\
+	&=\frac{1}{8n^{2}}\left(\int\sqrt{\prod_{i=1}^{n}p_{1}(x_{i})p_{1-\frac{1}{n}}(x_{i})}\right)^{2} \\
+	&=\frac{1}{8n^{2}}\left(\int\sqrt{p_{1}(x_{1})p_{1-\frac{1}{n}}(x_{1})}\right)^{2n} \\
+	&=\frac{1}{8n^{2}}\left(\int_{0}^{1-\frac{1}{n}}\sqrt{\frac{1}{1-\frac{1}{n}}}\right)^{2n} \\
+	&=\frac{1}{8n^{2}}\left(1-\frac{1}{n}\right)^{n}.
+\end{aligned}
+$$
+
+This gives
+
+$$
+\inf_{\hat{\theta}}\sup_{\theta\in\mathbb{R}}\mathbb{E}_{\theta}(\hat{\theta}-\theta)^{2}\asymp n^{-2}.
+$$
+
+</details>

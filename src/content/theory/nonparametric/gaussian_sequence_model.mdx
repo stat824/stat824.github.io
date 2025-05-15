@@ -1,0 +1,38 @@
+import { Callout } from 'nextra/components'
+
+# Gaussian sequence model
+
+In the Gaussian sequence model, we have observations $X_{j}=\theta_{j}+\frac{1}{\sqrt{n}}Z_{j}$ where $Z_{j}\overset{\text{i.i.d.}}{\sim}N(0,1)$ for $j=1,2,\ldots$ and $\theta=(\theta_{j})\in\Theta_{\alpha}(R)=\{\theta:\sum_{j}j^{2\alpha}\theta_{j}^{2} \leq R^2\}$. 
+
+<Callout type="info">
+Note that in the Gaussian sequence model, the observations are independent but not identically distributed. You can think of each observation $X_j$ to be the average of $n$ independent random variables each distributed as $N(\theta_j, 1)$.  
+</Callout>
+
+Consider the estimator $\widehat{\theta}$ where
+
+$$
+\widehat{\theta}_{j}=\begin{cases}
+X_{j} & \text{if }j\leq k,\\
+0 & \text{if }j>k.
+\end{cases}
+$$
+
+Then the risk is
+
+$$
+\mathbb{E} _ \theta \Vert\widehat{\theta} - \theta\Vert^{2}	=\sum_{j=1}^{k}\mathbb{E}(X_{j}-\theta_{j})^{2}+\sum_{j>k}\theta_{j}^{2}=\frac{k}{n}+\sum_{j>k}\theta_{j}^{2}\leq\frac{k}{n}+\frac{R^{2}}{k^{2\alpha}}.
+$$
+
+If $k$ is small then $R^{2}k^{-2\alpha}$ is large while if $k$ is large then $kn^{-1}$ is large, so the threshold $k$ should be chosen to balance the two terms. Setting the terms to be equal, we find that $k\asymp n^{\frac{1}{2\alpha+1}}$. With this choice, we have
+
+$$
+\mathbb{E} _ \theta \Vert\widehat{\theta}-\theta\Vert^{2}\leq Cn^{-\frac{2\alpha}{2\alpha+1}}.
+$$
+
+This rate is optimal in the sense that the minimax risk is
+
+$$
+\inf_{\widehat{\theta}}\sup_{\theta\in\Theta_{\alpha}(R)}\mathbb{E}_{\theta}\Vert\widehat{\theta}-\theta\Vert^{2}=(1+o(1))C_{\alpha,R}n^{-\frac{2\alpha}{\alpha+1}},
+$$
+
+where $C_{\alpha,R}$ is called the Pinsker constant. However, an issue with this estimator is that the choice of the threshold $k$ requires knowledge of the smoothness parameter $\alpha$ which is not known. 

@@ -1,0 +1,52 @@
+import { Callout } from 'nextra/components'
+
+# The intuition
+
+Let $X_1, \ldots, X_n \sim P _ {\theta^\ast}$ where $\theta^\ast \in \Theta.$ Denote by $\widehat{\theta}$ the maximum likelihood estimator. We will now derive the asymptotic distribution of $\widehat{\theta}$ under the assumption that $\Vert\widehat{\theta}-\theta^{\ast}\Vert=o_{P_{\theta^{\ast}}}(1)$ and some other regularity conditions. We will assume that $\Theta \subseteq \mathbb{R}$, but all arguments can be easily modified to work with vector parameters. 
+
+Let us define the score function to be $S_{\theta}(x)=\frac{\partial}{\partial\theta}\log p_{\theta}(x).$ We assume that the distribution is sufficient regular to allow interchanging differentiation and integration. Later on, we will give a sufficient condition for when this regularity condition holds. Then we have $\mathbb{E} _ {\theta}S_{\theta}(X)=0$ because
+
+$$
+\mathbb{E}_{\theta}S_{\theta}(X)=\int p_{\theta}\frac{\partial}{\partial\theta}\log p_{\theta}=\int p_{\theta}\frac{\frac{\partial}{\partial\theta}p_{\theta}}{p_{\theta}}=\int\frac{\partial}{\partial\theta}p_{\theta}=\frac{\partial}{\partial\theta}\int p_{\theta}=0.
+$$
+
+We define the Fisher information to be $I _ {\theta}=\operatorname{Var} _ {\theta}(S _ {\theta}(X))=\mathbb{E} _ {\theta}\left(S _ {\theta}(X)\right)^{2}.$ The claim is that $\sqrt{n}\left(\widetilde{\theta}-\theta^{\ast}\right)\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$ 
+
+<Callout type="info">
+If the log-density is twice differentiable, an alternative formula for the Fisher information is
+
+$$
+I_{\theta}=-\mathbb{E}_{\theta}\left(\frac{\partial^{2}}{\partial\theta^{2}}\log p_{\theta}(X)\right).
+$$
+
+You can check this easily.
+</Callout>
+
+Let us first consider the intuition. Using a Taylor expansion, we have
+
+$$
+\begin{aligned}
+\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta}(X_{i})	&\approx \frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})+(\theta-\theta^{\ast})\frac{1}{n}\sum_{i=1}^{n}\left.\frac{\partial}{\partial\theta}\log p_{\theta}(X_{i})\right|_{\theta=\theta^{\ast}} \\ &\qquad \qquad +\frac{(\theta-\theta^{\ast})^{2}}{2}\frac{1}{n}\sum_{i=1}^{n}\left.\frac{\partial^{2}}{\partial\theta^{2}}\log p_{\theta}(X_{i})\right|_{\theta=\theta^{\ast}} \\
+	&\approx\frac{1}{n}\sum_{i=1}^{n}\log p_{\theta^{\ast}}(X_{i})+(\theta-\theta^{\ast})\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-\frac{1}{2}(\theta-\theta^{\ast})^{2}I_{\theta^{\ast}}=:\widetilde{L}_{n}(\theta).
+\end{aligned}
+$$
+
+Then $\widetilde{L} _ {n}(\theta)$ is concave, so it has a unique maximizer. Define $\widetilde{\theta}=\argmax _ {\theta}\widetilde{L} _ {n}(\theta)$. Then setting the derivative of $\widetilde{L}_{n}(\theta)$ to be 0, we have
+
+$$
+\widetilde{L}_{n}'(\theta)=\frac{1}{n}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})-(\theta-\theta^{\ast})I_{\theta^{\ast}}=0.
+$$
+
+Rearranging gives
+
+$$
+\widetilde{\theta}-\theta^{\ast}=\frac{1}{n}\sum_{i=1}^{n}I_{\theta^\ast}^{-1} S_{\theta^{\ast}}(X_{i}).
+$$
+
+Therefore, 
+
+$$
+\sqrt{n}\left(\widetilde{\theta}-\theta^{\ast}\right)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta^{\ast}}(X_{i})/I_{\theta^{\ast}}\rightsquigarrow N\left(0,\operatorname{Var}_{\theta^{\ast}}\left( I_{\theta^\ast}^{-1} S_{\theta^{\ast}}(X_{i}) \right)\right)=N\left(0,I_{\theta^{\ast}}^{-1}\right).
+$$
+
+Then since $\widetilde{\theta}\approx\widehat{\theta}$, intuitively we have also $\sqrt{n}\left(\widehat{\theta}-\theta^{\ast}\right)\rightsquigarrow N\left(0,I_{\theta^{\ast}}^{-1}\right).$

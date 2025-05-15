@@ -1,0 +1,161 @@
+import { Callout } from 'nextra/components'
+
+# Sufficiency
+
+A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$. We start off with a few examples of sufficient statistics. Shall we always use sufficient statistic and throw away the original data? From the information-theoretic perspective, the answer is yes. But from a computational perspective, it is not always optimal because sampling from $X|T$ is often not easy or fast to do. In fact, it has been shown that sampling $\tilde{X}\sim X|T$ can be NP-hard. 
+
+<Callout type="info">
+In a Bayesian setting where $\theta$ is random, another way to think of sufficiency is that $\theta\to T\to X$ is a Markov chain.
+</Callout>
+
+<details open>
+<summary>Example</summary>
+
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution
+
+$$
+\left(\begin{array}{c}
+X_{1}\\
+\vdots\\
+X_{n}
+\end{array}\right)|\overline{X}\sim N\left(\left(\begin{array}{c}
+\overline{X}\\
+\vdots\\
+\overline{X}
+\end{array}\right),I_{n}-\frac{1}{n}\mathbb{{1}}_{n}\mathbb{{1}}_{n}^{T}\right).
+$$
+
+</details>
+
+<details open>
+<summary>Example</summary>
+
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$, then $T(X)=\overline{X}$ is sufficient. We can see this by finding the conditional distribution
+
+$$
+\left(\begin{array}{c}
+X_{1}\\
+\vdots\\
+X_{n}
+\end{array}\right)|\overline{X}\sim N\left(\left(\begin{array}{c}
+\overline{X}\\
+\vdots\\
+\overline{X}
+\end{array}\right),I_{n}-\frac{1}{n}\mathbb{{1}}_{n}\mathbb{{1}}_{n}^{T}\right).
+$$
+
+</details>
+
+
+<details open>
+<summary>Example</summary>
+
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, then $T=(X_{(1)},\ldots,X_{(n)})$ is sufficient because $X|T=t$ is the uniform distribution on all $n!$ permutations of the vector $t.$
+
+</details>
+
+
+<details open>
+<summary>Example</summary>
+
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$, then $T=X_{(n)}$ is sufficient. This can be seen from
+
+$$
+\begin{aligned}
+f_{X|T}(x|t) &= \frac{f_{X,T}(x,t)}{f_{T}(t)} \\
+	&=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}f_{X}(x)}{f_{T}(t)} \\
+	&=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}\left(\frac{1}{\theta}\right)^{n}}{n\left(\frac{t}{\theta}\right)^{n-1}\frac{1}{\theta}} \\
+	&=\frac{\mathbb{{1}}_{\{\max(x_{1},\ldots,x_{n})=t\}}}{nt^{n-1}},
+\end{aligned}
+$$
+
+where $f_{T}(t)=n\left(\frac{t}{\theta}\right)^{n-1}\frac{1}{\theta}$ follows from differentiating $F_{T}(t)=\mathbb{P}(T\leq t)=\left(\frac{t}{\theta}\right)^{n}.$
+
+</details>
+
+The following result, called the factorization theorem, gives a characterization of sufficiency. 
+
+<details open>
+<summary>Theorem</summary>
+
+Suppose that $(P_{\theta}:\theta\in\Theta)$ is continuous or discrete. Then $T$ is sufficient if and only if $p(x|\theta)=g_{\theta}(T(x))h(x)$ for some measurable functions $g_{\theta}$ and $h$. 
+
+</details>
+
+<details>
+<summary>Proof</summary>
+
+We will only prove this in the discrete case. Suppose that the pmf can be factorized as $p(x|\theta)=g_{\theta}(T(x))h(x)$ for some measurable functions $g_{\theta}$ and $h$. Then
+
+$$
+\begin{aligned}
+\mathbb{P}(X=x,T=t) &= \mathbb{{1}}_{\{T(x)=t\}}\mathbb{P}(X=x) \\
+	&=\mathbb{{1}}_{\{T(x)=t\}}g_{\theta}(T(x))h(x) \\ 
+	&=\mathbb{{1}}_{\{T(x)=t\}}g_{\theta}(t)h(x),
+\end{aligned}
+$$
+
+and
+
+$$
+\mathbb{P}(T=t)=\sum_{x':T(x')=t}\mathbb{P}(X=x')=\sum_{x':T(x')=t}g_{\theta}(T(x'))h(x')=g_{\theta}(t)\sum_{x':T(x')=t}h(x'),
+$$
+
+Therefore, 
+
+$$
+\mathbb{P}(X=x|T=t)=\frac{\mathbb{P}(X=x,T=t)}{\mathbb{P}(T=t)}=\frac{\mathbb{{1}}_{\{T(x)=t\}}h(x)}{\sum_{x':T(x')=t}h(x')}
+$$
+
+does not depend on $\theta.$ Conversely, suppose that $T$ is sufficient. Then
+
+$$
+\begin{aligned}
+p(x|\theta) &=\mathbb{P}_{\theta}(X=x) \\
+	&=\mathbb{P}_{\theta}(X=x,T(X)=T(x)) \\
+	&=\mathbb{P}(X=x|T(X)=T(x))\mathbb{P}_{\theta}(T(X)=T(x)) \\
+	&=h(x)g_{\theta}(T(x)),
+\end{aligned}
+$$
+
+where $h(x)=\mathbb{P}(X=x|T(X)=T(x))$ and $g_{\theta}(T(x))=\mathbb{P}_{\theta}(T(X)=T(x))$. 
+
+</details>
+
+
+<details open>
+<summary>Example</summary>
+
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}N(\theta,1)$. Then
+
+$$
+\begin{aligned}
+p(x|\theta) &=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(x-\theta)^{2}} \\
+	&=\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}(x_{i}-\theta)^{2}} \\
+	&=\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}-\frac{1}{2}n\theta^{2}+\theta\sum_{i=1}^{n}x_{i}} \\
+	&=\left(\left(\frac{1}{\sqrt{2\pi}}\right)^{n}e^{-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}}\right)e^{-\frac{1}{2}n\theta^{2}+\theta n\overline{x}}
+\end{aligned}
+$$
+
+which shows that $T(X)=\overline{X}$ is sufficient. 
+
+</details>
+
+
+<details open>
+<summary>Example</summary>
+
+If $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Unif}(0,\theta)$, then
+
+$$
+\begin{aligned}
+p(x|\theta) &= \prod_{i=1}^{n} \left(\frac{1}{\theta} \mathbb{1}_{\{0 < x_{i} < \theta\}}\right) \\ 
+	&=\theta^{-n}\mathbb{{1}}_{\{0 < x_{(1)} \leq x_{(n)} < \theta\}} \\ 
+	&=\left(\mathbb{{1}}_{\{0 < x_{(1)}\}}\right)\left(\theta^{-n}\mathbb{{1}}_{\{x_{(n)} < \theta\}}\right)
+\end{aligned}
+$$
+
+which shows that $T(X)=X_{(n)}$ is sufficient. 
+
+</details>
+

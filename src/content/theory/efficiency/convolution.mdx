@@ -1,0 +1,112 @@
+import { Callout } from 'nextra/components'
+
+# Almost everywhere convolution theorem
+
+In this section, we look a result known as the almost everywhere convolution theorem, which can be viewed as an asymptotic version of the Cramer-Rao lower bound with a much stronger conclusion. Suppose that $(P_{\theta}:\theta\in\Theta)$ satisfies DQM at $\theta ,$ so that we have
+
+$$
+\log\prod_{i=1}^{n}\frac{p_{\theta+h/\sqrt{n}}(X_{i})}{p_{\theta}(X_{i})}=\frac{h}{\sqrt{n}}\sum_{i=1}^{n}S_{\theta}(X_{i})-\frac{h^{2}}{2}I_{\theta}+o_{P_{\theta}}\left(1\right)
+$$
+
+for all $h.$ Notice that the right hand side looks like a Gaussian location model. Consider the local experiment $(P_{\theta+h/\sqrt{n}}^{n}:h\in\mathbb{R})$ where local refers to the fact that we treat $h$ as the parameter. 
+
+<details open>
+<summary>Definition</summary>
+
+We write $(P_{\theta+h/\sqrt{n}}^{n}:h\in\mathbb{R})\rightsquigarrow(N(h,I_{\theta}^{-1}):h\in\mathbb{R})$ to denote the expansion above.
+</details>
+
+
+The idea of introducing this notation is to emphasize that the duality between $(N(h,I_{\theta}^{-1}):h\in\mathbb{R})$ and $(P_{\theta+h/\sqrt{n}}^{n}:h\in\mathbb{R}).$ The following result makes this connection precise. 
+
+<details open>
+<summary>Hájek–Le Cam Convolution Theorem</summary>
+
+Suppose that $(P_{\theta}:\theta\in\Theta)$ satisfies DQM at $\theta.$ Let $T_{n}$ be a statistic of $(P_{\theta+h/\sqrt{n}}^{n}:h\in\mathbb{R})$ that satisfies
+
+$$
+\sqrt{n}\left(T_{n}-\left(\theta+\frac{h}{\sqrt{n}}\right)\right)\overset{P_{\theta+h/\sqrt{n}}^{n}}{\rightsquigarrow}L_{\theta,h}
+$$
+
+for every $h\in\mathbb{R}.$ Then there exists a randomized statistic $T$ for $(N(h,I_{\theta}^{-1}):h\in\mathbb{R})$ such that $T-h\overset{N(h,I_{\theta}^{-1})}{\sim}L_{\theta,h}$ for every $h\in\mathbb{R}.$ 
+</details>
+
+<Callout type="info">
+A randomized statistic is a statistic that may depend on additional sources of randomness which are independent of the data. 
+</Callout>
+
+To put it simply, whenever we have an estimator $T_{n}$ for $(P_{\theta+h/\sqrt{n}}^{n}:h\in\mathbb{R})$ with an asymptotic distribution, there exists an estimator for $(N(h,I_{\theta}^{-1}):h\in\mathbb{R})$ whose exact distribution is that same distribution. 
+
+<details open>
+<summary>Definition</summary>
+
+Suppose that $T$ is a randomized statistic for $(N(h,I_{\theta}^{-1}):h\in\mathbb{R}).$ We say that $T$ is equivariant in law if $T-h\overset{N(h,I_{\theta}^{-1})}{\sim}L_{\theta}$ for every $h\in\mathbb{R}.$
+</details>
+
+
+The following is a property of Gaussian distributions.
+
+<details open>
+<summary>Proposition</summary>
+
+If $T$ is a randomized statistic for $(N(h,I_{\theta}^{-1}):h\in\mathbb{R})$ which is equivariant in law satisfying $T-h\overset{N(h,I_{\theta}^{-1})}{\sim}L_{\theta}$ for all $h,$ then we have
+
+$$
+L_{\theta}=N(0,I_{\theta}^{-1})\ast M_{\theta}
+$$
+
+for some distribution $M_{\theta}.$
+</details>
+
+
+
+The above observation yields the following. 
+
+
+<details open>
+<summary>Convolution Theorem</summary>
+
+Suppose that $(P_{\theta}:\theta\in\Theta)$ satisfies DQM at $\theta .$ Let $T_{n}$ be a statistic of $(P_{\theta+h/\sqrt{n}}^{n}:h\in\mathbb{R})$ that satisfies
+
+$$
+\sqrt{n}\left(T_{n}-\left(\theta+\frac{h}{\sqrt{n}}\right)\right)\overset{P_{\theta+h/\sqrt{n}}^{n}}{\rightsquigarrow}L_{\theta}
+$$
+
+for every $h\in\mathbb{R}.$ Then 
+
+$$
+L_{\theta}=N(0,I_{\theta}^{-1})\ast M_{\theta}
+$$
+
+for some distribution $M_{\theta}.$
+</details>
+
+The condition of the above theorem is quite strong, but it can be replaced by another condition that is much easier to verify.
+
+<details open>
+<summary>Lemma</summary>
+
+Suppose that $(P_{\theta}:\theta\in\Theta)$ satisfies DQM at all $\theta\in\Theta\subset\mathbb{R}$ and $T_{n}$ is a statistic satisfying $\sqrt{n}(T_{n}-\theta)\overset{}{\rightsquigarrow}L_{\theta}$ for every $\theta\in\Theta .$ Then there exists a subsequence $(n_{k})$ such that for Lebesgue almost every $(\theta,h),$ along this subsequence we have
+
+$$
+\sqrt{n}\left(T_{n}-\left(\theta+\frac{h}{\sqrt{n}}\right)\right)\overset{P_{\theta+h/\sqrt{n}}^{n}}{\rightsquigarrow}L_{\theta}.
+$$
+</details>
+
+This gives the following theorem.
+
+<details open>
+<summary>Almost Everywhere Convolution Theorem</summary>
+
+Suppose that $(P_{\theta}:\theta\in\Theta)$ satisfies DQM at all $\theta\in\Theta\subset\mathbb{R}$ and $T_{n}$ is a statistic satisfying $\sqrt{n}(T_{n}-\theta)\overset{}{\rightsquigarrow}L_{\theta}$ for every $\theta\in\Theta .$ Then for Lebesgue almost every $\theta ,$ 
+
+$$
+L_{\theta}=N(0,I_{\theta}^{-1})\ast M_{\theta}
+$$
+
+for some distribution $M_{\theta}.$
+
+</details>
+
+
+In particular, this implies that the set of superefficient points must have measure zero. 
