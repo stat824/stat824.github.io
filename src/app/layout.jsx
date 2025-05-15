@@ -41,6 +41,7 @@ export default async function RootLayout({ children }) {
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
           footer={footer}
           editLink={null}
+          sidebar={{ autoCollapse: true }}
           // ... Your additional layout options
         >
           {children}
