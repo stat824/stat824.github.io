@@ -2,11 +2,21 @@ import { Callout } from 'nextra/components'
 
 # Sufficiency
 
-A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$. We start off with a few examples of sufficient statistics. Shall we always use sufficient statistic and throw away the original data? From the information-theoretic perspective, the answer is yes. But from a computational perspective, it is not always optimal because sampling from $X|T$ is often not easy or fast to do. In fact, it has been shown that sampling $\tilde{X}\sim X|T$ can be NP-hard. 
+A statistical model is a collection of probability distributions $(P_{\theta}:\theta\in\Theta)$. Then data or observations are random variables $X_{1},\ldots,X_{n}\sim P_{\theta}$ for some $\theta\in\Theta$. A statistic is a function of the data, $T=T(X_{1},\ldots,X_{n})$. 
+
+<details open>
+<summary>Definition</summary>
+
+A statistic $T$ is sufficient if the conditional distribution $X|T$ does not depend on $\theta$.
+</details>
+
+Shall we always use sufficient statistic and throw away the original data? From the information-theoretic perspective, the answer is yes. But from a computational perspective, it is not always optimal because sampling from $X|T$ is often not easy or fast to do. In fact, it has been shown that sampling $\tilde{X}\sim X|T$ can be NP-hard. 
 
 <Callout type="info">
 In a Bayesian setting where $\theta$ is random, another way to think of sufficiency is that $\theta\to T\to X$ is a Markov chain.
 </Callout>
+
+Let us consider a few examples of sufficient statistics. 
 
 <details open>
 <summary>Example</summary>
