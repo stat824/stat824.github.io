@@ -7,7 +7,7 @@ export default {
   exponential: 'Exponential families',
   minimal: 'Minimal sufficiency',
   rao: 'Rao-Blackwell theorem',
-  umvue: 'Uniformly minimum variance unbiased estimators',
+  umvue: 'UMVUEs',
   'sep2': {
     type: 'separator',
     title: 'Decision Theory'
