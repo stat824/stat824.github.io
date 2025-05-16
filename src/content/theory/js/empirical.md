@@ -1,6 +1,6 @@
 # Empirical Bayes perspective of James-Stein estimator
 
-Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. As we have seen, the sample mean $\overline{X}$ is not admissible for $p \geq 3$. The James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
+Let $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_{p})$ where $\theta\in\mathbb{R}^{p}$, and consider the loss function $L(\widehat{\theta},\theta)=\Vert\widehat{\theta}-\theta\Vert^{2}$. In dimension $p \geq 3,$ the James-Stein estimator gives an example of an estimator which has strictly smaller risk than $\overline{X}$. It is defined as
 
 $$
 \widehat{\theta}_{\text{JS}}=\left(1-\frac{p-2}{n\Vert\overline{X}\Vert^{2}}\right)\overline{X}.

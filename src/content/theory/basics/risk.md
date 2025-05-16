@@ -1,4 +1,4 @@
-# Rao-Blackwell Theorem
+# Risk and loss functions
 
 Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function which quantifies the accuracy of the estimator. Then the risk function is
 
@@ -21,3 +21,17 @@ By Jensen's inequality, we have $L(\widetilde{\theta},\theta)=L(\mathbb{E} _ {\t
 </details>
 
 In other words, conditioning on a sufficient statistic can improve the risk. 
+
+<details open>
+<summary>Definition</summary>
+
+An estimator $\hat{\theta}$ is inadmissible if there exists $\tilde{\theta}$ such that 
+
+1. $R(\tilde{\theta},\theta) \leq R(\hat{\theta},\theta)$ for all $\theta\in\Theta$, and
+
+2. $R(\tilde{\theta},\theta_{0}) < R(\hat{\theta},\theta_{0})$ for some $\theta_{0}\in\Theta$.
+
+Then we say $\hat{\theta}$ is admissible if it is not inadmissible. 
+</details>
+
+Inadmissible estimators are undesirable as there are always other choices that are strictly better. 

@@ -2,20 +2,10 @@ import { Callout } from 'nextra/components'
 
 # Minimaxity
 
-Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function. Recall that the risk function is
-
-$$
-R(\widehat{\theta},\theta)=\mathbb{E}_{\theta}L(\widehat{\theta},\theta)=\int L(\widehat{\theta}(x),\theta)p(x|\theta)\,dx.
-$$
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function. 
 
 <details open>
 <summary>Definition</summary>
-
-Given a prior $\pi$ on $\Theta$, we say $\widehat{\theta}_\pi$ is a Bayes estimator for $\pi$ if 
-
-$$
-\widehat{\theta}_\pi = \argmin_{\widehat{\theta}}\int_{\Theta}R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
-$$
 
 We say $\widehat\theta$ is a minimax estimator if 
 
@@ -25,78 +15,9 @@ $$
 
 </details>
 
-## Finding Bayes estimators
-
-We have
-
-$$
-\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta=\int\int L(\widehat{\theta}(x),\theta)p(x|\theta)\pi(\theta)\,dx\,d\theta=\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx,
-$$
-
-where $\pi(\theta|x)$ is the posterior density and $m(x) = \int p(x|\theta)\pi(\theta) \, d\theta$  is the marginal of $X$. 
-
-<details open>
-<summary>Proposition</summary>
-
-Given a prior $\pi$, the Bayes estimator is given by
-
-$$
-\widehat{\theta}_{\pi}(X)=\argmin_{a}\int L(a,\theta)\pi(\theta|X)\,d\theta.
-$$
-
-</details>
-
-<details>
-<summary>Proof</summary>
-
-For any estimator $\widehat{\theta}$, we have
-
-$$
-\begin{aligned}
-\int R(\widehat{\theta}_{\pi},\theta)\pi(\theta)\,d\theta &=\int\int L(\widehat{\theta}_{\pi}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
-	&\leq\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
-	&=\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
-\end{aligned}
-$$
-</details>
-
-<Callout type="info">
-In the case where $\Theta\subseteq\mathbb{R}$ and $L(\widehat{\theta},\theta)=(\widehat{\theta}-\theta)^{2},$ the Bayes estimator is given by
-
-$$
-\widehat{\theta}_{\pi}(X)=\argmin_{a}\int(a-\theta)^{2}\pi(\theta|X)\,d\theta=\argmin_{a}\mathbb{E}\left((a-\theta)^{2}|X\right)=\mathbb{E}(\theta|X).
-$$
-</Callout>
-
-<details open>
-<summary>Example</summary>
-
-Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=(\hat{p}-p)^{2}$. Consider the prior $\pi\sim\text{Beta}(\alpha,\beta)$, so $\pi(p)\propto p^{\alpha-1}(1-p)^{\beta-1}$. Then
-
-$$
-p|X_{1},\ldots,X_{n}\sim\text{Beta}\left(\sum_{i=1}^{n}X_{i}+\alpha,\sum_{i=1}^{n}(1-X_{i})+\beta\right).
-$$
-
-A Bayes estimator is then
-
-$$
-\hat{p}=\mathbb{E}(p|X_{1},\ldots,X_{n})=\frac{\sum_{i=1}^{n}X_{i}+\alpha}{n+\alpha+\beta}.
-$$
-
-The risk is
-
-$$
-\begin{aligned}
-R(\hat{p},p)=\mathbb{E}_{p}(\hat{p}-p)^{2} &=\operatorname{Var}(\hat{p})+(\mathbb{E}(\hat{p})-p)^{2} \\
-	&=\left(\frac{n}{n+\alpha+\beta}\right)^{2}\frac{p(1-p)}{n} \\
-&\qquad\qquad +\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}-p\right)^{2}.
-\end{aligned}
-$$
-</details>
-
 ## Finding minimax estimators
 
-It turns out that any estimator whose maximum risk is equal to the Bayes risk for some prior is minimax. In fact, we have the following slightly stronger result.
+There is a strong connection between Bayes and minimax estimators. It turns out that any estimator whose maximum risk is equal to the Bayes risk for some prior is minimax. In fact, we have the following slightly stronger result.
 
 <details open>
 <summary>Theorem</summary>
@@ -269,3 +190,59 @@ $$
 Letting $\tau\to\infty$, we get $R(\overline{X},\mu) = \frac{\sigma^{2}}{n},$ so $\overline{X}$ is minimax.
 </details>
 
+## Admissibility of normal sample mean
+
+Are minimax estimators always admissible? Suppose that we have observations $X_{1},\ldots,X_{n}\overset{\mathrm{i.i.d.}}{\sim}N(\theta,I_p), \theta\in\mathbb{R}^p$ and consider the squared loss function $L(\hat{\theta},\theta)=\Vert \hat{\theta}-\theta\Vert^{2}.$ We know that $\overline{X}$ is a minimax estimator. In dimension $p = 1,$ it can be shown that the sample mean is indeed admissible.
+
+<details open>
+<summary>Theorem</summary>
+
+If $p = 1,$ then $\overline{X}$ is admissible.
+</details>
+
+<details>
+<summary>Proof</summary>
+
+The proof is by contradiction. Suppose that $\hat{\theta}=\overline{X}$ is inadmissible, so that there exists $\tilde{\theta}$ such that $R(\tilde{\theta},\theta)\leq\frac{1}{n}$ for all $\theta\in\mathbb{R}$, and $R(\tilde{\theta},\theta_{0})<\frac{1}{n}$ for some $\theta_{0}\in\mathbb{R}$. Then there exists $\epsilon>0$ and $(a,b)\ni\theta_{0}$ such that $R(\tilde{\theta},\theta_{0})<\frac{1}{n}-\epsilon$. Consider $\pi_{m}=N(0,m)$. Then the Bayes risk is
+
+$$
+\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta=\frac{1}{n+\frac{1}{m}},
+$$
+
+and we have
+
+$$
+\frac{1}{n}-\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta=\frac{1}{n}\cdot\frac{\frac{1}{m}}{n+\frac{1}{m}}\asymp\frac{1}{m}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta) \pi_{m} (\theta)\,d\theta	&= \int_{(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\ 
+&\qquad \qquad +\int_{\mathbb{R}\backslash(a,b)}\left(\frac{1}{n}-R(\tilde{\theta},\theta)\right)\pi_{m}(\theta)\,d\theta \\
+	&\geq\epsilon\int_{(a,b)}\pi_{m}(\theta)\,d\theta \\
+	&=\epsilon \mathbb{P}\left(\frac{a}{\sqrt{m}} < N(0,1) < \frac{b}{\sqrt{m}}\right) \\
+	&=\epsilon\int_{\frac{a}{\sqrt{m}}}^{\frac{b}{\sqrt{m}}}\frac{1}{\sqrt{2\pi}}e^{-x^{2}/2}\,dx \\
+	&\asymp\frac{1}{\sqrt{m}}.
+\end{aligned}
+$$
+
+So there exists $m$ sufficiently large such that
+
+$$
+\frac{1}{n}-\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi(\theta)\,d\theta<\frac{1}{n}-\int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi_{m}(\theta)\,d\theta,
+$$
+
+which is equivalent to 
+
+$$
+\int_{\mathbb{R}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta<\int_{\mathbb{R}}R(\hat{\theta}_{\pi_{m}},\theta)\pi_{m}(\theta)\,d\theta.
+$$
+
+This is a contradiction as $\hat{\theta} _ {\pi_{m}}$ achieves the smallest Bayes risk by definition. 
+
+</details>
+
+
+Admissibility of $\overline{X} $ in higher dimensions is much more difficult. For $p=2$, admissibility of $\overline{X}$ was proved by Stein. The proof involves constructing much more complex priors. Surprisingly, $\overline{X}$ is no longer admissible if $p \geq 3$. Brown proved in 1971 that this phenomenon (aptly named Stein's paradox) is linked to the transience of the symmetric random walk in $p \geq 3$. 

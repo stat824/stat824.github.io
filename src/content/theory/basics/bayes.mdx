@@ -1,0 +1,115 @@
+import { Callout } from 'nextra/components'
+
+# Bayes estimators
+
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}P_{\theta}$, and let $\widehat{\theta}=\widehat{\theta}(X_{1},\ldots,X_{n})$ be an estimator of the parameter $\theta$. Let $L(\widehat{\theta},\theta)$ be a loss function. 
+
+<details open>
+<summary>Definition</summary>
+
+Given a prior $\pi$ on $\Theta$, we say $\widehat{\theta}_\pi$ is a Bayes estimator for $\pi$ if 
+
+$$
+\widehat{\theta}_\pi = \argmin_{\widehat{\theta}}\int_{\Theta}R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
+$$
+
+</details>
+
+## Finding Bayes estimators
+
+How do we find Bayes estimators? The key is to note that
+
+$$
+\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta=\int\int L(\widehat{\theta}(x),\theta)p(x|\theta)\pi(\theta)\,dx\,d\theta=\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx,
+$$
+
+where $\pi(\theta|x)$ is the posterior density and $m(x) = \int p(x|\theta)\pi(\theta) \, d\theta$  is the marginal of $X.$ This gives the following.
+
+<details open>
+<summary>Proposition</summary>
+
+Given a prior $\pi$, the Bayes estimator is given by
+
+$$
+\widehat{\theta}_{\pi}(X)=\argmin_{a}\int L(a,\theta)\pi(\theta|X)\,d\theta.
+$$
+
+</details>
+
+<details>
+<summary>Proof</summary>
+
+For any estimator $\widehat{\theta}$, we have
+
+$$
+\begin{aligned}
+\int R(\widehat{\theta}_{\pi},\theta)\pi(\theta)\,d\theta &=\int\int L(\widehat{\theta}_{\pi}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
+	&\leq\int\int L(\widehat{\theta}(x),\theta)\pi(\theta|x)\,d\theta\,m(x)\,dx \\
+	&=\int R(\widehat{\theta},\theta)\pi(\theta)\,d\theta.
+\end{aligned}
+$$
+</details>
+
+<Callout type="info">
+In the case where $\Theta\subseteq\mathbb{R}$ and $L(\widehat{\theta},\theta)=(\widehat{\theta}-\theta)^{2},$ the Bayes estimator is given by
+
+$$
+\widehat{\theta}_{\pi}(X)=\argmin_{a}\int(a-\theta)^{2}\pi(\theta|X)\,d\theta=\argmin_{a}\mathbb{E}\left((a-\theta)^{2}|X\right)=\mathbb{E}(\theta|X).
+$$
+</Callout>
+
+<details open>
+<summary>Example</summary>
+
+Let $X_{1},\ldots,X_{n}\overset{\text{i.i.d.}}{\sim}\text{Ber}(p)$, and let $L(\hat{p},p)=(\hat{p}-p)^{2}$. Consider the prior $\pi\sim\text{Beta}(\alpha,\beta)$, so $\pi(p)\propto p^{\alpha-1}(1-p)^{\beta-1}$. Then
+
+$$
+p|X_{1},\ldots,X_{n}\sim\text{Beta}\left(\sum_{i=1}^{n}X_{i}+\alpha,\sum_{i=1}^{n}(1-X_{i})+\beta\right).
+$$
+
+A Bayes estimator is then
+
+$$
+\hat{p}=\mathbb{E}(p|X_{1},\ldots,X_{n})=\frac{\sum_{i=1}^{n}X_{i}+\alpha}{n+\alpha+\beta}.
+$$
+
+The risk is
+
+$$
+\begin{aligned}
+R(\hat{p},p)=\mathbb{E}_{p}(\hat{p}-p)^{2} &=\operatorname{Var}(\hat{p})+(\mathbb{E}(\hat{p})-p)^{2} \\
+	&=\left(\frac{n}{n+\alpha+\beta}\right)^{2}\frac{p(1-p)}{n} \\
+&\qquad\qquad +\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)^{2}\left(\frac{\alpha}{\alpha+\beta}-p\right)^{2}.
+\end{aligned}
+$$
+</details>
+
+## Admissibility of Bayes estimators
+
+An important property Bayes estimators is that they are always admissible under continuous loss function. 
+
+<details open>
+<summary>Theorem</summary>
+
+Assume that the loss function is continuous. If $\hat{\theta}$ is Bayes, then it is admissible.
+</details>
+
+<details>
+<summary>Proof</summary>
+
+We will prove the contrapositive. Suppose that $\hat{\theta}$ is inadmissible. Then there exists $\tilde{\theta}$ such that 
+$R(\tilde{\theta},\theta)\leq R(\hat{\theta},\theta)$ for all $\theta\in\Theta$, and $R(\tilde{\theta},\theta_0) < R(\hat{\theta},\theta_0)$ for some $\theta_0 \in \Theta$. By continuity, there exists an open set $\Theta_{0}\ni\theta_{0}$ and $\epsilon>0$ such that $R(\tilde{\theta},\theta)<R(\hat{\theta},\theta)-\epsilon$ for all $\theta\in\Theta_{0}$. Then
+
+$$
+\begin{aligned}
+\int_{\Theta}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta &= \int_{\Theta_{0}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta+\int_{\Theta\backslash\Theta_{0}}R(\tilde{\theta},\theta)\pi(\theta)\,d\theta \\
+	&<\int_{\Theta_{0}}R(\hat{\theta},\theta)\pi(\theta)\,d\theta+\int_{\Theta\backslash\Theta_{0}}R(\hat{\theta},\theta)\pi(\theta)\,d\theta \\ 
+	&=\int_{\Theta}R(\hat{\theta},\theta)\pi(\theta)\,d\theta,
+\end{aligned}
+$$
+
+so $\hat{\theta}$ cannot be Bayes. 
+</details>
+
+
+Is the converse true? That is, is it true that an admissible estimator must be Bayes? This is answered by the complete class theorem, which roughly states that if $\hat{\theta}$ is admissible, then there exists a sequence of priors $(\pi_{m})$ such that $\hat{\theta} _ {\pi_{m}}\to\hat{\theta}$. 
