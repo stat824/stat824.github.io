@@ -1,0 +1,133 @@
+import { Callout } from 'nextra/components'
+
+# Unconstrained least squares
+
+We now turn to the topic of high-dimensional linear models. Let $\theta^{\ast}\in\mathbb{R}^{d}$ be an unknown parameter. Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
+
+$$
+Y=X\theta^{\ast}+\epsilon
+$$
+
+where $X\in\mathbb{R}^{n\times d}$ is a deterministic design matrix and $\epsilon\sim\operatorname{subG}_n(\sigma^{2})$ is sub-Gaussian noise with independent components. Our main focus will be the high-dimensional setting where $n<d$ (more parameters than observations). In this case, $Y=X\theta^{\ast}$ defines an underdetermined linear system. 
+
+<details open>
+<summary>Definition</summary>
+
+Define the (unconstrained) least squares estimator $\widehat{\theta}^{\text{LS}}$ to be any vector
+
+$$
+\widehat{\theta}^{\text{LS}}\in\argmin_{\theta\in\mathbb{R}^{d}}\Vert Y-X\theta\Vert_{2}^{2}.
+$$
+
+</details>
+
+The least squares estimator has the following explicit form. 
+
+<details open>
+<summary>Proposition</summary>
+
+The least squares estimator $\widehat{\theta}^{\text{LS}}$ satisfies $X^T X \widehat{\theta}^{\text{LS}}=X^{T}Y.$ In particular, $\widehat{\theta}^{\text{LS}}$ can be chosen to be $\widehat{\theta}^{\text{LS}}=(X^{T}X)^{\dagger}X^{T}Y.$
+</details>
+
+<details>
+<summary>Proof</summary>
+
+Since $\theta\mapsto\Vert Y-X\theta\Vert_{2}^{2}$ is convex, a minimum is achieved whenever $\nabla_{\theta}\Vert Y-X\theta\Vert_{2}^{2}=0.$ Differentiating gives 
+
+$$
+\nabla_{\theta}\Vert Y-X\theta\Vert_{2}^{2}=0\implies X^{T}(Y-X\theta)=0\implies X^{T}X\theta=X^{T}Y.
+$$
+</details>
+
+The main result is the following.
+
+<details open>
+<summary>Theorem</summary>
+
+The least squares estimator $\widehat{\theta}^{\text{LS}}$ satisfies 
+
+$$
+\mathbb{E}\left[\operatorname{MSE}(X\widehat{\theta}^{\text{LS}})\right]=\frac{1}{n}\mathbb{E}[\Vert X\widehat{\theta}^{\text{LS}}-X\theta^{\ast}\Vert^{2}]\lesssim\sigma^{2}\frac{r}{n}
+$$
+
+where $r=\operatorname{rank}(X^{T}X).$ Moreover, for any $\delta>0,$ with probability at least $1-\delta ,$ we have
+
+$$
+\operatorname{MSE}(X\widehat{\theta}^{\text{LS}})=\frac{1}{n}\Vert X\widehat{\theta}^{\text{LS}}-X\theta^{\ast}\Vert^{2}\lesssim\sigma^{2}\frac{r+\log(1/\delta)}{n}.
+$$
+</details>
+
+<details>
+<summary>Proof</summary>
+
+By definition of $\widehat{\theta}^{\text{LS}},$ we have
+
+$$
+\Vert Y-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2}\leq\Vert Y-X\theta^{\ast}\Vert_{2}^{2}=\Vert\epsilon\Vert_{2}^{2}.
+$$
+
+Moreover, 
+
+$$
+\begin{aligned}
+\Vert Y-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2} &= \Vert X\theta^{\ast}+\epsilon-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2} \\ &=\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}+\Vert\epsilon\Vert_{2}^{2}-2\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}}).
+\end{aligned}
+$$
+
+Combining this with the first inequality, we get
+
+$$
+\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}\leq2\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})=2\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}\frac{\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})}{\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}}.
+$$
+
+Let $\Phi\in\mathbb{R}^{n\times r}$ be an orthonormal basis for the column space of $X.$ We can write $X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})=\Phi\nu$ for some $\nu\in\mathbb{R}^{r}.$ Then
+
+$$
+\frac{\epsilon^{T}X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})}{\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}}=\frac{\epsilon^{T}\Phi\nu}{\Vert\Phi\nu\Vert_{2}}=\frac{\epsilon^{T}\Phi\nu}{\Vert\nu\Vert_{2}}=\tilde{\epsilon}^{T}\frac{\nu}{\Vert\nu\Vert_{2}}\leq\sup_{u\in\mathcal{B}_{2}}\widetilde{\epsilon}^{T}u
+$$
+
+where $\widetilde{\epsilon}=\Phi^{T}\epsilon.$ Therefore, 
+
+$$
+\Vert X(\theta^{\ast}-\widehat{\theta}^{\text{LS}})\Vert_{2}^{2}\leq4\left(\sup_{u\in\mathcal{B}_{2}}\widetilde{\epsilon}^{T}u\right)^{2}.
+$$
+
+For $u\in\mathcal{S}^{r-1},$ we have $\Vert\Phi u\Vert_{2}=\Vert u\Vert_{2}=1,$ so 
+
+$$
+\mathbb{E}\left[e^{s\widetilde{\epsilon}^{T}u}\right]=\mathbb{E}\left[e^{s\epsilon^{T}\Phi u}\right]\leq e^{s^{2}\sigma^{2}/2},
+$$
+
+which shows that $\widetilde{\epsilon}\sim\operatorname{subG} _ {r}(\sigma^{2}).$ Using the bounds on moments for sub-Gaussian variables, we have
+
+$$
+4\mathbb{E}\left[\sup_{u\in\mathcal{B}_{2}}(\widetilde{\epsilon}^{T}u)^{2}\right]\leq4\sum_{i=1}^{r}\mathbb{E}[\widetilde{\epsilon}_{i}^{2}]\le4rc^{2}\frac{4!}{2^{2}}\sigma^{2}\lesssim\sigma^{2}r.
+$$
+
+For the probability, recall from the proof of the sub-Gaussian maximal inequality over $\mathcal{B}_2$ that if $X\sim\operatorname{subG}_{d}(\sigma^{2})$ then 
+
+$$
+\mathbb{P}\left[\max_{\theta\in\mathcal{B}_{2}}\theta^{T}X\leq\sigma\sqrt{8d\log(6)}+2\sigma\sqrt{2\log(1/\delta)}\right]\geq1-\delta.
+$$
+
+Using this result, we get that
+
+$$
+\mathbb{P}\left[\max_{u\in\mathcal{B}_{2}}(\widetilde{\epsilon}^{T}u)^{2}\lesssim\sigma^{2}(r+\log(1/\delta))\right]\geq1-\delta 
+$$
+
+which yields the required probability bound. 
+
+</details>
+
+<Callout type="info">
+The inequality $\Vert Y-X\widehat{\theta}^{\text{LS}}\Vert_{2}^{2}\leq\Vert Y-X\theta^{\ast}\Vert_{2}^{2}=\Vert\epsilon\Vert_{2}^{2}$ is known as the fundamental inequality. 
+</Callout>
+
+In the low dimensional case where $d\leq n,$ it is possible to show that
+
+$$
+\Vert\theta^{\ast}-\widehat{\theta}^{\text{LS}}\Vert_{2}^{2}\leq\frac{\operatorname{MSE}(X\widehat{\theta}^{\text{LS}})}{\lambda_{\min}\left(\frac{X^{T}X}{n}\right)},
+$$
+
+so we could use the MSE bound we just proved to bound the difference on the regression coefficient. In the high-dimensional case, it is not possible to bound this error without more structural assumptions. 
