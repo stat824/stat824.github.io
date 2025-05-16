@@ -72,7 +72,7 @@ $$
 \log\mathbb{E}[e^{-\frac{t}{n}\sum_{i=1}^{n}V_{ij}}]\leq\frac{(t/n)^{2}B^{2}}{2}\sum_{i=1}^{n}x_{ij}^{2}\leq\frac{t^{2}B^{2}C^{2}}{2n}.
 $$
 
-Since this bound holds for any $t\in\mathbb{R},$ we have shown that each element of $\nabla\mathcal{L}_{n}(\theta^{\ast})$ has zero-mean and sub-Gaussian with parameter at most $BC/\sqrt{n}.$ Thus, sub-Gaussian tail bounds combined with the union bound guarantee that
+Since this bound holds for any $t\in\mathbb{R},$ we have shown that each component of the random vector $\nabla\mathcal{L}_{n}(\theta^{\ast})$ has zero-mean and is sub-Gaussian with parameter at most $BC/\sqrt{n}.$ Thus, sub-Gaussian tail bounds combined with the union bound guarantee that
 
 $$
 \mathbb{P}[\Vert\nabla\mathcal{L}_{n}(\theta^{\ast})\Vert_{\infty}\geq t]\leq2\exp\left(-\frac{nt^{2}}{2B^{2}C^{2}}+\log(d)\right).
