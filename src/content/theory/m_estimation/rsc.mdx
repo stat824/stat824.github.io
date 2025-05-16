@@ -1,0 +1,27 @@
+import { Callout } from 'nextra/components'
+
+# Restricted strong convexity
+
+We have managed to find a subset where the error will live. Let’s turn to understanding what having a nice loss over this restricted subspace means. Define the first-order Taylor error between objective functions
+
+$$
+\mathcal{E}_{n}(\Delta)=\mathcal{L}_{n}(\theta^{\ast}+\Delta)-\mathcal{L}_{n}(\theta^{\ast})-\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle.
+$$
+
+We could define nice behaviours as that that allow us to lower bound this first order error. Since we assume $\mathcal{L}_{n}$ is convex, this error will always be non-negative. Strong convexity is a stronger condition that requires that this lower bound holds with a quadratic slack. More precisely, for a given norm $\Vert\cdot\Vert ,$ the cost function is locally $\kappa$ -strongly convex at $\theta^{\ast}$ if 
+
+$$
+\mathcal{E}_{n}(\Delta)\geq\frac{\kappa}{2}\Vert\Delta\Vert^{2}\quad\text{for all }\Delta\in\mathbb{B}(R),
+$$
+
+for some $R>0,$ where $\mathbb{B}(R)$ is the ball centered at the origin with radius $R$ defined by the norm $\Vert\cdot\Vert.$ This notion of strong convexity cannot hold everywhere for a high-dimensional problem where $d > n$ since there would be $d - n$ directions where the gradient is flat. But for decomposable regularizers, we have seen that the error vector must belong to a special set, and we use this fact to define a more appropriate notion for our high-dimensional setting. 
+
+<details open>
+<summary>Definition</summary>
+
+For a given norm $\Vert\cdot\Vert$ and regularizer $\Phi(\cdot),$ we say the cost function satisfies a restricted strong convexity (RSC) condition with radius $R>0,$ curvature $\kappa>0$ and tolerance $\tau_{n}^{2}$ if
+
+$$
+\mathcal{E}_{n}(\Delta)\geq\frac{\kappa}{2}\Vert\Delta\Vert^{2}-\tau_{n}^{2}\Phi^{2}(\Delta)\quad\text{for all }\Delta\in\mathbb{B}(R).
+$$
+</details>

@@ -1,0 +1,82 @@
+import { Callout } from 'nextra/components'
+
+# Example: generalized linear models with sparsity
+
+It is not easy to see how the theoretical bounds we have proven are actually useful in concrete problems. Let's now turn to the example of generalized linear models with sparsity constraint. We assume we have samples $(x_{1},y_{1}),\ldots,(x_{n},y_{n})$ where:
+
+1. The covariates are $C$-column normalized, meaning $\max_{j=1,\ldots,d}\sqrt{\frac{\sum_{i=1}^{n}x_{ij}^{2}}{n}}\leq C.$ 
+
+2. Conditionally on $x_{i},$ each response $y_{i}$ is drawn i.i.d. according to the conditional distribution
+
+   $$
+   P_{\theta^{\ast}}(y_{i}|x_{i})\propto\exp\left(\frac{y\langle x_{i},\theta^{\ast}\rangle-\Psi(\langle x_{i},\theta^{\ast}\rangle)}{c(\sigma)}\right)
+   $$
+
+   where the partition function $\Psi$ has a bounded second derivative $\Vert\Psi''\Vert_{\infty}\leq B^{2}.$
+
+
+
+The cost function is $\mathcal{L}_{n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\Psi(\langle x_{i},\theta\rangle)-\left\langle \frac{1}{n}\sum_{i=1}^{n}y_{i}x_{i},\theta\right\rangle$ and the M-estimator has the form
+
+$$
+\widehat{\theta}\in\argmin_{\theta}\left\{ \frac{1}{n}\sum_{i=1}^{n}\Psi(\langle x_{i},\theta\rangle)-\left\langle \frac{1}{n}\sum_{i=1}^{n}y_{i}x_{i},\theta\right\rangle +\lambda_{n}\Vert\theta\Vert_{1}\right\} .
+$$
+
+We will also assume that we have the restricted strong convexity condition
+
+$$
+\mathcal{E}_{n}(\Delta)\geq\frac{\kappa}{2}\Vert\Delta\Vert_{2}-c_{1}\frac{\log(d)}{n}\Vert\Delta\Vert_{1}^{2}\quad\text{for all }\Vert\Delta\Vert_{2}\leq1.
+$$
+
+It is possible to show that when the covariates $x_{1},\ldots,x_{n}$ are drawn from a zero-mean sub-Gaussian distribution, a bound of this form holds with high probability for any GLM. 
+
+<details open>
+<summary>Theorem</summary>
+
+Consider a GLM satisfying the above conditions. Let $\delta\in(0,1)$ and consider the regularization parameter $\lambda_{n}=4BC\left(\sqrt{\frac{\log(d)}{n}}+\delta\right).$ If the true regression vector $\theta^{\ast}$ is supported on a subset $S$ of cardinality $s,$ then whenever $n$ is large enough so that $s(\lambda_{n}^{2}+\frac{\log(d)}{n})\leq\min(\frac{\kappa^{2}}{36},\frac{\kappa}{128c_{1}}),$ we have
+
+$$
+\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}^{2}\leq\frac{36s\lambda_{n}^{2}}{\kappa^{2}}\quad\text{and}\quad\Vert\widehat{\theta}-\theta^{\ast}\Vert_{1}\leq\frac{24s\lambda_{n}}{\kappa}
+$$
+
+with probability at least $1-2e^{-2n\delta^{2}}. $
+</details>
+
+<details>
+<summary>Proof</summary>
+
+We apply the general bound for M-estimators. Consider the subspace $\mathbb{M}=\overline{\mathbb{M}}=\{\theta\in\mathbb{R}^{d}:\theta_{j}=0\text{ for all }j\not\in S\}.$ With this choice, note that we have $\Psi^{2}(\mathbb{M})=s.$ Moreover, the assumed RSC condition is a special case of our general definition with $\tau_{n}^{2}=c_{1}\frac{\log(d)}{n}.$ In order to apply the general bound, we need to ensure that $\tau_{n}^{2}\Psi^{2}(\mathbb{M})\leq\frac{\kappa}{128}.$ Since the local RSC condition holds over a ball with radius $R=1,$ we also need to ensure that $\frac{36\lambda_{n}^{2}\Psi^{2}(\mathbb{M})}{\kappa^{2}}\leq1.$ Both of these conditions are guaranteed by our assumed bound. The only remaining step is to verify that the good event $\mathbb{G}(\lambda_{n})$ holds with probability at least $1-2e^{-2n\delta^{2}}.$ We can write $\nabla\mathcal{L}_{n}(\theta^{\ast})=\frac{1}{n}\sum_{i=1}^{n}V_{i}$ where $V_{i}\in\mathbb{R}^{d}$ are independent zero-mean random vectors with components
+
+$$
+V_{ij}=\{\psi'(\langle x_{i},\theta^{\ast}\rangle)-y_{i}\}x_{ij}.
+$$
+
+Let us find an upper bound for the moment generating function of these variables. For any $t\in\mathbb{R},$ we have by property of GLMs
+
+$$
+\begin{aligned}
+\log\mathbb{E}[e^{-tV_{ij}}] &= \log\mathbb{E}[e^{ty_{i}x_{ij}}]-tx_{ij}\psi'(\langle x_{i},\theta^{\ast}\rangle) \\
+	&=\psi(tx_{ij}+\langle x_{i},\theta^{\ast}\rangle)-\psi(\langle x_{i},\theta^{\ast}\rangle)-tx_{ij}\psi'(\langle x_{i},\theta^{\ast}\rangle).
+\end{aligned}
+$$
+
+By a Taylor-series expansion, there is some $\widetilde{t}$ such that 
+
+$$
+\log\mathbb{E}[e^{-tV_{ij}}]=\frac{1}{2}t^{2}x_{ij}^{2}\psi''(\widetilde{t}x_{ij}+\langle x_{i},\theta^{\ast}\rangle)\leq\frac{B^{2}t^{2}x_{ij}^{2}}{2}.
+$$
+
+Using independence of the samples, we have
+
+$$
+\log\mathbb{E}[e^{-\frac{t}{n}\sum_{i=1}^{n}V_{ij}}]\leq\frac{(t/n)^{2}B^{2}}{2}\sum_{i=1}^{n}x_{ij}^{2}\leq\frac{t^{2}B^{2}C^{2}}{2n}.
+$$
+
+Since this bound holds for any $t\in\mathbb{R},$ we have shown that each element of $\nabla\mathcal{L}_{n}(\theta^{\ast})$ has zero-mean and sub-Gaussian with parameter at most $BC/\sqrt{n}.$ Thus, sub-Gaussian tail bounds combined with the union bound guarantee that
+
+$$
+\mathbb{P}[\Vert\nabla\mathcal{L}_{n}(\theta^{\ast})\Vert_{\infty}\geq t]\leq2\exp\left(-\frac{nt^{2}}{2B^{2}C^{2}}+\log(d)\right).
+$$
+
+Setting $t=2BC\left(\sqrt{\frac{\log(d)}{n}}+\delta\right)$ completes the proof.
+</details>

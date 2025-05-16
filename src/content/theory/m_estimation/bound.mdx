@@ -1,0 +1,148 @@
+import { Callout } from 'nextra/components'
+
+# Error bounds under decomposability and restricted strong convexity 
+
+We now give bounds on the error $\widehat{\Delta}=\widehat{\theta}-\theta^{\ast}$ under the assumptions that the regularizer is decomposable over a pair of subspace $(\mathbb{M},\overline{\mathbb{M}}^{\perp})$ and that the cost function satisfies a restricted strong convexity condition. The bounds will be stated in terms of the Lipschitz constant of the subspace $\overline{\mathbb{M}},$ defined to be 
+
+$$
+\Psi(\overline{\mathbb{M}})=\sup_{u\in\mathbb{M}\backslash\{0\}}\frac{\Phi(u)}{\Vert u\Vert},
+$$
+
+as well as the quantity
+
+$$
+\epsilon_{n}^{2}(\overline{\mathbb{M}},\mathbb{M}^{\perp})=\frac{36\lambda_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})}{\kappa^{2}}+\frac{16}{\kappa}(\lambda_{n}\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})+16\tau_{n}^{2}\Psi^{2}(\theta_{\mathbb{M}^{\perp}}^{\ast})).
+$$
+
+<details open>
+<summary>Theorem</summary>
+
+Suppose that the cost function is convex, and satisfies the local RSC condition with curvature $\kappa,$ radius $R$ and tolerance $\tau_{n}^{2}$ with respect to $\Vert\cdot\Vert ,$ and that the regularizer decomposes over $(\mathbb{M},\overline{\mathbb{M}}^{\perp}).$ Then on the good event $\mathbb{G}(\lambda_{n}),$ we have:
+
+1. Any optimal solution $\widehat{\theta}$ satisfies the bound
+
+   $$
+   \Phi(\widehat{\theta}-\theta^{\ast})\leq4(\Psi(\overline{\mathbb{M}})\Vert\widehat{\theta}-\theta^{\ast}\Vert+\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})).
+   $$
+
+2. If $\tau_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})\leq\frac{\kappa}{128}$ and $\epsilon_{n}(\overline{\mathbb{M}},\mathbb{M}^{\perp})\leq R,$ then
+
+   $$
+   \Vert\widehat{\theta}-\theta^{\ast}\Vert^{2}\leq\epsilon_{n}^{2}(\overline{\mathbb{M}},\mathbb{M}^{\perp}).
+   $$
+
+   In particular, if $\theta^{\ast}\in\mathbb{M},$ we have
+
+   $$
+   \Phi(\widehat{\theta}-\theta^{\ast})\leq\frac{24\lambda_{n}\Psi^{2}(\overline{\mathbb{M}})}{\kappa}\quad\text{and}\quad\Vert\widehat{\theta}-\theta^{\ast}\Vert^{2}\leq\frac{36\lambda_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})}{\kappa^{2}}.
+   $$
+</details>
+
+The first bound is easy. We have seen that on the event $\mathbb{G}(\lambda_{n}),$ it holds that $\widehat{\Delta}\in\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp}),$ so
+
+$$
+\begin{aligned}
+\Phi(\widehat{\Delta}) &\leq\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}})+\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}^{\perp}}) \\
+	&\leq\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}})+3\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}})+4\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})) \\
+	&\leq4(\Psi(\overline{\mathbb{M}})\Vert\widehat{\Delta}\Vert+\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})).
+\end{aligned}
+$$
+
+For the second bound, we need a lemma. Define the function $\mathcal{F}:\Omega\to\mathbb{R}$ by
+
+$$
+\mathcal{F}(\Delta):=\mathcal{L}_{n}(\theta^{\ast}+\Delta)-\mathcal{L}_{n}(\Delta)+\lambda_{n}\{\Phi(\theta^{\ast}+\Delta)-\Phi(\theta^{\ast})\}
+$$
+
+and for $\delta\in(0,R],$ define $\mathbb{K}(\delta):=\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp})\cap\{\Delta:\Vert\Delta\Vert=\delta\}.$
+
+<details open>
+<summary>Lemma</summary>
+
+If $\mathcal{F}(\Delta)>0$ for all $\Delta\in\mathbb{K}(\delta),$ then $\Vert\widehat{\Delta}\Vert\leq\delta.$
+</details>
+
+
+<details>
+<summary>Proof</summary>
+
+We will prove the contrapositive. Suppose that $\Vert\widehat{\Delta}\Vert>\delta.$ Then since $\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp})$ is star-shaped around the origin, the line joining $\widehat{\Delta}$ to 0 must intersect $\mathbb{K}(\delta)$ at some point. That is, there exists $t^{\ast}\in[0,1]$ such that $t^{\ast}\widehat{\Delta}\in\mathbb{K}(\delta).$ Since $\mathcal{L}_{n}$ and $\Phi$ are convex, so is $\mathcal{F}.$ Therefore, 
+
+$$
+\mathcal{F}(t^{\ast}\widehat{\Delta})=\mathcal{F}(t^{\ast}\widehat{\Delta}+(1-t^{\ast})0)\leq t^{\ast}\mathcal{F}(\widehat{\Delta})+(1-t^{\ast})\mathcal{F}(0)=t^{\ast}\mathcal{F}(\widehat{\Delta}).
+$$
+
+Since $\widehat{\theta}$ is optimal, $\mathcal{F}(\widehat{\Delta})\leq0,$ so we have $\mathcal{F}(t^{\ast}\widehat{\Delta})\leq0.$ This shows that there exists some vector in $\mathbb{K}(\delta)$ at which $\mathcal{F}$ is non-positive. 
+
+</details>
+
+
+We now return to the proof of the second bound. Fix some $\delta\in(0,R]$ whose value will be specified later. For any $\Delta\in\mathbb{K}(\delta),$ we have
+
+$$
+\begin{aligned}
+\mathcal{F}(\Delta) &= \mathcal{L}_{n}(\theta^{\ast}+\Delta)-\mathcal{L}_{n}(\Delta)+\lambda_{n}\{\Phi(\theta^{\ast}+\Delta)-\Phi(\theta^{\ast})\} \\
+	&\geq\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle+\frac{\kappa}{2}\Vert\Delta\Vert^{2}-\tau_{n}^{2}\Phi^{2}(\Delta)+\lambda_{n}\{\Phi(\theta^{\ast}+\Delta)-\Phi(\theta^{\ast})\} \\
+	&\geq\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle+\frac{\kappa}{2}\Vert\Delta\Vert^{2}-\tau_{n}^{2}\Phi^{2}(\Delta)+\lambda_{n}\{\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\Delta_{\overline{\mathbb{M}}})-2\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\}
+\end{aligned}
+$$
+
+where the first inequality follows from the RSC condition and the second inequality follows from the deviation inequalities. Applying Holder's inequality, we have
+
+$$
+|\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle|\leq\Phi^{\ast}(\nabla\mathcal{L}_{n}(\theta^{\ast}))\Phi(\Delta).
+$$
+
+Under the event $\mathbb{G}(\lambda_{n}),$ we have $|\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle|\leq\frac{\lambda_{n}}{2}\Phi(\Delta).$ Consequently, we have
+
+$$
+\mathcal{F}(\Delta)\geq\frac{\kappa}{2}\Vert\Delta\Vert^{2}-\tau_{n}^{2}\Phi^{2}(\Delta)+\lambda_{n}\{\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\Delta_{\overline{\mathbb{M}}})-2\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\}-\frac{\lambda_{n}}{2}\Phi(\Delta).
+$$
+
+The triangle inequality implies that $\Phi(\Delta)\leq\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})+\Phi(\Delta_{\overline{\mathbb{M}}}),$ so 
+
+$$
+\begin{aligned}
+\mathcal{F}(\Delta) &\geq\frac{\kappa}{2}\Vert\Delta\Vert^{2}-\tau_{n}^{2}\Phi^{2}(\Delta)+\lambda_{n}\left\{ \frac{1}{2}\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\frac{3}{2}\Phi(\Delta_{\overline{\mathbb{M}}})-2\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\right\}  \\
+	&\geq\frac{\kappa}{2}\Vert\Delta\Vert^{2}-\tau_{n}^{2}\Phi^{2}(\Delta)-\frac{\lambda_{n}}{2}\left\{ 3\Phi(\Delta_{\overline{\mathbb{M}}})+4\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\right\} .
+\end{aligned}
+$$
+
+We have $\Phi(\Delta_{\overline{\mathbb{M}}})\leq\Psi(\overline{\mathbb{M}})\Vert\Delta\Vert .$ Also, since $\Delta\in\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp}),$ we have
+
+$$
+\begin{aligned}
+\Phi^{2}(\Delta) &\leq \left(4\Phi(\Delta_{\overline{\mathbb{M}}})+4\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\right)^{2} \\
+&\leq32\Phi^{2}(\Delta_{\overline{\mathbb{M}}})+32\Phi^{2}(\theta_{\mathbb{M}^{\perp}}^{\ast}) \\
+&\leq32(\Psi^{2}(\overline{\mathbb{M}})\Vert\Delta\Vert^{2}+\Psi^{2}(\theta_{\mathbb{M}^{\perp}}^{\ast})).
+\end{aligned}
+$$
+
+Therefore, we have
+
+$$
+\begin{aligned}
+\mathcal{F}(\Delta) &\geq \left(\frac{\kappa}{2}-32\tau_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})\right)\Vert\Delta\Vert^{2}-32\tau_{n}^{2}\Psi^{2}(\theta_{\mathbb{M}^{\perp}}^{\ast})-\frac{\lambda_{n}}{2}\left\{ 3\Psi(\overline{\mathbb{M}})\Vert\Delta\Vert+4\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\right\} \\
+	&\geq\frac{\kappa}{4}\Vert\Delta\Vert^{2}-\frac{3\lambda_{n}}{2}\Psi(\overline{\mathbb{M}})\Vert\Delta\Vert-32\tau_{n}^{2}\Psi^{2}(\theta_{\mathbb{M}^{\perp}}^{\ast})-2\lambda_{n}\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast}),
+\end{aligned}
+$$
+
+where in the second inequality we used the assumed bound $\tau_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})\leq\frac{\kappa}{128}.$ The right-hand side of this inequality is a strictly positive definite quadratic form in $\Vert\Delta\Vert ,$ and so will be positive for $\Vert\Delta\Vert$ sufficiently large. In particular, if we let $C=32\tau_{n}^{2}\Psi^{2}(\theta_{\mathbb{M}^{\perp}}^{\ast})+2\lambda_{n}\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast}),$ then note that $\mathcal{F}(\Delta)\geq0$ if and only if
+
+$$
+\kappa\Vert\Delta\Vert^{2}-6\lambda_{n}\Psi(\overline{\mathbb{M}})\Vert\Delta\Vert-4C\geq0.
+$$
+
+We see that $\mathcal{F}(\Delta)\geq0$ whenever 
+
+$$
+\Vert\Delta\Vert^{2}	\geq\left(\frac{6\lambda_{n}\Psi(\overline{\mathbb{M}})+\sqrt{36\lambda_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})+16\kappa C}}{2\kappa}\right)^{2}=\left(\frac{3\lambda_{n}\Psi(\overline{\mathbb{M}})}{\kappa}+\sqrt{\frac{9\lambda^{2}\Psi^{2}(\overline{\mathbb{M}})}{\kappa^{2}}+\frac{4C}{\kappa}}\right)^{2}.
+$$
+
+Using the inequality $(a+b)^{2}<2a^{2}+2b^{2}$ which holds when $ab\neq0,$ we find that
+
+$$
+\left(\frac{3\lambda_{n}\Psi(\overline{\mathbb{M}})}{\kappa}+\sqrt{\frac{9\lambda^{2}\Psi^{2}(\overline{\mathbb{M}})}{\kappa^{2}}+\frac{4C}{\kappa}}\right)^{2}	<\frac{36\lambda_{n}^{2}\Psi^{2}(\overline{\mathbb{M}})}{\kappa^{2}}+\frac{8C}{\kappa}=\epsilon_{n}^{2}(\overline{\mathbb{M}},\mathbb{M}^{\perp}),
+$$
+
+so a sufficient condition for $\mathcal{F}(\Delta)>0$ to hold is $\Vert\Delta\Vert^{2}\geq\epsilon_{n}^{2}(\overline{\mathbb{M}},\mathbb{M}^{\perp}).$ By assumption $\epsilon_{n}(\overline{\mathbb{M}},\mathbb{M}^{\perp})\leq R,$ so we can choose $\delta=\epsilon_{n}(\overline{\mathbb{M}},\mathbb{M}^{\perp}).$ With this choice of $\delta ,$ we have $\mathcal{F}(\Delta)>0$ for all $\Delta\in\mathbb{K}(\delta),$ and from the lemma it follows that $\Vert\widehat{\Delta}\Vert^{2}\leq\epsilon_{n}^{2}(\overline{\mathbb{M}},\mathbb{M}^{\perp})$ which is the desired bound. 

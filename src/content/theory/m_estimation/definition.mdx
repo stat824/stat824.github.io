@@ -1,0 +1,103 @@
+import { Callout } from 'nextra/components'
+
+# Definition and examples
+
+The models for linear regression that we saw are part of a larger family of estimators called M-estimators, where the M stands for "minimization". What is nice about this family of estimators is that it provides a general framework where we can study (and bound) the estimation error for high-dimensional problems. Here, we’ll focus on regularized M-estimators which include a regularization parameter. Following the same types of arguments as that of the Lasso, it is possible to derive bounds for a large number of classical problems involving some kind of regularization. As we will see, these bounds leverage two main properties: (a) decomposability of the regularizer, and (b) a nice behavior for the cost function (restricted curvature condition/ restricted strong convexity).
+
+## Definition
+
+Consider a parametric family of distributions $(P_{\theta}:\theta\in\Omega)$ and suppose that we have observations $Z_{1},\ldots,Z_{n}\sim P_{\theta^{\ast}}$ for some unknown $\theta^{\ast}\in\Omega .$ M-estimation has two main ingredients: 
+
+* A cost function $\mathcal{L}_{n}:\Omega\times\mathcal{Z}^{n}\to\mathbb{R}$ where the value $\mathcal{L}_{n}(\theta;Z_{1},\ldots,Z_{n})$ provides a measure of the fit of parameter $\theta$  to the data $Z_{1},\ldots,Z_{n}. $
+
+* A regularizer (or penalty function), whose purpose is to enforce a certain type of structure expected in $\theta^{\ast}.$
+
+<details open>
+<summary>Definition</summary>
+
+The M-estimator $\widehat{\theta}$ is then given by
+
+$$
+\widehat{\theta}\in\argmin_{\theta\in\Omega}\left\{ \mathcal{L}_{n}(\theta;Z_{1},\ldots,Z_{n})+\lambda_{n}\Phi(\theta)\right\} ,
+$$
+
+where where $\lambda_{n}>0$ is a user-defined regularization weight. 
+
+</details>
+
+## Examples
+
+We look at a few problems where regularized M-estimation can be useful.
+
+<details open>
+<summary>Example</summary>
+
+The lasso program is an obvious example of a regularized M-estimator. 
+
+</details>
+
+
+<details open>
+<summary>Example (generalized linear models)</summary>
+
+In a generalized linear model, each response variable $y_{i}$ conditional on the covariate vector $x_{i}$ has distribution coming from an exponential family with density
+
+$$
+P_{\theta^{\ast}}(y_{i}|x_{i})\propto\exp\left(\frac{y\langle x_{i},\theta^{\ast}\rangle-\Psi(\langle x_{i},\theta^{\ast}\rangle)}{c(\sigma)}\right),
+$$
+
+where $c(\sigma)$ is a scale parameter and $\Psi:\mathbb{R}\to\mathbb{R}$ is the partition function of the underlying exponential family. Given $n$ samples, we can take the cost function to be the negative log-likelihood
+
+$$
+\mathcal{L}_{n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\Psi(\langle x_{i},\theta\rangle)-\left\langle \frac{1}{n}\sum_{i=1}^{n}y_{i}x_{i},\theta\right\rangle .
+$$
+
+We could assume $\theta^{\ast}$ to be sparse, yielding the generalized linear Lasso program
+
+$$
+\widehat{\theta}\in\argmin_{\theta}\left\{ \frac{1}{n}\sum_{i=1}^{n}\Psi(\langle x_{i},\theta\rangle)-\left\langle \frac{1}{n}\sum_{i=1}^{n}y_{i}x_{i},\theta\right\rangle +\lambda_{n}\Vert\theta\Vert_{1}\right\} .
+$$
+
+</details>
+
+<details open>
+<summary>Example</summary>
+
+Consider the multivariate regression problem
+
+$$
+Y=Z\Theta^{\ast}+W,
+$$
+
+where $Y\in\mathbb{R}^{n\times T}$ is the matrix of responses, $Z\in\mathbb{R}^{n\times d}$ is the matrix of covariates, $\Theta^{\ast}\in\mathbb{R}^{d\times T}$ is the matrix of regression coefficients, and $W$ is a noise matrix. One way in which to view this model is as a collection of $T$ different univariate regression problems given by
+
+$$
+Y_{\cdot,t}=Z\Theta_{\cdot,t}^{\ast}+W_{\cdot,t},\quad t=1,\ldots,T.
+$$
+
+However, there is benefit in considering all $T$ problems together. The idea behind multivariate regression is to borrow strength across prediction tasks, typically by assuming some sort of shared structure between regression tasks. For example, if there is a relatively small subset of the $d$ predictors which is active in all of the $T$ tasks, then $\Theta^{\ast}$ is row-sparse. In this case, a natural regularizer is $\Phi(\Theta):=\sum_{j=1}^{d}\Vert\Theta_{j,\cdot}\Vert_{2}.$ A more flexible model allows for the possibility of a subset of predictors that are shared among all tasks, coupled with a subset of predictors that appear in only one (or relatively few) tasks. This type of structure can be modeled by decomposing the regression matrix $\Theta^{\ast}$ as the sum of a row-sparse matrix $\Omega^{\ast}$ along with an elementwise-sparse matrix $\Gamma^{\ast}.$ If we impose a group $\ell_{1,2}$-norm on the row-sparse component and an ordinary $\ell_{1}$-norm on the element-sparse component, then we are led to the estimator
+
+$$
+\widehat{\Omega},\widehat{\Gamma}\in\argmin_{\Omega,\Gamma\in\mathbb{R}^{d\times T}}\left\{ \frac{1}{2n}\Vert Y-Z(\Omega+\Gamma)\Vert_{\text{F}}^{2}+\lambda_{n}\sum_{j=1}^{d}\Vert\Theta_{j,\cdot}\Vert_{2}+\mu_{n}\Vert\Gamma\Vert_{1}\right\} ,
+$$
+
+where $\lambda_{n},\mu_{n}>0$ are regularization parameters to be chosen. Then the estimated full coefficient matrix is given by $\widehat{\Theta}=\widehat{\Omega}+\widehat{\Gamma}.$ Writing $\Theta=\Omega+\Gamma ,$ we can re-write this objective as
+
+$$
+\widehat{\Theta}\in\argmin_{\Theta\in\mathbb{R}^{d\times T}}\left\{ \frac{1}{2n}\Vert Y-Z\Theta\Vert_{\text{F}}^{2}+\lambda_{n}\inf_{\Omega+\Gamma=\Theta}\left\{ \sum_{j=1}^{d}\Vert\Theta_{j,\cdot}\Vert_{2}+\omega_{n}\Vert\Gamma\Vert_{1}\right\} \right\} .
+$$
+</details>
+
+
+<details open>
+<summary>Example (nuclear norm regularizer)</summary>
+
+Suppose that we are estimating a matrix and we wish to penalize the rank of the matrix. We cannot directly use the rank as the regularizer, since it is a nonconvex function which makes the optimization problem intractable. The nuclear norm provides a natural relaxation of the rank of a matrix. For a matrix $\Theta\in\mathbb{R}^{d_{1}\times d_{2}},$ we define its nuclear norm to be
+
+$$
+\Vert\Theta\Vert_{\text{nuc}}=\sum_{j=1}^{\min(d_{1},d_{2})}\sigma_{j}(\Theta).
+$$
+
+In other words, it is the $\ell_{1}$-norm of the singular values. Since the rank of $\Theta$ is equal to the number of non-zero singular values, the nuclear norm acts as a convex surrogate for the rank. 
+</details>
+

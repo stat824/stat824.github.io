@@ -50,6 +50,7 @@ export default {
     type: 'separator',
     title: 'VII. Matrix Estimation'
   },
+  m_estimation: 'Regularized M-estimation',
   'sep8': {
     type: 'separator',
     title: 'VIII. Classification'

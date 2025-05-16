@@ -1,0 +1,138 @@
+import { Callout } from 'nextra/components'
+
+# Decomposable regularizers
+
+By now, you should be convinced that the framework of regularized M-estimator encompasses a huge number of classical statistical estimators. Since we have two components in our M-estimator objective function, we will need to make sure that both are sufficiently “well-behaved”. For the regularizer, it turns out that “well behaved” means decomposability. From now on, we assume that the parameter space $\Omega$ is a finite-dimensional vector space endowed with an inner product $\langle\cdot,\cdot\rangle .$ We will use $\Vert\cdot\Vert$ to denote the norm induced by the inner product. 
+
+<details open>
+<summary>Definition</summary>
+
+Given a pair of subspaces $\mathbb{M}\subseteq\overline{\mathbb{M}},$ a norm-based regularizer $\Phi$ is decomposable with respect to $(\mathbb{M},\overline{\mathbb{M}}^{\perp})$ if
+
+$$
+\Phi(\alpha+\beta)=\Phi(\alpha)+\Phi(\beta)\quad\text{for all }\alpha\in\mathbb{M}\text{ and }\beta\in\overline{\mathbb{M}}^{\perp}.
+$$
+
+</details>
+
+<Callout type="info">
+
+This should immediately call to mind what we did with the lasso where we extensively used the fact that $\Vert\theta\Vert_{1}=\Vert\theta_{S}\Vert_{1}+\Vert\theta_{S^{c}}\Vert_{1}.$ To build some intuition, let us consider the ideal case $\mathbb{M}=\overline{\mathbb{M}},$ so that the decomposition holds for all pairs $(\alpha,\beta)\in\mathbb{M}\times\mathbb{M}^{\perp}.$ For any given pair $(\alpha,\beta)$ of this form, the vector $\alpha+\beta$ can be interpreted as perturbation of the model vector $\alpha$ away from the subspace $\mathbb{M},$ and it is desirable that the regularizer penalize such deviations as much as possible. Since $\Phi$ is a norm, we have the triangle inequality $\Phi(\alpha+\beta)\leq\Phi(\alpha)+\Phi(\beta),$ so that the decomposability condition holds if and only if the triangle inequality is tight for all pairs $(\alpha,\beta)\in\mathbb{M}\times\mathbb{M}^{\perp}.$ It is exactly in this setting that the regularizer penalizes deviations away from the model subspace $\mathbb{M}$ as much as possible.
+</Callout>
+
+We will show that under decomposability and with a suitable choice for the regularization weight $\lambda_{n},$ the error vector $\widehat{\Delta} :=\widehat{\theta}-\theta^{\ast}$ must lie in a very restricted set. 
+
+<details open>
+<summary>Definition</summary>
+
+Given any norm $\Phi:\Omega\to\mathbb{R},$ its dual norm is defined as
+
+$$
+\Phi^{\ast}(v)=\sup_{\Phi(u)\leq1}\langle u,v\rangle.
+$$
+
+</details>
+
+
+Our choice of regularization parameter is specified in terms of the random vector $\nabla\mathcal{L}_{n}(\theta^{\ast}),$ also referred to as the score function. Under mild regularity conditions, we have $\mathbb{E}[\nabla\mathcal{L}_{n}(\theta^{\ast}))]=\mathbb{E}[\mathcal{L}_{n}(\theta^{\ast})].$ Consequently, when the true parameter $\theta^{\ast}$ lies in the interior of the parameter space $\Omega,$ by the optimality conditions for the minimization, the random vector $\nabla\mathcal{L}_{n}(\theta^{\ast})$ has zero mean. Under ideal circumstances, we expect that the score function will not be too large, and we measure its fluctuations in terms of the dual norm. The “good event” is then
+
+$$
+\mathbb{G}(\lambda_{n}):=\left\{ \Phi^{\ast}(\nabla\mathcal{L}_{n}(\theta^{\ast}))=\sup_{\Phi(u)\leq1}\langle u,\nabla\mathcal{L}_{n}(\theta^{\ast})\rangle\leq\frac{\lambda_{n}}{2}\right\} .
+$$
+
+<details open>
+<summary>Proposition</summary>
+
+Suppose that $\mathcal{L}_{n}:\Omega\to\mathbb{R}$ is a convex function, let the regularizer $\Phi:\Omega\to[0,\infty)$ be a norm, and consider a subspace pair $(\mathbb{M},\overline{\mathbb{M}}^{\perp})$ over which $\Phi$ is decomposable. On the event $\mathbb{G}(\lambda_{n}),$ the error $\widehat{\Delta}=\widehat{\theta}-\theta^{\ast}$ belongs to the set
+
+$$
+\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp})=\left\{ \Delta\in\Omega:\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})\leq3\Phi(\Delta_{\overline{\mathbb{M}}})+4\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})\right\} .
+$$
+
+In particular, when $\theta^{\ast}\in\mathbb{M},$ we have $\theta_{\mathbb{M}^{\perp}}^{\ast}=0$ and hence $\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}^{\perp}})\leq3\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}})$ and $\Phi(\widehat{\Delta})\leq4\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}}).$
+</details>
+
+
+
+For the proof, we need the following lemma.
+
+<details open>
+<summary>Lemma (deviation inequalities)</summary>
+
+For any norm-based regularizer $\Phi$ which is decomposable over $(\mathbb{M},\overline{\mathbb{M}}^{\perp})$ and any vectors $\theta^{\ast}$ and $\Delta ,$ we have
+
+$$
+\Phi(\theta^{\ast}+\Delta)-\Phi(\theta^{\ast})\geq\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\Delta_{\overline{\mathbb{M}}})-2\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast}).
+$$
+
+Moreover, for any convex function $\mathcal{L}_{n}:\Omega\to\mathbb{R},$ on the event $\mathbb{G}(\lambda_{n}),$ we have
+
+$$
+\mathcal{L}_{n}(\theta^{\ast}+\Delta)-\mathcal{L}_{n}(\theta^{\ast})\geq-\frac{\lambda_{n}}{2}(\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})+\Phi(\Delta_{\overline{\mathbb{M}}})).
+$$
+
+</details>
+
+
+<details>
+<summary>Proof</summary>
+
+Since $\Phi(\theta^{\ast}+\Delta)=\Phi(\theta_{\mathbb{M}}^{\ast}+\theta_{\mathbb{M}}^{\ast}+\Delta_{\overline{\mathbb{M}}}+\Delta_{\overline{\mathbb{M}}^{\perp}}),$ applying the triangle inequality yields
+
+$$
+\begin{aligned}
+\Phi(\theta^{\ast}+\Delta) &\geq\Phi(\theta_{\mathbb{M}}^{\ast}+\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast}+\Delta_{\overline{\mathbb{M}}}) \\
+
+&\geq\Phi(\theta_{\mathbb{M}}^{\ast}+\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})-\Phi(\Delta_{\overline{\mathbb{M}}}).
+\end{aligned}
+$$
+
+By decomposability, we have $\Phi(\theta_{\mathbb{M}}^{\ast}+\Delta_{\overline{\mathbb{M}}^{\perp}})=\Phi(\theta_{\mathbb{M}}^{\ast})+\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}}),$ so that
+
+$$
+\Phi(\theta^{\ast}+\Delta)\geq\Phi(\theta_{\mathbb{M}}^{\ast})+\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})-\Phi(\Delta_{\overline{\mathbb{M}}}).
+$$
+
+By the triangle inequality, we have $\Phi(\theta^{\ast})\leq\Phi(\theta_{\mathbb{M}}^{\ast})+\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast}),$ so we obtain
+
+$$
+\begin{aligned}
+\Phi(\theta^{\ast}+\Delta)-\Phi(\theta^{\ast})	&\geq\Phi(\theta_{\mathbb{M}}^{\ast})+\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})-\Phi(\Delta_{\overline{\mathbb{M}}})-(\Phi(\theta_{\mathbb{M}}^{\ast})+\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})) \\
+	&=\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})-\Phi(\Delta_{\overline{\mathbb{M}}})-2\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast}),
+\end{aligned}
+$$
+
+which yields the first claim. For the second claim, using the convexity of $\mathcal{L}_{n},$ we have
+
+$$
+\mathcal{L}_{n}(\theta^{\ast}+\Delta)-\mathcal{L}_{n}(\theta^{\ast})\geq\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle\geq-|\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle|.
+$$
+
+Applying Holder's inequality with the regularizer and its dual, we have
+
+$$
+|\langle\nabla\mathcal{L}_{n}(\theta^{\ast}),\Delta\rangle|\leq\Phi^{\ast}(\nabla\mathcal{L}_{n}(\theta^{\ast}))\Phi(\Delta)\leq\frac{\lambda_{n}}{2}[\Phi(\Delta_{\overline{\mathbb{M}}^{\perp}})+\Phi(\Delta_{\overline{\mathbb{M}}})]
+$$
+
+where the final step uses the triangle inequality on $\Phi(\Delta)$ and assumption that $\mathbb{G}(\lambda_{n})$ holds. 
+
+</details>
+
+
+The proof that $\widehat{\Delta}\in\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp})$ follows easily from the deviation inequalities. Indeed, the optimality of $\widehat{\theta}$ implies
+
+$$
+\mathcal{L}_{n}(\theta^{\ast}+\widehat{\Delta})-\mathcal{L}_{n}(\theta^{\ast})+\lambda_{n}(\Phi(\theta^{\ast}+\widehat{\Delta})-\Phi(\theta^{\ast}))\leq0,
+$$
+
+so using the lemma we obtain
+
+$$
+\begin{aligned}
+0 &\geq\mathcal{L}_{n}(\theta^{\ast}+\widehat{\Delta})-\mathcal{L}_{n}(\theta^{\ast})+\lambda_{n}(\Phi(\theta^{\ast}+\widehat{\Delta})-\Phi(\theta^{\ast})) \\
+	&\geq-\frac{\lambda_{n}}{2}(\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}^{\perp}})+\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}}))+\lambda_{n}(\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}^{\perp}})-\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}})-2\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})) \\
+	&=\frac{\lambda_{n}}{2}(\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}^{\perp}})-3\Phi(\widehat{\Delta}_{\overline{\mathbb{M}}})-4\Phi(\theta_{\mathbb{M}^{\perp}}^{\ast})).
+\end{aligned}
+$$
+
+Rearranging gives $\widehat{\Delta}\in\mathbb{C}_{\theta^{\ast}}(\mathbb{M},\overline{\mathbb{M}}^{\perp}).$
