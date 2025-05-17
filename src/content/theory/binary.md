@@ -146,3 +146,37 @@ $$
 $$
 
 Note that even though both the LDA and logistic classifiers are linear classifiers (the decision boundary is a hyperplane in $\mathbb{R}^{d}$), the two procedures do not lead to the same classifier in general.
+
+## Empirical risk minimization
+
+We consider nonparametric classification where we know nothing about the joint law of $(X,Y).$ From the dataset $\mathcal{D}_{n}=\{(X_{1},Y_{1}),\ldots,(X_{n},Y_{n})\},$ we want to construct a classifier $\widehat{h}_{n}=\widehat{h}_{n}(\mathcal{D}_{n})$ for which the risk $R(\widehat{h}_{n})$ is close to the Bayes risk $R^{\ast}.$ However, we cannot evaluate the risk directly without knowing anything about the distribution of $(X,Y).$ To get around this, we use empirical risk as an approximation, defined by
+
+$$
+R_{n}(h)=\frac{1}{n}\sum_{i=1}^{n}1(Y_{i}\neq h(X_{i})).
+$$
+
+By the law of large numbers, for any classifier $h$, we have
+
+$$
+\lim_{n\to\infty}R_{n}(h)=R(h).
+$$
+
+This approximation leads us to minimize the empirical risk $R_{n}(h)$ to mimic the minimization of the empirical risk $R(h). $
+
+<details open>
+<summary>Definition</summary>
+
+Let $\mathcal{H}$ be a set of classifiers. We define $\widehat{h}_{n}^{\text{erm}}$ to be any classifier such that
+
+$$
+R_{n}(\widehat{h}_{n}^{\text{erm}})=\min_{h\in\mathcal{H}}R_{n}(h).
+$$
+</details>
+
+The class $\mathcal{H}$ is also called the dictionary of classifiers. Since $R_{n}$ only takes a finite number of values, this minimizer exists, but is not necessarily unique. The choice of the dictionary is crucial. Taking $\mathcal{H}$ to be the set of all classifiers does not make sense as the empirical risk in that case is minimized by the classifier that perfectly reproduces the outcomes $Y$ if $X_{i}=x$ and classifies all other points completely arbitrarily. Taking $\mathcal{H}$ to be too large generally leads to overfitting. The error $R(\widehat{h}_{n}^{\text{erm}})-R^{\ast}$ decomposes into
+
+$$
+R(\widehat{h}_{n}^{\text{erm}})-R^{\ast}=\underbrace{\left(R(\widehat{h}_{n}^{\text{erm}})-\inf_{h\in\mathcal{H}}R(h)\right)}_{\text{stochastic error}}+\underbrace{\left(\inf_{h\in\mathcal{H}}R(h)-R^{\ast}\right)}_{\text{approximation error}}.
+$$
+
+There is a trade-off between the stochastic and approximation errors. When the size of the dictionary $\mathcal{H}$ increases, the approximation error decreases, but the stochastic error becomes significant. Conversely, when the size of the dictionary $\mathcal{H}$ decreases, the stochastic error decreases, but the approximation error increases. 
