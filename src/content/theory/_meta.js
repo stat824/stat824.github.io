@@ -57,4 +57,5 @@ export default {
     type: 'separator',
     title: 'VIII. Classification'
   },
+  binary: 'The problem of binary classification',
 }
