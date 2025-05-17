@@ -6,7 +6,7 @@ export default {
   sufficiency: 'Sufficiency',
   exponential: 'Exponential families',
   minimal: 'Minimal sufficiency',
-  umvue: 'UMVUEs',
+  umvue: 'Uniformly minimum-variance unbiased estimators',
   'sep2': {
     type: 'separator',
     title: 'II. Decision Theory'
@@ -58,4 +58,7 @@ export default {
     title: 'VIII. Classification'
   },
   binary: 'The problem of binary classification',
+  finite: 'Oracle inequalities for ERM with a finite dictionary',
+  vc: 'Combinatorial complexity and VC theory',
+  vc_class: 'VC-class dictionaries',
 }

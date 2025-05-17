@@ -1,0 +1,82 @@
+import { Callout } from 'nextra/components'
+
+# Rademacher complexity
+
+Let $\mathcal{Y}$ be a measurable space and let $\mathcal{A}$ be a collection of measurable sets in $\mathcal{Y}.$ Suppose that we have i.i.d. random variables $Z_{1},\ldots,Z_{n}$ taking values in $\mathcal{Y}.$ For $A\in\mathcal{A},$ let us define $\mu(A)=\mathbb{P}[Z_{i}\in A]$ and define the empirical measure
+
+$$
+\mu_{n}(A)=\frac{1}{n}\sum_{i=1}^{n}1(Z_{i}\in A).
+$$
+
+Vapnik-Chervonenkis (VC) theory is a framework that allows us to bound the quantity 
+
+$$
+\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|.
+$$
+
+<Callout type="info">
+As we will see later, this is very relevant to empirical risk minimization as the bound on stochastic error given by $\sup_{h\in\mathcal{H}}|R_{n}(h)-R(h)|$ can be cast in this way. 
+</Callout>
+
+
+Let us start with controlling the expectation of $\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|.$ To do this, we will use the idea of symmetrization. Let us introduce a independent copies $Z_{1}',\ldots,Z_{n}'$ independent of the $Z_{1},\ldots,Z_{n}$ but with the same law. Let us write
+
+$$
+\mu_{n}'(A)=\frac{1}{n}\sum_{i=1}^{n}1(Z_{i}'\in A)\quad\text{for all }A\in\mathcal{A}.
+$$
+
+The independence between $\mathcal{D}=(Z_{1},\ldots,Z_{n})$ and $\mathcal{D}'=(Z_{1}',\ldots,Z_{n}')$ implies
+
+$$
+\mathbb{E}[\mu_{n}'(A)|Z_{1},\ldots,Z_{n}]=\mathbb{E}[\mu_{n}'(A)]=\mu(A).
+$$
+
+Therefore, we have
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|\right]	&=\mathbb{E}\left[\sup_{A\in\mathcal{A}}\left|\mathbb{E}\left[\mu_{n}(A)-\mu_{n}'(A)|Z_{1},\ldots,Z_{n}\right]\right|\right] \\
+	&\leq\mathbb{E}\left[\sup_{A\in\mathcal{A}}\mathbb{E}\left[\left|\mu_{n}(A)-\mu_{n}'(A)\right||Z_{1},\ldots,Z_{n}\right]\right] \\
+	&\leq\mathbb{E}\left[\sup_{A\in\mathcal{A}}\left|\mu_{n}(A)-\mu_{n}'(A)\right|\right] \\
+	&=\mathbb{E}\left[\sup_{A\in\mathcal{A}}\left|\frac{1}{n}\sum_{i=1}^{n}(1(Z_{i}\in A)-1(Z_{i}'\in A))\right|\right],
+\end{aligned}
+$$
+
+where the second last line follows from $\sup\mathbb{E}[\cdot]\leq\mathbb{E}[\sup(\cdot)].$ Since $\mathcal{D}$ and $\mathcal{D}'$ have the same distribution, by symmetry $1(Z_{i}\in A)-1(Z_{i}'\in A)$ has the same distribution as $\sigma_{i}(1(Z_{i}\in A)-1(Z_{i}'\in A))$ where $\sigma_{1},\ldots,\sigma_{n}$ are i.i.d. Radamacher random variables independent of $\mathcal{D}$ and $\mathcal{D}'.$ Therefore, 
+
+$$
+\begin{aligned}
+
+\mathbb{E}\left[\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|\right] &\leq\mathbb{E}\left[\sup_{A\in\mathcal{A}}\left|\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}(1(Z_{i}\in A)-1(Z_{i}'\in A))\right|\right] \\
+	&\leq2\mathbb{E}\left[\sup_{A\in\mathcal{A}}\left|\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}1(Z_{i}\in A)\right|\right].
+\end{aligned}
+
+$$
+
+This is a much nicer quantity, but we still need an upper bound of the this quantity that depends only on the structure of $\mathcal{A}$ but not on $Z_{1},\ldots,Z_{n}.$ This is achieved by taking the supremum over all $z_{i}\in\mathcal{Y} .$
+
+
+<details open>
+<summary>Definition</summary>
+
+The Rademacher complexity of a class of measurable sets $\mathcal{A}$ in a space $\mathcal{Y}$ is defined to be the quantity
+
+$$
+\mathcal{R}_{n}(\mathcal{A})=\sup_{z_{1},\ldots,z_{n}\in\mathcal{Y}}\mathbb{E}\left[\sup_{A\in\mathcal{A}}\left|\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}1(z_{i}\in A)\right|\right]
+$$
+</details>
+
+
+
+Using this definition, we obtain the following bound. 
+
+<details open>
+<summary>Theorem</summary>
+
+It holds that
+
+$$
+\mathbb{E}\left[\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|\right]\leq2\mathcal{R}_{n}(\mathcal{A}).
+$$
+
+</details>

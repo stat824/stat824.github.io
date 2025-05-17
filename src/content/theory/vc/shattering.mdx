@@ -1,0 +1,89 @@
+import { Callout } from 'nextra/components'
+
+# Shattering coefficients
+
+But there remains the question of how one can bound the Rademacher complexity of the class $\mathcal{A}.$ To make this analysis easier, we can deconstruct the definition of Rademacher complexity a little more. 
+
+<details open>
+<summary>Definition</summary>
+
+We define the Rademacher complexity of a set $B\subset\mathbb{R}^{n}$ to be
+
+$$
+\mathcal{R}_{n}(B)=\mathbb{E}\left[\sup_{b\in B}\left|\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}b_{i}\right|\right],
+$$
+
+where $\sigma_1,\ldots,\sigma_n$ are independent Rademacher variables.
+</details>
+
+
+<Callout type="info">
+Note that the quantity $\left|\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}b_{i}\right|$ measures how well a vector $b\in B$ correlates with a random sign pattern $\sigma_{1},\ldots,\sigma_{n}.$ The more complex $B$ is, the better some vector in $B$ can replicate a sign pattern. In particular, if $B$ is the full hypercube $[-1,1]^{n},$ then $\mathcal{R}_{n}(B)=1.$ However, if $B\subset[-1,1]^{n}$ contains only $k$-sparse vectors, then $\mathcal{R}_{n}(B)=k/n.$
+</Callout>
+
+
+A set $B$ that is of interest in our case is the binary fingerprint of a set of points on $\mathcal{A}.$
+
+<details open>
+<summary>Definition</summary>
+
+Let $\mathcal{A}$ be a class of sets in a space $\mathcal{Y}.$ For $n$ points $z_{1},\ldots,z_{n}\in\mathcal{Y},$ the binary fingerprint of this set of points on $\mathcal{A}$ is defined to be
+
+$$
+\mathcal{A}(z_{1},\ldots,z_{n}):=\{(1(z_{1}\in A),\ldots,1(z_{n}\in A)):A\in\mathcal{A}\}\subset\{0,1\}^{n}.
+$$
+</details>
+
+With this definition, note that we can rewrite the Rademacher complexity of the class $\mathcal{A}$ as 
+
+$$
+\mathcal{R}_{n}(\mathcal{A})=\sup_{z_{1},\ldots,z_{n}\in\mathcal{Y}}\mathcal{R}_{n}(\mathcal{A}(z_{1},\ldots,z_{n})).
+$$
+
+This reduces the bounding of $\mathcal{R}_{n}(\mathcal{A})$ to the bounding of the Rademacher complexity of binary fingerprints. The most important quantity in this analysis is the cardinality of $\mathcal{A}(z_{1},\ldots,z_{n}).$ Note that while $\mathcal{A}$ may be an infinite collection of sets, the cardinality of $\mathcal{A}(z_{1},\ldots,z_{n})$ is always bounded by $2^{n}.$ When this cardinality is equal to $2^{n},$ we say that $\mathcal{A}$ shatters the set of points $\{z_{1},\ldots,z_{n}\}.$ Then we define the shattering coefficient to be the largest cardinality that we may obtain over all possible $z.$ 
+
+<details open>
+<summary>Definition</summary>
+
+The shattering coefficients of a class of sets $\mathcal{A}$ in a space $\mathcal{Y}$ is the sequence of numbers $(\mathcal{S}_{\mathcal{A}}(n))_{n\geq1}$ defined by
+
+$$
+\mathcal{S}_{\mathcal{A}}(n)=\sup_{z_{1},\ldots,z_{n}\in\mathcal{Y}}\operatorname{card}(\mathcal{A}(z_{1},\ldots,z_{n})).
+$$
+</details>
+
+
+The following lemma is useful for bounding the Rademacher complexity of a finite set $B.$
+
+<details open>
+<summary>Lemma</summary>
+
+Let $B\subset\mathbb{R}^{n}$ be a finite set. Then
+
+$$
+\mathcal{R}_{n}(B)\leq\left(\max_{b\in B}\Vert b\Vert_{2}\right)\frac{\sqrt{2\log(2|B|)}}{n}.
+$$
+</details>
+
+<details>
+<summary>Proof</summary>
+
+Let $\sigma_{1},\ldots,\sigma_{n}$ be independent Rademacher variables. Since $\sigma_{i}\sim\operatorname{subG}(1),$ it follows that $\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}b_{i}$ is $\Vert b\Vert_{2}^{2}/n^{2}$-sub-Gaussian. Then by the maximal inequality for sub-Gaussians, we have
+
+$$
+\mathcal{R}_{n}(B)=\mathbb{E}\left[\sup_{b\in B}\left|\frac{1}{n}\sum_{i=1}^{n}\sigma_{i}b_{i}\right|\right]\leq\left(\max_{b\in B}\Vert b\Vert_{2}\right)\frac{\sqrt{2\log(2|B|)}}{n}.
+$$
+</details>
+
+
+Since $\mathbb{E}\left[\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|\right]\leq2\mathcal{R}_{n}(\mathcal{A})$ and we have $\mathcal{R}_{n}(\mathcal{A})=\sup_{z_{1},\ldots,z_{n}\in\mathcal{Y}}\mathcal{R}_{n}(\mathcal{A}(z_{1},\ldots,z_{n})),$ using the lemma we obtain the following bound in terms of the shattering coefficients.
+
+<details open>
+<summary>Theorem</summary>
+
+It holds that
+
+$$
+\mathbb{E}\left[\sup_{A\in\mathcal{A}}|\mu_{n}(A)-\mu(A)|\right]\leq2\frac{\sqrt{2\log(2\mathcal{S}_{\mathcal{A}}(n))}}{n}.
+$$
+</details>
