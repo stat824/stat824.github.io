@@ -51,6 +51,8 @@ export default {
     title: 'VII. Matrix Estimation'
   },
   m_estimation: 'Regularized M-estimation',
+  matrix_regression: 'Low-rank matrix regression',
+  covariance: 'Covariance estimation',
   'sep8': {
     type: 'separator',
     title: 'VIII. Classification'
