@@ -55,10 +55,10 @@ export default {
   covariance: 'Covariance estimation',
   'sep8': {
     type: 'separator',
-    title: 'VIII. Empirical Risk Minimization'
+    title: 'VIII. Classification'
   },
   binary: 'The problem of binary classification',
-  finite: 'Oracle inequalities for a finite dictionary',
+  finite: 'Oracle inequalities for ERM with a finite dictionary',
   vc: 'Combinatorial complexity and VC theory',
   vc_class: 'VC-class dictionaries',
 }

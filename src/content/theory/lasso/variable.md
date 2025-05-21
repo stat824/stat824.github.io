@@ -83,7 +83,9 @@ the Karush-Kuhn-Tucker (KKT) conditions are:
 
 The necessary and sufficient conditions for optimality of the Lasso are that it must satisfy the KKT conditions. For $f(\theta)=\Vert\theta\Vert_{1},$ it can be found that $z\in\partial f(\theta)$ if and only if $z_{j}=\operatorname{sign}(\theta_{j})$ for all $j=1,\ldots,d$ where we define $\operatorname{sign}(0)$ to refer to any number in $[-1,1].$ The KKT conditions give the following characterization of solutions to the Lasso program. 
 
-{{% details title="Lemma" %}}
+<details open>
+<summary>Lemma</summary>
+
 Let $F(\theta)=\frac{1}{2n}\Vert X\theta-Y\Vert_{2}^{2},$ so that $\nabla F(\theta)=\frac{1}{n}X^{T}(X\widehat{\theta}-Y).$ The vector $\widehat{\theta}\in\mathbb{R}^{d}$ is a solution of the Lasso program with parameter $\lambda_{n}$ if and only if
 
 $$
@@ -94,7 +96,7 @@ $$
 $$
 
 Moreover, if $|\nabla_{j}F(\widehat{\theta})|<\lambda_{n}$ for some solution $\widehat{\theta},$ then $\widehat{\theta}_{j}=0$ for all solutions of this program. 
-{{% /details %}}
+</details>
 
 ## The primal-dual witness construction 
 
