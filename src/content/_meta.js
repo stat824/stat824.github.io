@@ -4,7 +4,7 @@ export default {
     type: 'page'
   },
   theory: {
-    title: 'Theoretical Statistics',
+    title: 'Theory',
     type: 'page'
-  }
+  },
 }

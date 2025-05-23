@@ -1,4 +1,4 @@
-# Oracle inequalities for a finite dictionary
+# Empirical risk minimization with a finite dictionary
 
 We consider again empirical risk minimization. Given a dictionary $\mathcal{H},$ recall that 
 
