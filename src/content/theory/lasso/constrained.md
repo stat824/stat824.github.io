@@ -1,4 +1,4 @@
-# Restricted eigenvalue conditions and constrained lasso
+# Restricted eigenvalue conditions and constrained Lasso
 
 Suppose that we observe $Y\in\mathbb{R}^{n}$ and a matrix $X\in\mathbb{R}^{n\times d}$ such that
 

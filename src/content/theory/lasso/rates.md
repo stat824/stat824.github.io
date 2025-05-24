@@ -1,4 +1,4 @@
-# Slow and fast rates for the lasso
+# Slow and fast rates for the Lasso
 
 Apart from the error in the parameter, sometimes we may also be interested in the prediction error
 

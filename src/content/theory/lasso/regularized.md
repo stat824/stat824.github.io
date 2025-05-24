@@ -1,6 +1,6 @@
-# The regularized form of the lasso
+# The regularized form of the Lasso
 
-Restricted eigenvalue conditions can also be used to prove bounds for the regularized lasso
+Restricted eigenvalue conditions can also be used to prove bounds for the regularized Lasso
 
 $$
 \widehat{\theta}\in\argmin_{\theta\in\mathbb{R}^{d}}\left\{ \frac{1}{2n}\Vert Y-X\theta\Vert_{2}^{2}+\lambda_{n}\Vert\theta\Vert_{1}\right\} .

@@ -1,4 +1,4 @@
-# Variable selection with lasso
+# Variable selection with Lasso
 
 Under specific conditions, the Lasso can be used for variable selection. In other words, it can recover the support set $S=\operatorname{supp}(\theta^{\ast}).$ 
 
