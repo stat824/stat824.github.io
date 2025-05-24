@@ -59,6 +59,6 @@ export default {
   },
   binary: 'The problem of binary classification',
   finite: 'Empirical risk minimization with a finite dictionary',
-  vc: 'Combinatorial complexity and VC theory',
+  vc: 'Combinatorial complexities',
   vc_class: 'Application of VC theory to empirical risk minimization',
 }
