@@ -1,4 +1,4 @@
-# Application of VC theory to empirical risk minimization
+# VC class dictionaries
 
 Let $\mathcal{H}$ be a collection of classifiers. In empirical risk minimization, we have seen that the stochastic error satisfies
 
