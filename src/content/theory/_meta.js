@@ -1,12 +1,11 @@
 export default {
   'sep1': {
     type: 'separator',
-    title: 'I. Unbiased Estimation'
+    title: 'I. Sufficiency and Completeness'
   },
   sufficiency: 'Sufficiency',
   exponential: 'Exponential families',
   minimal: 'Minimal sufficiency',
-  umvue: 'Uniformly minimum-variance unbiased estimators',
   'sep2': {
     type: 'separator',
     title: 'II. Decision Theory'
@@ -17,8 +16,9 @@ export default {
   nonparametric: 'Nonparametric estimation',
   'sep3': {
     type: 'separator',
-    title: 'III. Equivariant Estimation'
+    title: 'III. Estimation Under Constraints'
   },
+  umvue: 'Uniformly minimum-variance unbiased estimators',
   location: 'Location equivariance',
   location_scale: 'Location-scale equivariance',
   scale: 'Scale equivariance',
