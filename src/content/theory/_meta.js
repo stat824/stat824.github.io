@@ -59,4 +59,5 @@ export default {
   },
   binary: 'The problem of binary classification',
   erm: 'Empirical risk minimization',
+  convexification: 'Convexification'
 }
