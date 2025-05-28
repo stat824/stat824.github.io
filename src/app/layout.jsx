@@ -13,7 +13,7 @@ export const metadata = {
 const banner = <Banner storageKey="some-key">Updated</Banner>
 const navbar = (
   <Navbar
-    logo={<b>Statistical Notes</b>}
+    logo={<b>Mathematical Statistics</b>}
     // ... Your additional navbar options
   />
 )
