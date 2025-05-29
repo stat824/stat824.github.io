@@ -60,5 +60,9 @@ export default {
   },
   binary: 'The problem of binary classification',
   erm: 'Empirical risk minimization',
-  convexification: 'Convexification'
+  convexification: 'Convexification',
+  'sep9': {
+    type: 'separator',
+    title: 'IX. Multiple Hypothesis Testing'
+  },
 }
