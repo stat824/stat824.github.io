@@ -75,7 +75,7 @@ With this definition, we have the following oracle inequalities.
 Let $\mathcal{H}$ be a VC class. Then we have
 
 $$
-\mathbb{E}[R(\widehat{h}_{n}^{\operatorname{erm}})]\leq\min_{h\in\mathcal{H}}R(h)+4\frac{\sqrt{2\operatorname{VC}(\mathcal{H})\log(n+1)+\log(2)}}{n}.
+\mathbb{E}[R(\widehat{h}_{n}^{\operatorname{erm}})]\leq\min_{h\in\mathcal{H}}R(h)+4\sqrt{\frac{2\operatorname{VC}(\mathcal{H})\log(n+1)+\log(2)}{n}}.
 $$
 
 Also, for any $\delta\in(0,1),$ with probability at least $1-\delta$ it holds that

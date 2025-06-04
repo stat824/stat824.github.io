@@ -1,39 +1,8 @@
 export default {
   index: 'Syllabus',
-  'sep1': {
-    type: 'separator',
-    title: 'I. Sufficiency and Completeness'
-  },
-  sufficiency: 'Sufficiency',
-  exponential: 'Exponential families',
-  minimal: 'Minimal sufficiency',
-  'sep2': {
-    type: 'separator',
-    title: 'II. Decision Theory'
-  },
-  basics: 'Basic notions',
-  js: 'James-Stein estimator and shrinkage',
-  hypothesis: 'Hypothesis testing',
-  nonparametric: 'Nonparametric estimation',
-  'sep3': {
-    type: 'separator',
-    title: 'III. Estimation Under Constraints'
-  },
-  umvue: 'Uniformly minimum-variance unbiased estimators',
-  location: 'Location equivariance',
-  location_scale: 'Location-scale equivariance',
-  scale: 'Scale equivariance',
-  'sep4': {
-    type: 'separator',
-    title: 'IV. Asymptotic Theory'
-  },
-  consistency: 'Consistency of MLE',
-  asymptotic: 'Asymptotic normality of MLE',
-  lan: 'Local asymptotic normality',
-  efficiency: 'Asymptotic efficiency',
   'sep5': {
     type: 'separator',
-    title: 'V. Concentration Inequalities'
+    title: 'I. Concentration Inequalities'
   },
   basic_concentration: 'Basic tail inequalities',
   subgaussian: 'Sub-Gaussian variables',
@@ -41,7 +10,7 @@ export default {
   maximal: 'Maximal inequalities for sub-Gaussians',
   'sep6': {
     type: 'separator',
-    title: 'VI. Sparse Linear Models'
+    title: 'II. Sparse Linear Models'
   },
   ls: 'Least squares estimators',
   gsm: 'Thresholding for Gaussian sequence model',
@@ -49,20 +18,20 @@ export default {
   lasso: 'Lasso',
   'sep7': {
     type: 'separator',
-    title: 'VII. Matrix Estimation'
+    title: 'III. Matrix Estimation'
   },
   m_estimation: 'Regularized M-estimation',
   matrix_regression: 'Low-rank matrix regression',
   covariance: 'Covariance estimation',
   'sep8': {
     type: 'separator',
-    title: 'VIII. Classification'
+    title: 'IV. Classification'
   },
   binary: 'The problem of binary classification',
   erm: 'Empirical risk minimization',
   convexification: 'Convexification',
   'sep9': {
     type: 'separator',
-    title: 'IX. Multiple Hypothesis Testing'
+    title: 'V. Multiple Hypothesis Testing'
   },
 }
