@@ -40,7 +40,7 @@ The following result bounds the sine of the principal angle between eigenspaces.
 <details open>
 <summary>Davis-Kahan sin(θ) theorem</summary>
 
-Let $A,$ $B$ be two $d\times d$ positive semidefinite matrices. Let $(\lambda_{1},u_{1}),\ldots,(\lambda_{d},u_{d})$ and $(\mu_{1},v_{1}),\ldots,(\mu_{d},v_{d})$ denote the pairs of eigenvalues and eigenvectors of $A$ and $B,$ ordered in non-increasing order of the eigenvalues. Then
+Let $A,$ $B$ be two $d\times d$ positive semidefinite matrices. Let $(\lambda_{1},u_{1}),\ldots,(\lambda_{d},u_{d})$ and $(\mu_{1},v_{1}),\ldots,(\mu_{d},v_{d})$ denote the pairs of eigenvalues and unit eigenvectors of $A$ and $B,$ ordered in non-increasing order of the eigenvalues. Then
 
 $$
 \sin(\angle(u_{1},v_{1}))\leq\frac{2}{\max(\lambda_{1}-\lambda_{2},\mu_{1}-\mu_{2})}\Vert A-B\Vert_{\operatorname{op}}.
@@ -96,7 +96,7 @@ $$
 So it follows that 
 
 $$
-(\lambda_{1}-\lambda_{2})\sin^{2}(\angle(u_{1},x))\leq2\Vert A-B\Vert_{\text{op}}\sin(\angle(u_{1},v_{1})).
+(\lambda_{1}-\lambda_{2})\sin^{2}(\angle(u_{1},v_{1}))\leq2\Vert A-B\Vert_{\text{op}}\sin(\angle(u_{1},v_{1})).
 $$
 
 Note that we can replace $\lambda_{1}-\lambda_{2}$ with $\mu_{1}-\mu_{2}$ since the result is completely symmetric in $A$ and $B,$ so this shows the first bound. The second bound follows from $\min_{\epsilon\in\{\pm1\}}\Vert\epsilon u_{1}-v_{1}\Vert_{2}^{2}\leq2-2|u_{1}^{T}v_{1}|\leq2-2(u_{1}^{T}v_{1})^{2}=2\sin^{2}(\angle(u_{1},x)).$

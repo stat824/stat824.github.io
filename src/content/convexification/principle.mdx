@@ -1,0 +1,281 @@
+import { Callout } from 'nextra/components'
+
+# The convexification principle
+
+The biggest problem with empirical risk minimization is that the optimization problem is often not easy to solve. Note that if $\mathcal{H}$ is a set of classifiers, it is necessarily non-convex (a linear combination of two classifiers is not necessarily a classifier). Even if we consider a convex set $\mathcal{H}$ (which is thus not a set of classifiers), the problem
+
+$$
+\min_{h\in\mathcal{H}}R_{n}(h)
+$$
+
+is still not a convex optimization because $R_{n}(\cdot)$ is not convex. Consequently, we cannot guarantee that this problem is solvable in polynomial time. The question is thus the following: can we find a minimization problem that gives approximately the same solution, or one that has roughly the same statistical properties? In all subsequent discussions, it will be more practical to consider the label $Y$ to take values in $\{-1,1\}.$ The classification error is thus
+
+$$
+R(h)=\mathbb{P}[Y\neq h(X)]=\mathbb{P}[-Yh(X)\geq0]=\mathbb{E}[\varphi_{0}(-Yh(X))],
+$$
+
+where $\varphi_{0}(x)=1(x\geq0).$ 
+
+## $\varphi$ risk
+
+As was already observed, there are two sources of non-convexity. To eliminate the first, we can replace $\mathcal{H}$ with a convex set $\mathcal{F}$ of functions on $\mathcal{X}$ with real values. To eliminate the second source of non-convexity, we replace the function of loss $\varphi_{0}(\cdot)=1(\cdot\geq0)$ by a convex function $\varphi(\cdot)$ such that $1(x\geq0)\leq\varphi(x).$ Such a function is called a convex surrogate of $\varphi_{0}.$ We thus obtain the $\varphi$ risk
+
+$$
+R_{\varphi}(f)=\mathbb{E}[\varphi(-Yf(X))]
+$$
+
+and the empirical $\varphi$ risk
+
+$$
+R_{n,\varphi}(f)=\frac{1}{n}\sum_{i=1}^{n}\varphi(-Y_{i}f(X_{i})).
+$$
+
+The functions $R_{\varphi}$ and $R_{n,\varphi}$ are convex because $\varphi$ is convex. This leads to the following procedure for classification:
+
+1. For a convex set $\mathcal{F}$ of functions with real values, find
+
+   $$
+   \widehat{f}_{n,\varphi}=\argmin_{f\in\mathcal{F}}R_{n,\varphi}(f).
+   $$
+
+2. Define a classifier by
+
+   $$
+   \widehat{h}_{n,\varphi}=\operatorname{sign}(\widehat{f}_{n,\varphi}).
+   $$
+
+
+The two parameters of this procedure, $\mathcal{F}$ and $\varphi,$ need to be specified.
+
+### Choice of $\varphi$
+
+Usually, we assume that $\varphi(0)=1$ and $\lim_{x\to-\infty}\varphi(x)=0.$ The last condition allows to ensure that $\varphi$ does not deviate from $\varphi_{0}$ too much for large negative values. Some popular choices for $\varphi$:
+
+* $\varphi(x)=(1+x)_{+}$ is the hinge loss.
+
+* $\varphi(x)=e^{x}$ is the exponential loss.
+
+* $\varphi(x)=\log_{2}(1+e^{x})$ is the logit loss.
+
+For these choices, the risk $R_{\varphi}$ does not heavily penalize large values of $Yf(X)$ for a good classification. By contrast, it penalizes greatly negative values of $Yf(X).$ What is the best choice of $\varphi$? The answer to this question is not really known. 
+
+### Choice of $\mathcal{F}$
+
+The simplest and most widespread custom is to take $\mathcal{F}$ to be the set of all linear combinations of a finite set of classifiers $\{h_{1},\ldots,h_{M}\}$ which we call base classifiers and sometimes weak learners. That is,
+
+$$
+\mathcal{F}=\left\{ f=\sum_{j=1}^{M}\theta_{j}h_{j}:\sum_{j=1}^{M}\theta_{j}=1,\,\theta_{j}\geq0\right\} .
+$$
+
+A slight modification of this definition suggests taking the coefficients in a ball of radius $\lambda>0$ in the $\ell_{1}$ space:
+
+$$
+\mathcal{F}=\left\{ f=\sum_{j=1}^{M}\theta_{j}h_{j}:\sum_{j=1}^{M}|\theta_{j}|\leq\lambda\right\} .
+$$
+
+More generally, a choice that is often put forward in theory (but with little relevance in practice) consists of considering the convex hull of some set $\mathcal{H}$ of classifiers or the associated $\ell_{1}$ balls:
+
+$$
+\mathcal{F}=\left\{ f=\sum_{j=1}^{M}\theta_{j}h_{j}:M\in\mathbb{N},\,\sum_{j=1}^{M}\theta_{j}=1,\,\theta_{j}\geq0,\,h_{j}\in\mathcal{H}\right\} ,
+$$
+
+or
+
+$$
+\mathcal{F}=\left\{ f=\sum_{j=1}^{M}\theta_{j}h_{j}:M\in\mathbb{N},\,\sum_{j=1}^{M}|\theta_{j}|\leq\lambda,\,h_{j}\in\mathcal{H}\right\} .
+$$
+
+Procedures of convexification with one of these 4 choices of $\mathcal{F}$ are called bagging and boosting. Later on, we will also cover another approach called support vector machines.
+
+## Link between the $\varphi$ risk and the classification error
+
+Let us write $f_{\varphi}^{\ast}=\argmin_{f}R_{\varphi}(f)$ where the minimum is taken on all measureable functions $f:\mathcal{X}\to\mathbb{R}.$ Then, for a function $\varphi$ well chosen (in particular, for the three that we mentioned), it can be shown that the sign of $f_{\varphi}^{\ast}$ coincides with the Bayes classifier. 
+
+<details open>
+<summary>Zhang's Lemma</summary>
+
+Let $\varphi:\mathbb{R}\to\mathbb{R}$ be a convex function such that $\varphi(0)=1$ and $\varphi(x)\geq\varphi(-x)$ for any $x\geq0.$ Let $H_{\eta}(\alpha)=\eta\varphi(-\alpha)+(1-\eta)\varphi(\alpha).$ Let us assume that the function $\tau:[0,1]\to\mathbb{R}$ defined as $\tau(\eta)=\inf_{\alpha}H_{\eta}(\alpha)$ verifies
+
+$$
+\left|\frac{1}{2}-\eta\right|\leq c(1-\tau(\eta))^{\gamma}\quad\text{for all }\eta\in[0,1]
+$$
+
+where $\gamma\in[0,1]$ and $c>0$ are constants. Then for any measurable function $f:\mathcal{X}\to\mathbb{R},$
+
+$$
+R(\operatorname{sign}(f))-R^{\ast}\leq2c(R_{\varphi}(f)-R_{\varphi}^{\ast})^{\gamma}
+$$
+
+where $R_{\varphi}^{\ast}=\inf_{f}R_{\varphi}(f)=R_{\varphi}(f_{\varphi}^{\ast}). $
+</details>
+
+<Callout type="info">
+
+The lemma directly implies that $h^{\ast}=\operatorname{sign}(f_{\varphi}^{\ast}).$ Moreover, it is useful to evaluate classification error and excess risk on $\varphi$  classifiers:
+
+$$
+R(\widehat{h}_{n,\varphi})-R^{\ast}\leq2c(R_{\varphi}(\widehat{f}_{n,\varphi})-R_{\varphi}^{\ast})^{\gamma}.
+$$
+</Callout>
+
+The condition 
+
+$$
+\left|\frac{1}{2}-\eta\right|\leq c(1-\tau(\eta))^{\gamma}\quad\text{for all }\eta\in[0,1]
+$$
+
+can be verified for our three classical examples of $\varphi.$
+
+* For the hinge loss $\varphi(x)=(1+x)_{+},$ we have $H_{\eta}(\alpha)=\eta\varphi(-\alpha)+(1-\eta)\varphi(\alpha)$ on $[-1,1]$ and we obtain $\tau(\eta)=2\min(\eta,1-\eta).$ This gives $1-\tau(\eta)=|1-2\eta|,$ so the condition holds with $c=\frac{1}{2}$ and $\gamma=1.$
+
+* For the exponential loss $\varphi(x)=e^{x},$ we can show that, in this case, $\tau(\eta)=2\sqrt{\eta(1-\eta)},$ and the condition is verified with $c=\frac{1}{\sqrt{2}}$ and $\gamma=\frac{1}{2}.$ 
+
+* For the logistic loss $\varphi(x)=\log_{2}(1+e^{x}),$ one can show that the condition is also verified with $c=\frac{1}{\sqrt{2}}$ and $\gamma=\frac{1}{2}. $
+
+
+## Oracle inequalities for the $\varphi$ risk
+
+From Zhang's lemma, to control the risk $R(\widehat{h}_{n,\varphi})-R^{\ast},$ it suffices to control the $\varphi$ risk $R_{\varphi}(\widehat{f}_{n,\varphi})-R_{\varphi}^{\ast}.$ This can be done in the same way as in empirical risk minimization. We decompose the error into two parts:
+
+$$
+R_{\varphi}(\widehat{f}_{n,\varphi})-R_{\varphi}^{\ast}=\underbrace{R_{\varphi}(\widehat{f}_{n,\varphi})-\inf_{f\in\mathcal{F}}R_{\varphi}(f)}_{\text{stochastic error}}+\underbrace{\inf_{f\in\mathcal{F}}R_{\varphi}(f)-R_{\varphi}^{\ast}}_{\text{approximation error}}.
+$$
+
+Let us first study the stochastic error. The starting point is the following observation, the proof of which is essentially the same as the analogous result we had for empirical risk minimization.
+
+<details open>
+<summary>Lemma</summary>
+
+Let $\mathcal{F}$ be a set of measurable functions from $\mathcal{X}$ to $\mathbb{R}.$ Then the stochastic error can be controlled as
+
+$$
+R_{\varphi}(\widehat{f}_{n,\varphi})-\inf_{f\in\mathcal{F}}R_{\varphi}(f)\leq2\sup_{f\in\mathcal{F}}|R_{n,\varphi}(f)-R_{\varphi}(f)|.
+$$
+
+</details>
+
+This means that to establish oracle bounds, it suffices now to obtain upper bounds on the expectation
+
+$$
+\mathbb{E}\left[\sup_{f\in\mathcal{F}}|R_{n,\varphi}(f)-R_{\varphi}(f)|\right].
+$$
+
+Using a similar symmetrization argument as for empirical measures, we get
+
+$$
+\mathbb{E}\left[\sup_{f\in\mathcal{F}}|R_{n,\varphi}(f)-R_{\varphi}(f)|\right]\leq2\mathbb{E}\left[\sup_{f\in\mathcal{F}}\frac{1}{n}\left|\sum_{i=1}^{n}\sigma_{i}(\varphi(-Y_{i}f(X_{i}))-1)\right|\right],
+$$
+
+where $\sigma_{1},\ldots,\sigma_{n}$ are i.i.d. Rademacher random variables. To deal with this last expression, it is useful to consider the following generalization of the binary fingerprint. 
+
+<details open>
+<summary>Definition</summary>
+
+Let $(\mathcal{Z},\mathcal{V})$ be a measurable space. For any class $\mathcal{G}$ of measurable functions from $\mathcal{Z}$ to $\mathbb{R}$ and for any set of $n$ elements $z_{1},\ldots,z_{n}\in\mathcal{Z},$ we define
+
+$$
+\mathcal{G}(z_{1},\ldots,z_{n}) = \{ (g(z_1), \ldots, g(z_n))^T : g \in \mathcal{G} \} \subset \mathbb{R}^n.
+$$
+
+</details>
+
+Taking $\mathcal{Z}=\mathcal{X}\times\{-1,1\},$ we have
+
+$$
+\mathbb{E}\left[\sup_{f\in\mathcal{F}}|R_{n,\varphi}(f)-R_{\varphi}(f)|\right]\leq2\sup_{z_{1},\ldots,z_{n}\in\mathcal{Z}}\mathcal{R}_{n}(\mathcal{G}(z_{1},\ldots,z_{n})),
+$$
+
+where $\mathcal{G}=\{(x,y)\mapsto\varphi(-yf(x))-1:f\in\mathcal{F}\}.$ Then the following theorem tells us how to control this Rademacher complexity.
+
+<details open>
+<summary>Contraction Principle</summary>
+
+Let $\psi:[-1,1]\to\mathbb{R}$ be a contraction with $\psi(0)=0.$ If $\mathcal{G}$ and $\mathcal{F}$ are classes of functions from $\mathcal{Z}$ to $\mathbb{R}$ such that $\mathcal{G}=\{\psi\circ f:f\in\mathcal{F}\},$ then, for any set of $n$ elements $z_{1},\ldots,z_{n}\in\mathcal{Z},$ we have
+
+$$
+\mathcal{R}_{n}(\mathcal{G}(z_{1},\ldots,z_{n}))\leq2\mathcal{R}_{n}(\mathcal{F}(z_{1},\ldots,z_{n})).
+$$
+</details>
+
+Note that if $\varphi(0)=1$ and 
+
+$$
+|\varphi(x)-\varphi(x')|\le L|x-x'|\quad\text{for all }x,x'\in[-1,1],
+$$
+
+then $\psi(x)=(\varphi(x)-1)/L$ is a contraction. Using the theorem, we get
+
+$$
+\mathbb{E}\left[\sup_{f\in\mathcal{F}}|R_{n,\varphi}(f)-R_{\varphi}(f)|\right]	\leq4L\mathbb{E}\left[\sup_{f\in\mathcal{F}}\frac{1}{n}\left|\sum_{i=1}^{n}\sigma_{i}Y_{i}f(X_{i})\right|\right]
+	=4L\mathbb{E}\left[\sup_{f\in\mathcal{F}}\frac{1}{n}\left|\sum_{i=1}^{n}\sigma_{i}f(X_{i})\right|\right]
+$$
+
+where the equality follows from the fact that for any fixed $Y_{i}\in\{-1,1\},$ the variables $\sigma_{i}Y_{i}$ and $-\sigma_{i}Y_{i}$ have the same distribution. Let's specify the values of the Lipschitz constants for the three classic examples of $\varphi$ functions:
+
+* $L=1$ for the hinge function $\varphi(x)=(1+x)_{+}.$
+
+* $L=e$ for the exponential function $\varphi(x)=e^{x}.$
+
+* $L=e/(1+e)$ for the logistic function $\varphi(x)=\log_{2}(1+e^{x}).$
+
+It remains to control the quantity $\mathbb{E}\left[\sup_{f\in\mathcal{F}}\frac{1}{n}\left|\sum_{i=1}^{n}\sigma_{i}f(X_{i})\right|\right]=\mathbb{E}\left[\mathcal{R}_{n}(\mathcal{F}(X_{1},\ldots,X_{n}))\right].$ We will do this for the choice of $\mathcal{F}$ corresponding to boosting. 
+
+### Boosting
+
+Let’s assume that
+
+$$
+\mathcal{F}=\left\{ \sum_{j=1}^{M}\theta_{j}h_{j}:\sum_{j=1}^{M}|\theta_{j}|\leq1\right\} ,
+$$
+
+where the $h_{j}$ are classifiers in $\{-1,1\}.$ Then
+
+$$
+\mathcal{R}_{n}(\mathcal{F}(X_{1},\ldots,X_{n}))\le\mathcal{R}_{n}(\mathcal{C}(B))
+$$
+
+where $B=\{b_{1},\ldots,b_{M}\}$ is a finite set of vectors in $\mathbb{R}^{n}$ with $\Vert b_{j}\Vert_{2}\leq\sqrt{n}$ and $\mathcal{C}(B)$ is the convex hull. Then
+
+$$
+\mathcal{R}_{n}(\mathcal{C}(B))=\mathcal{R}_{n}(B)\leq\max_{j=1,\ldots,M}\Vert b_{j}\Vert_{2}\frac{\sqrt{2\log(2M)}}{n}=\sqrt{\frac{2\log(2M)}{n}}.
+$$
+
+This gives the following bound on the stochastic error.
+
+<details open>
+<summary> Proposition </summary>
+
+Let $\varphi$ be an $L$-Lipschitz function satisfying $\varphi(0)=1.$ Let
+
+$$
+\mathcal{F}=\left\{ \sum_{j=1}^{M}\theta_{j}h_{j}:\sum_{j=1}^{M}|\theta_{j}|\leq1\right\}
+$$
+
+where the $h_{j}$ are classifiers in $\{-1,1\}.$ Then
+
+$$
+\mathbb{E}\left[R_{\varphi}(\widehat{f}_{n,\varphi})-\inf_{f\in\mathcal{F}}R_{\varphi}(f)\right]\leq8L\sqrt{\frac{2\log(2M)}{n}}.
+$$
+</details>
+
+
+Using the bound on $\varphi$ risk, we obtain the following oracle inequality.
+
+<details open>
+<summary> Oracle Inequality for Boosting</summary>
+
+Let $\varphi$ be an $L$-Lipschitz function satisfying $\varphi(0)=1$ and the hypotheses of Zhang's lemma. Consider a $\varphi$-classifier $\widehat{h}_{n,\varphi}=\operatorname{sign}(\widehat{f}_{n,\varphi}),$ where $\widehat{f}_{n,\varphi}$ minimizes the $\varphi$-risk on the set
+
+$$
+\mathcal{F}=\left\{ \sum_{j=1}^{M}\theta_{j}h_{j}:\sum_{j=1}^{M}|\theta_{j}|\leq1\right\}
+$$
+
+where the $h_{j}$ are classifiers in $\{-1,1\}.$ Then
+
+$$
+\mathbb{E}\left[R(\widehat{h}_{n,\varphi})-R^{\ast}\right]\leq2c\left(8L\sqrt{\frac{2\log(2M)}{n}}\right)^{\gamma}+2c\left(\inf_{f\in\mathcal{F}}R_{\varphi}(f)-R_{\varphi}^{\ast}\right)^{\gamma},
+$$
+
+where $c$ and $\gamma$ are the constants from Zhang's lemma. 
+</details>
+

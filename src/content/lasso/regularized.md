@@ -78,7 +78,7 @@ $$
 Rearranging gives $\Vert\Delta_{S^{c}}\Vert_{1}\leq3\Vert\Delta_{S}\Vert_{1}.$
 </details>
 
-We can also prove the following bound on the error. 
+We have the following bound on the error. 
 
 <details open>
 <summary>Theorem</summary>
@@ -86,7 +86,7 @@ We can also prove the following bound on the error.
 Assume that $X$ satisfies the $\operatorname{RE}(3,\mu)$ condition over $S=\operatorname{supp}(\theta^{\ast}).$ If $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n},$ then
 
 $$
-\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2\mu}
+\Vert\widehat{\theta}-\theta^{\ast}\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{\mu}
 $$
 
 where $k=|S|.$
@@ -99,18 +99,19 @@ We have
 
 $$
 \begin{aligned}
-\mu\Vert\Delta\Vert_{2}^{2}\leq\frac{1}{2n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{1}{n}\langle X^{T}\epsilon,\Delta\rangle+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
-	&\leq\frac{1}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
-	&\leq\frac{\lambda_{n}}{2}(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1})+\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
-	&\leq\frac{3\lambda_{n}}{2}\Vert\Delta_{S}\Vert_{1} \\
-	&\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta_{S}\Vert_{2} \\
-	&\leq\frac{3\lambda_{n}\sqrt{k}}{2}\Vert\Delta\Vert_{2}.
+\mu\Vert\Delta\Vert_{2}^{2}\leq\frac{1}{n}\Vert X\Delta\Vert_{2}^{2} &\leq\frac{2}{n}\langle X^{T}\epsilon,\Delta\rangle+2\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq\frac{2}{n}\Vert X^{T}\epsilon\Vert_{\infty}\Vert\Delta\Vert_{1}+2\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq \lambda_n(\Vert\Delta_{S}\Vert_{1}+\Vert\Delta_{S^{c}}\Vert_{1})+2\lambda_{n}(\Vert\Delta_{S}\Vert_{1}-\Vert\Delta_{S^{c}}\Vert_{1}) \\
+	&\leq 3\lambda_{n}\Vert\Delta_{S}\Vert_{1} \\
+	&\leq 3\lambda_{n}\sqrt{k}\Vert\Delta_{S}\Vert_{2} \\
+	&\leq 3\lambda_{n}\sqrt{k}\Vert\Delta\Vert_{2}.
 \end{aligned}
 $$
 
-This yields $\Vert\Delta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{2\mu}$ as desired. 
+This yields $\Vert\Delta\Vert_{2}\leq\frac{3\lambda_{n}\sqrt{k}}{\mu}$ as desired. 
 </details>
 
+<!---
 We obtain the following as a corollary.
 
 <details open>
@@ -146,3 +147,4 @@ $$
 
 Therefore, by choosing $\lambda_{n}$ to be this value, the condition $\lambda_{n}\geq\frac{2\Vert X^{T}\epsilon\Vert_{\infty}}{n}$ holds with probability at least $1-\frac{1}{(2d)^{\gamma}}.$ 
 </details>
+-->
